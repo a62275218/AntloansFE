@@ -1,0 +1,135 @@
+/*my css*/
+/* side bar*/
+.left_bar ul li.doc-bar{
+  background-color: #677583;
+}
+
+li.doc-bar i, li.doc-bar a{
+  color: white !important;
+}
+
+/*=======================*/
+
+.tool_bar{
+  width: 100%;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+.tool_top{
+  height: 80px;
+  padding-left: 50px;
+}
+
+.tool_top h3, .tool_top button{
+  display: inline-block;
+}
+.tool_top h3{
+  float: left;
+}
+
+.tool_top button{
+  position: absolute;
+  right: 50px;
+  top:20px;
+  height: 35px;
+  width: 200px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #F0662C;
+  color: white;
+}
+
+.tool_bar_above{
+  vertical-align: middle;
+  height: 50px;
+}
+
+.search_input{
+  width: 300px;
+  margin-left: 50px;
+  float: left;
+  height: 50px;
+}
+
+.input-group-addon{
+  background-color: #FFFFFF;
+}
+
+.sortBy{
+  margin-left: 100px;
+  width: 300px;
+  display: inline-block;
+  float: left;
+}
+
+.sortBy label{
+  color:#AEAEAE;
+}
+
+.select_date{
+  width: 150px !important;
+}
+
+.select_page{
+  width:60px !important;
+  display: inline-block !important;
+  float: right !important;
+  z-index: 0 !important;
+}
+
+.page {
+  width: 200px;
+  display: inline-block;
+  float: right;
+  height: 20px;
+}
+
+.pager{
+  margin: 0;
+}
+
+.pager li a{
+  color: #4F4F4F;
+}
+
+#document{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.document_list {
+  height: 800px;
+  width: 95%;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  position: relative;
+}
+
+#document table{
+  width: 100%;
+}
+
+#document table th, #document table td{
+  width: 16.5%;
+  text-align: left;
+  padding: 10px 20px 10px 30px;
+  border-bottom-width: 1px;
+  border-bottom-color: #F4F5F7;
+  border-bottom-style: solid;
+  box-sizing: border-box;
+}
+
+#document table td{
+  font-size: 18px;
+}
+
+#document .page_message p{
+  color: #2C2F37;
+  position: absolute;
+  left: 4%;
+  bottom: 10px;
+
+}

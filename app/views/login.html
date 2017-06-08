@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles/login.css">
+    <!--libs  -->
+    <!--my css-->
+  </head>
+  <body>
+
+    <div id="login_bg">
+      <div id="login">
+        <div class="login">
+          <img class='logo' src="../images/logo.png" alt="">
+
+          <form class="login_form" ng-submit="user.onSubmit()">
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user-o" aria-hidden="true"></i></span>
+              <input ng-model="user.username" id='user_input' type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon" id="basic-addon2"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <input ng-model="user.password" id='password_input' type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+            </div>
+
+            <button id='login_btn' type="submit" name="button">Log in</button>
+          </form>
+          <div class="loss_message">
+             <em><a href="loan-pw.html">Lost your password?</a></em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

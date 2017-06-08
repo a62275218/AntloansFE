@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>loan-job-list</title>
+  </head>
+
+  <body>
+       <div class="right_part">
+          <section class='tool_bar'>
+             <div class='tool_bar_above'>
+                <div class='search_input'>
+                  <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                    <input class="form-control" type="text" placeholder="SEARCH">
+                  </div>
+                </div>
+
+                <div class="sortBy">
+                  <label>SORT BY: &nbsp;</label>
+                    <ui-select ng-model="sortBy.selected" search-enabled="false" class="selectpicker select_date" onkeypress="return false;" ng-disabled="disabled">
+                        <ui-select-match placeholder="Select the number of pages">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in (sortBy|filter:$select.search) track by $index">
+                            <span ng-bind="item.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                  <!--<select class="selectpicker select_date">
+                    <option>Date</option>
+                    <option>Gender</option>
+                    <option>Name</option>
+                  </select>-->
+                </div>
+
+                <div class="page">
+                    <ul class="pager">
+                      <li><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                      <li><a href="#">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+
+                 <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page" onkeypress="return false;" ng-disabled="disabled">
+                     <ui-select-match placeholder="Select the number of pages">
+                         <span ng-bind="$select.selected.name"></span>
+                     </ui-select-match>
+                     <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index">
+                         <span ng-bind="item.name"></span>
+                     </ui-select-choices>
+                 </ui-select>
+                <!--<select class="selectpicker select_page">
+                  <option>10</option>
+                  <option>20</option>
+                  <option>30</option>
+                </select>-->
+              </div>
+
+              <div class="tool_bar_middle">
+              <hr>
+                  <div class="amount">
+                    <label>AMOUNT:</label>
+                    <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/>
+                  </div>
+
+                  <div class="start_date">
+                    <labe>START DATE:</labe>
+                    <input ui-date>
+                    <!--<select class="selectpicker startDate">
+                      <option>3/3/15</option>
+                    </select>-->
+
+                  </div>
+                  <div class="close_date">
+                      <label>CLOSE DATE:</label>
+                      <input ui-date>
+                    <!--<select class="selectpicker closeDate">
+                      <option>14/4/16</option>
+                    </select>-->
+                  </div>
+              </div>
+
+              <div class="tool_bar_below">
+              <hr>
+                  <div class="status">
+                    <label>STATUS:</label>
+                    <div class="btn-group statusInput" role="group" aria-label="...">
+                      <button type="button" class="btn btn-default">SUBMISSION</button>
+                      <button type="button" class="btn btn-default">ASSESSMENT</button>
+                      <button type="button" class="btn btn-default">SETTLEMENT</button>
+                      <button type="button" class="btn btn-default">ALL</button>
+                    </div>
+                  </div>
+                  <div class="broker">
+                    <label for="">BROKER:</label>
+                    <select class="selectpicker brokerInput">
+                      <option>ALL</option>
+                    </select>
+
+                  </div>
+                  <div class="admin">
+                    <label for="">ADMIN:</label>
+                    <select class="selectpicker adminInput">
+                      <option>ALL</option>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="showBtn">
+                 <i class="fa fa-plus" aria-hidden="true">&nbsp;</i><span>show more</span>
+              </div>
+          </section>
+
+          <div class="content">
+            <a href="conditional-approval.html" ng-repeat="item in jobs track by $index">
+              <div class='item'>
+                <span class="side_light" ng-class="[item.color,{orange:orange,red:red,green:green}]">
+                </span>
+                <img ng-src="{{item.avatar_url}}">
+                <div class='intro'>
+                  <h4 class='name'>{{item.username}}</h4>
+                  <section class='state' ng-if="item.waiting == true"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
+                </div>
+                <table>
+                   <tr><th>loan amount </th><td>{{item.loan_amount|currency}} </td><th>assign </th><td>{{item.assign}}</td></tr>
+                   <tr><th>loan purpose </th><td>{{item.loan_purpose}} </td><th>broker </th><td>{{item.broker}}</td></tr>
+                   <tr><th>repayment type </th><td>{{item.repayment_type}} </td><th>special notes </th><td>{{item.special_notes}}</td></tr>
+                   <tr><th>file nature </th><td>{{item.file_nature}}</td>
+                </table>
+              </div>
+            </a>
+          </div>
+       </div>
+  </body>
+  <script src="../scripts/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+</html>

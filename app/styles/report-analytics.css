@@ -1,0 +1,350 @@
+/*my css*/
+/* side bar*/
+.left_bar ul li.report-bar{
+  background-color: #677583;
+}
+
+li.report-bar i, li.report-bar a{
+  color: white !important;
+}
+/*=====================*/
+.tool_bar{
+  width: 100%;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+.tool_top{
+  height: 80px;
+  padding-left: 50px;
+}
+
+.clear{
+  clear:both;
+}
+
+.tool_top h3, .data_show, .deal_total, .settle_total, .overdue_total{
+  display: inline-block;
+}
+
+.data_show{
+  float: right;
+  padding-top: 10px;
+  padding-right: 30px;
+}
+
+.deal_total span, .settle_total span, .overdue_total span{
+  height: 100%;
+  vertical-align: middle;
+}
+
+.deal_total .data{
+  font-size: 2em;
+}
+
+.settle_total .data{
+  color:#2DAE2C;
+  font-size: 2em;
+}
+
+.overdue_total .data{
+  color:#CB2E33;
+  font-size: 2em;
+}
+
+.tool_top h3{
+  float: left;
+}
+
+.tool_bar_above{
+  vertical-align: middle;
+  height: 70px;
+  position: relative;
+}
+
+.buttons{
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+}
+
+.buttons button{
+  font-size: 16px;
+  height: 50px;
+  background-color: white;
+  border: 0;
+  outline: none;
+  margin-right: 50px;
+}
+
+.buttons .show_light{
+  border-bottom: 6px solid #F0662C;
+}
+
+.page {
+  width: 200px;
+  display: inline-block;
+  float: right;
+  margin-top: 20px;
+}
+
+.pager{
+  margin: 0;
+}
+
+.pager li a{
+  color: #4F4F4F;
+}
+
+#charts_list{
+  display: block;
+}
+
+#sales_list{
+  display: none;
+}
+
+#deals_list{
+  display: none;
+}
+
+/* charts list css*/
+#charts_list{
+  box-sizing: border-box;
+  margin-top: 20px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.payments_reveived {
+  width: 100%;
+  background-color: #F5F7F8;
+  border: 5px solid #E6EAED;
+  height: 350px;
+  overflow: hidden;
+}
+
+.payments_left{
+  width: 80%;
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: white;
+  overflow: hidden;
+}
+
+.payments_left h4, .payments_left label{
+  display: inline-block;
+  vertical-align: middle;
+  color: #AEB2BA;
+}
+
+.payments_left h4{
+  float: left;
+  margin: 0;
+}
+
+.payments_left label{
+  float: right;
+  margin-left: 20px;
+}
+
+.payments_left label div{
+  display: inline-block;
+  width: 30px;
+  height: 10px;
+  border-radius: 20px;
+  background-color: black;
+}
+
+.payments_chart{
+  margin-top: 20px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.payments_right{
+  width: 19%;
+  display: inline-block;
+  background-color: #F5F7F8;
+  height: 100%;
+  box-sizing: border-box;
+  float: right;
+  padding: 20px;
+}
+
+.payments_right h4{
+  color: #1A9F92;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.payments_right h5{
+  margin-top: 20px;
+}
+
+.payments_right p{
+  color: #ADADAD;
+}
+
+.payments_right button{
+  margin-top: 20px;
+  width: 127px;
+  height: 40px;
+  background-color: #AAB2BD;
+  border: 0;
+  color: white;
+  border-radius: 5px;
+  outline: none;
+}
+
+.chart{
+  margin-top: 30px;
+  width: 28%;
+  box-sizing: border-box;
+  height: 250px;
+  background-color: white;
+  display: inline-block;
+  float: left;
+  margin-right: 5%;
+  border: 2px solid #E7ECEE;
+  overflow: hidden;
+}
+
+.chart_name{
+  color: #838D96;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  background-color: #F5F7F8;
+  position: relative;
+}
+
+.chart_name span{
+  display: inline-block;
+}
+
+.chart_name1{
+  float: left;
+}
+
+.chart_name2{
+   width: 150px;
+   left: 35%;
+   position: absolute;
+}
+
+.chart_name3{
+  float: right;
+}
+
+.chart img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* sales list css*/
+#sales_list{
+  width: 100%;
+  margin-top: 20px;
+}
+
+#sales_list .user_list {
+  height: 800px;
+  width: 95%;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  position: relative;
+}
+
+#sales_list table{
+  width: 100%;
+}
+
+#sales_list table th, #sales_list table td{
+  width: 20%;
+  text-align: left;
+  padding: 10px 0px 10px 20px;
+  border-bottom-width: 1px;
+  border-bottom-color: #F4F5F7;
+  border-bottom-style: solid;
+  box-sizing: border-box;
+}
+
+#sales_list table td{
+  font-size: 18px;
+}
+
+#sales_list .page_message p{
+  color: #2C2F37;
+  position: absolute;
+  left: 4%;
+  bottom: 10px;
+}
+
+#sales_list .user_list img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+}
+
+#sales_list table a,#sales_list table a:hover {
+  color: black;
+}
+
+/* deals list css*/
+#deals_list{
+  width: 100%;
+  margin-top: 20px;
+}
+
+#deals_list .user_list {
+  height: 800px;
+  width: 95%;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  position: relative;
+}
+
+#deals_list table{
+  width: 100%;
+}
+
+#deals_list table th, #deals_list table td{
+  width: 20%;
+  text-align: left;
+  padding: 10px 0px 10px 20px;
+  border-bottom-width: 1px;
+  border-bottom-color: #F4F5F7;
+  border-bottom-style: solid;
+  box-sizing: border-box;
+}
+
+#deals_list table td{
+  font-size: 18px;
+}
+
+#deals_list .page_message p{
+  color: #2C2F37;
+  position: absolute;
+  left: 4%;
+  bottom: 10px;
+}
+
+#deals_list .user_list img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+}
+
+#deals_list table a,#deals_list table a:hover {
+  color: black;
+}

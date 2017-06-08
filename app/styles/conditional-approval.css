@@ -1,0 +1,462 @@
+/*my css*/
+/* side bar*/
+.left_bar ul li.job-bar{
+  background-color: #677583;
+}
+
+li.job-bar i, li.job-bar a{
+  color: white !important;
+}
+/*========================*/
+.approval_up{
+  width: 95%;
+  box-sizing: border-box;
+  padding-bottom: 40px;
+  padding-top: 30px;
+  padding-left: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  margin-top: 20px;
+  box-shadow: 2px 5px 4px #E8EAEB;
+}
+
+.approval_up th, .approval_up td{
+  height: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+  color: #474A50;
+}
+
+.approval_up th{
+  width: 200px;
+  text-align: right;
+  padding-right: 30px;
+  color: #A5A5A5;
+}
+
+.approval_up td{
+  width: 300px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.approval_middle{
+  width: 95%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.approval_middle .user_contact{
+  width: 32%;
+  background-color: white;
+  box-shadow: 2px 5px 4px #E8EAEB;
+  display: inline-block;
+  float: left;
+  margin-right: 1%;
+  box-sizing: border-box;
+  padding-left: 50px;
+
+}
+
+.user_contact img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  display: inline-block;
+  float: left;
+}
+
+.user_contact .user_intro{
+  display: inline-block;
+  float: left;
+  vertical-align: middle;
+  height: 50px;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.user_contact{
+  padding: 20px;
+}
+
+.user_intro h4, .user_intro p{
+  margin: 0;
+}
+
+.user_intro p{
+  font-size: 16px;
+  color: #A5A5A5;
+}
+
+.contact_down{
+  padding-top: 10px;
+}
+
+.contact_down i{
+  color: #41A0DA;
+}
+
+.contact_down span{
+  color: #A5A5A5;
+  margin-right: 5%;
+  width: 45%;
+
+}
+
+.clear{
+  clear: both;
+}
+
+.approval_down{
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.approval_down_left{
+  padding-top: 30px;
+  height: 600px;
+  background-color: white;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 49%;
+  float: left;
+  box-shadow: 2px 5px 4px #E8EAEB;
+}
+
+.approval_down h3{
+  text-align: center;
+  color: #0B1949;
+}
+
+.approval_down .process{
+  max-width: 336px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  margin-top: 50px;
+}
+
+.process_name{
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  overflow: hidden;
+}
+
+.process_name .submission_name, .process_name .assessment_name{
+  margin-right: 50px;
+}
+
+.process_name .settlement_name{
+  color:#B5B5B5;
+}
+
+
+.process span{
+  height: 60px;
+}
+
+.submission i{
+  color: #FFF136;
+}
+
+.assessment i{
+  color: #F38671;
+  margin-left: 95px;
+}
+
+.settlement i{
+  color: #B5B5B5;
+  margin-left: 95px;
+}
+
+.submission::after, .assessment::after{
+  content: '';
+  width: 100px;;
+  height: 5px;
+  position: absolute;
+  top:50%;
+  border:1px solid #B5B5B5;
+  background: #B5B5B5;
+}
+/*timeline*/
+.vertical_progress{
+  padding-left: 100px;
+  position: relative;
+  margin-top: 40px;
+}
+
+.timeline{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: 3px solid #B5B5B5;
+  height: 330px;
+}
+
+.timeline li{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  list-style-type:none;
+  vertical-align: middle;
+}
+
+.timeline li div, .timeline li span{
+  display: inline-block;
+}
+
+.timeline li .num{
+  width: 17px;
+  height: 17px;
+  background-color: #41A0DA;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.subm1 div{
+  width: 14px;
+  height: 14px;
+  border: 2px solid #B5B5B5;
+  border-radius: 50%;
+  background-color: #B5B5B5;
+}
+
+.subm2 div, .subm3 div{
+  width: 14px;
+  height: 14px;
+  border: 2px solid #B5B5B5;
+  border-radius: 50%;
+  background-color: #FFF136;
+}
+
+.assess2 div{
+  width: 14px;
+  height: 14px;
+  border: 2px solid #B5B5B5;
+  border-radius: 50%;
+  background-color: #F06D54;
+}
+
+.assess3 div{
+  width: 16px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.sett2 div, .sett3 div{
+  width: 14px;
+  height: 14px;
+  border: 2px solid #B5B5B5;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.assess3 i{
+  color: #F06D54;
+}
+
+.stage_name{
+  color:#B6B6B6;
+}
+
+.timeline strong{
+  font-size: 1.5em;
+}
+
+.assess1, .sett1{
+  margin-top: 20px;
+}
+
+.timeline li div{
+  margin-right: 20px;
+}
+
+.timeline li.assess3{
+  margin-left: -113.5px;
+}
+
+li.subm1{
+  margin-left: -48.5px;
+  padding: 0;
+}
+
+.timeline .time{
+  box-sizing: border-box;
+  width: 60px;
+  color:#B5B5B5;
+}
+
+li.subm2, li.subm3, li.assess2, li.sett2, li.sett3{
+  margin-left: -112px;
+}
+
+.timeline .subm1{
+  position: absolute;
+  top:-10px;
+}
+
+.timeline .subm2{
+  position: absolute;
+  top:20px;
+}
+
+.timeline .subm3{
+  position: absolute;
+  top:50px;
+}
+
+.timeline .assess1{
+  position: absolute;
+  left: 220px;
+  top:90px;
+}
+
+.timeline .assess2{
+  position: absolute;
+  top:150px;
+}
+
+.timeline .assess3{
+  position: absolute;
+  top:180px;
+}
+
+.timeline .sett1{
+  position: absolute;
+  bottom: 60px;
+  left: 220px;
+}
+
+.timeline .sett2{
+  position: absolute;
+  bottom: 20px;
+}
+
+.timeline .sett3{
+  position: absolute;
+  bottom: -10px;
+}
+
+/**/
+
+.approval_down_right{
+  height: 600px;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 49%;
+  float: left;
+  margin-left: 2%;
+}
+
+.document_control{
+  width: 100%;
+}
+
+.upload_doc, .download_doc{
+  width: 48%;
+  display: inline-block;
+  float: left;
+  height: 30px;
+  background-color: white;
+  box-shadow: 2px 5px 4px #E8EAEB;
+  font-size: 13px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.download_doc{
+  margin-left: 4%;
+}
+
+.upload_doc span, .download_doc span{
+  display: inline-block;
+  text-align: center;
+}
+
+.upload_doc .doc, .download_doc .doc{
+  border-left: 2px solid #B5B5B5;
+  margin-left: 10px;
+  width: 85%;
+}
+
+.message_part{
+  padding-top: 20px;
+  margin-top: 20px;
+  width: 100%;
+  height: 550px;
+  background-color: white;
+  box-shadow: 2px 5px 4px #E8EAEB;
+}
+
+.message_up{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.message_up .title{
+  padding: 10px;
+  background-color: #717171;
+  color: white;
+}
+
+.message_up .para{
+  padding: 10px;
+  background-color: #D8D8D8;
+  color:black;
+}
+
+.message_list{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.message hr{
+  margin: 10px 0px 10px 0px;
+}
+
+.commenter {
+  max-width: 80px;;
+}
+
+.commenter{
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+.commenter_img img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.comment{
+  width: 80%;
+  height: 80px;
+  float: right;
+  background-color: #41A0DA;
+  display: inline-block;
+  color: white;
+  padding: 10px 0 0 10px;
+  position: relative;
+}
+
+.comment .triangle{
+  color: #41A0DA;
+  position: absolute;
+  top: 8px;
+  left: -14px;
+}

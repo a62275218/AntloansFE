@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>conditional approval</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/libs/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/libs/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
+
+    <!--my css-->
+    <link rel="stylesheet" href="./assets/css/nav_bar.css">
+    <link rel="stylesheet" href="./assets/css/conditional-approval.css">
+ </head>
+
+  <body>
+     <nav class="nav_bar">
+        <div class="brand">Antloans</div>
+
+        <div class="dropdown">
+          <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+          <button class="dropbtn">Adam Hunt <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="dropdown-content">
+            <a href="#">Profile</a>
+            <hr>
+            <a href="#">Setting</a>
+            <hr>
+            <a href="#">Log out</a>
+          </div>
+        </div>
+
+        <div class="bell">
+        <i class="fa fa-bell fa-lg" aria-hidden="true"></i>
+        </div>
+     </nav>
+
+     <div class='main'>
+
+           <aside class="left_bar" data-status='open'>
+             <ul>
+                <li class='job-bar'><span><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i><a href="loan-job-list.html">JOB LIST</a></span></li>
+                <li class='doc-bar'><span><i class="fa fa-file-text fa-lg" aria-hidden="true"></i><a href="loan-document.html">DOCUMENT</a></span></li>
+                <li class='user-bar'><span><i class="fa fa-user fa-lg" aria-hidden="true"></i><a href="user-list.html">USER</a></span></li>
+                <li class='set-bar'><span><i class="fa fa-cog fa-lg" aria-hidden="true"></i><a href="#">SETTING</a></span></li>
+                <li class='report-bar'><span><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i><a href="report-analytics.html">REPORT</a></span></li>
+             </ul>
+
+             <div class="left_arrow"><i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i></div>
+           </aside>
+
+          <div class="right_part">
+             <div class="approval_up">
+                <table>
+                    <tr>
+                      <th>first name</th><td>Teoh</td><th>last name</th><td>Tiffany</td>
+                    </tr>
+                    <tr>
+                      <th>mobile</th><td>0123344556</td><th>security address</th><td>4 Berkeley St, Melbourne 3000</td>
+                    </tr>
+                    <tr>
+                      <th>email</th><td>tiffany_teoh@hotmail.com</td>
+                    </tr>
+                </table>
+             </div>
+
+             <div class="approval_middle">
+                <div class="user_contact">
+                  <div class="contact_up">
+                    <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                    <div class="user_intro">
+                      <h4>Matthew Reinhard</h4>
+                      <p>Support Specialist</p>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+
+                  <div class="contact_down">
+                     <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp; Call Matthew</span>
+                     <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp; Call Matthew</span>
+                  </div>
+                <div class="clear"></div>
+                </div>
+
+                <div class="user_contact">
+                  <div class="contact_up">
+                    <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                    <div class="user_intro">
+                      <h4>Matthew Reinhard</h4>
+                      <p>Support Specialist</p>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+
+                  <div class="contact_down">
+                     <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp; Call Matthew</span>
+                     <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp; Call Matthew</span>
+                  </div>
+                 <div class="clear"></div>
+                 </div>
+
+                  <div class="user_contact">
+                    <div class="contact_up">
+                      <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                      <div class="user_intro">
+                        <h4>Matthew Reinhard</h4>
+                        <p>Support Specialist</p>
+                      </div>
+                      <div class="clear"></div>
+                    </div>
+
+                    <div class="contact_down">
+                       <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp; Call Matthew</span>
+                       <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp; Call Matthew</span>
+                    </div>
+                  <div class="clear"></div>
+                  </div>
+             <div class="clear"></div>
+             </div>
+
+             <div class="approval_down">
+                 <div class="approval_down_left">
+                    <h3>Conditional Approval</h3>
+                    <div class="process">
+                       <div class="">
+                          <span></span>
+                       </div>
+                       <span class='submission'><i class="fa fa-arrow-circle-left fa-3x" aria-hidden="true"></i></span>
+                       <span class='assessment'><i class="fa fa-refresh fa-4x" aria-hidden="true"></i></span>
+                       <span class='settlement'><i class="fa fa-check-circle fa-3x" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="process_name">
+                      <span class='submission_name'>SUBMISSION</span>
+                      <span class='assessment_name'>ASSESSMENT</span>
+                      <span class='settlement_name'>SETTLEMENT</span>
+                    </div>
+
+                    <div class="vertical_progress">
+                       <ul class='timeline'>
+                          <li class='subm1'><div class=""></div> <span><strong>SUBMISSION</strong></span> &nbsp; <span class='num'>1</span></li>
+                          <li class='subm2'><span class='time'>11:30am</span> <div class=""></div> <span class='stage_name'>Pre-submission</span></li>
+                          <li class='subm3'><span class='time'>11:30am</span> <div class=""></div> <span class='stage_name'>Awaiting application</span></li>
+
+                          <li class='assess1'><span><strong>ASSESSMENT</strong></span></li>
+                          <li class='assess2'><span class='time'>11:30am</span> <div class=""></div> <span class='stage_name'>Awaiting assessment</span> &nbsp;<span class='num'>2</span></li>
+                          <li class='assess3'><span class='time'>11:30am</span> <div><i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i></div> <span class='stage_name'>Awaiting application</span>&nbsp; <span class='num'>1</span></li>
+
+                          <li class='sett1'><span><strong>SETTLEMENT</strong></span></li>
+                          <li class='sett2'><span class='time'>  </span> <div class=""></div> <span class='stage_name'>Settlement pending</span>&nbsp;<span class='num'>1</span></li>
+                          <li class='sett3'><span class='time'>  </span> <div class=""></div> <span class='stage_name'>Approved</span></li>
+                       </ul>
+                    </div>
+
+                 </div>
+
+                 <div class="approval_down_right">
+                     <div class="document_control">
+                        <div class="upload_doc">
+                          <span><i class="fa fa-upload fa-lg" aria-hidden="true"></i></span><span class='doc'><strong>UP DOCUMENTS</strong></span>
+                        </div>
+                        <div class="download_doc">
+                          <span><i class="fa fa-download fa-lg" aria-hidden="true"></i></span><span class='doc'><strong>DOWNLOAD DOCUMENTS</strong></span>
+                        </div>
+                     <div class="clear"></div>
+                     </div>
+
+                     <div class="message_part">
+                        <div class="message_up">
+                           <div class="title">
+                             Contrary to popular belief, Lorem lpsum is not simply random
+                             random text. It has roots in a piece of classical Latin literature.
+                           </div>
+                           <p class="para">
+                             There are many variations of passages of lorem ipsum available.
+                           </p>
+                        </div>
+
+                        <div class="message_list">
+
+                          <div class="message">
+                             <div class="commenter">
+                                <div class="commenter_img">
+                                   <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                                </div>
+                                <div class="commenter_name">
+                                   Samantha
+                                </div>
+                                <div class="comment_time">
+                                   11:30am
+                                </div>
+                             </div>
+                             <div class="comment">
+                               <div class="triangle"><i class="fa fa-caret-left fa-3x" aria-hidden="true"></i></div>
+                                loan must settle after 11/05/2017.
+                             </div>
+                             <hr>
+                          </div>
+
+                          <div class="message">
+                             <div class="commenter">
+                                <div class="commenter_img">
+                                   <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                                </div>
+                                <div class="commenter_name">
+                                   Samantha
+                                </div>
+                                <div class="comment_time">
+                                   11:30am
+                                </div>
+                             </div>
+                             <div class="comment">
+                               <div class="triangle"><i class="fa fa-caret-left fa-3x" aria-hidden="true"></i></div>
+                                loan must settle after 11/05/2017.
+                             </div>
+
+                             <hr>
+                          </div>
+
+                          <div class="message">
+                             <div class="commenter">
+                                <div class="commenter_img">
+                                   <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                                </div>
+                                <div class="commenter_name">
+                                   Samantha
+                                </div>
+                                <div class="comment_time">
+                                   11:30am
+                                </div>
+                             </div>
+                             <div class="comment">
+                               <div class="triangle"><i class="fa fa-caret-left fa-3x" aria-hidden="true"></i></div>
+                                loan must settle after 11/05/2017.
+                             </div>
+
+                             <hr>
+                          </div>
+
+                        </div>
+                     </div>
+                 </div>
+
+
+
+             <div class="clear"></div>
+             </div>
+          </div>
+
+     </div>
+     <script src="./assets/js/libs/jquery-3.2.1.min.js"></script>
+     <script src="./assets/js/libs/bootstrap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+     <!--my js-->
+     <script type="text/javascript" src="./assets/js/app.js"></script>
+     <script type="text/javascript" src=''> </script>
+  </body>
+</html>

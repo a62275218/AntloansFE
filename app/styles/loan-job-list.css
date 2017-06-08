@@ -1,0 +1,238 @@
+
+/*my css*/
+/* side bar*/
+.left_bar ul li.job-bar{
+  background-color: #677583;
+}
+
+li.job-bar i, li.job-bar a{
+  color: white !important;
+}
+/*right part css*/
+
+.tool_bar{
+  width: 100%;
+  background-color: #FFFFFF;
+  padding-top: 20px;
+  position: relative;
+}
+
+.tool_bar_above{
+  vertical-align: middle;
+  height: 60px;
+}
+
+.search_input{
+  width: 300px;
+  margin-left: 50px;
+  float: left;
+  height: 50px;
+}
+
+.input-group-addon{
+  background-color: #FFFFFF;
+}
+
+.sortBy{
+  margin-left: 100px;
+  width: 300px;
+  display: inline-block;
+  float: left;
+}
+
+.sortBy label{
+  color:#AEAEAE;
+}
+
+.select_date{
+  width: 150px !important;
+}
+
+.select_page{
+  width:60px !important;
+  display: inline-block !important;
+  float: right !important;
+  z-index: 0 !important;
+}
+
+.page {
+  width: 200px;
+  display: inline-block;
+  float: right;
+  height: 20px;
+}
+
+.pager{
+  margin: 0;
+}
+
+.pager li a{
+  color: #4F4F4F;
+}
+
+.tool_bar_middle{
+  height: 80px;
+  display: none;
+  transition: 1s;
+}
+
+.amount{
+  display: inline-block;
+  float: left;
+  margin-left: 50px;
+}
+
+.start_date{
+  display: inline-block;
+  float: left;
+  margin-left: 100px;
+}
+
+.startDate{
+  width: 150px !important;
+}
+
+.close_date{
+  display: inline-block;
+  float: left;
+  margin-left: 100px;
+}
+
+.closeDate{
+  width: 150px !important;
+  z-index: 0 !important;
+}
+
+.tool_bar_middle label{
+  color:#AEAEAE;
+}
+
+.tool_bar_below label{
+  color: #AEAEAE;
+}
+
+.tool_bar_below {
+  height: 80px;
+  display: none;
+  transition: 1s;
+}
+
+.show_block{
+  display: block;
+}
+
+.tool_bar_below hr{
+  margin-top: 0;
+}
+
+.status{
+  display: inline-block;
+  float: left;
+  margin-left: 50px;
+}
+
+.statusInput button{
+ color:  #AEAEAE;
+}
+
+.broker{
+  display: inline-block;
+  float: left;
+  margin-left: 50px;
+}
+
+.brokerInput, .adminInput{
+  width: 150px !important;;
+}
+
+.admin{
+  display: inline-block;
+  float: left;
+  margin-left: 50px;
+}
+
+.showBtn{
+  color:#AEAEAE;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+}
+
+.content table{
+  border: 0;
+}
+
+.content .item{
+  width: 80%;
+  height: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  border-left-width: 15px;
+  background-color: #FFFFFF;
+  margin-top: 20px;
+}
+
+.item .side_light{
+  display: inline-block;
+  width: 10px;
+  height: 100%;
+  float: left;
+}
+
+ .green{
+  background-color:#7cc576;
+}
+.red{
+  background-color:#ed1c24;
+}
+.orange{
+  background-color:#f68e56;
+}
+
+.content img{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin-top: 40px;
+  margin-left: 50px;
+  float: left;
+}
+
+.content .intro{
+  display: inline-block;
+  float: left;
+  height: 80px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.content h4{
+  color: black;
+}
+
+.content section{
+  color: #3D9EDC;
+}
+
+.content table{
+  display: inline-block;
+  float: left;
+  margin-left: 50px;
+  margin-top: 25px;
+}
+
+table th{
+  padding-right: 10px;
+  width: 120px;
+  box-sizing: border-box;
+  text-align: right;
+  color: #AEAEAE;
+}
+table td{
+  width: 100px;
+  box-sizing: border-box;
+  text-align: left;
+  color: #494C52;
+}

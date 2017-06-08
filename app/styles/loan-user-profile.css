@@ -1,0 +1,111 @@
+/*my css*/
+/* side bar*/
+.left_bar ul li.user-bar{
+  background-color: #677583;
+}
+
+li.user-bar i, li.user-bar a{
+  color: white !important;
+}
+/*========================*/
+
+.personal_detail, .contact_detail{
+  margin-top: 40px;
+  width: 80%;
+  background-color: white;
+  margin-left: 5%;
+  padding-bottom: 40px;
+}
+
+.personal_detail h3, .personal_detail h4, .contact_detail h3, .contact_detail h4 {
+  margin: 0;
+}
+
+.personal_detail h3, .contact_detail h3{
+  height: 70px;
+  background-color: #273543;
+  color: white;
+  font-size: 20px;
+  padding-left: 30px;
+  padding-top: 25px;
+}
+
+.personal_detail h4, .contact_detail h4{
+  height: 40px;
+  padding-left: 30px;
+  padding-top: 25px;
+  color: rgb(22,33,78);
+}
+
+.personal_detail hr, .contact_detail hr{
+  border-top: 2px solid rgb(216,231,246);
+  margin: 10px;
+}
+
+.user_name {
+ padding-left: 30px;
+ vertical-align: middle;
+}
+
+.user_name img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.user_name span{
+  font-size: 18px;
+  font-weight: normal;
+  color: #273543;
+  margin-left: 10px;
+}
+
+.user_info, .control {
+  padding-left: 80px;
+  vertical-align: middle;
+}
+
+.user_info label, .control label{
+  margin-right: 50px;
+  text-align: right;
+}
+
+.control label{
+  width: 80px;
+}
+
+.user_info input{
+  border: 0;
+  width: 70px;
+  color: black;
+}
+
+.email_message, .number_message{
+  padding-left: 60px;
+}
+
+.contact_detail label{
+  margin-right: 50px;
+  text-align: right;
+  width: 80px;
+}
+
+.contact_detail span{
+  font-size: 18px;
+  font-weight: 400;
+  color: #273543;
+  margin-left: 10px;
+}
+
+.email_notify, .sms_notify{
+  width: 40px;
+  height: 30px;
+  border: 0;
+  background: url('../../images/disable.png');
+  background-size: cover;
+  outline: none;
+}
+
+.enable{
+  background-image: url('../../images/enable.png') !important;
+}
