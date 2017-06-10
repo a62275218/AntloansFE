@@ -106,7 +106,7 @@
               <hr>
                   <div class="amount">
                     <label>AMOUNT:</label>
-                      <div ui-slider="{range: true}" min="0" max="100" step="1" lower-bound="0" upper-bound="1000" use-decimals ng-model="sliderVals">
+                      <div ui-slider="{range: true}" min="0" max="10000" step="1" lower-bound="0" upper-bound="10000" use-decimals ng-model="sliderVals">
                           <div class="ui-slider-out-of-bounds" style="left:0; width: 20%"></div>
                           <div class="ui-slider-out-of-bounds" style="right:0; width: 10%"></div>
                           {{sliderVals[0]}}{{sliderVals[1]}}
@@ -162,7 +162,7 @@
           </section>
 
            <div class="content">
-               <a href="javascript:;" ng-repeat="item in jobs track by $index" ng-click="toApproval(item.id)">
+               <a href="javascript:;" ng-repeat="item in jobs | rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] track by $index " ng-click="toApproval(item.id)">
                    <div class='item'>
                 <span class="side_light" ng-class="[item.color,{orange:orange,red:red,green:green}]">
                 </span>

@@ -12,10 +12,10 @@ antloans.controller('JobListCtrl',['$scope','$state',
         $scope.jobs=[
             {
                 "id":1,
-                "username":"Tommy Kuo",
+                "username":"Jake Lin",
                 "waiting":true,
                 "avatar_url":"/images/list-face.png",
-                "loan_amount":1000,
+                "loan_amount":4000,
                 "loan_purpose":"Business",
                 "repayment_type":"ANZ",
                 "file_nature":"Commercial",
@@ -26,10 +26,10 @@ antloans.controller('JobListCtrl',['$scope','$state',
             },
             {
                 "id":2,
-                "username":"Tommy Kuo",
+                "username":"Joyce Li",
                 "waiting":true,
                 "avatar_url":"/images/list-face.png",
-                "loan_amount":1000,
+                "loan_amount":5000,
                 "loan_purpose":"Business",
                 "repayment_type":"ANZ",
                 "file_nature":"Commercial",
@@ -40,10 +40,10 @@ antloans.controller('JobListCtrl',['$scope','$state',
             },
             {
                 "id":3,
-                "username":"Tommy Kuo",
+                "username":"Danny Liu",
                 "waiting":true,
                 "avatar_url":"/images/list-face.png",
-                "loan_amount":1000,
+                "loan_amount":1500,
                 "loan_purpose":"Business",
                 "repayment_type":"ANZ",
                 "file_nature":"Commercial",
@@ -57,7 +57,7 @@ antloans.controller('JobListCtrl',['$scope','$state',
                 "username":"Tommy Kuo",
                 "waiting":true,
                 "avatar_url":"/images/list-face.png",
-                "loan_amount":1000,
+                "loan_amount":7500,
                 "loan_purpose":"Business",
                 "repayment_type":"ANZ",
                 "file_nature":"Commercial",
@@ -80,16 +80,6 @@ antloans.controller('JobListCtrl',['$scope','$state',
         ];
         $scope.sortBy.selected = $scope.sortBy[0];
 
-        $scope.sliderVals = [0, 1000];
-
-        $scope.newSlider = {
-            options: {
-                orientation: 'horizontal',
-                min: 0,
-                max: 240,
-                step: 10,
-                range: 'min'
-            }
-        };
+        $scope.sliderVals = [0, 10000];
 }]);
 
