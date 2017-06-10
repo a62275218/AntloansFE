@@ -1,11 +1,11 @@
-antloans.controller('JobListCtrl',['$scope','$state', '$log',
-    function($scope, $state, $log){
-        $scope.slider = {
+antloans.controller('JobListCtrl',['$scope','$state',
+    function($scope, $state){
+        /*$scope.slider = {
             options: {
                 start: function (event, ui) { $log.info('Slider start'); },
                 stop: function (event, ui) { $log.info('Slider stop'); }
             }
-        }
+        };*/
         $scope.toApproval =function(approvalId){
           $state.go('approval',{approvalId:approvalId})
         };
@@ -79,4 +79,17 @@ antloans.controller('JobListCtrl',['$scope','$state', '$log',
             {"name":"Name"}
         ];
         $scope.sortBy.selected = $scope.sortBy[0];
+
+        $scope.sliderVals = [0, 1000];
+
+        $scope.newSlider = {
+            options: {
+                orientation: 'horizontal',
+                min: 0,
+                max: 240,
+                step: 10,
+                range: 'min'
+            }
+        };
 }]);
+
