@@ -1,5 +1,5 @@
-antloans.controller('JobListCtrl',['$scope','$state',
-    function($scope,$state){
+antloans.controller('JobListCtrl',['$scope','$state', '$log',
+    function($scope, $state, $log){
         $scope.slider = {
             options: {
                 start: function (event, ui) { $log.info('Slider start'); },
