@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
@@ -11,26 +11,21 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
     <!-- endbower -->
-<!-- endbuild -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <!-- <link rel="stylesheet" href="styles/main.css"> -->
+    <!-- endbuild -->
+    <link rel="stylesheet" type="text/css" href="../styles/libs/font-awesome.css">
     <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css"/>
-    <link rel="stylesheet" href="styles/conditional-approval.css">
-    <link rel="stylesheet" href="styles/loan-document.css">
-    <link rel="stylesheet" href="styles/loan-job-list.css">
-    <link rel="stylesheet" href="styles/loan-pw.css">
-    <link rel="stylesheet" href="styles/loan-reset-pw.css">
-    <link rel="stylesheet" href="styles/loan-user-profile.css">
-    <link rel="stylesheet" href="styles/login.css">
-    <link rel="stylesheet" href="styles/nav_bar.css">
-    <link rel="stylesheet" href="styles/report-analytics.css">
-    <link rel="stylesheet" href="styles/user-list.css">
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
-</head>
-<body ng-app="antloansFrontEndApp">
-    <a ui-sref="reset">reset</a>
-    <a ui-sref="login">login</a>
-    <a ui-sref="home.job-list">home</a>
-    <div ui-view=""></div>
+  </head>
+  <body ng-app="antloansFrontEndApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
 
+  <div ui-view=""></div>
+
+    <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -48,23 +43,24 @@
     <script src="bower_components/angular-ui-select/dist/select.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.js"></script>
     <script src="bower_components/angular-ui-date/dist/date.js"></script>
+    <script src="bower_components/angular-ui-slider/src/slider.js"></script>
     <!-- endbower -->
+    <!-- endbuild -->
 
-<script src="scripts/loan-user-profile.js"></script>
-<script src="scripts/report-analytics.js"></script>
-<script src="scripts/libs/jquery-3.2.1.min.js"></script>
-<script src="scripts/libs/bootstrap.min.js"></script>
-<!--angular js components-->
-<script src="scripts/app.js"></script>
-<script src="scripts/route.js"></script>
-<script src="scripts/services/oauthservice.js"></script>
-<script src="scripts/controllers/reset.js"></script>
-<script src="scripts/config.js"></script>
-<script src="scripts/services/userservice.js"></script>
-<script src="scripts/controllers/login.js"></script>
-<script src="scripts/services/filterservice.js"></script>
-<script src="scripts/controllers/joblist.js"></script>
-
-<!-- endbuild -->
+    <script src="scripts/loan-user-profile.js"></script>
+    <script src="scripts/loan-job-list.js"></script>
+    <script src="scripts/report-analytics.js"></script>
+    <script src="scripts/libs/jquery-3.2.1.min.js"></script>
+    <script src="scripts/libs/bootstrap.min.js"></script>
+    <!--angular js components-->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/oauthservice.js"></script>
+    <script src="scripts/controllers/reset.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/services/userservice.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/services/filterservice.js"></script>
+    <script src="scripts/controllers/joblist.js"></script>
+    <script src="scripts/services/principal.js"></script>
 </body>
 </html>

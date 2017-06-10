@@ -1,5 +1,8 @@
-antloans.controller('JobListCtrl',['$scope',
-    function($scope){
+antloans.controller('JobListCtrl',['$scope','$state',
+    function($scope,$state){
+        $scope.toApproval =function(approvalId){
+          $state.go('approval',{approvalId:approvalId})
+        };
         $scope.jobs=[
             {
                 "id":1,

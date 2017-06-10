@@ -1,11 +1,11 @@
 
 /*my css*/
 /* side bar*/
-.left_bar ul li.job-bar{
+.left_bar ul li.settle-bar{
   background-color: #677583;
 }
 
-li.job-bar i, li.job-bar a{
+li.job-bar i, li.settle-bar a{
   color: white !important;
 }
 /*right part css*/
@@ -20,27 +20,10 @@ li.job-bar i, li.job-bar a{
 .tool_top{
   height: 50px;
   padding-left: 50px;
-  vertical-align: middle;
 }
 
-.tool_top h3, .tool_top button{
-  display: inline-block;
-}
 .tool_top h3{
-  float: left;
   margin-top: 0;
-}
-
-.tool_top button{
-  position: absolute;
-  right: 50px;
-  top:20px;
-  height: 35px;
-  width: 200px;
-  border: 0;
-  border-radius: 10px;
-  background-color: #F0662C;
-  color: white;
 }
 
 .tool_bar_above{
@@ -203,17 +186,8 @@ li.job-bar i, li.job-bar a{
   display: inline-block;
   width: 10px;
   height: 100%;
+  background-color: #F68E56;
   float: left;
-}
-
-.green{
-  background-color:#7cc576;
-}
-.red{
-  background-color:#ed1c24;
-}
-.orange{
-  background-color:#f68e56;
 }
 
 .content img{

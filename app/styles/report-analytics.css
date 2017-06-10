@@ -108,6 +108,10 @@ li.report-bar i, li.report-bar a{
   display: none;
 }
 
+#log_list{
+  display: none;
+}
+
 /* charts list css*/
 #charts_list{
   box-sizing: border-box;
@@ -346,5 +350,56 @@ li.report-bar i, li.report-bar a{
 }
 
 #deals_list table a,#deals_list table a:hover {
+  color: black;
+}
+
+/* log list css*/
+#log_list{
+  width: 100%;
+  margin-top: 20px;
+}
+
+#log_list .user_list {
+  height: 800px;
+  width: 95%;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  position: relative;
+}
+
+#log_list table{
+  width: 100%;
+}
+
+#log_list table th, #log_list table td{
+  width: 25%;
+  text-align: left;
+  padding: 10px 0px 10px 20px;
+  border-bottom-width: 1px;
+  border-bottom-color: #F4F5F7;
+  border-bottom-style: solid;
+  box-sizing: border-box;
+}
+
+#log_list table td{
+  font-size: 18px;
+}
+
+#log_list .page_message p{
+  color: #2C2F37;
+  position: absolute;
+  left: 4%;
+  bottom: 10px;
+}
+
+#log_list .user_list img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+}
+
+#log_list table a,#log_list table a:hover {
   color: black;
 }

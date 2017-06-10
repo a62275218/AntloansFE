@@ -1,41 +1,25 @@
 'use strict';
-
-/**
- * @ngdoc service
- * @name jobReferoApp.OAuthService
- * @description
- * # OAuthService
- * Factory in the jobReferoApp.
- */
 antloans.factory('OAuthService', ['$http','API_BASE','localStorageService',
     function ($http, API_BASE, localStorageService) {
+      var cacheToken = {};
     return {
-      /**
-       * get access_token
-       *
-       * @returns {HttpPromise}
-       */
-/*      login: function (username, password) {
+        /**
+         * get access_token by username/password
+         *
+         * @param password
+         * @param username
+         * @returns {HttpPromise}
+         */
+      login: function (username,password) {
         return $http({
           method: 'POST',
-          url: API_BASE + "/oauth/token",
+          url: API_BASE+"/users/signin",
           headers: {
             'Authorization': 'Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=',
             'Content-Type': 'application/x-www-form-urlencoded'
           },
-          data: "grant_type=password&username=" + username + "&password=" + password
+            data: "grant_type=password&username=" + username + "&password=" + password
         });
-      },*/
-      /*get access_token by password*/
-      accessToken:function(){
-        return $http({
-          method:'POST',
-            url:"http://52.65.53.191:8088/users/signin"
-        }).then(function(r){
-          console.log(r);
-        },function(e){
-          console.log(e);
-        })
       },
       /**
        * Save token to localStorage
@@ -44,6 +28,7 @@ antloans.factory('OAuthService', ['$http','API_BASE','localStorageService',
        */
       setToken: function (token) {
         localStorageService.set('access_token', token);
+        console.log(localStorageService.get('access_token'))
       },
       /**
        * Get token from localStorage

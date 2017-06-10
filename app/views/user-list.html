@@ -1,110 +1,153 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <title>user-list</title>
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/libs/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/libs/font-awesome.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
+
     <!--my css-->
-</head>
+    <link rel="stylesheet" href="../styles/nav_bar.css">
+    <link rel="stylesheet" href="../styles/user-list.css">
+ </head>
 
-<body>
-<div class="right_part">
-    <section class='tool_bar'>
-        <div class="tool_top">
-            <h3>Users</h3>
-            <button type="button" name="button"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>&nbsp; Add
-                Users
-            </button>
+  <body>
+     <nav class="nav_bar">
+        <div class="brand">Antloans</div>
+
+        <div class="dropdownl">
+          <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+          <button class="dropbtn">Adam Hunt <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="dropdown-content">
+            <a ui-sref="user-profile">Profile</a>
+            <hr>
+            <a href="#">Setting</a>
+            <hr>
+            <a ui-sref="login">Log out</a>
+          </div>
         </div>
 
-        <div class='tool_bar_above'>
-            <div class='search_input'>
-                <div class="input-group margin-bottom-sm">
-                    <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-                    <input class="form-control" type="text" placeholder="SEARCH">
-                </div>
-            </div>
-
-            <div class="sortBy">
-                <label for="">SORT BY: &nbsp;</label>
-                <select class="selectpicker select_date">
-                    <option>Date</option>
-                    <option>Gender</option>
-                    <option>Name</option>
-                </select>
-            </div>
-
-            <div class="page">
-                <ul class="pager">
-                    <li><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
-                    <li><a href="#">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-
-            <select class="selectpicker select_page">
-                <option>10</option>
-                <option>20</option>
-                <option>30</option>
-            </select>
+        <div class="bell">
+        <i class="fa fa-bell fa-lg" aria-hidden="true"><span class='num'>1</span></i>
         </div>
+     </nav>
 
-    </section>
+     <div class='main'>
 
-    <div id="user">
-        <div class='user_list'>
-            <table class='"table table-striped"'>
-                <thead>
-                <tr>
-                    <th>CLIENT NAME &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                    <th>LAST ACTIVITY &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                    <th>CLIENT TYPE &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                    <th>ACCOUNT MANAGER &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                    <th>ACTIONS</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen
-                    </td>
-                    <td>12/08/16</td>
-                    <td>Supervisor</td>
-                    <td>David Cutter</td>
-                    <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
-                        <a href="loan-user-profile.html"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                    </td>
-                </tr>
+           <aside class="left_bar" data-status='open'>
+             <ul>
+                <li class='job-bar'><span><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i><a ui-sref="job-list">JOB LIST</a></span></li>
+                <li class='doc-bar'><span><i class="fa fa-file-text fa-lg" aria-hidden="true"></i><a ui-sref="documents">DOCUMENT</a></span></li>
+                <li class='user-bar'><span><i class="fa fa-user fa-lg" aria-hidden="true"></i><a ui-sref="users">USER</a></span></li>
+                <li class='set-bar'><span><i class="fa fa-cog fa-lg" aria-hidden="true"></i><a ui-sref="">SETTING</a></span></li>
+                <li class='report-bar'><span><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i><a ui-sref="reports">REPORT</a></span></li>
+                <li class='settle-bar'><span><i class="fa fa-check fa-lg" aria-hidden="true"></i></i><a ui-sref="settle">SETTLED</a></span></li>
+             </ul>
 
-                <tr>
-                    <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen
-                    </td>
-                    <td>12/08/16</td>
-                    <td>Supervisor</td>
-                    <td>David Cutter</td>
-                    <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
-                        <a href="loan-user-profile.html"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                    </td>
-                </tr>
+             <div class="left_arrow"><i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i></div>
+           </aside>
 
-                <tr>
-                    <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen
-                    </td>
-                    <td>12/08/16</td>
-                    <td>Supervisor</td>
-                    <td>David Cutter</td>
-                    <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
-                        <a href="loan-user-profile.html"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                    </td>
-                </tr>
-                </tbody>
+           <div class="right_part">
+              <section class='tool_bar'>
 
-            </table>
+                 <div class="tool_top">
+                    <h3>Users</h3>
+                    <button type="button" name="button"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>&nbsp; Add Users</button>
+                 </div>
 
-            <div class="page_message">
-                <p>Showing 1-9 of 118</p>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
+                 <div class='tool_bar_above'>
+                    <div class='search_input'>
+                      <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                        <input class="form-control" type="text" placeholder="SEARCH">
+                      </div>
+                    </div>
+
+                    <div class="sortBy">
+                      <label for="">SORT BY: &nbsp;</label>
+                      <select class="selectpicker select_date">
+                        <option>Date</option>
+                        <option>Gender</option>
+                        <option>Name</option>
+                      </select>
+                    </div>
+
+                    <div class="page">
+                        <ul class="pager">
+                          <li><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                          <li><a href="#">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <select class="selectpicker select_page">
+                      <option>10</option>
+                      <option>20</option>
+                      <option>30</option>
+                    </select>
+                  </div>
+
+              </section>
+
+              <div id="user">
+                 <div class='user_list'>
+                    <table class='"table table-striped"'>
+                       <thead>
+                         <tr><th>CLIENT NAME &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                             <th>LAST ACTIVITY &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                             <th>CLIENT TYPE &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                             <th>ACCOUNT MANAGER &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                             <th>ACTIONS</th>
+                             </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                           <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen</td>
+                           <td>12/08/16</td>
+                           <td>Supervisor</td>
+                           <td>David Cutter</td>
+                           <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
+                             <a ui-sref="user-profile"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                           </td>
+                         </tr>
+
+                         <tr>
+                           <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen</td>
+                           <td>12/08/16</td>
+                           <td>Supervisor</td>
+                           <td>David Cutter</td>
+                           <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
+                             <a ui-sref="user-profile"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                           </td>
+                         </tr>
+
+                         <tr>
+                           <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen</td>
+                           <td>12/08/16</td>
+                           <td>Supervisor</td>
+                           <td>David Cutter</td>
+                           <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
+                             <a ui-sref="user-profile"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                           </td>
+                         </tr>
+                       </tbody>
+
+                    </table>
+
+                    <div class="page_message">
+                       <p>Showing 1-9 of 118</p>
+                    </div>
+                 </div>
+              </div>
+
+          </div>
+
+     </div>
+     <!-- <script src="./assets/js/libs/jquery-3.2.1.min.js"></script>
+     <script src="./assets/js/libs/bootstrap.min.js"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+     <!--my js-->
+     <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
+  </body>
 </html>

@@ -1,0 +1,46 @@
+
+.personal_detail, .product{
+  margin-top: 40px;
+  width: 80%;
+  background-color: white;
+  margin-left: 5%;
+  padding-bottom: 40px;
+  box-shadow: 2px 5px 4px #E8EAEB;
+}
+
+.personal_detail form, .product form{
+  padding-top: 30px;
+}
+
+.personal_detail label, .product label{
+  width: 150px;
+  text-align: right;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.personal_detail input, .product input{
+  width: 220px;
+}
+
+.product button.saveBtn{
+  width: 100px;
+  background-color:rgb(61,158,220);
+  color: white;
+  border: 0;
+  float: right;
+  margin-right: 50px;
+}
+
+.personal_detail h3, .product h3{
+  margin: 0;
+}
+
+.personal_detail h3, .product h3{
+  height: 70px;
+  background-color: #273543;
+  color: white;
+  font-size: 20px;
+  padding-left: 30px;
+  padding-top: 25px;
+}

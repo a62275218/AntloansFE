@@ -13,12 +13,21 @@ li.job-bar i, li.job-bar a{
   box-sizing: border-box;
   padding-bottom: 40px;
   padding-top: 30px;
-  padding-left: 40px;
+  padding-left: 0px;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
   margin-top: 20px;
   box-shadow: 2px 5px 4px #E8EAEB;
+  position: relative;
+}
+
+.approval_up span{
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
 }
 
 .approval_up th, .approval_up td{
@@ -119,7 +128,7 @@ li.job-bar i, li.job-bar a{
 
 .approval_down_left{
   padding-top: 30px;
-  height: 600px;
+  height: 700px;
   background-color: white;
   box-sizing: border-box;
   display: inline-block;
@@ -351,12 +360,14 @@ li.subm2, li.subm3, li.assess2, li.sett2, li.sett3{
 /**/
 
 .approval_down_right{
-  height: 600px;
+  height: 700px;
   box-sizing: border-box;
   display: inline-block;
   width: 49%;
   float: left;
   margin-left: 2%;
+  overflow: hidden;
+  box-shadow: 2px 5px 4px #E8EAEB;
 }
 
 .document_control{
@@ -394,7 +405,7 @@ li.subm2, li.subm3, li.assess2, li.sett2, li.sett3{
   padding-top: 20px;
   margin-top: 20px;
   width: 100%;
-  height: 550px;
+  height: 100%;
   background-color: white;
   box-shadow: 2px 5px 4px #E8EAEB;
 }
@@ -459,4 +470,45 @@ li.subm2, li.subm3, li.assess2, li.sett2, li.sett3{
   position: absolute;
   top: 8px;
   left: -14px;
+}
+
+.comment_title {
+  margin-bottom: 10px;
+  color: rgb(180,180,180);
+}
+
+.commenter_leave{
+  margin-top: 10px;
+}
+
+.comment_form{
+  width: 80%;
+  height: 100px;
+  float: right;
+  display: inline-block;
+  color: black;
+  position: relative;
+  text-align: right;
+}
+
+.comment_form .comment_input{
+ width: 100%;
+ height: 70px;
+ border: 2px solid #41A0DA;
+ margin-bottom: 5px;
+}
+
+.cancelBtn, .commentBtn{
+  width: 100px;
+  margin-left: 10px;
+  border: 0;
+}
+
+.cancelBtn{
+  background-color: rgb(225, 225, 225);
+}
+
+.commentBtn{
+  background-color: rgb(61,158,220);
+  color: white;
 }

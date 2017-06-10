@@ -49,6 +49,7 @@ input, button {
   height: 100px;
   background-color: rgb(243,245,247);
   text-align: left;
+  box-sizing: content-box;
 }
 
 .send_email_down{

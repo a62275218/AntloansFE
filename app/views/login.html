@@ -14,7 +14,7 @@
         <div class="login">
           <img class='logo' src="../images/logo.png" alt="">
 
-          <form class="login_form" ng-submit="user.onSubmit()">
+          <form name="loginForm" class="login_form" ng-submit="ctrl.onSubmit()">
             <div class="input-group">
               <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user-o" aria-hidden="true"></i></span>
               <input ng-model="user.username" id='user_input' type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
@@ -27,7 +27,7 @@
             <button id='login_btn' type="submit" name="button">Log in</button>
           </form>
           <div class="loss_message">
-             <em><a href="loan-pw.html">Lost your password?</a></em>
+             <em><a ui-sref="forget-pw">Lost your password?</a></em>
           </div>
         </div>
       </div>

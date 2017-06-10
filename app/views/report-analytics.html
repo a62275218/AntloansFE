@@ -3,11 +3,52 @@
   <head>
     <meta charset="utf-8">
     <title>report analytics</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/libs/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/libs/font-awesome.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 
-  </head>
+
+    <!--my css-->
+    <link rel="stylesheet" href="../styles/nav_bar.css">
+    <link rel="stylesheet" href="../styles/report-analytics.css">
+ </head>
 
   <body>
+     <nav class="nav_bar">
+        <div class="brand">Antloans</div>
+
+        <div class="dropdownl">
+          <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+          <button class="dropbtn">Adam Hunt <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="dropdown-content">
+            <a ui-sref="user-profile">Profile</a>
+            <hr>
+            <a href="#">Setting</a>
+            <hr>
+            <a ui-sref="login">Log out</a>
+          </div>
+        </div>
+
+        <div class="bell">
+        <i class="fa fa-bell fa-lg" aria-hidden="true"><span class='num'>1</span></i>
+        </div>
+     </nav>
+
+     <div class='main'>
+
+           <aside class="left_bar" data-status='open'>
+             <ul>
+                <li class='job-bar'><span><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i><a ui-sref="job-list">JOB LIST</a></span></li>
+                <li class='doc-bar'><span><i class="fa fa-file-text fa-lg" aria-hidden="true"></i><a ui-sref="documents">DOCUMENT</a></span></li>
+                <li class='user-bar'><span><i class="fa fa-user fa-lg" aria-hidden="true"></i><a ui-sref="users">USER</a></span></li>
+                <li class='set-bar'><span><i class="fa fa-cog fa-lg" aria-hidden="true"></i><a ui-sref="">SETTING</a></span></li>
+                <li class='report-bar'><span><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i><a ui-sref="reports">REPORT</a></span></li>
+                <li class='settle-bar'><span><i class="fa fa-check fa-lg" aria-hidden="true"></i></i><a ui-sref="settle">SETTLED</a></span></li>
+             </ul>
+
+             <div class="left_arrow"><i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i></div>
+           </aside>
+
            <div class="right_part">
               <section class='tool_bar'>
 
@@ -36,6 +77,7 @@
                        <button id='analytics_btn' class='show_light' type="button" name="button">ANALYTICS</button>
                        <button id='sales_btn' class='' type="button" name="button">SALES</button>
                        <button id='deals_btn' class='' type="button" name="button">DEALS</button>
+                       <button id='log_btn' class='' type="button" name="button">LOG</button>
                     </div>
 
 
@@ -277,8 +319,87 @@
                       <p>Showing 1-9 of 118</p>
                    </div>
                 </div>
+
               </div>
+
+
+              <!-- log content -->
+              <div id="log_list">
+                <div class='user_list'>
+                   <table class='"table table-striped"'>
+                      <thead>
+                        <tr><th>CLIENT NAME &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                            <th>LAST ACTIVITY &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                            <th>DICIMUS ALIQUEM &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                            <th>ACTIONS</th>
+                            </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen</td>
+                          <td>12/08/16</td>
+                          <td>Null fetoas asss hahahah</td>
+                          <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
+                            <a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen</td>
+                          <td>12/08/16</td>
+                          <td>Null fetoas asss hahahah</td>
+                          <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
+                            <a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen</td>
+                          <td>12/08/16</td>
+                          <td>Null fetoas asss hahahah</td>
+                          <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
+                            <a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen</td>
+                          <td>12/08/16</td>
+                          <td>Null fetoas </td>
+                          <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
+                            <a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen</td>
+                          <td>12/08/16</td>
+                          <td>Null fetoas asss hahahah</td>
+                          <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
+                            <a href="#"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                          </td>
+                        </tr>
+                      </tbody>
+
+                   </table>
+
+                   <div class="page_message">
+                      <p>Showing 1-9 of 118</p>
+                   </div>
+                </div>
+
+              </div>
+
+
+
           </div>
-           <script src="../scripts/report-analytics.js"></script>
+
+     </div>
+     <!-- <script src="./assets/js/libs/jquery-3.2.1.min.js"></script>
+     <script src="./assets/js/libs/bootstrap.min.js"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+     <!--my js-->
+     <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
+     <script type="text/javascript" src="../scripts/report-analytics.js"></script>
   </body>
 </html>

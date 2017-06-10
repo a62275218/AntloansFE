@@ -20,7 +20,8 @@ antloans.config(['$stateProvider', '$urlRouterProvider',
             .state('login', {
                 url:'/login',
                 templateUrl: 'views/login.html',
-                controller:'LoginCtrl'
+                controller:'LoginCtrl',
+                controllerAs: 'ctrl'
             })
             .state('home',{
                 abstract:true,
@@ -29,8 +30,7 @@ antloans.config(['$stateProvider', '$urlRouterProvider',
             .state('home.job-list',{
                 url:'/home/job-list',
                 templateUrl:'views/loan-job-list.html',
-                controller:'JobListCtrl',
-                controllerAs: 'ctrl'
+                controller:'JobListCtrl'
             })
             .state('home.document',{
                 url:'/home/document',
@@ -45,6 +45,7 @@ antloans.config(['$stateProvider', '$urlRouterProvider',
                 templateUrl:'views/report-analytics.html'
             })
             .state('home.conditional-approval',{
+                url:'/home/job-list/conditional-approval/:approvalId',
                 templateUrl:'views/conditional-approval.html'
             })
             .state('404', {
