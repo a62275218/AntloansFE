@@ -1,7 +1,7 @@
 antloans.controller('LoginCtrl',['$scope','UserService','$state','OAuthService','principal',
     function($scope,UserService,$state,OAuthService,principal){
     console.log('login')
-        var vm = this;
+        var vm = this; 
         vm.username = "yorkfinechan@gmail.com";
         vm.password =12345;
         vm.remember = true;

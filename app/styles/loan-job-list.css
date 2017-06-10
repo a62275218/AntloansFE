@@ -111,6 +111,28 @@ li.job-bar i, li.job-bar a{
   display: inline-block;
   float: left;
   margin-left: 50px;
+  width: 320px;
+}
+
+.amount .amount-slider{
+  display: inline-block;
+  float: right;
+  width: 220px;
+  height: 30px;
+  position: relative;
+  padding-top: 5px;
+}
+
+.amount-slider .point-left{
+  position: absolute;
+  bottom: -30px;
+  left: 30px;
+}
+
+.amount-slider .point-right{
+  position: absolute;
+  bottom: -30px;
+  right: 30px;
 }
 
 .start_date{

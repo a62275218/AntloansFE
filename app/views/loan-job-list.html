@@ -106,11 +106,13 @@
               <hr>
                   <div class="amount">
                     <label>AMOUNT:</label>
+                    <div class="amount-slider">
                       <div ui-slider="{range: true}" min="0" max="100" step="1" lower-bound="0" upper-bound="1000" use-decimals ng-model="sliderVals">
                           <div class="ui-slider-out-of-bounds" style="left:0; width: 20%"></div>
                           <div class="ui-slider-out-of-bounds" style="right:0; width: 10%"></div>
-                          {{sliderVals[0]}}{{sliderVals[1]}}
+                          <span class='point-left'>{{sliderVals[0] | currency}}</span><span class='point-right'>{{sliderVals[1] | currency}}</span>
                       </div>
+                    </div>
                   </div>
 
                   <div class="start_date">
