@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>settled-list</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/libs/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/libs/font-awesome.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/css/bootstrap-slider.min.css">
+
+    <!--my css-->
+    <link rel="stylesheet" href="../styles/nav_bar.css">
+    <link rel="stylesheet" href="../styles/settled-list.css">
+ </head>
+
+  <body>
+     <nav class="nav_bar">
+        <div class="brand">Antloans</div>
+
+        <div class="dropdownl">
+          <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+          <button class="dropbtn">Adam Hunt <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="dropdown-content">
+            <a ui-sref="user-profile">Profile</a>
+            <hr>
+            <a href="#">Setting</a>
+            <hr>
+            <a ui-sref="login">Log out</a>
+          </div>
+        </div>
+
+        <div class="bell">
+        <i class="fa fa-bell fa-lg" aria-hidden="true"><span class='num'>1</span></i>
+        </div>
+     </nav>
+
+     <div class='main'>
+
+       <aside class="left_bar" data-status='open'>
+         <ul>
+            <li class='job-bar'><span><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i><a ui-sref="job-list">JOB LIST</a></span></li>
+            <li class='doc-bar'><span><i class="fa fa-file-text fa-lg" aria-hidden="true"></i><a ui-sref="documents">DOCUMENT</a></span></li>
+            <li class='user-bar'><span><i class="fa fa-user fa-lg" aria-hidden="true"></i><a ui-sref="users">USER</a></span></li>
+            <li class='set-bar'><span><i class="fa fa-cog fa-lg" aria-hidden="true"></i><a ui-sref="">SETTING</a></span></li>
+            <li class='report-bar'><span><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i><a ui-sref="reports">REPORT</a></span></li>
+            <li class='settle-bar'><span><i class="fa fa-check fa-lg" aria-hidden="true"></i></i><a ui-sref="settle">SETTLED</a></span></li>
+         </ul>
+
+         <div class="left_arrow"><i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i></div>
+       </aside>
+
+       <div class="right_part">
+          <section class='tool_bar'>
+            <div class="tool_top">
+               <h3>Settled List</h3>
+            </div>
+
+             <div class='tool_bar_above'>
+                <div class='search_input'>
+                  <div class="input-group margin-bottom-sm">
+                    <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                    <input class="form-control" type="text" placeholder="SEARCH">
+                  </div>
+                </div>
+
+                <div class="sortBy">
+                  <label for="">SORT BY: &nbsp;</label>
+                  <select class="selectpicker select_date">
+                    <option>Date</option>
+                    <option>Gender</option>
+                    <option>Name</option>
+                  </select>
+                </div>
+
+                <div class="page">
+                    <ul class="pager">
+                      <li><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                      <li><a href="#">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+
+                <select class="selectpicker select_page">
+                  <option>10</option>
+                  <option>20</option>
+                  <option>30</option>
+                </select>
+              </div>
+
+              <div class="tool_bar_middle">
+              <hr>
+                  <div class="amount">
+                    <label for="amount">AMOUNT:</label>
+                    <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/>
+                  </div>
+
+                  <div class="start_date">
+                    <label for="">START DATE:</label>
+                    <select class="selectpicker startDate">
+                      <option>3/3/15</option>
+                    </select>
+
+                  </div>
+                  <div class="close_date">
+                    <label for="">CLOSE DATE:</label>
+                    <select class="selectpicker closeDate">
+                      <option>14/4/16</option>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="tool_bar_below">
+              <hr>
+                  <div class="status">
+                    <label for="">STATUS:</label>
+                    <div class="btn-group statusInput" role="group" aria-label="...">
+                      <button type="button" class="btn btn-default">SUBMISSION</button>
+                      <button type="button" class="btn btn-default">ASSESSMENT</button>
+                      <button type="button" class="btn btn-default">SETTLEMENT</button>
+                      <button type="button" class="btn btn-default">ALL</button>
+                    </div>
+                  </div>
+                  <div class="broker">
+                    <label for="">BROKER:</label>
+                    <select class="selectpicker brokerInput">
+                      <option>ALL</option>
+                    </select>
+
+                  </div>
+                  <div class="admin">
+                    <label for="">ADMIN:</label>
+                    <select class="selectpicker adminInput">
+                      <option>ALL</option>
+                    </select>
+                  </div>
+              </div>
+
+              <div class="showBtn">
+                 <i class="fa fa-plus" aria-hidden="true">&nbsp;</i><span>show more</span>
+              </div>
+          </section>
+
+          <div class="content">
+            <a href="conditional-approval.html">
+              <div class='item'>
+                <span class="side_light">
+                </span>
+                <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                <div class='intro'>
+                  <h4 class='name'>Tommy Kuo</h4>
+                  <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
+                </div>
+                <table>
+                   <tr><th>loan amount </th><td>$1000.00 </td><th>assign </th><td>Notebook</td></tr>
+                   <tr><th>loan purpose </th><td>Business </td><th>broker </th><td>Laurel siaw</td></tr>
+                   <tr><th>repayment type </th><td>ANZ </td><th>special notes </th><td>lorem ipsm</td></tr>
+                   <tr><th>file nature </th><td>commercial</td>
+                </table>
+              </div>
+            </a>
+
+            <a href="conditional-approval.html">
+              <div class='item'>
+                <span class="side_light">
+                </span>
+                <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                <div class='intro'>
+                  <h4 class='name'>Tommy Kuo</h4>
+                  <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
+                </div>
+                <table>
+                   <tr><th>loan amount </th><td>$1000.00 </td><th>assign </th><td>Notebook</td></tr>
+                   <tr><th>loan purpose </th><td>Business </td><th>broker </th><td>Laurel siaw</td></tr>
+                   <tr><th>repayment type </th><td>ANZ </td><th>special notes </th><td>lorem ipsm</td></tr>
+                   <tr><th>file nature </th><td>commercial</td>
+                </table>
+              </div>
+            </a>
+
+            <a href="conditional-approval.html">
+              <div class='item'>
+                <span class="side_light">
+                </span>
+                <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                <div class='intro'>
+                  <h4 class='name'>Tommy Kuo</h4>
+                  <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
+                </div>
+                <table>
+                   <tr><th>loan amount </th><td>$1000.00 </td><th>assign </th><td>Notebook</td></tr>
+                   <tr><th>loan purpose </th><td>Business </td><th>broker </th><td>Laurel siaw</td></tr>
+                   <tr><th>repayment type </th><td>ANZ </td><th>special notes </th><td>lorem ipsm</td></tr>
+                   <tr><th>file nature </th><td>commercial</td>
+                </table>
+              </div>
+            </a>
+
+            <a href="conditional-approval.html">
+              <div class='item'>
+                <span class="side_light">
+                </span>
+                <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                <div class='intro'>
+                  <h4 class='name'>Tommy Kuo</h4>
+                  <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
+                </div>
+                <table>
+                   <tr><th>loan amount </th><td>$1000.00 </td><th>assign </th><td>Notebook</td></tr>
+                   <tr><th>loan purpose </th><td>Business </td><th>broker </th><td>Laurel siaw</td></tr>
+                   <tr><th>repayment type </th><td>ANZ </td><th>special notes </th><td>lorem ipsm</td></tr>
+                   <tr><th>file nature </th><td>commercial</td>
+                </table>
+              </div>
+            </a>
+
+            <a href="conditional-approval.html">
+              <div class='item'>
+                <span class="side_light">
+                </span>
+                <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                <div class='intro'>
+                  <h4 class='name'>Tommy Kuo</h4>
+                  <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
+                </div>
+                <table>
+                   <tr><th>loan amount </th><td>$1000.00 </td><th>assign </th><td>Notebook</td></tr>
+                   <tr><th>loan purpose </th><td>Business </td><th>broker </th><td>Laurel siaw</td></tr>
+                   <tr><th>repayment type </th><td>ANZ </td><th>special notes </th><td>lorem ipsm</td></tr>
+                   <tr><th>file nature </th><td>commercial</td>
+                </table>
+              </div>
+            </a>
+          </div>
+
+       </div>
+
+     </div>
+     <!-- <script src="./assets/js/libs/jquery-3.2.1.min.js"></script>
+     <script src="./assets/js/libs/bootstrap.min.js"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+     <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/bootstrap-slider.min.js'></script>
+     <!--my js-->
+     <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
+     <script type="text/javascript">
+      $("#ex2").slider({});
+     </script>
+  </body>
+</html>

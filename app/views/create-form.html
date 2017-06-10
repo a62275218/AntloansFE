@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>create form</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/libs/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/libs/font-awesome.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css"> -->
+
+
+    <!--my css-->
+    <link rel="stylesheet" href="../styles/nav_bar.css">
+    <link rel="stylesheet" href="../styles/create-form.css">
+ </head>
+
+  <body>
+     <nav class="nav_bar">
+        <div class="brand">Antloans</div>
+
+        <div class="dropdownl">
+          <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+          <button class="dropbtn">Adam Hunt <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+          <div class="dropdown-content">
+            <a ui-sref="user-profile">Profile</a>
+            <hr>
+            <a href="#">Setting</a>
+            <hr>
+            <a ui-sref="login">Log out</a>
+          </div>
+        </div>
+
+        <div class="bell">
+        <i class="fa fa-bell fa-lg" aria-hidden="true"><span class='num'>1</span></i>
+        </div>
+     </nav>
+
+     <div class='main'>
+
+         <aside class="left_bar" data-status='open'>
+           <ul>
+              <li class='job-bar'><span><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i><a ui-sref="job-list">JOB LIST</a></span></li>
+              <li class='doc-bar'><span><i class="fa fa-file-text fa-lg" aria-hidden="true"></i><a ui-sref="documents">DOCUMENT</a></span></li>
+              <li class='user-bar'><span><i class="fa fa-user fa-lg" aria-hidden="true"></i><a ui-sref="users">USER</a></span></li>
+              <li class='set-bar'><span><i class="fa fa-cog fa-lg" aria-hidden="true"></i><a ui-sref="">SETTING</a></span></li>
+              <li class='report-bar'><span><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i><a ui-sref="reports">REPORT</a></span></li>
+              <li class='settle-bar'><span><i class="fa fa-check fa-lg" aria-hidden="true"></i></i><a ui-sref="settle">SETTLED</a></span></li>
+           </ul>
+
+           <div class="left_arrow"><i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i></div>
+         </aside>
+
+          <div class="right_part">
+             <div class="personal_detail">
+                 <h3>Personal Details</h3>
+                 <form class="" action="index.html" method="post">
+                     <label for="">First name</label><input type="text" name="" value="">
+                     <label for="">Last name</label><input type="text" name="" value=""><br>
+
+                     <label for="">Mobile</label><input type="text" name="" value="">
+                     <label for="">Email</label><input type="email" name="" value=""><br>
+
+                     <label for="">Bank</label><input type="text" name="" value="">
+                     <label for="">Security address</label><input type="text" name="" value=""><br>
+                 </form>
+             </div>
+
+             <div class="product">
+               <h3>Product</h3>
+               <form class="" action="index.html" method="post">
+                   <label for="">Loan type</label><input type="text" name="" value="">
+                   <label for="">File nature</label><input type="text" name="" value=""><br>
+
+                   <label for="">Loan amount</label><input type="text" name="" value="">
+                   <label for="">Broker</label><input type="email" name="" value=""><br>
+
+                   <label for="">Loan purpose</label><input type="text" name="" value="">
+                   <label for="">Special notes</label><input type="text" name="" value=""><br>
+
+                   <label for="">Payment type</label><input type="text" name="" value=""><br>
+                   <button class="saveBtn" type='submit' name="button">Save</button>
+
+               </form>
+             </div>
+          </div>
+
+     </div>
+
+     <!--my js-->
+     <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
+  </body>
+</html>

@@ -1,5 +1,11 @@
 antloans.controller('JobListCtrl',['$scope','$state',
     function($scope,$state){
+        $scope.slider = {
+            options: {
+                start: function (event, ui) { $log.info('Slider start'); },
+                stop: function (event, ui) { $log.info('Slider stop'); }
+            }
+        }
         $scope.toApproval =function(approvalId){
           $state.go('approval',{approvalId:approvalId})
         };
