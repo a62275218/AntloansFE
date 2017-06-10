@@ -60,7 +60,7 @@
                 <div class='search_input'>
                   <div class="input-group margin-bottom-sm">
                     <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-                    <input class="form-control" type="text" placeholder="SEARCH">
+                    <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
                   </div>
                 </div>
 
@@ -107,7 +107,7 @@
                   <div class="amount">
                     <label>AMOUNT:</label>
                     <div class="amount-slider">
-                      <div ui-slider="{range: true}" min="0" max="100" step="1" lower-bound="0" upper-bound="1000" use-decimals ng-model="sliderVals">
+                      <div ui-slider="{range: true}" min="0" max="10000" step="1" lower-bound="0" upper-bound="10000" use-decimals ng-model="sliderVals">
                           <div class="ui-slider-out-of-bounds" style="left:0; width: 20%"></div>
                           <div class="ui-slider-out-of-bounds" style="right:0; width: 10%"></div>
                           <span class='point-left'>{{sliderVals[0] | currency}}</span><span class='point-right'>{{sliderVals[1] | currency}}</span>
@@ -116,7 +116,7 @@
                   </div>
 
                   <div class="start_date">
-                      <labe>START DATE:</labe>
+                      <label>START DATE:</label>
                       <input ui-date>
                       <!--<select class="selectpicker startDate">
                         <option>3/3/15</option>
@@ -164,7 +164,7 @@
           </section>
 
            <div class="content">
-               <a href="javascript:;" ng-repeat="item in jobs track by $index" ng-click="toApproval(item.id)">
+               <a href="javascript:;" ng-repeat="item in jobs | rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index" ng-click="toApproval(item.id)">
                    <div class='item'>
                 <span class="side_light" ng-class="[item.color,{orange:orange,red:red,green:green}]">
                 </span>
