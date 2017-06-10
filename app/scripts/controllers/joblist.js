@@ -81,5 +81,7 @@ antloans.controller('JobListCtrl',['$scope','$state',
         $scope.sortBy.selected = $scope.sortBy[0];
 
         $scope.sliderVals = [0, 10000];
+
+        $scope.searchInput="";
 }]);
 
