@@ -70,7 +70,7 @@
                         <ui-select-match placeholder="Select the number of pages">
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
-                        <ui-select-choices repeat="item in (sortBy|filter:$select.search) track by $index">
+                        <ui-select-choices repeat="item in (sortBy|filter:$select.search) track by $index" ng-click="sortFunction">
                             <span ng-bind="item.name"></span>
                         </ui-select-choices>
                     </ui-select>
@@ -164,7 +164,7 @@
           </section>
 
            <div class="content">
-               <a href="javascript:;" ng-repeat="item in jobs | rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index" ng-click="toApproval(item.id)">
+               <a href="javascript:;" ng-repeat="item in jobs | orderBy:sortBy.selected.name | rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index " ng-click="toApproval(item.id)">
                    <div class='item'>
                 <span class="side_light" ng-class="[item.color,{orange:orange,red:red,green:green}]">
                 </span>

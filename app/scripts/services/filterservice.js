@@ -13,12 +13,3 @@ antloans
             return range;
         }
     })
-
-    .filter('searchFilter', function () {
-        return function (input, attr) {
-            var result = [];
-            for (var i in input) {
-
-            }
-        }
-    });

@@ -22,11 +22,13 @@ var antloans = angular
         'ui.date',
         'ui.select',
         'ui.slider',
-        'LocalStorageModule'
+        'LocalStorageModule',
+        'chart.js'
     ])
-    .config(['$stateProvider', '$urlRouterProvider',
-        function ($stateProvider, $urlRouterProvider) {
-            $urlRouterProvider.when('', '/reset');
+    .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
+        function ($stateProvider, $urlRouterProvider,ChartJsProvider) {
+            ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+            $urlRouterProvider.when('', 'job-list');
             $urlRouterProvider.when('/', '/reset');
             $urlRouterProvider.otherwise('/reset');
 
@@ -90,7 +92,6 @@ var antloans = angular
                 .state('reports', {
                     url: '/reports',
                     templateUrl: 'views/report-analytics.html'
-                    // controller:''
                 })
 
                 .state('settle', {

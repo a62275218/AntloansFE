@@ -42,12 +42,10 @@ antloans.factory('principal',['$q','$timeout','OAuthService',
         // resolve.
 
         var accessToken = OAuthService.getToken();
-        /*if (accessToken) {
+        if (accessToken) {
 
           // inject token for later requests
-          CompanyService.injectToken(accessToken);
           UserService.injectToken(accessToken);
-          JobService.injectToken(accessToken);
 
           // get current user information
           UserService.getCurrentUser()
@@ -67,7 +65,7 @@ antloans.factory('principal',['$q','$timeout','OAuthService',
         } else {
 
           notLogin();
-        }*/
+        }
         return deferred.promise;
       },
       getIdentity: function (key) {

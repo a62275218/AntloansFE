@@ -37,6 +37,8 @@ module.exports = function(config) {
       'bower_components/jquery-ui/jquery-ui.js',
       'bower_components/angular-ui-date/dist/date.js',
       'bower_components/angular-ui-slider/src/slider.js',
+      'bower_components/chart.js/dist/Chart.js',
+      'bower_components/angular-chart.js/dist/angular-chart.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

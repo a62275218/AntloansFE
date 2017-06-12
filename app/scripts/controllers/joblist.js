@@ -74,9 +74,9 @@ antloans.controller('JobListCtrl',['$scope','$state',
         ];
         $scope.pageAmount.selected = $scope.pageAmount[0];
         $scope.sortBy =[
-            {"name":"Date"},
-            {"name":"Gender"},
-            {"name":"Name"}
+            {"name":"date"},
+            {"name":"gender"},
+            {"name":"username"}
         ];
         $scope.sortBy.selected = $scope.sortBy[0];
 

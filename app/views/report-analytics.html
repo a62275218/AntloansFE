@@ -93,29 +93,27 @@
 
               <!-- charts content  -->
               <div id="charts_list">
-                 <div class="payments_reveived">
+                 <div class="payments_reveived" ng-controller="lineChartCtrl">
                      <div class="payments_left">
-                         <h4>Payments Received</h4>
-                         <label for=""><div class="paypal" style='background-color:#49A5C3'></div>&nbsp; PayPal</label>
-                         <label for=""><div class="credit" style='background-color:#29A89F'></div>&nbsp; Credit Card</label>
+                         <!--<h4>Payments Received</h4>-->
                          <div class="clear"></div>
-
-                         <div class="payments_chart">
-                             <img width='100%' height='250px' src="./images/charts/payments_chart.png" alt="">
+                         <div class="payments_chart" ng-controller="lineChartCtrl">
+                             <canvas id="line" class="chart chart-line" chart-data="data"
+                                     chart-labels="labels" chart-series="series" chart-options="options"
+                                     chart-dataset-override="datasetOverride" chart-click="onClick">
+                             </canvas>
                          </div>
-
-
                      </div>
 
                      <div class="payments_right">
-                        <h4>$8.958,00</h4>
+                        <h4>{{totalamount|currency}}</h4>
                         <p>Total Income</p>
 
-                        <h5>$2.582,00</h5>
+                        <h5>{{total.credit|currency}}</h5>
                         <img width="127px" height="27px;" src="./images/data-bar2.png" alt="">
                         <p>Credit Card Payments</p>
 
-                        <h5>$4.521,00</h5>
+                        <h5>{{total.paypal|currency}}</h5>
                         <img width="127px" height="27px;" src="./images/data-bar2.png" alt="">
                         <p>PayPal Payments</p>
 
@@ -123,7 +121,7 @@
                      </div>
                  </div>
 
-                 <div class="chart lined_chart">
+                 <div class="chartl lined_chart">
                     <div class="chart_name">
                       <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
                       <span class="chart_name2">Lined Chart</span>
@@ -136,7 +134,7 @@
 
                  </div>
 
-                 <div class="chart donut_chart">
+                 <div class="chartl donut_chart">
                    <div class="chart_name">
                      <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
                      <span class="chart_name2">Donut Chart</span>
@@ -149,7 +147,7 @@
 
                  </div>
 
-                 <div class="chart scatter_chart">
+                 <div class="chartl scatter_chart">
                    <div class="chart_name">
                      <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
                      <span class="chart_name2">Scatter Chart</span>
@@ -161,7 +159,7 @@
 
                  </div>
 
-                 <div class="chart polar_line_chart">
+                 <div class="chartl polar_line_chart">
                    <div class="chart_name">
                      <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
                      <span class="chart_name2">Polar Line Chart</span>
@@ -174,7 +172,7 @@
 
                  </div>
 
-                 <div class="chart vertical_grouped_chart">
+                 <div class="chartl vertical_grouped_chart">
                    <div class="chart_name">
                      <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
                      <span class="chart_name2">Vertical Grouped Chart</span>
@@ -187,7 +185,7 @@
 
                  </div>
 
-                 <div class="chart polar_area_chart">
+                 <div class="chartl polar_area_chart">
                    <div class="chart_name">
                      <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
                      <span class="chart_name2">Polar Area Chart</span>

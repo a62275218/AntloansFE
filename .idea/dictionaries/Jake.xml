@@ -2,9 +2,11 @@
   <dictionary name="Jake">
     <words>
       <w>antloans</w>
+      <w>chartservice</w>
       <w>filterservice</w>
       <w>joblist</w>
       <w>oauthservice</w>
+      <w>paypal</w>
       <w>userservice</w>
       <w>vals</w>
     </words>

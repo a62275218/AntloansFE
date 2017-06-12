@@ -125,7 +125,7 @@ li.report-bar i, li.report-bar a{
   width: 100%;
   background-color: #F5F7F8;
   border: 5px solid #E6EAED;
-  height: 350px;
+  height: 500px;
   overflow: hidden;
 }
 
@@ -205,7 +205,7 @@ li.report-bar i, li.report-bar a{
   outline: none;
 }
 
-.chart{
+.chartl{
   margin-top: 30px;
   width: 28%;
   box-sizing: border-box;
