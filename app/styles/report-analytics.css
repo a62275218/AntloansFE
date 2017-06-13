@@ -251,6 +251,17 @@ li.report-bar i, li.report-bar a{
   margin-right: auto;
 }
 
+.donut canvas, .polar canvas{
+  position:absolute;
+  top:2vh;
+  left:5vw;
+}
+.radar canvas{
+  position:absolute;
+  top:-5vh;
+  left:1.5vw;
+}
+
 /* sales list css*/
 #sales_list{
   width: 100%;

@@ -2,8 +2,8 @@ var configs = {
     headers: {}
 };
 
-antloans.factory('UserService',['$http',
-    function($http){
+antloans.factory('UserService',['$http','API_BASE',
+    function($http,API_BASE){
     return{
         resetPassword: function (token, email, password) {
             return $http.put(API_BASE + '/users/resetpass', {

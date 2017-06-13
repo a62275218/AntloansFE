@@ -56,12 +56,12 @@
                  <hr>
                  <div class="user_name">
                     <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp;
-                    <span>Jennifer Sun</span>
+                    <span>{{user.firstName||'null'}} {{user.lastName||'null'}}</span>
                  </div>
                  <h4>Credentials</h4>
                  <hr>
                  <div class="user_info">
-                     <label>Username</label><span>JENSUN</span><br>
+                     <label>Username</label><span>{{user.email||'null'}}</span><br>
                      <label>Password</label><input type="password" placeholder='......' name="" value="">&nbsp;<i class="fa fa-pencil" aria-hidden="true"></i>
                  </div>
                  <h4>Notifications</h4>
@@ -77,14 +77,14 @@
                <h4>Email address</h4>
                <hr>
                <div class="email_message">
-                  <label>Primary</label><span>jennifer.sun@hotmail.com</span><br>
+                  <label>Primary</label><span>{{user.email||'null'}}</span><br>
                   <label>Secondary</label><span></span>
                </div>
                <h4>Contact numbers</h4>
                <hr>
                <div class="number_message">
-                  <label>Mobile</label><span>045 111 7774</span><br>
-                  <label>Phone</label><span>045 111 7774</span><br>
+                  <label>Mobile</label><span>{{user.mobile||'null'}}</span><br>
+                  <label>Phone</label><span>{{user.phone||'null'}}</span><br>
                   <label>Fax</label><span></span>
                </div>
              </div>

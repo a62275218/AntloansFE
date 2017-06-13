@@ -14,12 +14,12 @@
  </head>
 
   <body>
-  <nav class="nav_bar">
+  <nav class="nav_bar" ng-controller="navBarCtrl">
       <div class="brand">Antloans</div>
 
       <div class="dropdownl">
           <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
-          <button class="dropbtn">Adam Hunt <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+          <button class="dropbtn">{{user.firstName||'null'}} {{user.lastName||'null'}}<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
           <div class="dropdown-content">
               <a ui-sref="user-profile">Profile</a>
               <hr>
@@ -53,7 +53,7 @@
 
             <div class="tool_top">
                <h3>JobList</h3>
-               <button type="button" name="button"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>&nbsp; Create Job</button>
+               <button type="button" name="button" ui-sref="create"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>&nbsp; Create Job</button>
             </div>
 
              <div class='tool_bar_above'>

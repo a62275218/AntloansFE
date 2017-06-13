@@ -28,7 +28,7 @@ var antloans = angular
     .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
         function ($stateProvider, $urlRouterProvider,ChartJsProvider) {
             ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
-            $urlRouterProvider.when('', 'job-list');
+            $urlRouterProvider.when('', 'reset');
             $urlRouterProvider.when('/', '/reset');
             $urlRouterProvider.otherwise('/reset');
 
@@ -58,8 +58,12 @@ var antloans = angular
                 .state('job-list', {
                     url: '/job-list',
                     templateUrl: 'views/loan-job-list.html',
-                    controller: 'JobListCtrl'
-                    // controller:''
+                    controller: 'JobListCtrl',
+                    resolve:{
+                        response:function(UserService){
+                            return UserService.getCurrentUser();
+                        }
+                    }
                 })
                 .state('approval', {
                     url: '/job-list/approval/:approvalId',
@@ -80,13 +84,18 @@ var antloans = angular
                 })
                 .state('user-profile', {
                     url: '/user-profile',
-                    templateUrl: 'views/loan-user-profile.html'
-                    // controller:''
+                    templateUrl: 'views/loan-user-profile.html',
+                    controller:'userProfileCtrl',
+                    resolve:{
+                        response:function(UserService){
+                            return UserService.getCurrentUser();
+                        }
+                    }
                 })
                 .state('create', {
                     url: '/users/new',
-                    templateUrl: 'views/create-form.html'
-                    // controller:''
+                    templateUrl: 'views/create-job-form.html',
+                    controller:'createJob'
                 })
 
                 .state('reports', {
@@ -99,4 +108,23 @@ var antloans = angular
                     templateUrl: 'views/settled-list.html'
                     // controller:''
                 })
-        }]);
+        }])
+.run(['$rootScope', '$state', '$urlRouter', 'principal',
+    function($rootScope, $state, $urlRouter, principal){
+        $rootScope.$on('$locationChangeSuccess', function (e, newUrl) {
+            console.log('$locationChangeSuccess: ' + newUrl);
+
+            if (principal.isIdentityResolved()) return;
+
+            // this event listen will go before the ui router,
+            // so just prevent it spread.
+            e.preventDefault();
+
+            principal.identity()
+                .then(function () {
+                    console.log('Identity resolved.');
+                    $urlRouter.sync(); // do an update
+                });
+        });
+
+    }]);

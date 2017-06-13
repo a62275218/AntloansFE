@@ -13,22 +13,23 @@ antloans.factory('OAuthService', ['$http','API_BASE','localStorageService',
       login: function (username,password) {
         return $http({
           method: 'POST',
-          url: API_BASE+"/users/signin",
+          url: API_BASE+"/signin",
           headers: {
             'Authorization': 'Basic Zm9vQ2xpZW50SWRQYXNzd29yZDpzZWNyZXQ=',
             'Content-Type': 'application/x-www-form-urlencoded'
           },
             data: "grant_type=password&username=" + username + "&password=" + password
-        });
+        })
       },
       /**
        * Save token to localStorage
        *
        * @param token
        */
-      setToken: function (token) {
-        localStorageService.set('access_token', token);
-        console.log(localStorageService.get('access_token'))
+      setToken: function (access_token,expires_in,refresh_token) {
+          localStorageService.set('access_token', access_token);
+          localStorageService.set('expires_in', expires_in);
+          localStorageService.set('refresh_token', refresh_token);
       },
       /**
        * Get token from localStorage
@@ -40,7 +41,8 @@ antloans.factory('OAuthService', ['$http','API_BASE','localStorageService',
        * remove token from localStorage
        */
       clearToken: function () {
-        localStorageService.remove('access_token');
+          localStorageService.remove('access_token');
+          localStorageService.remove('expires_in');
       }
     };
   }]);

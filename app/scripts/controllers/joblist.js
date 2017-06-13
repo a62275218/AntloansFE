@@ -1,11 +1,14 @@
-antloans.controller('JobListCtrl',['$scope','$state',
-    function($scope, $state){
-        /*$scope.slider = {
-            options: {
-                start: function (event, ui) { $log.info('Slider start'); },
-                stop: function (event, ui) { $log.info('Slider stop'); }
-            }
-        };*/
+antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService',
+    function($scope, $state,response,OAuthService){
+        var vm = this;
+        vm.logout = function(){
+            OAuthService.clearToken();
+            principal.authenticate(null);
+        };
+        if (response && response.status == 200 && response.data.success) {
+            $scope.user = response.data.data;
+        }
+
         $scope.toApproval =function(approvalId){
           $state.go('approval',{approvalId:approvalId})
         };

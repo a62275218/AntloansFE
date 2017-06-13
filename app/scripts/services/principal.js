@@ -1,5 +1,5 @@
-antloans.factory('principal',['$q','$timeout','OAuthService',
-    function ($q, $timeout,OAuthService) {
+antloans.factory('principal',['$q','$timeout','OAuthService','UserService',
+    function ($q, $timeout,OAuthService,UserService) {
     var _identity,
         _authenticated = false;
 

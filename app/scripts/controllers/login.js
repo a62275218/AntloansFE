@@ -1,30 +1,16 @@
-antloans.controller('LoginCtrl',['$scope','UserService','$state','OAuthService','principal',
-    function($scope,UserService,$state,OAuthService,principal){
-    console.log('login')
-        var vm = this; 
-        vm.username = "yorkfinechan@gmail.com";
-        vm.password =12345;
-        vm.remember = true;
+antloans.controller('LoginCtrl',['$scope','UserService','$state','OAuthService','principal','$rootScope',
+    function($scope,UserService,$state,OAuthService,principal,$rootScope){
+        var vm = this;
+        $scope.user = {};
+        vm.message = false;
         vm.onSubmit = function(){
             vm.sending = true;
-            OAuthService.login(vm.username,vm.password)
+            OAuthService.login($scope.user.username,$scope.user.password)
                 .then(function(response){
-                    OAuthService.setToken(response.data.access_token);
+                    OAuthService.setToken(response.data.access_token,response.data.expires_in,response.data.refresh_token);
                     $state.go('job-list', null, {reload: true});
-                    principal.identity(true).then(function (response) {
-                        if ($rootScope.returnToState) {
-                            $state.go($rootScope.returnToState, $rootScope.returnToStateParams, {reload: true});
-                            $state.go('job-list', null, {reload: true});
-                        } else {
-                            $state.go('job-list', null, {reload: true});
-                        }
-                    });
-
-                    if (!vm.remember) {
-                        OAuthService.clearToken();
-                    }
                 }).catch(function(e){
-                    console.log(e.toString());
+                    vm.message = true;
             }).finally(function(){
                 vm.sending = false;
             });
