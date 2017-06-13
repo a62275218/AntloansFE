@@ -126,13 +126,13 @@ li.job-bar i, li.job-bar a{
 .amount-slider .point-left{
   position: absolute;
   bottom: -30px;
-  left: 30px;
+  left: 10px;
 }
 
 .amount-slider .point-right{
   position: absolute;
   bottom: -30px;
-  right: 30px;
+  right: 10px;
 }
 
 .start_date{
