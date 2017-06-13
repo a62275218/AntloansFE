@@ -59,6 +59,7 @@ var antloans = angular
                     url: '/job-list',
                     templateUrl: 'views/loan-job-list.html',
                     controller: 'JobListCtrl',
+                    cache:false,
                     resolve:{
                         response:function(UserService){
                             return UserService.getCurrentUser();
@@ -86,6 +87,7 @@ var antloans = angular
                     url: '/user-profile',
                     templateUrl: 'views/loan-user-profile.html',
                     controller:'userProfileCtrl',
+                    cache:false,
                     resolve:{
                         response:function(UserService){
                             return UserService.getCurrentUser();
@@ -95,7 +97,8 @@ var antloans = angular
                 .state('create', {
                     url: '/users/new',
                     templateUrl: 'views/create-job-form.html',
-                    controller:'createJob'
+                    controller:'createJob',
+                    controllerAs:'ctrl'
                 })
 
                 .state('reports', {

@@ -18,7 +18,7 @@
 
       <div class="dropdownl">
           <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
-          <button class="dropbtn">{{user.firstName||'null'}} {{user.lastName||'null'}}<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+          <button class="dropbtn">{{user.first_name||'null'}} {{user.last_name||'null'}}<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
           <div class="dropdown-content">
               <a ui-sref="user-profile">Profile</a>
               <hr>
@@ -163,7 +163,7 @@
           </section>
 
            <div class="content">
-               <a href="javascript:;" ng-repeat="item in jobs | orderBy:sortBy.selected.name | rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index " ng-click="toApproval(item.id)">
+               <!--<a href="javascript:;" ng-repeat="item in jobs | orderBy:sortBy.selected.name | rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index " ng-click="toApproval(item.id)">
                    <div class='item'>
                 <span class="side_light" ng-class="[item.color,{orange:orange,red:red,green:green}]">
                 </span>
@@ -179,7 +179,25 @@
                            <tr><th>file nature </th><td>{{item.file_nature}}</td>
                        </table>
                    </div>
+               </a>-->
+               <a href="javascript:;" ng-repeat="item in job | orderBy:sortBy.selected.name |rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index " ng-click="toApproval(item.id)">
+                   <div class='item'>
+                <span class="side_light">
+                </span>
+                       <img ng-src="/images/list-face.png">
+                       <div class='intro'>
+                           <h4 class='name'>{{item.client.first_name}} {{item.client.last_name}}</h4>
+                           <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
+                       </div>
+                       <table>
+                           <tr><th>loan amount </th><td>{{item.loan_amount|currency}} </td><th>assign </th><td>Notebook</td></tr>
+                           <tr><th>loan purpose </th><td>{{item.loan_purpose}} </td><th>broker </th><td>{{item.broker.first_name}} {{item.broker.last_name}}</td></tr>
+                           <tr><th>repayment type </th><td>{{item.repayment_type}} </td><th>special notes </th><td>{{item.special_note}}</td></tr>
+                           <tr><th>file nature </th><td>{{item.file_nature}}</td>
+                       </table>
+                   </div>
                </a>
+=
            </div>
 
        </div>

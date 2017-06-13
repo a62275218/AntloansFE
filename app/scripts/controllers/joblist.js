@@ -1,18 +1,43 @@
-antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService',
-    function($scope, $state,response,OAuthService){
+antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','localStorageService','jobService',
+    function($scope, $state,response,OAuthService,localStorageService,jobService){
         var vm = this;
         vm.logout = function(){
             OAuthService.clearToken();
             principal.authenticate(null);
+            console.log(localStorageService.get('access_token'))
         };
-        if (response && response.status == 200 && response.data.success) {
+        if (response && response.status == 200) {
             $scope.user = response.data.data;
         }
-
+        jobService.getAllJobs()
+            .then(
+                function(response){
+                    $scope.job = response.data.data.content;
+                    console.log($scope.job)
+                },
+            function(e){
+                console.log(e)
+            });
         $scope.toApproval =function(approvalId){
           $state.go('approval',{approvalId:approvalId})
         };
-        $scope.jobs=[
+        /*console.log($scope.bank);
+        $scope.jobs.id = $scope.job.id;
+        $scope.jobs.username = $scope.job.client.first_name + ' '+ $scope.job.client.last_name;
+        $scope.jobs.waiting = true;
+        $scope.jobs.avatar_url = "/images/list-face.png";
+        $scope.jobs.loan_amount = $scope.job.loan_amount;
+        $scope.jobs.loan_purpose = $scope.job.loan_purpose;
+        $scope.jobs.repayment_type = $scope.job.repayment_type;
+        $scope.jobs.file_nature = $scope.job.file_nature;
+        $scope.jobs.assign = "Notebook";
+        $scope.jobs.broker = $scope.job.broker.first_name + ' '+ $scope.job.broker.last_name;
+        $scope.jobs.special_notes = $scope.job.special_note;
+        $scope.jobs.color = "orange";*/
+
+
+
+       /* $scope.jobs=[
             {
                 "id":1,
                 "username":"Jake Lin",
@@ -69,7 +94,7 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService',
                 "special_notes":"Lorem Ipsum",
                 "color":"green"
             }
-        ];
+        ];*/
         $scope.pageAmount =[
             {"name":10},
             {"name":20},

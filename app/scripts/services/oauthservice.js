@@ -28,8 +28,6 @@ antloans.factory('OAuthService', ['$http','API_BASE','localStorageService',
        */
       setToken: function (access_token,expires_in,refresh_token) {
           localStorageService.set('access_token', access_token);
-          localStorageService.set('expires_in', expires_in);
-          localStorageService.set('refresh_token', refresh_token);
       },
       /**
        * Get token from localStorage
@@ -42,7 +40,6 @@ antloans.factory('OAuthService', ['$http','API_BASE','localStorageService',
        */
       clearToken: function () {
           localStorageService.remove('access_token');
-          localStorageService.remove('expires_in');
       }
     };
   }]);
