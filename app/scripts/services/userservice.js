@@ -18,8 +18,17 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
             getCurrentUser: function () {
                 return $http.get(API_BASE + '/users/current', configs);
             },
-            getAllUsers: function (email) {
+            searchUsers: function (email) {
                 return $http.get(API_BASE + '/users/search?email=' + email,
+                    {
+                        headers: {
+                            'Authorization': 'Bearer' + OAuthService.getToken()
+                        }
+                    }
+                )
+            },
+            getAllUsers:function(){
+                return $http.get(API_BASE + '/users',
                     {
                         headers: {
                             'Authorization': 'Bearer' + OAuthService.getToken()

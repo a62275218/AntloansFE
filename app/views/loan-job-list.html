@@ -43,7 +43,7 @@
                         <ui-select-match placeholder="Select the number of pages">
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
-                        <ui-select-choices repeat="item in (sortBy|filter:$select.search) track by $index" ng-click="sortFunction">
+                        <ui-select-choices repeat="item in (sortBy|filter:$select.search) track by $index">
                             <span ng-bind="item.name"></span>
                         </ui-select-choices>
                     </ui-select>
@@ -68,11 +68,6 @@
                          <span ng-bind="item.name"></span>
                      </ui-select-choices>
                  </ui-select>
-                <!--<select class="selectpicker select_page">
-                  <option>10</option>
-                  <option>20</option>
-                  <option>30</option>
-                </select>-->
               </div>
 
               <div class="tool_bar_middle">
@@ -91,17 +86,10 @@
                   <div class="start_date">
                       <label>START DATE:</label>
                       <input ui-date>
-                      <!--<select class="selectpicker startDate">
-                        <option>3/3/15</option>
-                      </select>-->
-
                   </div>
                   <div class="close_date">
                       <label>CLOSE DATE:</label>
                       <input ui-date>
-                      <!--<select class="selectpicker closeDate">
-                        <option>14/4/16</option>
-                      </select>-->
                   </div>
               </div>
 
@@ -137,23 +125,6 @@
           </section>
 
            <div class="content">
-               <!--<a href="javascript:;" ng-repeat="item in jobs | orderBy:sortBy.selected.name | rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index " ng-click="toApproval(item.id)">
-                   <div class='item'>
-                <span class="side_light" ng-class="[item.color,{orange:orange,red:red,green:green}]">
-                </span>
-                       <img ng-src="{{item.avatar_url}}">
-                       <div class='intro'>
-                           <h4 class='name'>{{item.username}}</h4>
-                           <section class='state' ng-if="item.waiting == true"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
-                       </div>
-                       <table>
-                           <tr><th>loan amount </th><td>{{item.loan_amount|currency}} </td><th>assign </th><td>{{item.assign}}</td></tr>
-                           <tr><th>loan purpose </th><td>{{item.loan_purpose}} </td><th>broker </th><td>{{item.broker}}</td></tr>
-                           <tr><th>repayment type </th><td>{{item.repayment_type}} </td><th>special notes </th><td>{{item.special_notes}}</td></tr>
-                           <tr><th>file nature </th><td>{{item.file_nature}}</td>
-                       </table>
-                   </div>
-               </a>-->
                <a href="javascript:;" ng-repeat="item in job | orderBy:convertName(sortBy.selected.name) |rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index " ng-click="toApproval(item.id)">
                 <div class='item'>
                 <span class="side_light">
