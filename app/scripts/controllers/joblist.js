@@ -1,5 +1,5 @@
-antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','localStorageService','jobService','$timeout',
-    function($scope, $state,response,OAuthService,localStorageService,jobService,$timeout){
+antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','localStorageService','jobService',
+    function($scope, $state,response,OAuthService,localStorageService,jobService){
         var vm = this;
         vm.logout = function(){
             OAuthService.clearToken();
@@ -17,8 +17,8 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
             function(e){
                 console.log(e)
             });
-        $scope.toApproval =function(approvalId){
-          $state.go('approval',{approvalId:approvalId})
+        $scope.toApproval =function(id){
+          $state.go('approval',{jobId:id})
         };
 
 

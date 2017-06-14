@@ -1,5 +1,5 @@
-antloans.controller('createJob',['$scope','jobService',
-    function($scope,jobService){
+antloans.controller('createJob',['$scope','jobService','UserService',
+    function($scope,jobService,UserService){
     var vm = this;
         $scope.job={};
      vm.onSubmit = function(){
@@ -15,5 +15,6 @@ antloans.controller('createJob',['$scope','jobService',
              $scope.job.product.broker_id,
              $scope.job.product.special_note
          )
-     }
+     };
+     $scope.user={};
 }]);

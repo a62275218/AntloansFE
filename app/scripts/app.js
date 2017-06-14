@@ -67,9 +67,9 @@ var antloans = angular
                     }
                 })
                 .state('approval', {
-                    url: '/job-list/approval/:approvalId',
-                    templateUrl: 'views/conditional-approval.html'
-                    // controller:''
+                    url: '/job-list/approval/:jobId',
+                    templateUrl: 'views/conditional-approval.html',
+                    controller:'approvalCtrl'
                 })
 
                 .state('documents', {

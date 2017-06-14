@@ -1,14 +1,14 @@
 <div class="brand">Antloans</div>
 
-<div class="dropdownl">
+<div class="dropdownl" ng-controller="navBarCtrl">
     <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
-    <button class="dropbtn">Adam Hunt <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+    <button class="dropbtn">{{user.first_name}} {{user.last_name}}<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
     <div class="dropdown-content">
         <a ui-sref="user-profile">Profile</a>
         <hr>
         <a href="#">Setting</a>
         <hr>
-        <a ui-sref="login">Log out</a>
+        <a href="javascript:;" ng-click="logout()">Log out</a>
     </div>
 </div>
 

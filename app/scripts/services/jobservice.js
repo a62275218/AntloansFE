@@ -30,6 +30,15 @@ antloans.factory('jobService',['API_BASE','$http','OAuthService',
                         special_note:special_note
                     }
                 })
+            },
+            getaJob: function(id) {
+                return $http({
+                    method: 'GET',
+                    url: API_BASE + "/deals/" + id,
+                    headers: {
+                        'Authorization': 'Bearer' + OAuthService.getToken()
+                    }
+                })
             }
         }
 }]);
