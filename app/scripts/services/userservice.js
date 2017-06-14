@@ -17,6 +17,9 @@ antloans.factory('UserService',['$http','API_BASE',
         },
         getCurrentUser: function () {
             return $http.get(API_BASE + '/users/current', configs);
+        },
+        getaUser: function(id){
+            return $http.get(API_BASE + '/users/'+id)
         }
     }
 }]);
