@@ -14,39 +14,12 @@
  </head>
 
   <body>
-     <nav class="nav_bar">
-        <div class="brand">Antloans</div>
-
-        <div class="dropdownl">
-          <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
-          <button class="dropbtn">Adam Hunt <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-          <div class="dropdown-content">
-            <a ui-sref="user-profile">Profile</a>
-            <hr>
-            <a href="#">Setting</a>
-            <hr>
-            <a ui-sref="login">Log out</a>
-          </div>
-        </div>
-
-        <div class="bell">
-        <i class="fa fa-bell fa-lg" aria-hidden="true"><span class='num'>1</span></i>
-        </div>
-     </nav>
+    <nav class="nav_bar" ng-include="'views/partials/navigation.html'">
+    </nav>
 
      <div class='main'>
 
-         <aside class="left_bar" data-status='open'>
-           <ul>
-              <li class='job-bar'><span><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i><a ui-sref="job-list">JOB LIST</a></span></li>
-              <li class='doc-bar'><span><i class="fa fa-file-text fa-lg" aria-hidden="true"></i><a ui-sref="documents">DOCUMENT</a></span></li>
-              <li class='user-bar'><span><i class="fa fa-user fa-lg" aria-hidden="true"></i><a ui-sref="users">USER</a></span></li>
-              <li class='set-bar'><span><i class="fa fa-cog fa-lg" aria-hidden="true"></i><a ui-sref="">SETTING</a></span></li>
-              <li class='report-bar'><span><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i><a ui-sref="reports">REPORT</a></span></li>
-              <li class='settle-bar'><span><i class="fa fa-check fa-lg" aria-hidden="true"></i></i><a ui-sref="settle">SETTLED</a></span></li>
-           </ul>
-
-           <div class="left_arrow"><i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i></div>
+         <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
          </aside>
 
           <div class="right_part">
