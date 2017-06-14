@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>create form</title>
     <!-- <link rel="stylesheet" type="text/css" href="./assets/css/libs/bootstrap.css">
@@ -11,64 +11,75 @@
     <!--my css-->
     <link rel="stylesheet" href="../styles/nav_bar.css">
     <link rel="stylesheet" href="../styles/create-form.css">
- </head>
+</head>
 
-  <body>
-    <nav class="nav_bar" ng-include="'views/partials/navigation.html'">
-    </nav>
+<body>
+<nav class="nav_bar" ng-include="'views/partials/navigation.html'">
+</nav>
 
-     <div class='main'>
+<div class='main'>
 
-         <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
-         </aside>
+    <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
+    </aside>
 
-          <div class="right_part">
-             <div class="personal_detail">
-                 <h3>Personal Details</h3>
-                 <form>
-                     <ui-select ng-model="person.selected" theme="select2" ng-disabled="ctrl.disabled" style="min-width: 300px;" title="Choose a person">
-                         <ui-select-match placeholder="Select a person in the list or search his name/age...">{{$select.selected.name}}</ui-select-match>
-                         <ui-select-choices repeat="person in ctrl.people | propsFilter: {name: $select.search, age: $select.search}">
-                             <div ng-bind-html="person.name | highlight: $select.search"></div>
-                             <small>
-                                 email: {{person.email}}
-                                 age: <span ng-bind-html="''+person.age | highlight: $select.search"></span>
-                             </small>
-                         </ui-select-choices>
-                     </ui-select>
-                     <label>Email</label><input type="email" ng-model="job.user.email" placeholder="input more that 3 characters to search for user" style="width:300px"><br>
-                     <label>First name</label><input type="text" ng-model="job.user.firstName">
-                     <label>Last name</label><input type="text" ng-model="job.user.lastName"><br>
+    <div class="right_part">
+        <div class="personal_detail">
+            <h3>Personal Details</h3>
+            <form>
+                {{$select.search}}
+                <ui-select ng-model="ctrl.users.email.selected" ng-disabled="ctrl.disabled" reset-search-input="false" style="width:400px;">
+                    <ui-select-match placeholder="Type more than 3 characters to find the user by email" style="width:400px;">
+                        <!--<span ng-bind="$select.selected.name" style="width:400px;"></span>-->
+                        {{$select.selected.email}}
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in ctrl.users track by $index" refresh="ctrl.refreshUser($select.search)" refresh-delay="0" style="width:400px;">
+                        <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                        <div ng-bind-html="item.email | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+                <!--<ui-select ng-model="ctrl.person.selected" theme="select2" ng-disabled="ctrl.disabled" style="min-width: 300px;" title="Choose a person">
+                    <ui-select-match placeholder="Select a person in the list or search his name/age...">{{$select.selected.name}}</ui-select-match>
+                    <ui-select-choices repeat="person in ctrl.people | propsFilter: {name: $select.search, age: $select.search}">
+                        <div ng-bind-html="person.name | highlight: $select.search"></div>
+                        <small>
+                            email: {{person.email}}
+                            age: <span ng-bind-html="''+person.age | highlight: $select.search"></span>
+                        </small>
+                    </ui-select-choices>
+                </ui-select>-->
+                <label>Email</label><input type="email" ng-model="job.user.email" placeholder="input more that 3 characters to search for user" style="width:300px"><br>
+                <label>First name</label><input type="text" ng-model="job.user.firstName">
+                <label>Last name</label><input type="text" ng-model="job.user.lastName"><br>
 
-                     <label>Mobile</label><input type="text" ng-model="job.user.mobile">
-                     <label>Security address</label><input type="text" ng-model="job.user.address"><br>
-                 </form>
-             </div>
+                <label>Mobile</label><input type="text" ng-model="job.user.mobile">
+                <label>Security address</label><input type="text" ng-model="job.user.address"><br>
+            </form>
+        </div>
 
-             <div class="product">
-               <h3>Product</h3>
-               <form class="">
-                   <label>Loan type</label><input ng-model="job.product.loan_type">
-                   <label>File nature</label><input ng-model="job.product.file_nature"><br>
+        <div class="product">
+            <h3>Product</h3>
+            <form class="">
+                <label>Loan type</label><input ng-model="job.product.loan_type">
+                <label>File nature</label><input ng-model="job.product.file_nature"><br>
 
-                   <label>Loan amount</label><input ng-model="job.product.loan_amount">
-                   <label>Broker</label><input ng-model="job.product.broker_id"><br>
+                <label>Loan amount</label><input ng-model="job.product.loan_amount">
+                <label>Broker</label><input ng-model="job.product.broker_id"><br>
 
-                   <label>Loan purpose</label><input ng-model="job.product.loan_purpose">
-                   <label>Special notes</label><input type="text" ng-model="job.product.special_note"><br>
+                <label>Loan purpose</label><input ng-model="job.product.loan_purpose">
+                <label>Special notes</label><input type="text" ng-model="job.product.special_note"><br>
 
-                   <label>Payment type</label><input type="text" ng-model="job.product.payment_type">
-                   <label>Bank</label><input type="text" ng-model="job.product.bank"><br>
+                <label>Payment type</label><input type="text" ng-model="job.product.payment_type">
+                <label>Bank</label><input type="text" ng-model="job.product.bank"><br>
 
-                   <button class="saveBtn" type='submit' name="button" ng-click="ctrl.onSubmit()">Save</button>
+                <button class="saveBtn" type='submit' name="button" ng-click="ctrl.onSubmit()">Save</button>
 
-               </form>
-             </div>
-          </div>
+            </form>
+        </div>
+    </div>
 
-     </div>
+</div>
 
-     <!--my js-->
-     <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
-  </body>
+<!--my js-->
+<script type="text/javascript" src="../scripts/loan-job-list.js"></script>
+</body>
 </html>
