@@ -26,21 +26,22 @@
         <div class="personal_detail">
             <h3>Personal Details</h3>
             <form>
-                <label>Email</label>
-                <ui-select ng-model="ctrl.email" ng-disabled="ctrl.disabled" reset-search-input="false"
-                           style="width:400px;">
-                    <ui-select-match placeholder="Type more than 3 characters to find the user by email"
-                                     style="width:400px;">
-                        <!--<span ng-bind="$select.selected.name" style="width:400px;"></span>-->
-                        {{$select.selected.email}}
-                    </ui-select-match>
-                    <ui-select-choices class="ui-select-choices" repeat="item in ctrl.users track by $index"
-                                       refresh="ctrl.refreshUser($select.search)" refresh-delay="0" style="width:400px;"
-                                       ng-click="listUser()">
-                        <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
-                        <div ng-bind-html="item.email | highlight: $select.search"></div>
-                    </ui-select-choices>
-                </ui-select>
+                <div class="email_search">
+                  <label>Email</label>
+                  <ui-select class="email_input" ng-model="ctrl.email" ng-disabled="ctrl.disabled" reset-search-input="false">
+                      <ui-select-match placeholder="Type more than 3 characters to find the user by email"
+                                       style="width:400px;">
+                          <!--<span ng-bind="$select.selected.name" style="width:400px;"></span>-->
+                          {{$select.selected.email}}
+                      </ui-select-match>
+                      <ui-select-choices class="ui-select-choices" repeat="item in ctrl.users track by $index"
+                                         refresh="ctrl.refreshUser($select.search)" refresh-delay="0" style="width:400px;"
+                                         ng-click="listUser()">
+                          <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                          <div ng-bind-html="item.email | highlight: $select.search"></div>
+                      </ui-select-choices>
+                  </ui-select>
+                </div>
                 <br>
                 <label>First name</label><input type="text" ng-model="ctrl.user.first_name">
                 <label>Last name</label><input type="text" ng-model="ctrl.user.last_name"><br>
@@ -56,33 +57,38 @@
                 <label>Loan type</label><input ng-model="job.product.loan_type">
                 <label>File nature</label><input ng-model="job.product.file_nature"><br>
 
-                <label>Loan amount</label><input ng-model="job.product.loan_amount">
-                <label>Broker</label>
-                <ui-select ng-model="brokers.selected" search-enabled="false" class="selectpicker select_page"
-                           onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
-                    <ui-select-match>
-                        <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
-                    </ui-select-match>
-                    <ui-select-choices repeat="item in ctrl.brokers track by $index">
-                        <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
-                    </ui-select-choices>
-                </ui-select>
+                <div class="product_line2">
+                  <label>Loan amount</label><input ng-model="job.product.loan_amount">
+
+                  <label>Broker</label>
+                  <ui-select class="broker_input" ng-model="brokers.selected" search-enabled="false" class="selectpicker select_page"
+                             onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
+                      <ui-select-match>
+                          <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
+                      </ui-select-match>
+                      <ui-select-choices repeat="item in ctrl.brokers track by $index">
+                          <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                      </ui-select-choices>
+                  </ui-select>
+                </div>
                 <br>
 
                 <label>Loan purpose</label><input ng-model="job.product.loan_purpose">
                 <label>Special notes</label><input type="text" ng-model="job.product.special_note"><br>
 
+                <div class="product_line4">
                 <label>Payment type</label><input type="text" ng-model="job.product.payment_type">
-                <label>Bank</label>
-                <ui-select ng-model="banks.selected" search-enabled="false" class="selectpicker select_page"
-                           onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
-                    <ui-select-match>
-                        <span ng-bind="$select.selected.name"></span>
-                    </ui-select-match>
-                    <ui-select-choices repeat="item in ctrl.banks track by $index">
-                        <span ng-bind="item.name"></span>
-                    </ui-select-choices>
-                </ui-select>
+                  <label>Bank</label>
+                  <ui-select class="bank_input" ng-model="banks.selected" search-enabled="false" class="selectpicker select_page"
+                             onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
+                      <ui-select-match>
+                          <span ng-bind="$select.selected.name"></span>
+                      </ui-select-match>
+                      <ui-select-choices repeat="item in ctrl.banks track by $index">
+                          <span ng-bind="item.name"></span>
+                      </ui-select-choices>
+                  </ui-select>
+                </div>
                 <br>
                 <button class="saveBtn" type='submit' name="button" ng-click="ctrl.onSubmit()">Save</button>
 

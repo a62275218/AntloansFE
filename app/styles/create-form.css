@@ -21,6 +21,55 @@
 
 .personal_detail input, .product input{
   width: 220px;
+  height: 33px;
+}
+
+.personal_detail .email_search{
+  vertical-align: middle;
+  height: 35px;
+}
+
+.personal_detail .email_search label{
+  margin-bottom: 0px;
+  display: inline-block;
+  float: left;
+  margin-top: 5px;
+}
+
+.personal_detail .email_input{
+  display: inline-block;
+  width: 400px;
+  float: left;
+}
+
+.personal_detail .email_input input{
+  width: 400px;
+}
+
+.product .broker_input, .product .bank_input{
+  display: inline-block;
+}
+
+.product_line2, .product_line4{
+  height: 33px;
+}
+
+.product_line2 label, .product_line2 input, .product_line2 .broker_input{
+  display: inline-block;
+  float: left;
+}
+
+.product_line4 label, .product_line4 input, .product_line4 .bank_input{
+  display: inline-block;
+  float: left;
+}
+
+.product_line2 label, .product_line4 label{
+  margin-top: 5px;
+}
+
+.product_line2 .broker_input, .product_line4 .bank_input{
+  margin-left: 4px;
 }
 
 .product button.saveBtn{
