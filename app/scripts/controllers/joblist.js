@@ -1,10 +1,9 @@
-antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','localStorageService','jobService',
-    function($scope, $state,response,OAuthService,localStorageService,jobService){
+antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','localStorageService','jobService','$timeout',
+    function($scope, $state,response,OAuthService,localStorageService,jobService,$timeout){
         var vm = this;
         vm.logout = function(){
             OAuthService.clearToken();
             principal.authenticate(null);
-            console.log(localStorageService.get('access_token'))
         };
         if (response && response.status == 200) {
             $scope.user = response.data.data;
@@ -21,6 +20,8 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         $scope.toApproval =function(approvalId){
           $state.go('approval',{approvalId:approvalId})
         };
+
+
         /*console.log($scope.bank);
         $scope.jobs.id = $scope.job.id;
         $scope.jobs.username = $scope.job.client.first_name + ' '+ $scope.job.client.last_name;
@@ -101,10 +102,16 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
             {"name":30}
         ];
         $scope.pageAmount.selected = $scope.pageAmount[0];
+
+        $scope.convertName = function(name){
+            if(name == "name" ){
+                return "client.first_name"
+            }
+        };
         $scope.sortBy =[
             {"name":"date"},
             {"name":"gender"},
-            {"name":"username"}
+            {"name":"name"}
         ];
         $scope.sortBy.selected = $scope.sortBy[0];
 

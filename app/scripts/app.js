@@ -115,8 +115,6 @@ var antloans = angular
 .run(['$rootScope', '$state', '$urlRouter', 'principal',
     function($rootScope, $state, $urlRouter, principal){
         $rootScope.$on('$locationChangeSuccess', function (e, newUrl) {
-            console.log('$locationChangeSuccess: ' + newUrl);
-
             if (principal.isIdentityResolved()) return;
 
             // this event listen will go before the ui router,
@@ -129,5 +127,8 @@ var antloans = angular
                     $urlRouter.sync(); // do an update
                 });
         });
+        /*$rootScope.on('$stateChangeStart',function(){
+
+        });*/
 
     }]);

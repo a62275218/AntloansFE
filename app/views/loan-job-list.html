@@ -180,7 +180,7 @@
                        </table>
                    </div>
                </a>-->
-               <a href="javascript:;" ng-repeat="item in job | orderBy:sortBy.selected.name |rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index " ng-click="toApproval(item.id)">
+               <a href="javascript:;" ng-repeat="item in job | orderBy:convertName(sortBy.selected.name) |rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index " ng-click="toApproval(item.id)">
                    <div class='item'>
                 <span class="side_light">
                 </span>
@@ -197,11 +197,8 @@
                        </table>
                    </div>
                </a>
-=
            </div>
-
        </div>
-
      </div>
      <!--my js-->
      <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
