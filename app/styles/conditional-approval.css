@@ -50,6 +50,17 @@ li.job-bar i, li.job-bar a{
   padding-left: 10px;
 }
 
+.approval_up button{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  background-color: #3D9EDC;
+  border: 0;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
 .approval_middle{
   width: 95%;
   box-sizing: border-box;
@@ -67,7 +78,12 @@ li.job-bar i, li.job-bar a{
   margin-right: 1%;
   box-sizing: border-box;
   padding-left: 50px;
+}
 
+.user_contact.user_plus{
+  padding-left: 20px;
+  padding-top: 30px;
+  cursor: pointer;
 }
 
 .user_contact img{
@@ -115,6 +131,17 @@ li.job-bar i, li.job-bar a{
 
 }
 
+.approval_middle .user_plus{
+  height: 120px;
+}
+
+.user_plus span{
+  color:#D8D8D8;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
 .clear{
   clear: both;
 }
@@ -135,7 +162,28 @@ li.job-bar i, li.job-bar a{
   width: 49%;
   float: left;
   box-shadow: 2px 5px 4px #E8EAEB;
+  position: relative;
 }
+
+.approval_down_left span.editBtn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #717171;
+}
+
+.approval_down_left button.saveBtn{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background-color: #3D9EDC;
+  border: 0;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
 
 .approval_down h3{
   text-align: center;
