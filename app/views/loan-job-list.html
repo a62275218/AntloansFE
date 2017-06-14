@@ -155,7 +155,7 @@
                    </div>
                </a>-->
                <a href="javascript:;" ng-repeat="item in job | orderBy:convertName(sortBy.selected.name) |rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index " ng-click="toApproval(item.id)">
-                   <div class='item'>
+                <div class='item'>
                 <span class="side_light">
                 </span>
                        <img ng-src="/images/list-face.png">
