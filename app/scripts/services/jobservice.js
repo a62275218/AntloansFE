@@ -39,6 +39,11 @@ antloans.factory('jobService',['API_BASE','$http','OAuthService',
                         'Authorization': 'Bearer' + OAuthService.getToken()
                     }
                 })
+            },
+            getJobStatus:function(status){
+                if(status === ''){
+
+                }
             }
         }
 }]);

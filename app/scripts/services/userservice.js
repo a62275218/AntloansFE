@@ -35,6 +35,9 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
                         }
                     }
                 )
+            },
+            forgotPass:function(email){
+                return $http.post(API_BASE+ '/users/forgotpass',{email:email})
             }
         }
     }]);

@@ -28,9 +28,9 @@ var antloans = angular
     .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
         function ($stateProvider, $urlRouterProvider,ChartJsProvider) {
             ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
-            $urlRouterProvider.when('', 'reset');
-            $urlRouterProvider.when('/', '/reset');
-            $urlRouterProvider.otherwise('/reset');
+            $urlRouterProvider.when('', 'login');
+            $urlRouterProvider.when('/', '/login');
+            $urlRouterProvider.otherwise('/404');
 
             $stateProvider
                 .state('404', {
@@ -47,12 +47,12 @@ var antloans = angular
                     templateUrl: 'views/login.html',
                     controller: 'LoginCtrl',
                     controllerAs: 'ctrl'
-                    // controller:''
                 })
                 .state('forget-pw', {
                     url: '/forget-pw',
-                    templateUrl: 'views/loan-pw.html'
-                    // controller:''
+                    templateUrl: 'views/loan-pw.html',
+                    controller:'forgotPassCtrl',
+                    controllerAs:'ctrl'
                 })
                 // ==========side bar list ================
                 .state('job-list', {

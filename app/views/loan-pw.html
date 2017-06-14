@@ -13,12 +13,13 @@
             <h4>Forgot your password?</h4>
             <p>We'll send you an email that will direct you to create a new password.</p>
            </div>
-
            <div class="send_email_down">
-             <form class="" action="login.html" method="post">
-               <label for="">Email Address</label>
-               <input class='send_email_input' type="email" name="" value="">
-               <button type="sendBtn" name="button">Send</button>
+             <form>
+               <label>Email Address</label>
+               <input class='send_email_input' type="email" ng-model="email">
+               <button type="sendBtn" name="button" ng-click="ctrl.OnSubmit(email)">Send</button>
+               <span ng-if="sent== 'false'">email not exist</span>
+               <span ng-if="sent== 'true'">email already sent</span>
              </form>
            </div>
          </div>
