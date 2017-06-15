@@ -59,6 +59,7 @@ var antloans = angular
                     url: '/job-list',
                     templateUrl: 'views/loan-job-list.html',
                     controller: 'JobListCtrl',
+                    controllerAs:'ctrl',
                     cache:false,
                     resolve:{
                         response:function(UserService){

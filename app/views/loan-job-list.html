@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>loan-job-list</title>
     <!-- <link rel="stylesheet" type="text/css" href="./assets/css/libs/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/libs/font-awesome.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/css/bootstrap-slider.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/css/bootstrap-slider.min.css">
 
     <!--my css-->
     <link rel="stylesheet" href="../styles/loan-job-list.css">
- </head>
+</head>
 
-  <body>
-    <nav class="nav_bar" ng-include="'views/partials/navigation.html'">
-    </nav>
+<body>
+<nav class="nav_bar" ng-include="'views/partials/navigation.html'">
+</nav>
 
-     <div class='main'>
+<div class='main'>
 
-       <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
-       </aside>
+    <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
+    </aside>
 
-       <div class="right_part">
-          <section class='tool_bar'>
+    <div class="right_part">
+        <section class='tool_bar'>
 
             <div class="tool_top">
-               <h3>JobList</h3>
-               <button type="button" name="button" ui-sref="create"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>&nbsp; Create Job</button>
+                <h3>JobList</h3>
+                <button type="button" name="button" ui-sref="create"><i class="fa fa-plus-circle fa-lg"
+                                                                        aria-hidden="true"></i>&nbsp; Create Job
+                </button>
             </div>
 
-             <div class='tool_bar_above'>
+            <div class='tool_bar_above'>
                 <div class='search_input'>
-                  <div class="input-group margin-bottom-sm">
-                    <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-                    <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
-                  </div>
+                    <div class="input-group margin-bottom-sm">
+                        <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                        <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
+                    </div>
                 </div>
 
                 <div class="sortBy">
                     <label>SORT BY: &nbsp;</label>
-                    <ui-select ng-model="sortBy.selected" search-enabled="false" class="selectpicker select_date" onkeypress="return false;" ng-disabled="disabled">
+                    <ui-select ng-model="sortBy.selected" search-enabled="false" class="selectpicker select_date"
+                               onkeypress="return false;" ng-disabled="disabled">
                         <ui-select-match placeholder="Select the number of pages">
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
@@ -47,105 +52,133 @@
                             <span ng-bind="item.name"></span>
                         </ui-select-choices>
                     </ui-select>
-                  <!--<select class="selectpicker select_date">
-                    <option>Date</option>
-                    <option>Gender</option>
-                    <option>Name</option>
-                  </select>-->
+                    <!--<select class="selectpicker select_date">
+                      <option>Date</option>
+                      <option>Gender</option>
+                      <option>Name</option>
+                    </select>-->
                 </div>
 
                 <div class="page">
                     <ul class="pager">
-                      <li><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
-                      <li><a href="#">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                        {{currentPage+1}}/{{totalPage}}
+                        <li ><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                        </li>
                     </ul>
                 </div>
-                 <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page" onkeypress="return false;" ng-disabled="disabled">
-                     <ui-select-match placeholder="Select the number of pages">
-                         <span ng-bind="$select.selected.name"></span>
-                     </ui-select-match>
-                     <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index">
-                         <span ng-bind="item.name"></span>
-                     </ui-select-choices>
-                 </ui-select>
-              </div>
+                <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
+                           onkeypress="return false;" ng-disabled="disabled">
+                    <ui-select-match placeholder="Select the number of pages">
+                        <span ng-bind="$select.selected.name"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
+                                       style="width:60px;" ng-click="returnToFirst()">
+                        <span ng-bind="item.name" style="width:60px;"></span>
+                    </ui-select-choices>
+                </ui-select>
+            </div>
 
-              <div class="tool_bar_middle">
-              <hr>
-                  <div class="amount">
+            <div class="tool_bar_middle">
+                <hr>
+                <div class="amount">
                     <label>AMOUNT:</label>
                     <div class="amount-slider">
-                      <div ui-slider="{range: true}" min="0" max="10000" step="1" lower-bound="0" upper-bound="10000" use-decimals ng-model="sliderVals">
-                          <div class="ui-slider-out-of-bounds" style="left:0; width: 20%"></div>
-                          <div class="ui-slider-out-of-bounds" style="right:0; width: 10%"></div>
-                          <span class='point-left'>{{sliderVals[0] | currency}}</span><span class='point-right'>{{sliderVals[1] | currency}}</span>
-                      </div>
+                        <div ui-slider="{range: true}" min="0" max="10000" step="1" lower-bound="0" upper-bound="10000"
+                             use-decimals ng-model="sliderVals">
+                            <div class="ui-slider-out-of-bounds" style="left:0; width: 20%"></div>
+                            <div class="ui-slider-out-of-bounds" style="right:0; width: 10%"></div>
+                            <span class='point-left'>{{sliderVals[0] | currency}}</span><span class='point-right'>{{sliderVals[1] | currency}}</span>
+                        </div>
                     </div>
-                  </div>
+                </div>
 
-                  <div class="start_date">
-                      <label>START DATE:</label>
-                      <input ui-date>
-                  </div>
-                  <div class="close_date">
-                      <label>CLOSE DATE:</label>
-                      <input ui-date>
-                  </div>
-              </div>
+                <div class="start_date">
+                    <label>START DATE:</label>
+                    <input ui-date>
+                </div>
+                <div class="close_date">
+                    <label>CLOSE DATE:</label>
+                    <input ui-date>
+                </div>
+            </div>
 
-              <div class="tool_bar_below">
-              <hr>
-                  <div class="status">
+            <div class="tool_bar_below">
+                <hr>
+                <div class="status">
                     <label>STATUS:</label>
                     <div class="btn-group statusInput" role="group" aria-label="...">
-                      <button type="button" class="btn btn-default">SUBMISSION</button>
-                      <button type="button" class="btn btn-default">ASSESSMENT</button>
-                      <button type="button" class="btn btn-default">SETTLEMENT</button>
-                      <button type="button" class="btn btn-default">ALL</button>
+                        <button type="button" class="btn btn-default">SUBMISSION</button>
+                        <button type="button" class="btn btn-default">ASSESSMENT</button>
+                        <button type="button" class="btn btn-default">SETTLEMENT</button>
+                        <button type="button" class="btn btn-default">ALL</button>
                     </div>
-                  </div>
-                  <div class="broker">
+                </div>
+                <div class="broker">
                     <label>BROKER:</label>
                     <select class="selectpicker brokerInput">
-                      <option>ALL</option>
+                        <option>ALL</option>
                     </select>
 
-                  </div>
-                  <div class="admin">
+                </div>
+                <div class="admin">
                     <label>ADMIN:</label>
                     <select class="selectpicker adminInput">
-                      <option>ALL</option>
+                        <option>ALL</option>
                     </select>
-                  </div>
-              </div>
+                </div>
+            </div>
 
-              <div class="showBtn">
-                 <i class="fa fa-plus" aria-hidden="true">&nbsp;</i><span>show more</span>
-              </div>
-          </section>
+            <div class="showBtn">
+                <i class="fa fa-plus" aria-hidden="true">&nbsp;</i><span>show more</span>
+            </div>
+        </section>
 
-           <div class="content">
-               <a href="javascript:;" ng-repeat="item in job | orderBy:convertName(sortBy.selected.name) |rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1] | filter:searchInput track by $index " ng-click="toApproval(item.id)">
-                <div class='item'>
+        <div class="content">
+            <a ng-repeat="item in jobs
+               | orderBy:convertName(sortBy.selected.name)
+               | rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1]
+               | filter:searchInput
+               | limitTo:pageAmount.selected.name
+               track by $index">
+                <div class='item' ng-click="toApproval(item.id)">
                 <span class="side_light" ng-class="">
                 </span>
-                       <img ng-src="/images/list-face.png">
-                       <div class='intro'>
-                           <h4 class='name'>{{item.first_name}} {{item.last_name}}</h4>
-                           <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
-                       </div>
-                       <table>
-                           <tr><th>loan amount </th><td>{{item.loan_amount|currency}} </td><th>assign </th><td>Notebook</td></tr>
-                           <tr><th>loan purpose </th><td>{{item.loan_purpose}} </td><th>broker </th><td>{{item.broker.first_name}} {{item.broker.last_name}}</td></tr>
-                           <tr><th>repayment type </th><td>{{item.repayment_type}} </td><th>special notes </th><td>{{item.special_note}}</td></tr>
-                           <tr><th>file nature </th><td>{{item.file_nature}}</td>
-                       </table>
-                   </div>
-               </a>
-           </div>
-       </div>
-     </div>
-     <!--my js-->
-     <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
-  </body>
+                    <img ng-src="/images/list-face.png">
+                    <div class='intro'>
+                        <h4 class='name'>{{item.first_name}} {{item.last_name}}</h4>
+                        <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA
+                        </section>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>loan amount</th>
+                            <td>{{item.loan_amount|currency}}</td>
+                            <th>assign</th>
+                            <td>Notebook</td>
+                        </tr>
+                        <tr>
+                            <th>loan purpose</th>
+                            <td>{{item.loan_purpose}}</td>
+                            <th>broker</th>
+                            <td>{{item.broker.first_name}} {{item.broker.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <th>repayment type</th>
+                            <td>{{item.repayment_type}}</td>
+                            <th>special notes</th>
+                            <td>{{item.special_note}}</td>
+                        </tr>
+                        <tr>
+                            <th>file nature</th>
+                            <td>{{item.file_nature}}</td>
+                    </table>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!--my js-->
+<script type="text/javascript" src="../scripts/loan-job-list.js"></script>
+</body>
 </html>
