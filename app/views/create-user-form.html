@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>create user form</title>
+
+    <!--my css-->
+    <link rel="stylesheet" href="../styles/nav_bar.css">
+    <link rel="stylesheet" href="../styles/create-user-form.css">
+</head>
+
+<body>
+<nav class="nav_bar" ng-include="'views/partials/navigation.html'">
+</nav>
+
+<div class='main'>
+
+    <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
+    </aside>
+
+    <div class="right_part">
+        <div class="personal_detail">
+            <h3>Personal Details</h3>
+            <form>
+                <label>Email</label><input type="text" name="" value="">
+                <label>Role</label><input type="text" name="" value="">
+                <br>
+                <label>First name</label><input type="text" ng-model="ctrl.user.first_name">
+                <label>Last name</label><input type="text" ng-model="ctrl.user.last_name"><br>
+
+                <label>Mobile</label><input type="text" ng-model="ctrl.user.mobile">
+                <label>Security address</label><input type="text" ng-model="ctrl.user.address"><br>
+                <button class="saveBtn" type='submit' name="button">Save</button>
+            </form>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<!--my js-->
+<script type="text/javascript" src="../scripts/loan-job-list.js"></script>
+</body>
+</html>
