@@ -61,6 +61,14 @@ li.job-bar i, li.job-bar a{
   text-align: center;
 }
 
+.approval_up .job_edit{
+  display:none;
+}
+
+.approval_up .job_edit input{
+  width: 100%;
+}
+
 .approval_middle{
   width: 95%;
   box-sizing: border-box;
@@ -165,7 +173,7 @@ li.job-bar i, li.job-bar a{
   position: relative;
 }
 
-.approval_down_left span.editBtn{
+.approval_down_left span.timeline_editBtn{
   position: absolute;
   top: 10px;
   right: 10px;
@@ -293,22 +301,23 @@ li.job-bar i, li.job-bar a{
   height: 14px;
   border: 2px solid #B5B5B5;
   border-radius: 50%;
+  background-color: white;
+}
+
+.subm2 div.done, .subm3 div.done{
   background-color: #FFF136;
 }
 
-.assess2 div{
+.assess2 div, .assess3 div{
   width: 14px;
   height: 14px;
   border: 2px solid #B5B5B5;
   border-radius: 50%;
-  background-color: #F06D54;
+  background-color: white;
 }
 
-.assess3 div{
-  width: 16px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: white;
+.assess2 div.done, .assess3 div.done{
+  background-color: #F06D54;
 }
 
 .sett2 div, .sett3 div{
@@ -319,8 +328,8 @@ li.job-bar i, li.job-bar a{
   background-color: white;
 }
 
-.assess3 i{
-  color: #F06D54;
+.sett2 div.done, .sett3 div.done{
+  background-color: green;
 }
 
 .stage_name{
@@ -339,10 +348,6 @@ li.job-bar i, li.job-bar a{
   margin-right: 20px;
 }
 
-.timeline li.assess3{
-  margin-left: -113.5px;
-}
-
 li.subm1{
   margin-left: -48.5px;
   padding: 0;
@@ -354,7 +359,7 @@ li.subm1{
   color:#B5B5B5;
 }
 
-li.subm2, li.subm3, li.assess2, li.sett2, li.sett3{
+li.subm2, li.subm3, li.assess2, li.assess3, li.sett2, li.sett3{
   margin-left: -112px;
 }
 
