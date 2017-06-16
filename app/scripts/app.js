@@ -56,7 +56,7 @@ var antloans = angular
                 })
                 // ==========side bar list ================
                 .state('job-list', {
-                    url: '/job-list',
+                    url: '/jobs',
                     templateUrl: 'views/loan-job-list.html',
                     controller: 'JobListCtrl',
                     controllerAs:'ctrl',
@@ -67,8 +67,14 @@ var antloans = angular
                         }
                     }
                 })
+                .state('create', {
+                    url: '/jobs/new',
+                    templateUrl: 'views/create-job-form.html',
+                    controller:'createJob',
+                    controllerAs:'ctrl'
+                })
                 .state('approval', {
-                    url: '/job-list/approval/:jobId',
+                    url: '/jobs/approval/:jobId',
                     templateUrl: 'views/conditional-approval.html',
                     controller:'approvalCtrl'
                 })
@@ -84,6 +90,11 @@ var antloans = angular
                     templateUrl: 'views/user-list.html'
                     // controller:''
                 })
+                .state('create-user', {
+                    url: '/users/new',
+                    templateUrl: 'views/create-user-form.html'
+                    // controller:''
+                })
                 .state('user-profile', {
                     url: '/user-profile',
                     templateUrl: 'views/loan-user-profile.html',
@@ -94,12 +105,6 @@ var antloans = angular
                             return UserService.getCurrentUser();
                         }
                     }
-                })
-                .state('create', {
-                    url: '/users/new',
-                    templateUrl: 'views/create-job-form.html',
-                    controller:'createJob',
-                    controllerAs:'ctrl'
                 })
 
                 .state('reports', {
