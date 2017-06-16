@@ -24,8 +24,8 @@
 
           <div class="right_part">
              <div class="approval_up">
-                <span><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></span>
-                <table>
+                <span id="jobEditBtn"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></span>
+                <table class="job_show">
                     <tr>
                       <th>first name</th><td>{{job.first_name}}</td><th>last name</th><td>{{job.last_name}}</td>
                     </tr>
@@ -34,6 +34,17 @@
                     </tr>
                     <tr>
                       <th>email</th><td>{{job.email}}</td>
+                    </tr>
+                </table>
+                <table class="job_edit">
+                    <tr>
+                      <th>first name</th><td><input type="text" ng-model="job.first_name"></td><th>last name</th><td><input type="text" ng-model="job.last_name"></td>
+                    </tr>
+                    <tr>
+                      <th>mobile</th><td><input type="text" ng-model="job.mobile"></td><th>security address</th><td><input type="text" ng-model="job.address"></td>
+                    </tr>
+                    <tr>
+                      <th>email</th><td><input type="text" ng-model="job.email"></td>
                     </tr>
                 </table>
                 <button class="saveBtn01" type="button" name="button">Save</button>
@@ -83,12 +94,9 @@
 
              <div class="approval_down">
                  <div class="approval_down_left">
-                    <span class="editBtn"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
+                    <span class="timeline_editBtn"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
                     <h3>Conditional Approval</h3>
                     <div class="process">
-                       <div class="">
-                          <span></span>
-                       </div>
                        <span class='submission'><i class="fa fa-arrow-circle-left fa-3x" aria-hidden="true"></i></span>
                        <span class='assessment'><i class="fa fa-refresh fa-4x" aria-hidden="true"></i></span>
                        <span class='settlement'><i class="fa fa-check-circle fa-3x" aria-hidden="true"></i></span>
@@ -102,16 +110,16 @@
                     <div class="vertical_progress">
                        <ul class='timeline'>
                           <li class='subm1'><div class=""></div> <span><strong>SUBMISSION</strong></span> &nbsp; <span class='num'>1</span></li>
-                          <li class='subm2'><span class='time'>11:30am</span> <div class=""></div> <span class='stage_name'>Pre-submission</span></li>
-                          <li class='subm3'><span class='time'>11:30am</span> <div class=""></div> <span class='stage_name'>Awaiting application</span></li>
+                          <li class='subm2'><span class='time'>11:30am</span> <div class="circle"></div> <span class='stage_name'>Pre-submission</span></li>
+                          <li class='subm3'><span class='time'>11:30am</span> <div class="circle"></div> <span class='stage_name'>Awaiting application</span></li>
 
                           <li class='assess1'><span><strong>ASSESSMENT</strong></span></li>
-                          <li class='assess2'><span class='time'>11:30am</span> <div class=""></div> <span class='stage_name'>Awaiting assessment</span> &nbsp;<span class='num'>2</span></li>
-                          <li class='assess3'><span class='time'>11:30am</span> <div><i class="fa fa-minus-circle fa-lg" aria-hidden="true"></i></div> <span class='stage_name'>Awaiting application</span>&nbsp; <span class='num'>1</span></li>
+                          <li class='assess2'><span class='time'>11:30am</span> <div class="circle"></div> <span class='stage_name'>Awaiting assessment</span> &nbsp;<span class='num'>2</span></li>
+                          <li class='assess3'><span class='time'>11:30am</span> <div class="circle"></div> <span class='stage_name'>Awaiting application</span>&nbsp; <span class='num'>1</span></li>
 
                           <li class='sett1'><span><strong>SETTLEMENT</strong></span></li>
-                          <li class='sett2'><span class='time'>  </span> <div class=""></div> <span class='stage_name'>Settlement pending</span>&nbsp;<span class='num'>1</span></li>
-                          <li class='sett3'><span class='time'>  </span> <div class=""></div> <span class='stage_name'>Approved</span></li>
+                          <li class='sett2'><span class='time'>  </span> <div class="circle"></div> <span class='stage_name'>Settlement pending</span>&nbsp;<span class='num'>1</span></li>
+                          <li class='sett3'><span class='time'>  </span> <div class="circle"></div> <span class='stage_name'>Approved</span></li>
                        </ul>
                     </div>
 
