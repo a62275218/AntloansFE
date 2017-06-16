@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loan-create-document</title>
+    <!--my css-->
+    <link rel="stylesheet" href="../styles/nav_bar.css">
+    <link rel="stylesheet" href="../styles/create-form.css">
+    <link rel="stylesheet" href="../styles/create-document.css">
+</head>
+<body>
+<nav class="nav_bar" ng-include="'views/partials/navigation.html'">
+</nav>
+
+<div class='main'>
+
+    <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
+    </aside>
+
+    <div class="right_part">
+        <!--<form class="form-horizontal" name="form">
+            <div class="form-line">
+                <label>请选择证书文件：</label><span class="small-tip">证书文件只支持.pem格式，文件大小1M以内</span>
+                <div class="choose-file-area">
+                    <input class="file-name" type="text" readonly="readonly" ng-model="fileItem.name"/>
+                    <a href="javascript:;" class="choose-book">
+                        <input type="file" name="certificate" nv-file-select uploader="uploader" ng-click="clearItems()"/>浏览
+                    </a>
+                </div>
+            </div>
+            <div class="form-line">
+                <label>请选择私钥文件：</label><span class="small-tip">私钥文件只支持.key格式，文件大小1M以内</span>
+                <div class="choose-file-area">
+                    <input class="file-name" type="text" readonly="readonly" ng-model="fileItem1.name"/>
+                    <a href="javascript:;" class="choose-key">
+                        <input type="file" name="key" nv-file-select uploader="uploader1" ng-click="clearItems1()"/>浏览
+                    </a>
+                </div>
+            </div>
+            <button type="submit" ng-click="UploadFile()">提交</button>
+        </form>
+        <input type="file" nv-file-select uploader="uploader"/><br/>
+        <ul>
+            <li ng-repeat="item in uploader.queue">
+                Name: <span ng-bind="item.file.name"></span><br/>
+                <button ng-click="item.upload()">upload</button>
+            </li>
+        </ul>-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Select files</h3>
+                    <div nv-file-drop uploader="uploader" class="well drop-zone">
+
+                    </div>
+                    <input type="file" nv-file-select uploader="uploader" multiple>
+                </div>
+                <div class="col-md-9">
+                    <h3>Upload queue</h3>
+                    <p>Queue length:1</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th width="50%">Name</th>
+                                <th>Size</th>
+                                <th>Progress</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in uploader.queue">
+                                <td><strong>{{item.name}}</strong></td>
+                                <td nowrap>{{item.size}}</td>
+                                <td>
+                                    <div class="progress" style="margin-bottom:0;">
+                                        <div class="progress-bar" role="progressbar" ng-style="{'width':item.progress + '%'}" style="width:0%;"></div>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <span ng-show="item.isSuccess" style="display:none;">
+                                        <i class="glyphicon glyphicon-ok"></i>
+                                    </span>
+                                    <span ng-show="item.isCancel" style="display:none;">
+                                        <i class="glyphicon glyphicon-ban-circle"></i>
+                                    </span>
+                                    <span ng-show="item.isError" style="display:none;">
+                                        <i class="glyphicon glyphicon-remove"></i>
+                                    </span>
+                                </td>
+                                <td nowrap>
+                                    <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                        <span class="glyphicon glyphicon-upload"></span>Upload
+                                    </button>
+                                    <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading" disabled="disabled">
+                                        <span class="glyphicon glyphicon-ban-circle"></span>Cancel
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                        <span class="glyphicon glyphicon-trash"></span>Remove
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <div>
+                            Queue progress:
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar"  ng-style="{'width':item.progress + '%'}" style="width:0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -23,7 +23,8 @@ var antloans = angular
         'ui.select',
         'ui.slider',
         'LocalStorageModule',
-        'chart.js'
+        'chart.js',
+        'angularFileUpload'
     ])
     .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
         function ($stateProvider, $urlRouterProvider,ChartJsProvider) {
@@ -95,10 +96,16 @@ var antloans = angular
                         }
                     }
                 })
-                .state('create', {
+                .state('create-job', {
                     url: '/users/new',
                     templateUrl: 'views/create-job-form.html',
                     controller:'createJob',
+                    controllerAs:'ctrl'
+                })
+                .state('create-document',{
+                    url: '/document/new',
+                    templateUrl: 'views/create-document.html',
+                    controller:'createDocument',
                     controllerAs:'ctrl'
                 })
 
