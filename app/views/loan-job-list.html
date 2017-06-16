@@ -52,11 +52,7 @@
                             <span ng-bind="item.name"></span>
                         </ui-select-choices>
                     </ui-select>
-                    <!--<select class="selectpicker select_date">
-                      <option>Date</option>
-                      <option>Gender</option>
-                      <option>Name</option>
-                    </select>-->
+
                 </div>
 
                 <div class="page">
@@ -166,13 +162,15 @@
                         <tr>
                             <th>repayment type</th>
                             <td>{{item.repayment_type}}</td>
-                            <th>special notes</th>
-                            <td>{{item.special_note}}</td>
-                        </tr>
-                        <tr>
                             <th>file nature</th>
                             <td>{{item.file_nature}}</td>
+                        </tr>
+                        <tr>
+                          <th>special notes</th>
+                          <td class="special_note"><div class="">{{item.special_note}}</div></td>
+                        </tr>
                     </table>
+
                 </div>
             </a>
         </div>
