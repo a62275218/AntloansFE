@@ -50,11 +50,22 @@ li.job-bar i, li.job-bar a{
   padding-left: 10px;
 }
 
-.approval_up button{
+.approval_up button.saveBtn01{
   position: absolute;
   right: 10px;
   bottom: 10px;
   background-color: #3D9EDC;
+  border: 0;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.approval_up button.cancelBtn01{
+  position: absolute;
+  right: 10px;
+  bottom: 40px;
+  background-color: #B5B5B5;
   border: 0;
   color: white;
   border-radius: 5px;
@@ -163,7 +174,7 @@ li.job-bar i, li.job-bar a{
 
 .approval_down_left{
   padding-top: 30px;
-  height: 700px;
+  height: 1000px;
   background-color: white;
   box-sizing: border-box;
   display: inline-block;
@@ -265,7 +276,7 @@ li.job-bar i, li.job-bar a{
   margin-left: auto;
   margin-right: auto;
   border-left: 3px solid #B5B5B5;
-  height: 330px;
+  height: 500px;
 }
 
 .timeline li{
@@ -296,7 +307,7 @@ li.job-bar i, li.job-bar a{
   background-color: #B5B5B5;
 }
 
-.subm2 div, .subm3 div{
+.subm2 div, .subm3 div, .subm4 div{
   width: 14px;
   height: 14px;
   border: 2px solid #B5B5B5;
@@ -304,11 +315,11 @@ li.job-bar i, li.job-bar a{
   background-color: white;
 }
 
-.subm2 div.done, .subm3 div.done{
+.subm2 div.done, .subm3 div.done, .subm4 div.done{
   background-color: #FFF136;
 }
 
-.assess2 div, .assess3 div{
+.assess2 div, .assess3 div, .assess4 div, .assess5 div, .assess6 div, .assess7 div{
   width: 14px;
   height: 14px;
   border: 2px solid #B5B5B5;
@@ -316,11 +327,11 @@ li.job-bar i, li.job-bar a{
   background-color: white;
 }
 
-.assess2 div.done, .assess3 div.done{
+.assess2 div.done, .assess3 div.done, .assess4 div.done, .assess5 div.done, .assess6 div.done, .assess7 div.done{
   background-color: #F06D54;
 }
 
-.sett2 div, .sett3 div{
+.sett2 div, .sett3 div, .sett4 div{
   width: 14px;
   height: 14px;
   border: 2px solid #B5B5B5;
@@ -328,7 +339,7 @@ li.job-bar i, li.job-bar a{
   background-color: white;
 }
 
-.sett2 div.done, .sett3 div.done{
+.sett2 div.done, .sett3 div.done, .sett4 div.done{
   background-color: green;
 }
 
@@ -359,7 +370,9 @@ li.subm1{
   color:#B5B5B5;
 }
 
-li.subm2, li.subm3, li.assess2, li.assess3, li.sett2, li.sett3{
+li.subm2, li.subm3, li.subm4,
+li.assess2, li.assess3, li.assess4, li.assess5, li.assess6, li.assess7,
+li.sett2, li.sett3, li.sett4{
   margin-left: -112px;
 }
 
@@ -378,34 +391,64 @@ li.subm2, li.subm3, li.assess2, li.assess3, li.sett2, li.sett3{
   top:50px;
 }
 
+.timeline .subm4{
+  position: absolute;
+  top:80px;
+}
+
 .timeline .assess1{
   position: absolute;
-  left: 220px;
-  top:90px;
+  left: 215px;
+  top:120px;
 }
 
 .timeline .assess2{
   position: absolute;
-  top:150px;
+  top:180px;
 }
 
 .timeline .assess3{
   position: absolute;
-  top:180px;
+  top:210px;
+}
+
+.timeline .assess4{
+  position: absolute;
+  top:240px;
+}
+
+.timeline .assess5{
+  position: absolute;
+  top:270px;
+}
+
+.timeline .assess6{
+  position: absolute;
+  top:300px;
+}
+
+.timeline .assess7{
+  position: absolute;
+  top:330px;
 }
 
 .timeline .sett1{
   position: absolute;
-  bottom: 60px;
-  left: 220px;
+  bottom: 80px;
+  left: 215px;
 }
 
 .timeline .sett2{
   position: absolute;
-  bottom: 20px;
+  bottom: 50px;
 }
 
 .timeline .sett3{
+  position: absolute;
+  bottom: 20px;
+}
+
+.timeline .sett4{
   position: absolute;
   bottom: -10px;
 }
