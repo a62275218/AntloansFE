@@ -66,7 +66,7 @@
 
               <!-- charts content  -->
               <div id="charts_list">
-                 <div class="payments_reveived" ng-controller="lineChartCtrl">
+                 <div class="payments_received" ng-controller="lineChartCtrl">
                      <div class="payments_left">
                          <!--<h4>Payments Received</h4>-->
                          <div class="clear"></div>
@@ -102,7 +102,7 @@
                     </div>
 
                     <div class="diagram" ng-controller="lineChartCtrl">
-                        <canvas id="line" class="chart chart-line" chart-data="data"
+                        <canvas id="line2" class="chart chart-line" chart-data="data"
                                 chart-labels="labels" chart-series="series" chart-options="options"
                                 chart-dataset-override="datasetOverride" chart-click="onClick">
                         </canvas>
@@ -110,7 +110,7 @@
 
                  </div>
 
-                 <div class="chartl donut_chart">
+                 <div class="chartl donut_chart" data-drag="true">
                    <div class="chart_name">
                      <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
                      <span class="chart_name2">Donut Chart</span>
@@ -132,7 +132,7 @@
                      <span class="chart_name3"><i class="fa fa-cog" aria-hidden="true"></i></span>
                    </div>
                    <div class="diagram" ng-controller="scatterChartCtrl">
-                       <canvas id="line" class="chart chart-line" chart-data="data"
+                       <canvas id="line3" class="chart chart-line" chart-data="data"
                                chart-labels="labels" chart-series="series" chart-options="options"
                                chart-dataset-override="datasetOverride" chart-click="onClick">
                        </canvas>

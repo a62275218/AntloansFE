@@ -24,7 +24,8 @@ var antloans = angular
         'ui.slider',
         'LocalStorageModule',
         'chart.js',
-        'angularFileUpload'
+        'angularFileUpload',
+        'ngDragDrop'
     ])
     .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
         function ($stateProvider, $urlRouterProvider,ChartJsProvider) {
@@ -111,7 +112,8 @@ var antloans = angular
 
                 .state('reports', {
                     url: '/reports',
-                    templateUrl: 'views/report-analytics.html'
+                    templateUrl: 'views/report-analytics.html',
+                    controller:'reportCtrl'
                 })
 
                 .state('settle', {

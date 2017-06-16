@@ -6,7 +6,7 @@
     <!--my css-->
     <link rel="stylesheet" href="../styles/nav_bar.css">
     <link rel="stylesheet" href="../styles/create-form.css">
-    <link rel="stylesheet" href="../styles/create-document.css">
+    <!--<link rel="stylesheet" href="../styles/create-document.css">-->
 </head>
 <body>
 <nav class="nav_bar" ng-include="'views/partials/navigation.html'">
@@ -50,8 +50,8 @@
             <div class="row">
                 <div class="col-md-3">
                     <h3>Select files</h3>
-                    <div nv-file-drop uploader="uploader" class="well drop-zone">
-
+                    <div nv-file-drop uploader="uploader" nv-file-over class="well my-drop-zone" ng-show="uploader.isHTML5">
+                        Drop file here
                     </div>
                     <input type="file" nv-file-select uploader="uploader" multiple>
                 </div>
@@ -70,11 +70,11 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="item in uploader.queue">
-                                <td><strong>{{item.name}}</strong></td>
-                                <td nowrap>{{item.size}}</td>
-                                <td>
+                                <td><strong>{{ item.file.name }}</strong></td>
+                                <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                <td ng-show="uploader.isHTML5">
                                     <div class="progress" style="margin-bottom:0;">
-                                        <div class="progress-bar" role="progressbar" ng-style="{'width':item.progress + '%'}" style="width:0%;"></div>
+                                        <div class="progress-bar" role="progressbar" ng-style="{'width':item.progress + '%'}"></div>
                                     </div>
                                 </td>
                                 <td class="text-center">
@@ -106,9 +106,18 @@
                         <div>
                             Queue progress:
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar"  ng-style="{'width':item.progress + '%'}" style="width:0%;"></div>
+                                <div class="progress-bar" role="progressbar"  ng-style="{'width':uploader.progress + '%'}"></div>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length" disabled="disabled">
+                            <span class="glyphicon glyphicon-upload"></span>Upload all
+                        </button>
+                        <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading" disabled="disabled">
+                            <span class="glyphicon glyphicon-ban-circle"></span>Cancel all
+                        </button>
+                        <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length" disabled="disabled">
+                            <span class="glyphicon glyphicon-trash"></span>Remove all
+                        </button>
                     </div>
                 </div>
             </div>

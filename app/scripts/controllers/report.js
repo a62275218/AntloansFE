@@ -1,0 +1,4 @@
+antloans.controller('reportCtrl',[
+    function(){
+
+}]);
