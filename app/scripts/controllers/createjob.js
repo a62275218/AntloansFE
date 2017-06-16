@@ -2,18 +2,34 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
     function ($scope, jobService, UserService, BankService) {
         var vm = this;
         vm.onSubmit = function () {
-            jobService.createJob(
-                $scope.job.user.client_id,
-                $scope.job.user.bank_id,
-                $scope.job.product.product,
-                $scope.job.product.loan_type,
-                $scope.job.product.loan_amount,
-                $scope.job.product.loan_purpose,
-                $scope.job.product.repayment_type,
-                $scope.job.product.file_nature,
-                $scope.job.product.broker_id,
-                $scope.job.product.special_note
-            )
+            if(!vm.user || !vm.email || !$scope.banks.selected || !$scope.loan_type.selected || !$scope.job.product.loan_amount || !$scope.loan_purpose.selected
+            || !$scope.repayment_type.selected || !$scope.file_nature.selected || !$scope.brokers.selected){
+                $scope.valid = false;
+            }else {
+                $scope.valid = true;
+                jobService.createJob(
+                    {
+                        "first_name": vm.user.first_name,
+                        "last_name": vm.user.last_name,
+                        "mobile": vm.user.mobile,
+                        "address": vm.user.address,
+                        "email": vm.email.email,
+                        "bank_id": $scope.banks.selected.id,
+                        "loan_type": $scope.loan_type.selected,
+                        "loan_amount": $scope.job.product.loan_amount,
+                        "loan_purpose": $scope.loan_purpose.selected,
+                        "repayment_type": $scope.repayment_type.selected,
+                        "file_nature": $scope.file_nature.selected,
+                        "broker_id": $scope.brokers.selected.user_id,
+                        "special_note": $scope.job.product.special_note
+                    }
+                ).then(function (response) {
+                    if (response.status == 200) {
+                        swal("Success!", "You created a new deal!", "success")
+                    }
+                }, function (e) {
+                });
+            }
         };
         vm.users = [];
         vm.refreshUser = function (email) {
@@ -30,13 +46,13 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
         $scope.listUser = function () {
             vm.user = vm.email
         };
-        vm.brokers = [];
+        $scope.brokers = [];
         vm.getBrokers = function () {
             UserService.getAllUsers()
                 .then(function (response) {
                     for (var i = 0; i < response.data.data.length; i++) {
                         if (response.data.data[i].role === 'broker') {
-                            vm.brokers.push(response.data.data[i])
+                            $scope.brokers.push(response.data.data[i])
                         }
                     }
                 }, function (e) {
@@ -44,15 +60,29 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
         };
 
         /*vm.brokers.selected*/
-        vm.banks = [];
+        $scope.banks = [];
         vm.getBanks = function () {
             BankService.getAllBanks()
                 .then(function (response) {
-                    vm.banks = response.data.data;
-                    console.log(vm.banks)
+                    $scope.banks = response.data.data;
                 }, function (e) {
+                })
+        };
+        vm.repayment_type=[];
+        $scope.loan_type=[];
+        $scope.loan_pupose=[];
+        $scope.file_nature=[];
+        vm.getProperty = function(){
+            jobService.getJobProperty()
+                .then(function(response){
+                    $scope.loan_type = response.data.data.loan_type;
+                    $scope.repayment_type = response.data.data.repayment_type;
+                    $scope.loan_purpose = response.data.data.loan_purpose;
+                    $scope.file_nature = response.data.data.file_nature;
+                },function(e){
                 })
         };
         vm.getBrokers();
         vm.getBanks();
+        vm.getProperty();
     }]);

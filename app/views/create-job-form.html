@@ -23,7 +23,7 @@
             <form>
                 <div class="email_search">
                   <label>Email</label>
-                  <ui-select class="email_input" ng-model="ctrl.email" ng-disabled="ctrl.disabled" reset-search-input="false">
+                  <ui-select class="email_input" ng-model="ctrl.email" ng-disabled="ctrl.disabled" reset-search-input="false" required>
                       <ui-select-match placeholder="Type more than 3 characters to find the user by email"
                                        style="width:400px;">
                           <!--<span ng-bind="$select.selected.name" style="width:400px;"></span>-->
@@ -38,8 +38,8 @@
                   </ui-select>
                 </div>
                 <br>
-                <label>First name</label><input type="text" ng-model="ctrl.user.first_name">
-                <label>Last name</label><input type="text" ng-model="ctrl.user.last_name"><br>
+                <label>First name</label><input type="text" ng-model="ctrl.user.first_name" required>
+                <label>Last name</label><input type="text" ng-model="ctrl.user.last_name" required><br>
 
                 <label>Mobile</label><input type="text" ng-model="ctrl.user.mobile">
                 <label>Security address</label><input type="text" ng-model="ctrl.user.address"><br>
@@ -48,45 +48,81 @@
 
         <div class="product">
             <h3>Product</h3>
-            <form class="">
-                <label>Loan type</label><input ng-model="job.product.loan_type">
-                <label>File nature</label><input ng-model="job.product.file_nature"><br>
+            <form name="jobForm" novalidate>
+                <label>Loan type</label>
+                <ui-select ng-model="loan_type.selected" search-enabled="false" class="broker_input selectpicker select_page"
+                           onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in loan_type track by $index">
+                        <span ng-bind="item"></span>
+                    </ui-select-choices>
+                </ui-select>
+                <label>File nature</label>
+                <ui-select ng-model="file_nature.selected" search-enabled="false" class="broker_input selectpicker select_page"
+                           onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in file_nature track by $index">
+                        <span ng-bind="item"></span>
+                    </ui-select-choices>
+                </ui-select>
 
                 <div class="product_line2">
                   <label>Loan amount</label><input ng-model="job.product.loan_amount">
 
                   <label>Broker</label>
-                  <ui-select class="broker_input" ng-model="brokers.selected" search-enabled="false" class="selectpicker select_page"
+                  <ui-select ng-model="brokers.selected" search-enabled="false" class="broker_input selectpicker select_page"
                              onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
                       <ui-select-match>
                           <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
                       </ui-select-match>
-                      <ui-select-choices repeat="item in ctrl.brokers track by $index">
+                      <ui-select-choices repeat="item in brokers track by $index">
                           <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
                       </ui-select-choices>
                   </ui-select>
                 </div>
                 <br>
 
-                <label>Loan purpose</label><input ng-model="job.product.loan_purpose">
+                <label>Loan purpose</label>
+                <ui-select ng-model="loan_purpose.selected" search-enabled="false" class="broker_input selectpicker select_page"
+                           onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in loan_purpose track by $index">
+                        <span ng-bind="item"></span>
+                    </ui-select-choices>
+                </ui-select>
                 <label>Special notes</label><input type="text" ng-model="job.product.special_note"><br>
 
                 <div class="product_line4">
-                <label>Payment type</label><input type="text" ng-model="job.product.payment_type">
+                <label>Repayment type</label>
+                    <ui-select ng-model="repayment_type.selected" search-enabled="false" class="bank_input selectpicker select_page"
+                               onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in repayment_type track by $index">
+                            <span ng-bind="item"></span>
+                        </ui-select-choices>
+                    </ui-select>
                   <label>Bank</label>
-                  <ui-select class="bank_input" ng-model="banks.selected" search-enabled="false" class="selectpicker select_page"
+                  <ui-select ng-model="banks.selected" search-enabled="false" class="bank_input selectpicker select_page"
                              onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
                       <ui-select-match>
                           <span ng-bind="$select.selected.name"></span>
                       </ui-select-match>
-                      <ui-select-choices repeat="item in ctrl.banks track by $index">
+                      <ui-select-choices repeat="item in banks track by $index">
                           <span ng-bind="item.name"></span>
                       </ui-select-choices>
                   </ui-select>
                 </div>
                 <br>
-                <button class="saveBtn" type='submit' name="button" ng-click="ctrl.onSubmit()">Save</button>
-
+                <button class="saveBtn" type='submit' name="button" ng-click="ctrl.onSubmit()" ng-disabled="form.input.$error.required">Save</button>
+                <span style="color:red" ng-if="valid === false">Please input required information</span>
             </form>
         </div>
     </div>

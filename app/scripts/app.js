@@ -103,7 +103,7 @@ var antloans = angular
                     }
                 })
                 .state('create-job', {
-                    url: '/users/new',
+                    url: '/jobs/new',
                     templateUrl: 'views/create-job-form.html',
                     controller:'createJob',
                     controllerAs:'ctrl'
