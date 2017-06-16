@@ -21,19 +21,23 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams',
         });
 
       // ========= edit vertical timeline ========
-
+      console.log(Array.isArray(status));
        $('.timeline_editBtn').click(function(){
           $('.timeline').css('border-left',"3px dotted #B5B5B5");
-          $('.circle').addClass('listen').css('cursor','pointer');
-          $('.listen').click(function(e){
+          $('.circle').css('cursor','pointer');
+          $('.circle').click(function(e){
              $(e.target).toggleClass('done');
-          })
+             $(e.target).prev().addClass('done');
+            //  console.log(status.indexOf($(e.target)));
+          });
+
+
        })
 
        $('.approval_down_left .saveBtn').click(function(){
           $('.timeline').css('border-left',"3px solid #B5B5B5");
-          $('.listen').unbind();
-          $('.circle').removeClass('listen').css('cursor','default');
+          $('.circle').unbind();
+          $('.circle').css('cursor','default');
 
        })
 

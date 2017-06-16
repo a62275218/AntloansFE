@@ -219,8 +219,7 @@ li.job-bar i, li.job-bar a{
 .content .item{
   width: 80%;
   height: 130px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 50px;
   border-left-width: 15px;
   background-color: #FFFFFF;
   margin-top: 20px;
@@ -270,6 +269,7 @@ li.job-bar i, li.job-bar a{
 }
 
 .content table{
+  table-layout: fixed;
   display: inline-block;
   float: left;
   margin-left: 50px;
@@ -288,4 +288,12 @@ table td{
   box-sizing: border-box;
   text-align: left;
   color: #494C52;
+  overflow: hidden;
+}
+
+td.special_note div{
+  width:120px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  height: 20px;
 }
