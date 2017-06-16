@@ -23,7 +23,9 @@ var antloans = angular
         'ui.select',
         'ui.slider',
         'LocalStorageModule',
-        'chart.js'
+        'chart.js',
+        'angularFileUpload',
+        'ngDragDrop'
     ])
     .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
         function ($stateProvider, $urlRouterProvider,ChartJsProvider) {
@@ -67,12 +69,6 @@ var antloans = angular
                         }
                     }
                 })
-                .state('create', {
-                    url: '/jobs/new',
-                    templateUrl: 'views/create-job-form.html',
-                    controller:'createJob',
-                    controllerAs:'ctrl'
-                })
                 .state('approval', {
                     url: '/jobs/approval/:jobId',
                     templateUrl: 'views/conditional-approval.html',
@@ -106,10 +102,23 @@ var antloans = angular
                         }
                     }
                 })
+                .state('create-job', {
+                    url: '/jobs/new',
+                    templateUrl: 'views/create-job-form.html',
+                    controller:'createJob',
+                    controllerAs:'ctrl'
+                })
+                .state('create-document',{
+                    url: '/document/new',
+                    templateUrl: 'views/create-document.html',
+                    controller:'createDocument',
+                    controllerAs:'ctrl'
+                })
 
                 .state('reports', {
                     url: '/reports',
-                    templateUrl: 'views/report-analytics.html'
+                    templateUrl: 'views/report-analytics.html',
+                    controller:'reportCtrl'
                 })
 
                 .state('settle', {
