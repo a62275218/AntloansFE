@@ -1,5 +1,5 @@
-antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','localStorageService','jobService',
-    function($scope, $state,response,OAuthService,localStorageService,jobService){
+antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','localStorageService','jobService','paginationService','$filter',
+    function($scope, $state,response,OAuthService,localStorageService,jobService,paginationService,$filter){
         var vm = this;
         vm.logout = function(){
             OAuthService.clearToken();
@@ -8,104 +8,63 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         if (response && response.status == 200) {
             $scope.user = response.data.data;
         }
-        jobService.getAllJobs()
-            .then(
-                function(response){
-                    $scope.job = response.data.data.content;
-                    console.log($scope.job)
-                },
-            function(e){
-                console.log(e)
-            });
+        /*set default current page*/
+        $scope.currentPage = 0;
+
+        /*get all the paginated data*/
+        vm.getPaginatedJobs = function(page,limit) {
+            jobService.getAllJobs()
+                .then(
+                    function (response) {
+                        $scope.job = response.data.data.content;
+                        $scope.totalPage = paginationService.numberOfPages($scope.job.length,limit);
+                        $scope.jobs = $scope.job.slice(page * limit);
+                    },
+                    function (e) {
+                        console.log(e)
+                    });
+        };
+        /*go to next page*/
+        $scope.nextPage = function(){
+            $scope.currentPage++;
+            if($scope.currentPage>$scope.totalPage-1){
+                $scope.currentPage = $scope.totalPage-1
+            }
+            vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
+        };
+        /*go to previous page*/
+        $scope.prevPage = function(){
+            $scope.currentPage--;
+            if($scope.currentPage < 0){
+                $scope.currentPage = 0
+            }
+            vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
+        };
+        /*go to first page*/
+        $scope.returnToFirst = function(){
+            vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
+            $scope.currentPage = 0;
+        };
+        /*options of page amount*/
+        $scope.pageAmount =[
+            {"name":5},
+            {"name":10},
+            {"name":15}
+        ];
+        /*default page amount*/
+        $scope.pageAmount.selected = $scope.pageAmount[0];
+        /*load paginated data*/
+        vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
+        /*set up total page*/
+        $scope.totalPage = vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
+
         $scope.toApproval =function(id){
           $state.go('approval',{jobId:id})
         };
 
-
-        /*console.log($scope.bank);
-        $scope.jobs.id = $scope.job.id;
-        $scope.jobs.username = $scope.job.client.first_name + ' '+ $scope.job.client.last_name;
-        $scope.jobs.waiting = true;
-        $scope.jobs.avatar_url = "/images/list-face.png";
-        $scope.jobs.loan_amount = $scope.job.loan_amount;
-        $scope.jobs.loan_purpose = $scope.job.loan_purpose;
-        $scope.jobs.repayment_type = $scope.job.repayment_type;
-        $scope.jobs.file_nature = $scope.job.file_nature;
-        $scope.jobs.assign = "Notebook";
-        $scope.jobs.broker = $scope.job.broker.first_name + ' '+ $scope.job.broker.last_name;
-        $scope.jobs.special_notes = $scope.job.special_note;
-        $scope.jobs.color = "orange";*/
-
-
-
-       /* $scope.jobs=[
-            {
-                "id":1,
-                "username":"Jake Lin",
-                "waiting":true,
-                "avatar_url":"/images/list-face.png",
-                "loan_amount":4000,
-                "loan_purpose":"Business",
-                "repayment_type":"ANZ",
-                "file_nature":"Commercial",
-                "assign":"Notebook",
-                "broker":"Laurel Siaw",
-                "special_notes":"Lorem Ipsum",
-                "color":"orange"
-            },
-            {
-                "id":2,
-                "username":"Joyce Li",
-                "waiting":true,
-                "avatar_url":"/images/list-face.png",
-                "loan_amount":5000,
-                "loan_purpose":"Business",
-                "repayment_type":"ANZ",
-                "file_nature":"Commercial",
-                "assign":"Notebook",
-                "broker":"Laurel Siaw",
-                "special_notes":"Lorem Ipsum",
-                "color":"red"
-            },
-            {
-                "id":3,
-                "username":"Danny Liu",
-                "waiting":true,
-                "avatar_url":"/images/list-face.png",
-                "loan_amount":1500,
-                "loan_purpose":"Business",
-                "repayment_type":"ANZ",
-                "file_nature":"Commercial",
-                "assign":"Notebook",
-                "broker":"Laurel Siaw",
-                "special_notes":"Lorem Ipsum",
-                "color":"orange"
-            },
-            {
-                "id":4,
-                "username":"Tommy Kuo",
-                "waiting":true,
-                "avatar_url":"/images/list-face.png",
-                "loan_amount":7500,
-                "loan_purpose":"Business",
-                "repayment_type":"ANZ",
-                "file_nature":"Commercial",
-                "assign":"Notebook",
-                "broker":"Laurel Siaw",
-                "special_notes":"Lorem Ipsum",
-                "color":"green"
-            }
-        ];*/
-        $scope.pageAmount =[
-            {"name":10},
-            {"name":20},
-            {"name":30}
-        ];
-        $scope.pageAmount.selected = $scope.pageAmount[0];
-
         $scope.convertName = function(name){
             if(name == "name" ){
-                return "client.first_name"
+                return "first_name"
             }
         };
         $scope.sortBy =[
