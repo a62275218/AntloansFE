@@ -4,8 +4,8 @@
     background-color: #677583;
 }
 
-li.job-bar i, li.job-bar a {
-    color: white !important;
+li.job-bar i, li.job-bar a{
+  color: white !important;
 }
 
 /*========================*/
@@ -38,17 +38,17 @@ li.job-bar i, li.job-bar a {
     color: #474A50;
 }
 
-.approval_up th {
-    width: 200px;
-    text-align: right;
-    padding-right: 30px;
-    color: #A5A5A5;
+.approval_up th{
+  width: 200px;
+  text-align: right;
+  padding-right: 30px;
+  color: #A5A5A5;
 }
 
-.approval_up td {
-    width: 300px;
-    text-align: left;
-    padding-left: 10px;
+.approval_up td{
+  width: 300px;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .approval_up button.saveBtn01 {
@@ -62,15 +62,15 @@ li.job-bar i, li.job-bar a {
     text-align: center;
 }
 
-.approval_up button.cancelBtn01 {
-    position: absolute;
-    right: 10px;
-    bottom: 40px;
-    background-color: #B5B5B5;
-    border: 0;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
+.approval_up button.cancelBtn01{
+  position: absolute;
+  right: 10px;
+  bottom: 40px;
+  background-color: #B5B5B5;
+  border: 0;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .approval_up .job_edit {
@@ -89,15 +89,15 @@ li.job-bar i, li.job-bar a {
     margin-top: 20px;
 }
 
-.approval_middle .user_contact {
-    width: 32%;
-    background-color: white;
-    box-shadow: 2px 5px 4px #E8EAEB;
-    display: inline-block;
-    float: left;
-    margin-right: 1%;
-    box-sizing: border-box;
-    padding-left: 50px;
+.approval_middle .user_contact{
+  width: 32%;
+  background-color: white;
+  box-shadow: 2px 5px 4px #E8EAEB;
+  display: inline-block;
+  float: left;
+  margin-right: 1%;
+  box-sizing: border-box;
+  padding-left: 50px;
 }
 
 .user_contact.user_plus {
@@ -106,25 +106,25 @@ li.job-bar i, li.job-bar a {
     cursor: pointer;
 }
 
-.user_contact img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50px;
-    display: inline-block;
-    float: left;
+.user_contact img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  display: inline-block;
+  float: left;
 }
 
-.user_contact .user_intro {
-    display: inline-block;
-    float: left;
-    vertical-align: middle;
-    height: 50px;
-    padding-left: 10px;
-    padding-top: 5px;
+.user_contact .user_intro{
+  display: inline-block;
+  float: left;
+  vertical-align: middle;
+  height: 50px;
+  padding-left: 10px;
+  padding-top: 5px;
 }
 
-.user_contact {
-    padding: 20px;
+.user_contact{
+  padding: 20px;
 }
 
 .user_intro h4, .user_intro p {
@@ -155,11 +155,11 @@ li.job-bar i, li.job-bar a {
     height: 120px;
 }
 
-.user_plus span {
-    color: #D8D8D8;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
+.user_plus span{
+  color:#D8D8D8;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
 }
 
 .clear {
@@ -209,15 +209,15 @@ li.job-bar i, li.job-bar a {
     color: #0B1949;
 }
 
-.approval_down .process {
-    max-width: 336px;
-    height: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    background-color: white;
-    overflow: hidden;
-    margin-top: 50px;
+.approval_down .process{
+  max-width: 336px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  margin-top: 50px;
 }
 
 .process_name {
@@ -228,31 +228,18 @@ li.job-bar i, li.job-bar a {
     overflow: hidden;
 }
 
-.process_name .submission_name, .process_name .assessment_name {
-    margin-right: 50px;
+.process_name .submission_name, .process_name .assessment_name{
+  margin-right: 50px;
 }
 
-.process_name .settlement_name {
-    color: #B5B5B5;
+.process_name .settlement_name{
+  color:#B5B5B5;
 }
 
-.process span {
-    height: 60px;
+.process span{
+  height: 60px;
 }
 
-.submission i {
-    color: #FFF136;
-}
-
-.assessment i {
-    color: #F38671;
-    margin-left: 95px;
-}
-
-.settlement i {
-    color: #B5B5B5;
-    margin-left: 95px;
-}
 
 .submission::after, .assessment::after {
     content: '';
@@ -264,26 +251,65 @@ li.job-bar i, li.job-bar a {
     background: #B5B5B5;
 }
 
+
+.submission i.done{
+   color: #FFF136;
+}
+
+.assessment i.done{
+   color: #F38671;
+}
+
+.settlement i.done{
+  color: green;
+}
+
+.submission i{
+  color: #B5B5B5;
+}
+
+.assessment i{
+  color: #B5B5B5;
+  margin-left: 95px;
+}
+
+.settlement i{
+  color: #B5B5B5;
+  margin-left: 95px;
+}
+
+.process_name .submission_name, .process_name .assessment_name{
+  margin-right: 50px;
+}
+
+.process_name .submission_name, .process_name .assessment_name, .process_name .settlement_name{
+  color:#B5B5B5;
+}
+
+.submission_name.done, .assessment_name.done, .settlement_name.done{
+  color: #0B1949;
+}
+
 /*timeline*/
-.vertical_progress {
-    padding-left: 100px;
-    position: relative;
-    margin-top: 40px;
+.vertical_progress{
+  padding-left: 100px;
+  position: relative;
+  margin-top: 40px;
 }
 
-.timeline {
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-    border-left: 3px solid #B5B5B5;
-    height: 500px;
+.timeline{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: 3px solid #B5B5B5;
+  height: 500px;
 }
 
-.timeline li {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    list-style-type: none;
-    vertical-align: middle;
+.timeline li{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  list-style-type:none;
+  vertical-align: middle;
 }
 
 .timeline li div, .timeline li span {
@@ -307,61 +333,61 @@ li.job-bar i, li.job-bar a {
     background-color: #B5B5B5;
 }
 
-.subm2 div, .subm3 div, .subm4 div {
-    width: 14px;
-    height: 14px;
-    border: 2px solid #B5B5B5;
-    border-radius: 50%;
-    background-color: white;
+.subm2 div, .subm3 div, .subm4 div{
+  width: 14px;
+  height: 14px;
+  border: 2px solid #B5B5B5;
+  border-radius: 50%;
+  background-color: white;
 }
 
 .subm2 div.done, .subm3 div.done, .subm4 div.done {
     background-color: #FFF136;
 }
 
-.assess2 div, .assess3 div, .assess4 div, .assess5 div, .assess6 div, .assess7 div {
-    width: 14px;
-    height: 14px;
-    border: 2px solid #B5B5B5;
-    border-radius: 50%;
-    background-color: white;
+.assess2 div, .assess3 div, .assess4 div, .assess5 div, .assess6 div, .assess7 div{
+  width: 14px;
+  height: 14px;
+  border: 2px solid #B5B5B5;
+  border-radius: 50%;
+  background-color: white;
 }
 
-.assess2 div.done, .assess3 div.done, .assess4 div.done, .assess5 div.done, .assess6 div.done, .assess7 div.done {
-    background-color: #F06D54;
+.assess2 div.done, .assess3 div.done, .assess4 div.done, .assess5 div.done, .assess6 div.done, .assess7 div.done{
+  background-color: #F06D54;
 }
 
-.sett2 div, .sett3 div, .sett4 div {
-    width: 14px;
-    height: 14px;
-    border: 2px solid #B5B5B5;
-    border-radius: 50%;
-    background-color: white;
+.sett2 div, .sett3 div, .sett4 div{
+  width: 14px;
+  height: 14px;
+  border: 2px solid #B5B5B5;
+  border-radius: 50%;
+  background-color: white;
 }
 
-.sett2 div.done, .sett3 div.done, .sett4 div.done {
-    background-color: green;
+.sett2 div.done, .sett3 div.done, .sett4 div.done{
+  background-color: green;
 }
 
-.stage_name {
-    color: #B6B6B6;
+.stage_name{
+  color:#B6B6B6;
 }
 
-.timeline strong {
-    font-size: 1.5em;
+.timeline strong{
+  font-size: 1.5em;
 }
 
-.assess1, .sett1 {
-    margin-top: 20px;
+.assess1, .sett1{
+  margin-top: 20px;
 }
 
-.timeline li div {
-    margin-right: 20px;
+.timeline li div{
+  margin-right: 20px;
 }
 
-li.subm1 {
-    margin-left: -48.5px;
-    padding: 0;
+li.subm1{
+  margin-left: -48.5px;
+  padding: 0;
 }
 
 .timeline .time {
@@ -417,9 +443,9 @@ li.sett2, li.sett3, li.sett4 {
     top: 240px;
 }
 
-.timeline .assess5 {
-    position: absolute;
-    top: 270px;
+.timeline .assess5{
+  position: absolute;
+  top:270px;
 }
 
 .timeline .assess6 {
@@ -427,9 +453,9 @@ li.sett2, li.sett3, li.sett4 {
     top: 300px;
 }
 
-.timeline .assess7 {
-    position: absolute;
-    top: 330px;
+.timeline .assess7{
+  position: absolute;
+  top:330px;
 }
 
 .timeline .sett1 {
@@ -443,9 +469,9 @@ li.sett2, li.sett3, li.sett4 {
     bottom: 50px;
 }
 
-.timeline .sett3 {
-    position: absolute;
-    bottom: 20px;
+.timeline .sett3{
+  position: absolute;
+  bottom: 20px;
 }
 
 .timeline .sett4 {
@@ -470,20 +496,20 @@ li.sett2, li.sett3, li.sett4 {
     width: 100%;
 }
 
-.upload_doc, .download_doc {
-    width: 48%;
-    display: inline-block;
-    float: left;
-    height: 30px;
-    background-color: white;
-    box-shadow: 2px 5px 4px #E8EAEB;
-    font-size: 13px;
-    padding-top: 5px;
-    padding-left: 10px;
+.upload_doc, .download_doc{
+  width: 48%;
+  display: inline-block;
+  float: left;
+  height: 30px;
+  background-color: white;
+  box-shadow: 2px 5px 4px #E8EAEB;
+  font-size: 13px;
+  padding-top: 5px;
+  padding-left: 10px;
 }
 
-.download_doc {
-    margin-left: 4%;
+.download_doc{
+  margin-left: 4%;
 }
 
 .upload_doc span, .download_doc span {
@@ -513,10 +539,10 @@ li.sett2, li.sett3, li.sett4 {
     margin-right: auto;
 }
 
-.message_up .title {
-    padding: 10px;
-    background-color: #717171;
-    color: white;
+.message_up .title{
+  padding: 10px;
+  background-color: #717171;
+  color: white;
 }
 
 .message_up .para {
@@ -542,7 +568,7 @@ li.sett2, li.sett3, li.sett4 {
 }
 
 .commenter {
-    max-width: 80px;;
+  max-width: 80px;;
 }
 
 .commenter {
@@ -568,11 +594,11 @@ li.sett2, li.sett3, li.sett4 {
     position: relative;
 }
 
-.comment .triangle {
-    color: #41A0DA;
-    position: absolute;
-    top: 8px;
-    left: -14px;
+.comment .triangle{
+  color: #41A0DA;
+  position: absolute;
+  top: 8px;
+  left: -14px;
 }
 
 .comment_title {
@@ -594,12 +620,11 @@ li.sett2, li.sett3, li.sett4 {
     text-align: right;
 }
 
-.comment_form .comment_input {
-    resize: none;
-    width: 100%;
-    height: 70px;
-    border: 2px solid #41A0DA;
-    margin-bottom: 5px;
+.comment_form .comment_input{
+ width: 100%;
+ height: 70px;
+ border: 2px solid #41A0DA;
+ margin-bottom: 5px;
 }
 
 .cancelBtn, .commentBtn {
@@ -608,8 +633,8 @@ li.sett2, li.sett3, li.sett4 {
     border: 0;
 }
 
-.cancelBtn {
-    background-color: rgb(225, 225, 225);
+.cancelBtn{
+  background-color: rgb(225, 225, 225);
 }
 
 .commentBtn {

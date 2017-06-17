@@ -43,10 +43,10 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
              var index = parseInt($(e.target).attr('data-index'));
              if($(e.target).hasClass("done")){
                 for(var i = 0; i<index; i++){
-                  status[i].addClass('done')
+                  status[i].addClass('done');
                 }
              }else{
-               for(var j = index+1; j<=status.length+1; j++){
+               for(var j = index+1; j<status.length; j++){
                   status[j].removeClass('done');
                }
              }
