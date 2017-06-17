@@ -25,7 +25,8 @@ var antloans = angular
         'LocalStorageModule',
         'chart.js',
         'angularFileUpload',
-        'ngDragDrop'
+        'ngDragDrop',
+        'xeditable'
     ])
     .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
         function ($stateProvider, $urlRouterProvider,ChartJsProvider) {
@@ -127,8 +128,9 @@ var antloans = angular
                     // controller:''
                 })
         }])
-.run(['$rootScope', '$state', '$urlRouter', 'principal',
-    function($rootScope, $state, $urlRouter, principal){
+.run(['$rootScope', '$state', '$urlRouter', 'principal','editableOptions',
+    function($rootScope, $state, $urlRouter, principal,editableOptions){
+        editableOptions.theme = 'bs3';
         $rootScope.$on('$locationChangeSuccess', function (e, newUrl) {
             if (principal.isIdentityResolved()) return;
 

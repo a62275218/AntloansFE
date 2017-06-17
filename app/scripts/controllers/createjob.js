@@ -28,6 +28,7 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                         swal("Success!", "You created a new deal!", "success")
                     }
                 }, function (e) {
+                    swal("Oops...", "Something went wrong! Upload failed", "error");
                 });
             }
         };
