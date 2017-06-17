@@ -50,6 +50,41 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
                   status[j].removeClass('done');
                }
              }
+
+             var num = $('.circle.done').length;
+             console.log("================="+num);
+             if (num<3){
+               $('.submission i').removeClass('done');
+               $('.submission_name').removeClass('done');
+               $('.assessment i').removeClass('done');
+               $('.assessment_name').removeClass('done');
+               $('.settlement i').removeClass('done');
+               $('.settlement_name').removeClass('done');
+             }
+             if(num>=3&&num<9){
+               $('.submission i').addClass('done');
+               $('.submission_name').addClass('done');
+               $('.assessment i').removeClass('done');
+               $('.assessment_name').removeClass('done');
+               $('.settlement i').removeClass('done');
+               $('.settlement_name').removeClass('done');
+             }
+             if(num>=9&&num<12){
+               $('.submission i').addClass('done');
+               $('.submission_name').addClass('done');
+               $('.assessment i').addClass('done');
+               $('.assessment_name').addClass('done');
+               $('.settlement i').removeClass('done');
+               $('.settlement_name').removeClass('done');
+             }
+             if(num==12){
+               $('.submission i').addClass('done');
+               $('.submission_name').addClass('done');
+               $('.assessment i').addClass('done');
+               $('.assessment_name').addClass('done');
+               $('.settlement i').addClass('done');
+               $('.settlement_name').addClass('done');
+             }
           });
 
        })
