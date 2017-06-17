@@ -46,6 +46,16 @@ antloans.factory('jobService',['API_BASE','$http','OAuthService',
                         'Authorization': 'Bearer' + OAuthService.getToken()
                     }
                 })
+            },
+            makeComment:function(id,data){
+                return $http({
+                    method: 'POST',
+                    url: API_BASE + "/deals/"+ id +"/comments",
+                    headers: {
+                        'Authorization': 'Bearer' + OAuthService.getToken()
+                    },
+                    data:data
+                })
             }
         }
 }]);

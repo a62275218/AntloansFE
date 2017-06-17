@@ -195,24 +195,26 @@
 
                     <div class="message_list">
                         <div class="message_wrap">
-                            <div class="message" ng-repeat="item in comments track by $index">
-                                <div class="commenter">
-                                    <div class="commenter_img">
-                                        <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                            <div class="scroll_container">
+                                <div class="message" ng-repeat="item in comments track by $index">
+                                    <div class="commenter">
+                                        <div class="commenter_img">
+                                            <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
+                                        </div>
+                                        <div class="commenter_name">
+                                            {{item.username}}
+                                        </div>
+                                        <div class="comment_time">
+                                            {{item.create_at | date:'dd/MM/yyyy HH:mm:ss'}}
+                                        </div>
                                     </div>
-                                    <div class="commenter_name">
-                                        {{item.username}}
+                                    <div class="comment">
+                                        <div class="triangle"><i class="fa fa-caret-left fa-3x" aria-hidden="true"></i>
+                                        </div>
+                                        {{item.content}}
                                     </div>
-                                    <div class="comment_time">
-                                        {{item.create_at}}
-                                    </div>
+                                    <hr>
                                 </div>
-                                <div class="comment">
-                                    <div class="triangle"><i class="fa fa-caret-left fa-3x" aria-hidden="true"></i>
-                                    </div>
-                                    {{item.content}}
-                                </div>
-                                <hr>
                             </div>
                         </div>
                         <!--========================  comment input ============================ -->
@@ -224,9 +226,9 @@
                                 </div>
                             </div>
                             <form class="comment_form">
-                                <textarea class='comment_input' name="name" placeholder="Add a comment..."></textarea>
+                                <textarea class='comment_input' name="name" placeholder="Add a comment..." ng-model="comment"></textarea>
                                 <button type="reset" class="cancelBtn">Cancel</button>
-                                <button type="submit" class="commentBtn">Comment</button>
+                                <button type="submit" class="commentBtn" ng-click="makeComment()">Comment</button>
                             </form>
                             <div class="clear"></div>
                         </div>
