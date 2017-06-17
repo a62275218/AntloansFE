@@ -98,10 +98,9 @@ li.user-bar i, li.user-bar a{
 }
 
 .user_list {
-  width: 95%;
+  width: 80%;
   background-color: white;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 41px;
   padding-top: 30px;
   position: relative;
 }

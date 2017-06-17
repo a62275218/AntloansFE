@@ -88,7 +88,7 @@
                             | filter:searchInput
                             | limitTo:pageAmount.selected.name
                             track by $index">
-                           <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">  {{item.first_name}} {{item.last_name}}</td>
+                           <td><img ng-src="/images/avatar.jpg" alt="">  {{item.first_name}} {{item.last_name}}</td>
                            <td>{{item.last_login | date:'MM/dd/yyyy'}}</td>
                            <td>{{item.role}}</td>
                            <td>{{item.mobile}}</td>

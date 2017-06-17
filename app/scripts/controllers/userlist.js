@@ -1,12 +1,6 @@
 antloans.controller('UserListCtrl',['$scope','UserService','paginationService',
     function($scope,UserService,paginationService){
     var vm =this;
-/*        UserService.getAllUsers()
-            .then(function(response){
-                $scope.users = response.data.data;
-                console.log($scope.users);
-            });*/
-
         $scope.sortBy =[
             {"name":"name"},
             {"name":"last activity"},
@@ -32,9 +26,10 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService',
                 .then(
                     function (response) {
                         $scope.user = response.data.data;
-                        console.log($scope.user)
+                        console.log($scope.user);
                         $scope.totalPage = paginationService.numberOfPages($scope.user.length,limit);
                         $scope.users = $scope.user.slice(page * limit);
+                        console.log($scope.users.length +' '+page+' '+limit );
                     },
                     function (e) {
                         console.log(e)

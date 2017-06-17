@@ -8,7 +8,6 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
             },function(e){
                 console.log(e)
             });
-
     $scope.updateUser = function(){
         UserService.updateUser($scope.job.client_id,
             {
@@ -101,11 +100,37 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
             jobService.getComments($stateParams.jobId)
                 .then(function(response){
                     $scope.comments = response.data.data;
-                    /*angular.forEach($scope.comments,function(k,v){
-                       if(k == 'create_at'){
-                            v = newDate(v);
-                       }
-                    });*/
                     console.log($scope.comments)
-                },function(e){})
+                    var scrollBot = function() {
+                        $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
+                        console.log($('.message_wrap')[0].scrollHeight)
+                    };
+                    setTimeout(scrollBot(),4000)
+                },function(e){});
+            $scope.comment = '';
+            $scope.makeComment = function(){
+                jobService.makeComment($stateParams.jobId,{content:$scope.comment})
+                    .then(function(response){
+                        if(response.status == 200){
+                            $scope.comment = '';
+                            jobService.getComments($stateParams.jobId)
+                                .then(function(response){
+                                    $scope.comments = response.data.data;
+                                },function(e){});
+                            swal("Success!", "Comment added", "success");
+                            $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
+                            console.log($('.message_wrap')[0].scrollHeight)
+                        }
+                    },function(e){
+                        swal("Oops...", "Something went wrong! Update failed", "error");
+                    })
+            };
+
+            $(function () {
+                var scrollBot = function() {
+                    $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
+                    console.log($('.message_wrap')[0].scrollHeight)
+                };
+                setTimeout(scrollBot(),4000)
+            });
     }]);
