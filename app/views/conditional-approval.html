@@ -3,13 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>conditional approval</title>
-    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/libs/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/libs/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css"> -->
-
-
     <!--my css-->
-    <!-- <link rel="stylesheet" href="../styles/nav_bar.css"> -->
     <link rel="stylesheet" href="../styles/conditional-approval.css">
 </head>
 
@@ -25,9 +19,7 @@
     <div class="right_part">
         <div class="approval_up">
             <!--<span id="jobEditBtn"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></span>-->
-            <button class="btn btn-default btn-sm" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">
-                edit
-            </button>
+            <button id="jobEditBtn" class="btn btn-default btn-sm" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible">Edit</button>
             <table class="job_show">
                 <tr>
                     <th>first name</th>

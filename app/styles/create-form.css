@@ -50,11 +50,21 @@
   display: inline-block;
 }
 
-.product_line2, .product_line4{
+.product_line1, .product_line2, .product_line3, .product_line4{
   height: 33px;
 }
 
+.product_line1 label, .product_line1 .type_input, .product_line1 .file_input{
+  display: inline-block;
+  float: left;
+}
+
 .product_line2 label, .product_line2 input, .product_line2 .broker_input{
+  display: inline-block;
+  float: left;
+}
+
+.product_line3 label, .product_line3 .purpose_input, .product_line3 input{
   display: inline-block;
   float: left;
 }
@@ -64,12 +74,8 @@
   float: left;
 }
 
-.product_line2 label, .product_line4 label{
+.product_line1 label, .product_line2 label, .product_line3 label, .product_line4 label{
   margin-top: 5px;
-}
-
-.product_line2 .broker_input, .product_line4 .bank_input{
-  margin-left: 4px;
 }
 
 .product button.saveBtn{

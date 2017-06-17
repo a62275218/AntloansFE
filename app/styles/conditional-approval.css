@@ -53,7 +53,7 @@ li.job-bar i, li.job-bar a{
     text-align: center;
 }
 
-.approval_up button.cancelBtn01{
+#jobEditBtn {
   position: absolute;
   right: 10px;
   bottom: 40px;
@@ -64,13 +64,30 @@ li.job-bar i, li.job-bar a{
   text-align: center;
 }
 
-.approval_up .job_edit {
-    display: none;
+.editable-buttons {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
-.approval_up .job_edit input {
+/*.approval_up button.cancelBtn01{
+  position: absolute;
+  right: 10px;
+  bottom: 40px;
+  background-color: #B5B5B5;
+  border: 0;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+}*/
+
+/*.approval_up .job_edit {
+    display: none;
+}*/
+
+/*.approval_up .job_edit input {
     width: 100%;
-}
+}*/
 
 .approval_middle {
     width: 97%;
