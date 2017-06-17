@@ -42,8 +42,8 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         };
         /*go to first page*/
         $scope.returnToFirst = function(){
-            vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
             $scope.currentPage = 0;
+            vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
         };
         /*options of page amount*/
         $scope.pageAmount =[
@@ -75,7 +75,5 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         $scope.sortBy.selected = $scope.sortBy[0];
 
         $scope.sliderVals = [0, 10000];
-
-        $scope.searchInput="";
 }]);
 

@@ -52,7 +52,7 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
              }
           });
 
-       })
+       });
 
        $('.approval_down_left .saveBtn').click(function(){
           $('.timeline').css('border-left',"3px solid #B5B5B5");

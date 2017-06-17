@@ -24,7 +24,6 @@
 
            <div class="right_part">
               <section class='tool_bar'>
-
                  <div class="tool_top">
                     <h3>Users</h3>
                     <button type="button" name="button" ui-sref="create-user"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>&nbsp; Add Users</button>
@@ -34,83 +33,71 @@
                     <div class='search_input'>
                       <div class="input-group margin-bottom-sm">
                         <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-                        <input class="form-control" type="text" placeholder="SEARCH">
+                          <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
                       </div>
                     </div>
 
                     <div class="sortBy">
-                      <label for="">SORT BY: &nbsp;</label>
-                      <select class="selectpicker select_date">
-                        <option>Date</option>
-                        <option>Gender</option>
-                        <option>Name</option>
-                      </select>
+                        <label>SORT BY: &nbsp;</label>
+                        <ui-select ng-model="sortBy.selected" search-enabled="false" class="selectpicker select_date"
+                                   onkeypress="return false;" ng-disabled="disabled">
+                            <ui-select-match placeholder="Select the number of pages">
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in (sortBy|filter:$select.search) track by $index">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
                     </div>
 
                     <div class="page">
                         <ul class="pager">
-                          <li><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
-                          <li><a href="#">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                            <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                            {{currentPage+1}}/{{totalPage}}
+                            <li ><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                            </li>
                         </ul>
                     </div>
-
-                    <select class="selectpicker select_page">
-                      <option>10</option>
-                      <option>20</option>
-                      <option>30</option>
-                    </select>
+                     <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
+                                onkeypress="return false;" ng-disabled="disabled" style="z-index:1000;">
+                         <ui-select-match placeholder="Select the number of pages">
+                             <span ng-bind="$select.selected.name"></span>
+                         </ui-select-match>
+                         <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
+                                            style="width:60px;" ng-click="returnToFirst()">
+                             <span ng-bind="item.name" style="width:60px;"></span>
+                         </ui-select-choices>
+                     </ui-select>
                   </div>
-
               </section>
 
               <div id="user">
                  <div class='user_list'>
                     <table class='"table table-striped"'>
                        <thead>
-                         <tr><th>CLIENT NAME &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                         <tr><th>NAME &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
                              <th>LAST ACTIVITY &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                             <th>CLIENT TYPE &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                             <th>ACCOUNT MANAGER &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                             <th>USER TYPE &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                             <th>MOBILE &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
                              <th>ACTIONS</th>
                              </tr>
                        </thead>
                        <tbody>
-                         <tr>
-                           <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen</td>
-                           <td>12/08/16</td>
-                           <td>Supervisor</td>
-                           <td>David Cutter</td>
-                           <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
-                             <a ui-sref="user-profile"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                           </td>
-                         </tr>
-
-                         <tr>
-                           <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen</td>
-                           <td>12/08/16</td>
-                           <td>Supervisor</td>
-                           <td>David Cutter</td>
-                           <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
-                             <a ui-sref="user-profile"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                           </td>
-                         </tr>
-
-                         <tr>
-                           <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">&nbsp; Jenny Chen</td>
-                           <td>12/08/16</td>
-                           <td>Supervisor</td>
-                           <td>David Cutter</td>
+                         <tr ng-repeat="item in users
+                            | orderBy:convertName(sortBy.selected.name)
+                            | filter:searchInput
+                            | limitTo:pageAmount.selected.name
+                            track by $index">
+                           <td><img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">  {{item.first_name}} {{item.last_name}}</td>
+                           <td>{{item.last_login | date:'MM/dd/yyyy'}}</td>
+                           <td>{{item.role}}</td>
+                           <td>{{item.mobile}}</td>
                            <td><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp; &nbsp;
                              <a ui-sref="user-profile"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                            </td>
                          </tr>
                        </tbody>
-
                     </table>
-
-                    <div class="page_message">
-                       <p>Showing 1-9 of 118</p>
-                    </div>
                  </div>
               </div>
 

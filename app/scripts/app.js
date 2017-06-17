@@ -84,8 +84,8 @@ var antloans = angular
 
                 .state('users', {
                     url: '/users',
-                    templateUrl: 'views/user-list.html'
-                    // controller:''
+                    templateUrl: 'views/user-list.html',
+                    controller:'UserListCtrl'
                 })
                 .state('create-user', {
                     url: '/users/new',
