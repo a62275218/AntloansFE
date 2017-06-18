@@ -35,6 +35,7 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
                   $('.circle.11'),$('.circle.12'));
 
        $('.timeline_editBtn').click(function(){
+          $('.timeline_editBtn').addClass('edit');
           $('.timeline').css('border-left',"3px dotted #B5B5B5");
           $('.circle').css('cursor','pointer');
           $('.circle').click(function(e){
@@ -52,7 +53,7 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
 
              var num = $('.circle.done').length;
              console.log("================="+num);
-             if (num<3){
+             if (num<1){
                $('.submission i').removeClass('done');
                $('.submission_name').removeClass('done');
                $('.assessment i').removeClass('done');
@@ -60,7 +61,7 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
                $('.settlement i').removeClass('done');
                $('.settlement_name').removeClass('done');
              }
-             if(num>=3&&num<9){
+             if(num>=1&&num<=3){
                $('.submission i').addClass('done');
                $('.submission_name').addClass('done');
                $('.assessment i').removeClass('done');
@@ -68,7 +69,7 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
                $('.settlement i').removeClass('done');
                $('.settlement_name').removeClass('done');
              }
-             if(num>=9&&num<12){
+             if(num>3&&num<=9){
                $('.submission i').addClass('done');
                $('.submission_name').addClass('done');
                $('.assessment i').addClass('done');
@@ -76,7 +77,7 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
                $('.settlement i').removeClass('done');
                $('.settlement_name').removeClass('done');
              }
-             if(num==12){
+             if(num>9){
                $('.submission i').addClass('done');
                $('.submission_name').addClass('done');
                $('.assessment i').addClass('done');
@@ -89,10 +90,10 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
        });
 
        $('.approval_down_left .saveBtn').click(function(){
+          $('.timeline_editBtn').removeClass('edit');
           $('.timeline').css('border-left',"3px solid #B5B5B5");
           $('.circle').unbind();
           $('.circle').css('cursor','default');
-
        })
 }])
     .controller('messageCtrl',['$scope','jobService','$stateParams',
