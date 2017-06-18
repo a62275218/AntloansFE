@@ -36,20 +36,6 @@
                           <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
                       </div>
                     </div>
-
-                    <div class="sortBy">
-                        <label>SORT BY: &nbsp;</label>
-                        <ui-select ng-model="sortBy.selected" search-enabled="false" class="selectpicker select_date"
-                                   onkeypress="return false;" ng-disabled="disabled">
-                            <ui-select-match placeholder="Select the number of pages">
-                                <span ng-bind="$select.selected.name"></span>
-                            </ui-select-match>
-                            <ui-select-choices repeat="item in (sortBy|filter:$select.search) track by $index">
-                                <span ng-bind="item.name"></span>
-                            </ui-select-choices>
-                        </ui-select>
-                    </div>
-
                     <div class="page">
                         <ul class="pager">
                             <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
@@ -84,11 +70,13 @@
                        </thead>
                        <tbody>
                          <tr ng-repeat="item in users
-                            | orderBy:convertName(sortBy.selected.name)
+
                             | filter:searchInput
                             | limitTo:pageAmount.selected.name
                             track by $index">
-                           <td><img ng-src="/images/avatar.jpg" alt="">  {{item.first_name}} {{item.last_name}}</td>
+                           <td><img ng-if="item.avatar" ng-src="antloansportal.weboost.website/{{item.avatar}}" alt="">
+                               <img ng-if="!item.avatar" ng-src="/images/avatar.jpg" alt="">
+                               {{item.first_name}} {{item.last_name}}</td>
                            <td>{{item.last_login | date:'MM/dd/yyyy'}}</td>
                            <td>{{item.role}}</td>
                            <td>{{item.mobile}}</td>

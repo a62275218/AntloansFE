@@ -1,5 +1,5 @@
-antloans.controller('UserListCtrl',['$scope','UserService','paginationService',
-    function($scope,UserService,paginationService){
+antloans.controller('UserListCtrl',['$scope','UserService','paginationService','API_FILE',
+    function($scope,UserService,paginationService,API_FILE){
     var vm =this;
         $scope.sortBy =[
             {"name":"name"},
@@ -26,6 +26,9 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService',
                 .then(
                     function (response) {
                         $scope.user = response.data.data;
+                        /*angular.forEach($scope.user,function(k,v){
+                           k.avatar = API_FILE + k.avatar
+                        });*/
                         console.log($scope.user);
                         $scope.totalPage = paginationService.numberOfPages($scope.user.length,limit);
                         $scope.users = $scope.user.slice(page * limit);

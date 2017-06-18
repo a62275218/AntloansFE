@@ -19,6 +19,7 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
                         $scope.job = response.data.data.content;
                         $scope.totalPage = paginationService.numberOfPages($scope.job.length,limit);
                         $scope.jobs = $scope.job.slice(page * limit);
+                        console.log($scope.jobs)
                     },
                     function (e) {
                         console.log(e)

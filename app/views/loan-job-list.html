@@ -139,10 +139,11 @@
                 <div class='item' ng-click="toApproval(item.id)">
                 <span class="side_light" ng-class="">
                 </span>
-                    <img ng-src="/images/avatar.jpg">
+                    <img ng-if="item.avatar" ng-src="antloansportal.weboost.website/{{item.avatar}}" alt="">
+                    <img ng-if="!item.avatar" ng-src="/images/avatar.jpg" alt="">
                     <div class='intro'>
                         <h4 class='name'>{{item.first_name}} {{item.last_name}}</h4>
-                        <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA
+                        <section class='state'><!--<i class="fa fa-clock-o" aria-hidden="true"></i>-->{{item.deal_status}}
                         </section>
                     </div>
                     <table>
