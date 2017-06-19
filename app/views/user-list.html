@@ -61,20 +61,19 @@
                  <div class='user_list'>
                     <table class='"table table-striped"'>
                        <thead>
-                         <tr><th>NAME &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                         <tr><th ng-click="sortByType('first_name')">NAME &nbsp;<i ng-if="namedesc == true"  class="fa fa-caret-down fa-lg" aria-hidden="true"></i><i ng-if="namedesc == false"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                              <th>LAST ACTIVITY &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                             <th>USER TYPE &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                             <th>MOBILE &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                             <th ng-click="sortByType('role')">USER TYPE &nbsp;<i ng-if="roledesc == true"  class="fa fa-caret-down fa-lg" aria-hidden="true"></i><i ng-if="roledesc == false"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                             <th ng-click="sortByType('mobile')">MOBILE &nbsp;<i ng-if="mobiledesc == true"  class="fa fa-caret-down fa-lg" aria-hidden="true"></i><i ng-if="mobiledesc == false"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                              <th>ACTIONS</th>
                              </tr>
                        </thead>
                        <tbody>
                          <tr ng-repeat="item in users
-
                             | filter:searchInput
                             | limitTo:pageAmount.selected.name
                             track by $index">
-                           <td><img ng-if="item.avatar" ng-src="antloansportal.weboost.website/{{item.avatar}}" alt="">
+                           <td><img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
                                <img ng-if="!item.avatar" ng-src="/images/avatar.jpg" alt="">
                                {{item.first_name}} {{item.last_name}}</td>
                            <td>{{item.last_login | date:'MM/dd/yyyy'}}</td>
