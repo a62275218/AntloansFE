@@ -18,38 +18,28 @@
 
     <div class="right_part">
         <div class="approval_up">
-            <span id="jobEditBtn" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></span>
-            <table class="job_show">
-                <tr>
-                    <th>first name</th>
-                    <td editable-text="job.first_name" e-form="textBtnForm">{{job.first_name}}</td>
-                    <th>last name</th>
-                    <td editable-text="job.last_name" e-form="textBtnForm">{{job.last_name}}</td>
-                </tr>
-                <tr>
-                    <th>mobile</th>
-                    <td editable-text="job.mobile" e-form="textBtnForm">{{job.mobile}}</td>
-                    <th>phone</th>
-                    <td editable-text="job.phone" e-form="textBtnForm">{{job.phone}}</td>
-                </tr>
-                <tr>
-                    <th>email</th>
-                    <td editable-text="job.email" e-form="textBtnForm">{{job.email}}</td>
-                    <th>security address</th>
-                    <td editable-text="job.address" e-form="textBtnForm">{{job.address}}</td>
-                </tr>
+            <span id="jobEditBtn" ng-click="jobEdit()"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
+            <table class="job_show" >
+              <tr>
+                  <th>first name</th>
+                  <td><input type="text" class="disable" ng-model="job.first_name" disabled></td>
+                  <th>last name</th>
+                  <td><input type="text" class="disable" ng-model="job.last_name" disabled></td>
+              </tr>
+              <tr>
+                  <th>mobile</th>
+                  <td><input type="text" class="disable" ng-model="job.mobile" disabled></td>
+                  <th>phone</th>
+                  <td><input type="text" class="disable" ng-model="job.phone" disabled></td>
+              </tr>
+              <tr>
+                  <th>email</th>
+                  <td><input type="text" class="disable" ng-model="job.email" disabled></td>
+                  <th>security address</th>
+                  <td><input type="text" class="disable" ng-model="job.address" disabled></td>
+              </tr>
             </table>
-            <!--<table class="job_edit">
-                <tr>
-                  <th>first name</th><td><input type="text" ng-model="job.first_name"></td><th>last name</th><td><input type="text" ng-model="job.last_name"></td>
-                </tr>
-                <tr>
-                  <th>mobile</th><td><input type="text" ng-model="job.mobile"></td><th>security address</th><td><input type="text" ng-model="job.address"></td>
-                </tr>
-                <tr>
-                  <th>email</th><td><input type="text" ng-model="job.email"></td>
-                </tr>
-            </table>-->
+
             <button class="saveBtn01" type="button" name="button" ng-click="updateUser()">Save</button>
         </div>
 

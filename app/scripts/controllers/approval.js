@@ -9,6 +9,8 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
                 console.log(e)
             });
     $scope.updateUser = function(){
+        $('.job_show td input').attr('disabled');
+        $('.job_show td input').addClass('disable');
         UserService.updateUser($scope.job.client_id,
             {
                 firstName:$scope.job.first_name,
@@ -27,6 +29,11 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
             swal("Oops...", "Something went wrong! Update failed", "error");
         })
     };
+   // edit job info
+    $scope.jobEdit = function(){
+
+      $('.job_show td input').removeAttr('disabled').removeClass('disable');
+    }
 
       // ========= edit vertical timeline ========
       var status = [];

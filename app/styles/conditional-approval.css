@@ -42,6 +42,10 @@ li.job-bar i, li.job-bar span.bar_name{
   padding-left: 10px;
 }
 
+.approval_up td input.disable{
+  border: 0px;
+}
+
 .approval_up button.saveBtn01 {
     position: absolute;
     right: 10px;
@@ -59,32 +63,16 @@ li.job-bar i, li.job-bar span.bar_name{
   top: 10px;
   color: #717171;
   text-align: center;
-
 }
 
-.editable-buttons {
+#jobEditBtn{
+  outline: none;
+}
+
+/*.editable-buttons {
   position: absolute;
   right: 10px;
   top: 10px;
-}
-
-/*.approval_up button.cancelBtn01{
-  position: absolute;
-  right: 10px;
-  bottom: 40px;
-  background-color: #B5B5B5;
-  border: 0;
-  color: white;
-  border-radius: 5px;
-  text-align: center;
-}*/
-
-/*.approval_up .job_edit {
-    display: none;
-}*/
-
-/*.approval_up .job_edit input {
-    width: 100%;
 }*/
 
 .approval_middle {
