@@ -1,3 +1,15 @@
+/*my css*/
+/* side bar*/
+.left_bar ul li.doc-bar {
+    background-color: #677583;
+}
+
+li.doc-bar i, li.doc-bar span.bar_name{
+  color: white !important;
+}
+
+/*========================*/
+
 .drop-zone {
     border: dotted 3px lightgray;
 }

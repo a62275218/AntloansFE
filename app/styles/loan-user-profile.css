@@ -4,7 +4,7 @@
   background-color: #677583;
 }
 
-li.user-bar i, li.user-bar a{
+li.user-bar i, li.user-bar span.bar_name{
   color: white !important;
 }
 /*========================*/

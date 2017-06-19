@@ -4,7 +4,7 @@
     background-color: #677583;
 }
 
-li.job-bar i, li.job-bar a{
+li.job-bar i, li.job-bar span.bar_name{
   color: white !important;
 }
 

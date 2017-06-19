@@ -1,4 +1,14 @@
+/*my css*/
+/* side bar*/
+.left_bar ul li.job-bar {
+    background-color: #677583;
+}
 
+li.job-bar i, li.job-bar span.bar_name{
+  color: white !important;
+}
+
+/*========================*/
 .personal_detail, .product{
   margin-top: 40px;
   width: 80%;

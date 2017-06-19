@@ -47,7 +47,7 @@
         </div>
 
         <div class="product">
-            <h3>Product</h3>
+            <h3>Loan</h3>
             <form name="jobForm" novalidate>
                 <div class="product_line1">
                   <label>Loan type</label>
@@ -73,7 +73,7 @@
                 </div>
                 <br>
                 <div class="product_line2">
-                  <label>Loan amount</label><input ng-model="job.product.loan_amount">
+                  <label>Loan amount</label><input type="number" ng-model="job.product.loan_amount">
 
                   <label>Broker</label>
                   <ui-select ng-model="brokers.selected" search-enabled="false" class="broker_input selectpicker select_page"

@@ -4,7 +4,7 @@
   background-color: #677583;
 }
 
-li.report-bar i, li.report-bar a{
+li.report-bar i, li.report-bar span.bar_name{
   color: white !important;
 }
 /*=====================*/

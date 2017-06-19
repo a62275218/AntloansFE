@@ -5,7 +5,7 @@
   background-color: #677583;
 }
 
-li.job-bar i, li.settle-bar a{
+li.job-bar i, li.settle-bar span.bar_name{
   color: white !important;
 }
 /*right part css*/

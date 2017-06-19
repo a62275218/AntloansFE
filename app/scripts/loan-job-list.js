@@ -21,7 +21,7 @@ $(document).ready(function(){
           $('.left_bar').css('width','5%');
           $('.right_part').css('width','95%');
           $('.left_bar ul li').css('padding-left','20px');
-          $('.left_bar ul li a').hide();
+          $('.left_bar ul span.bar_name').hide();
           $('.left_bar').attr('data-status','close');
        } else if ($status=='close'){
          $('.left_arrow i').addClass('fa-chevron-left');
@@ -29,7 +29,7 @@ $(document).ready(function(){
          $('.left_bar').css('width','13%');
          $('.right_part').css('width','87%');
          $('.left_bar ul li').css('padding-left','25%');
-         $('.left_bar ul li a').show();
+         $('.left_bar ul span.bar_name').show();
          $('.left_bar').attr('data-status','open');
        }
   })

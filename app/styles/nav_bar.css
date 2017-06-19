@@ -114,6 +114,7 @@
 
 .dropdownl:hover .dropdown-content {
     display: block;
+    z-index: 2;
 }
 
 .dropdownl:hover .dropbtn {
@@ -163,20 +164,27 @@
   display: block;
 }
 
-.left_bar ul li:hover{
-  color: white;
+.left_bar ul li span.bar_name{
+  display: inline;
+  margin-left: 10px;
+  transition: 0.5s;
 }
 
-.left_bar ul li a:hover{
+.left_bar ul li:hover{
+  color: white;
+  background-color: #677583;
+}
+
+.left_bar ul a:hover{
   text-decoration: none;
   color: white;
 }
 
-.left_bar ul li a{
+/*.left_bar ul li a{
   color:#AAAAAB;
   margin-left: 10px;
   transition: 0.5s;
-}
+}*/
 
 .left_arrow{
   position:absolute;
