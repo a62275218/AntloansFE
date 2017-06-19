@@ -32,6 +32,13 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                 });
             }
         };
+        $scope.getEmail = function(search) {
+            var newUser = $scope.users.slice();
+            if (search && newUser.indexOf(search) === -1) {
+                newUser.unshift(search);
+            }
+            return newUser;
+        };
         vm.users = [];
         vm.refreshUser = function (email) {
             if (email.length < 3) {
@@ -80,6 +87,10 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                     $scope.repayment_type = response.data.data.repayment_type;
                     $scope.loan_purpose = response.data.data.loan_purpose;
                     $scope.file_nature = response.data.data.file_nature;
+                    $scope.loan_type.shift();
+                    $scope.file_nature.shift();
+                    $scope.repayment_type.shift();
+                    $scope.loan_purpose.shift();
                 },function(e){
                 })
         };

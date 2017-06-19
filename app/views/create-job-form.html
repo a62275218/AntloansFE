@@ -23,15 +23,15 @@
             <form>
                 <div class="email_search">
                   <label>Email</label>
-                  <ui-select class="email_input" ng-model="ctrl.email" ng-disabled="ctrl.disabled" reset-search-input="false" required>
+                  <ui-select class="email_input" ng-model="ctrl.email" ng-disabled="ctrl.disabled" reset-search-input="false"
+                             on-select="listUser()" required>
                       <ui-select-match placeholder="Type more than 3 characters to find the user by email"
                                        style="width:400px;">
                           <!--<span ng-bind="$select.selected.name" style="width:400px;"></span>-->
                           {{$select.selected.email}}
                       </ui-select-match>
                       <ui-select-choices class="ui-select-choices" repeat="item in ctrl.users track by $index"
-                                         refresh="ctrl.refreshUser($select.search)" refresh-delay="0" style="width:400px;"
-                                         ng-click="listUser()">
+                                         refresh="ctrl.refreshUser($select.search)" refresh-delay="0" style="width:400px;">
                           <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
                           <div ng-bind-html="item.email | highlight: $select.search"></div>
                       </ui-select-choices>
@@ -57,7 +57,7 @@
                           <span ng-bind="$select.selected"></span>
                       </ui-select-match>
                       <ui-select-choices repeat="item in loan_type track by $index">
-                          <span ng-bind="item"></span>
+                          <span ng-bind="item.label"></span>
                       </ui-select-choices>
                   </ui-select>
                   <label>File nature</label>
@@ -67,7 +67,7 @@
                           <span ng-bind="$select.selected"></span>
                       </ui-select-match>
                       <ui-select-choices repeat="item in file_nature track by $index">
-                          <span ng-bind="item"></span>
+                          <span ng-bind="item.label"></span>
                       </ui-select-choices>
                   </ui-select>
                 </div>
@@ -76,12 +76,11 @@
                   <label>Loan amount</label><input type="number" ng-model="job.product.loan_amount">
 
                   <label>Broker</label>
-                  <ui-select ng-model="brokers.selected" search-enabled="false" class="broker_input selectpicker select_page"
-                             onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
+                  <ui-select ng-model="brokers.selected" class="broker_input selectpicker select_page" style="width:220px;">
                       <ui-select-match>
                           <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
                       </ui-select-match>
-                      <ui-select-choices repeat="item in brokers track by $index">
+                      <ui-select-choices repeat="item in brokers | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
                           <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
                       </ui-select-choices>
                   </ui-select>
@@ -96,10 +95,12 @@
                           <span ng-bind="$select.selected"></span>
                       </ui-select-match>
                       <ui-select-choices repeat="item in loan_purpose track by $index">
-                          <span ng-bind="item"></span>
+                          <span ng-bind="item.label"></span>
                       </ui-select-choices>
                   </ui-select>
-                  <label>Special notes</label><input type="text" ng-model="job.product.special_note"><br>
+                    <label>Special notes</label>
+                    <textarea style="resize:none" ng-model="job.product.special_note"></textarea>
+                    <br>
                 </div>
                 <br>
                 <div class="product_line4">
@@ -110,7 +111,7 @@
                               <span ng-bind="$select.selected"></span>
                           </ui-select-match>
                           <ui-select-choices repeat="item in repayment_type track by $index">
-                              <span ng-bind="item"></span>
+                              <span ng-bind="item.label"></span>
                           </ui-select-choices>
                       </ui-select>
                     <label>Bank</label>
