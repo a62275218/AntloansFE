@@ -150,10 +150,12 @@ li.job-bar i, li.job-bar a{
 }
 
 .contact_down span {
-    color: #A5A5A5;
     margin-right: 5%;
     width: 45%;
+}
 
+.contact_down span a{
+  color: #A5A5A5;
 }
 
 .approval_middle .user_plus {

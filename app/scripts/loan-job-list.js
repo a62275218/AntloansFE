@@ -1,15 +1,16 @@
 
 $(document).ready(function(){
 
-  $('.dropbtn').mouseenter(function(){
-     $('.dropbtn i').removeClass('fa-chevron-down');
-     $('.dropbtn i').addClass('fa-chevron-up');
-  });
+  // $('.dropbtn').mouseenter(function(){
+  //    $('.dropbtn i').removeClass('fa-chevron-down');
+  //    $('.dropbtn i').addClass('fa-chevron-up');
+  // });
+  //
+  // $('.dropbtn').mouseleave(function(){
+  //    $('.dropbtn i').removeClass('fa-chevron-up');
+  //    $('.dropbtn i').addClass('fa-chevron-down');
+  // });
 
-  $('.dropbtn').mouseleave(function(){
-     $('.dropbtn i').removeClass('fa-chevron-up');
-     $('.dropbtn i').addClass('fa-chevron-down');
-  });
 //  left bar js
 
   $('.left_arrow i').click(function(){
