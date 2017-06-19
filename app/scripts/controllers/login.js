@@ -13,7 +13,7 @@ antloans.controller('LoginCtrl',['$scope','UserService','$state','OAuthService',
                             $state.go('job-list', null, {reload: true});
                     });
                 }).catch(function(e){
-                    vm.message = true;
+                swal("Oops...", "Username or password Incorrect! Login failed", "error");
             }).finally(function(){
                 vm.sending = false;
             });
