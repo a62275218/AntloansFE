@@ -79,8 +79,8 @@ var antloans = angular
 
                 .state('documents', {
                     url: '/documents',
-                    templateUrl: 'views/loan-document.html'
-                    // controller:''
+                    templateUrl: 'views/loan-document.html',
+                    controller:'documentCtrl'
                 })
 
                 .state('users', {

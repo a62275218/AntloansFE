@@ -48,6 +48,15 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
                     },
                     data:data
                 });
+            },
+            getDocuments:function(){
+                return $http({
+                    method:'GET',
+                    url:API_BASE+ '/documents/',
+                    headers:{
+                        'Authorization': 'Bearer' + OAuthService.getToken()
+                    }
+                });
             }
         }
     }]);
