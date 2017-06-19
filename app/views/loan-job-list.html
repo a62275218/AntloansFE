@@ -139,11 +139,11 @@
                 <div class='item' ng-click="toApproval(item.id)">
                 <span class="side_light" ng-class="">
                 </span>
-                    <img ng-if="item.avatar" ng-src="antloansportal.weboost.website/{{item.avatar}}" alt="">
+                    <img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
                     <img ng-if="!item.avatar" ng-src="/images/avatar.jpg" alt="">
                     <div class='intro'>
                         <h4 class='name'>{{item.first_name}} {{item.last_name}}</h4>
-                        <section class='state'><!--<i class="fa fa-clock-o" aria-hidden="true"></i>-->{{item.deal_status}}
+                        <section class='state'><!--<i class="fa fa-clock-o" aria-hidden="true"></i>-->{{item.deal_status.label}}
                         </section>
                     </div>
                     <table>
@@ -155,15 +155,15 @@
                         </tr>
                         <tr>
                             <th>loan purpose</th>
-                            <td>{{item.loan_purpose}}</td>
+                            <td>{{item.loan_purpose.label}}</td>
                             <th>broker</th>
                             <td>{{item.broker.first_name}} {{item.broker.last_name}}</td>
                         </tr>
                         <tr>
                             <th>repayment type</th>
-                            <td>{{item.repayment_type}}</td>
+                            <td>{{item.repayment_type.label}}</td>
                             <th>file nature</th>
-                            <td>{{item.file_nature}}</td>
+                            <td>{{item.file_nature.label}}</td>
                         </tr>
                         <tr>
                           <th>special notes</th>
@@ -180,3 +180,4 @@
 <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
 </body>
 </html>
+

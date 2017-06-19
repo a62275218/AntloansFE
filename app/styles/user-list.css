@@ -74,7 +74,6 @@ li.user-bar i, li.user-bar a{
   width:60px !important;
   display: inline-block !important;
   float: right !important;
-  z-index: 0 !important;
 }
 
 .page {
