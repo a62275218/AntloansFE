@@ -325,6 +325,12 @@ li.job-bar i, li.job-bar a{
     display: inline-block;
 }
 
+.timeline li div.circle.canEdit:hover{
+  border-color: #3D9EDC;
+  width: 18px;
+  height: 18px;
+}
+
 .timeline li .num {
     width: 17px;
     height: 17px;

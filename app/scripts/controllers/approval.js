@@ -35,6 +35,7 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
                   $('.circle.11'),$('.circle.12'));
 
        $('.timeline_editBtn').click(function(){
+          $('.timeline li div.circle').addClass('canEdit');
           $('.timeline_editBtn').addClass('edit');
           $('.timeline').css('border-left',"3px dotted #B5B5B5");
           $('.circle').css('cursor','pointer');
@@ -90,6 +91,7 @@ antloans.controller('approvalCtrl',['$scope','jobService','$stateParams','UserSe
        });
 
        $('.approval_down_left .saveBtn').click(function(){
+          $('.timeline li div.circle').removeClass('canEdit');
           $('.timeline_editBtn').removeClass('edit');
           $('.timeline').css('border-left',"3px solid #B5B5B5");
           $('.circle').unbind();
