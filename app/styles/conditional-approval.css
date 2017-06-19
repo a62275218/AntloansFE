@@ -439,9 +439,8 @@ li.sett2, li.sett3, li.sett4 {
     top: 80px;
 }
 
-.timeline .assess1 {
+.timeline li.assess1 {
     position: absolute;
-    left: 215px;
     top: 120px;
 }
 
@@ -475,10 +474,10 @@ li.sett2, li.sett3, li.sett4 {
   top:330px;
 }
 
-.timeline .sett1 {
+.timeline li.sett1 {
     position: absolute;
     bottom: 80px;
-    left: 215px;
+
 }
 
 .timeline .sett2 {
