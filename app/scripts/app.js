@@ -34,6 +34,7 @@ var antloans = angular
             $urlRouterProvider.when('', 'login');
             $urlRouterProvider.when('/', '/login');
             $urlRouterProvider.otherwise('/404');
+            /*$locationProvider.html5Mode(true);*/
 
             $stateProvider
                 .state('404', {
@@ -123,6 +124,11 @@ var antloans = angular
                 })
 
                 .state('settle', {
+                    url: '/settle',
+                    templateUrl: 'views/settled-list.html'
+                    // controller:''
+                })
+                .state('user-detail',{
                     url: '/settle',
                     templateUrl: 'views/settled-list.html'
                     // controller:''
