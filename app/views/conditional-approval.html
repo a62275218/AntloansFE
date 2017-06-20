@@ -38,6 +38,12 @@
                   <th>security address</th>
                   <td><input type="text" class="disable" ng-model="job.address" disabled></td>
               </tr>
+              <tr>
+                  <th>prefered time</th>
+                  <td><input type="text" class="disable"  disabled></td>
+                  <th>prefered method</th>
+                  <td><input type="text" class="disable"  disabled></td>
+              </tr>
             </table>
 
             <button class="saveBtn01" type="button" name="button" ng-click="updateUser()">Save</button>
@@ -176,7 +182,8 @@
                                             {{item.username}}
                                         </div>
                                         <div class="comment_time">
-                                            {{item.create_at | date:'dd/MM/yyyy HH:mm:ss'}}
+                                            {{item.create_at | date:'dd/MM/yyyy'}} <br>
+                                            {{item.create_at | date:'HH:mm:ss'}}
                                         </div>
                                     </div>
                                     <div class="comment">
