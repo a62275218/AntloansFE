@@ -106,11 +106,21 @@ li.job-bar i, li.job-bar span.bar_name{
   transition: 1s;
 }
 
-.amount{
+.bank{
   display: inline-block;
   float: left;
   margin-left: 50px;
-  width: 320px;
+  width: 200px;
+}
+
+.bank label{
+  margin-top: 5px;
+}
+
+.bank .bank_input{
+  display: inline-block !important;
+  width: 130px !important;
+  float: right !important;
 }
 /*
 .amount .amount-slider{
@@ -137,7 +147,7 @@ li.job-bar i, li.job-bar span.bar_name{
 .start_date{
   display: inline-block;
   float: left;
-  margin-left: 50px;
+  margin-left: 70px;
 }
 
 /*.startDate{
@@ -147,7 +157,7 @@ li.job-bar i, li.job-bar span.bar_name{
 .close_date{
   display: inline-block;
   float: left;
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
 /*.closeDate{
@@ -185,6 +195,15 @@ li.job-bar i, li.job-bar span.bar_name{
 
 .statusInput button{
  color:  #AEAEAE;
+}
+
+.statusInput button:focus{
+  outline: none ;
+}
+
+.statusInput button.selected{
+  background-color: #F0662C;
+  color: white;
 }
 
 .broker{
