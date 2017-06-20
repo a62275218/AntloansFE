@@ -9,19 +9,20 @@ li.user-bar i, li.user-bar span.bar_name{
 }
 /*========================*/
 
-.personal_detail, .contact_detail{
+.personal_detail{
   margin-top: 40px;
   width: 80%;
   background-color: white;
   margin-left: 5%;
   padding-bottom: 40px;
+  position: relative;
 }
 
-.personal_detail h3, .personal_detail h4, .contact_detail h3, .contact_detail h4 {
+.personal_detail h3, .personal_detail h4{
   margin: 0;
 }
 
-.personal_detail h3, .contact_detail h3{
+.personal_detail h3{
   height: 70px;
   background-color: #273543;
   color: white;
@@ -37,7 +38,7 @@ li.user-bar i, li.user-bar span.bar_name{
   color: rgb(22,33,78);
 }
 
-.personal_detail hr, .contact_detail hr{
+.personal_detail hr{
   border-top: 2px solid rgb(216,231,246);
   margin: 10px;
 }
@@ -84,17 +85,39 @@ li.user-bar i, li.user-bar span.bar_name{
   padding-left: 60px;
 }
 
-.contact_detail label{
+.personal_detail label{
   margin-right: 50px;
   text-align: right;
   width: 80px;
 }
 
-.contact_detail span{
+.personal_detail label.prefer{
+  width: 180px;
+}
+
+.personal_detail span{
   font-size: 18px;
   font-weight: 400;
   color: #273543;
   margin-left: 10px;
+}
+
+.personal_detail .editBtn{
+  position: absolute;
+  right: 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.personal_detail .saveBtn{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 4px;
+  border: 0;
+  color: white;
+  background-color: #3D9EDC;
+  width: 60px;
 }
 
 .email_notify, .sms_notify{

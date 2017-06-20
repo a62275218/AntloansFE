@@ -25,6 +25,7 @@
           <div class="right_part">
              <div class="personal_detail">
                  <h3>Personal Details</h3>
+                 <span class="editBtn"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
                  <h4>Profile</h4>
                  <hr>
                  <div class="user_name">
@@ -43,24 +44,25 @@
                      <label>Email notify</label><span><button class='email_notify' type="button" name="button"></button></span><br>
                      <label>SMS notify</label><span><button class='sms_notify' type="button" name="button"></button></span>
                  </div>
+                 <h4>Email address</h4>
+                 <hr>
+                 <div class="email_message">
+                    <label>Primary</label><span>{{user.email||'null'}}</span><br>
+                    <label>Secondary</label><span></span>
+                 </div>
+                 <h4>Contact numbers</h4>
+                 <hr>
+                 <div class="number_message">
+                    <label>Mobile</label><span>{{user.mobile||'null'}}</span><br>
+                    <label>Phone</label><span>{{user.phone||'null'}}</span><br>
+                    <label>Fax</label><span></span><br>
+                    <label class='prefer'>Prefered contact time</label><span></span><br>
+                    <label class='prefer'>Prefered contact method</label><span></span>
+                 </div>
+
+                 <button class="saveBtn" type="button" name="button">Save</button>
              </div>
 
-             <div class="contact_detail">
-               <h3>Contact Details</h3>
-               <h4>Email address</h4>
-               <hr>
-               <div class="email_message">
-                  <label>Primary</label><span>{{user.email||'null'}}</span><br>
-                  <label>Secondary</label><span></span>
-               </div>
-               <h4>Contact numbers</h4>
-               <hr>
-               <div class="number_message">
-                  <label>Mobile</label><span>{{user.mobile||'null'}}</span><br>
-                  <label>Phone</label><span>{{user.phone||'null'}}</span><br>
-                  <label>Fax</label><span></span>
-               </div>
-             </div>
           </div>
 
      </div>
