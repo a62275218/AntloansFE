@@ -10,7 +10,6 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
                     function (response) {
                         $scope.job = response.data.data.content;
                         $scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
-                        jobService.filterStatus($scope.job,'submission');
                     },
                     function (e) {
                         console.log(e)
@@ -39,6 +38,8 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         vm.getBanks();
         vm.getUsersByType($scope.brokers,'broker');
         vm.getUsersByType($scope.admins,'admin');
+
+        $scope.jobStatus ='all';
         /*go to next page*/
         $scope.nextPage = function(){
             $scope.currentPage++;

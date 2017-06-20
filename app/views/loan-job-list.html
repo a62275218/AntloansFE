@@ -143,6 +143,7 @@
             <a ng-repeat="item in job
                | orderBy:convertName(sortBy.selected.name)
                | filter:searchInput
+               | statusFilter:'all'
                | startFrom:currentPage * pageAmount.selected.name
                | limitTo:pageAmount.selected.name
                track by $index">

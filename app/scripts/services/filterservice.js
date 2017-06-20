@@ -15,22 +15,22 @@ antloans
             return range;
         }
     })
-    .filter('startFrom', function() {
-        return function(input, start) {
-            if(input) {
+    .filter('startFrom', function () {
+        return function (input, start) {
+            if (input) {
                 start = +start; //parse to int
                 return input.slice(start);
             }
         }
     })
-    .filter('propsFilter', function() {
-        return function(items, props) {
+    .filter('propsFilter', function () {
+        return function (items, props) {
             var out = [];
 
             if (angular.isArray(items)) {
                 var keys = Object.keys(props);
 
-                items.forEach(function(item) {
+                items.forEach(function (item) {
                     var itemMatches = false;
 
                     for (var i = 0; i < keys.length; i++) {
@@ -53,6 +53,40 @@ antloans
             return out;
         };
     })
-.filter('statusFilter',function(obj,status){
-
-});
+    .filter('statusFilter', function () {
+        return function (items, status) {
+            var submission = [];
+            var assessment = [];
+            var settlement = [];
+            if (status == 'submission') {
+                angular.forEach(items, function (v, k) {
+                       if (items[k].deal_status && items[k].deal_status.value < 4) {
+                            submission.push(items[k]);
+                        }
+                    }
+                );
+                return submission;
+            }
+            if(status == 'assessment'){
+                angular.forEach(items, function (v, k) {
+                        if (items[k].deal_status && items[k].deal_status.value >=4 && items[k].deal_status.value<10) {
+                            assessment.push(items[k]);
+                        }
+                    }
+                );
+                return assessment;
+            }
+            if(status == 'settlement'){
+                angular.forEach(items, function (v, k) {
+                        if (items[k].deal_status && items[k].deal_status.value >=10) {
+                            settlement.push(items[k]);
+                        }
+                    }
+                );
+                return settlement;
+            }
+            if(status == 'all'){
+                return items;
+            }
+        }
+    });

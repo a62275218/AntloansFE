@@ -21,10 +21,12 @@
             <span id="jobEditBtn" ng-click="jobEdit()"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
             <table class="job_show" >
               <tr>
+                  <form>
                   <th>first name</th>
-                  <td><input type="text" class="disable" ng-model="job.first_name" disabled></td>
+                  <td><input type="text" class="disable" ng-model="job.first_name" disabled="disabled"></td>
                   <th>last name</th>
                   <td><input type="text" class="disable" ng-model="job.last_name" disabled></td>
+                  </form>
               </tr>
               <tr>
                   <th>mobile</th>

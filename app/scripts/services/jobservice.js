@@ -56,7 +56,7 @@ antloans.factory('jobService',['API_BASE','$http','OAuthService',
                     },
                     data:data
                 })
-            },
+            }
             /*filterStatus:function(obj,status){
                 var submission = [];
                 var assessment = [];
