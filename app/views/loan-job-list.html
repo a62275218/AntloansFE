@@ -76,10 +76,10 @@
 
             <div class="tool_bar_middle">
                 <hr>
-                <div class="amount">
+                <div class="bank">
                     <label>BANK:</label>
                     <ui-select ng-model="banks.selected" search-enabled="false" class="bank_input selectpicker select_page"
-                               onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
+                               onkeypress="return false;" ng-disabled="disabled">
                         <ui-select-match>
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
@@ -104,10 +104,10 @@
                 <div class="status">
                     <label>STATUS:</label>
                     <div class="btn-group statusInput" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default">SUBMISSION</button>
-                        <button type="button" class="btn btn-default">ASSESSMENT</button>
-                        <button type="button" class="btn btn-default">SETTLEMENT</button>
-                        <button type="button" class="btn btn-default selected">ALL</button>
+                        <button type="button" class="btn btn-default status_submission" ng-click="active('.status_submission')">SUBMISSION</button>
+                        <button type="button" class="btn btn-default status_assessment" ng-click="active('.status_assessment')">ASSESSMENT</button>
+                        <button type="button" class="btn btn-default status_settlement" ng-click="active('.status_settlement')">SETTLEMENT</button>
+                        <button type="button" class="btn btn-default status_all selected" ng-click="active('.status_all')">ALL</button>
                     </div>
                 </div>
                 <div class="broker">
@@ -123,7 +123,7 @@
                 </div>
                 <div class="admin">
                     <label>ADMIN:</label>
-                    <ui-select ng-model="admins.selected" class="broker_input selectpicker select_page" style="width:220px;">
+                    <ui-select ng-model="admins.selected" class="admin_input selectpicker select_page" style="width:220px;">
                         <ui-select-match>
                             <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
                         </ui-select-match>

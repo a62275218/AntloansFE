@@ -89,5 +89,30 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         $scope.$watchGroup(['searchInput','sortBy.selected.name'],function(){
             $scope.currentPage = 0;
         },true);
-}]);
 
+
+       // bank active button
+       $scope.active = function(status){
+         $(status).addClass('selected');
+         if($(status).hasClass('status_submission')){
+           $('.status_assessment').removeClass('selected');
+            $('.status_settlement').removeClass('selected');
+             $('.status_all').removeClass('selected');
+         }
+         if($(status).hasClass('status_assessment')){
+           $('.status_submission').removeClass('selected');
+            $('.status_settlement').removeClass('selected');
+             $('.status_all').removeClass('selected');
+         }
+         if($(status).hasClass('status_settlement')){
+           $('.status_assessment').removeClass('selected');
+            $('.status_submission').removeClass('selected');
+             $('.status_all').removeClass('selected');
+         }
+         if($(status).hasClass('status_all')){
+           $('.status_assessment').removeClass('selected');
+            $('.status_submission').removeClass('selected');
+             $('.status_settlement').removeClass('selected');
+         }
+       }
+}]);

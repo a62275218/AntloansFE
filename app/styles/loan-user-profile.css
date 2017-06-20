@@ -18,6 +18,11 @@ li.user-bar i, li.user-bar span.bar_name{
   position: relative;
 }
 
+.personal_detail input.disable{
+   border: 0;
+   background-color: #FFF;
+}
+
 .personal_detail h3, .personal_detail h4{
   margin: 0;
 }
@@ -61,6 +66,10 @@ li.user-bar i, li.user-bar span.bar_name{
   margin-left: 10px;
 }
 
+.user_name input{
+  width:60px;
+}
+
 .user_info, .control {
   padding-left: 80px;
   vertical-align: middle;
@@ -83,6 +92,10 @@ li.user-bar i, li.user-bar span.bar_name{
 
 .email_message, .number_message{
   padding-left: 60px;
+}
+
+.email_message input{
+  width: 300px;
 }
 
 .personal_detail label{

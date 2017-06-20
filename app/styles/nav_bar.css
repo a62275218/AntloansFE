@@ -1,4 +1,8 @@
 /*nav css*/
+input.disable{
+  background-color: white;
+}
+
 .nav_bar{
   background-color: #3D9EDC;
   width: 100%;

@@ -4,4 +4,12 @@ antloans.controller('userProfileCtrl',['$scope','response',
             $scope.user = response.data.data;
             console.log($scope.user);
         }
+
+    $scope.edit = function(){
+      $('.personal_detail input').removeAttr('disabled').removeClass('disable');
+    }
+    $scope.save = function(){
+      $('.personal_detail input').attr('disabled');
+      $('.personal_detail input').addClass('disable');
+    }
 }]);
