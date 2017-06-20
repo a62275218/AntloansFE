@@ -112,7 +112,7 @@ li.job-bar i, li.job-bar span.bar_name{
   margin-left: 50px;
   width: 320px;
 }
-
+/*
 .amount .amount-slider{
   display: inline-block;
   float: right;
@@ -132,17 +132,17 @@ li.job-bar i, li.job-bar span.bar_name{
   position: absolute;
   bottom: -30px;
   right: 10px;
-}
+}*/
 
 .start_date{
   display: inline-block;
   float: left;
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
-.startDate{
+/*.startDate{
   width: 150px !important;
-}
+}*/
 
 .close_date{
   display: inline-block;
@@ -150,10 +150,10 @@ li.job-bar i, li.job-bar span.bar_name{
   margin-left: 100px;
 }
 
-.closeDate{
+/*.closeDate{
   width: 150px !important;
   z-index: 0 !important;
-}
+}*/
 
 .tool_bar_middle label{
   color:#AEAEAE;
@@ -222,6 +222,7 @@ li.job-bar i, li.job-bar span.bar_name{
   border-left-width: 15px;
   background-color: #FFFFFF;
   margin-top: 20px;
+  box-shadow: 4px 6px 5px #E8EAEB;
 }
 
 .item .side_light{

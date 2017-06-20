@@ -69,12 +69,6 @@ li.job-bar i, li.job-bar span.bar_name{
   outline: none;
 }
 
-/*.editable-buttons {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}*/
-
 .approval_middle {
     width: 97%;
     box-sizing: border-box;
