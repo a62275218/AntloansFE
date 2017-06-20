@@ -83,7 +83,6 @@ li.job-bar i, li.job-bar span.bar_name{
   width:60px !important;
   display: inline-block !important;
   float: right !important;
-  z-index: 0 !important;
 }
 
 .page {

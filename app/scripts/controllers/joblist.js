@@ -1,30 +1,45 @@
-antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','localStorageService','jobService','paginationService','$filter',
-    function($scope, $state,response,OAuthService,localStorageService,jobService,paginationService,$filter){
+antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','localStorageService','jobService','paginationService','BankService','UserService',
+    function($scope, $state,response,OAuthService,localStorageService,jobService,paginationService,BankService,UserService){
         var vm = this;
-        vm.logout = function(){
-            OAuthService.clearToken();
-            principal.authenticate(null);
-        };
-        if (response && response.status == 200) {
-            $scope.user = response.data.data;
-        }
         /*set default current page*/
         $scope.currentPage = 0;
 
         /*get all the paginated data*/
-        vm.getPaginatedJobs = function(page,limit) {
+        vm.getPaginatedJobs = function() {
             jobService.getAllJobs()
                 .then(
                     function (response) {
                         $scope.job = response.data.data.content;
-                        $scope.totalPage = paginationService.numberOfPages($scope.job.length,limit);
-                        $scope.jobs = $scope.job.slice(page * limit);
-                        console.log($scope.jobs)
+                        $scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
+                        jobService.filterStatus($scope.jobs,'submission');
                     },
                     function (e) {
                         console.log(e)
                     });
         };
+        $scope.brokers = [];
+        $scope.admin = [];
+        vm.getUsersByType = function (target,type) {
+            UserService.getAllUsers()
+                .then(function (response) {
+                    for (var i = 0; i < response.data.data.length; i++) {
+                        if (response.data.data[i].role === type) {
+                            target.push(response.data.data[i]);
+                        }
+                    }
+                }, function (e) {
+                })
+        };
+        vm.getBanks = function () {
+            BankService.getAllBanks()
+                .then(function (response) {
+                    $scope.banks = response.data.data;
+                }, function (e) {
+                })
+        };
+        vm.getBanks();
+        vm.getUsersByType($scope.brokers,'broker');
+        vm.getUsersByType($scope.admins,'admin');
         /*go to next page*/
         $scope.nextPage = function(){
             $scope.currentPage++;
@@ -76,5 +91,9 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         $scope.sortBy.selected = $scope.sortBy[0];
 
         $scope.sliderVals = [0, 10000];
+
+        $scope.$watchGroup(['searchInput','sortBy.selected.name'],function(){
+            $scope.currentPage = 0;
+        },true);
 }]);
 

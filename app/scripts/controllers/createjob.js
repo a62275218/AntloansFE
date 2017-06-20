@@ -15,11 +15,11 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                         "address": vm.user.address,
                         "email": vm.email.email,
                         "bank_id": $scope.banks.selected.id,
-                        "loan_type": $scope.loan_type.selected,
+                        "loan_type": $scope.loan_type.selected.value,
                         "loan_amount": $scope.job.product.loan_amount,
-                        "loan_purpose": $scope.loan_purpose.selected,
-                        "repayment_type": $scope.repayment_type.selected,
-                        "file_nature": $scope.file_nature.selected,
+                        "loan_purpose": $scope.loan_purpose.selected.value,
+                        "repayment_type": $scope.repayment_type.selected.value,
+                        "file_nature": $scope.file_nature.selected.value,
                         "broker_id": $scope.brokers.selected.user_id,
                         "special_note": $scope.job.product.special_note
                     }
@@ -55,12 +55,12 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
             vm.user = vm.email
         };
         $scope.brokers = [];
-        vm.getBrokers = function () {
+        vm.getUsersByType = function (target,type) {
             UserService.getAllUsers()
                 .then(function (response) {
                     for (var i = 0; i < response.data.data.length; i++) {
-                        if (response.data.data[i].role === 'broker') {
-                            $scope.brokers.push(response.data.data[i])
+                        if (response.data.data[i].role === type) {
+                            target.push(response.data.data[i])
                         }
                     }
                 }, function (e) {
@@ -94,7 +94,7 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                 },function(e){
                 })
         };
-        vm.getBrokers();
+        vm.getUsersByType($scope.brokers,'broker');
         vm.getBanks();
         vm.getProperty();
     }]);

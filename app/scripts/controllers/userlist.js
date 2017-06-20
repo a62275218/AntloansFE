@@ -1,5 +1,5 @@
 antloans.controller('UserListCtrl',['$scope','UserService','paginationService',
-    function($scope,UserService,paginationService){
+    function($scope,UserService,paginationService,BankService){
     var vm =this;
     $scope.sort = '';
     $scope.desc = false;
@@ -52,4 +52,8 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService',
         vm.getPaginatedUsers();
         /*set up total page*/
         $scope.totalPage = vm.getPaginatedUsers();
+        //$watch search to update pagination
+        $scope.$watchGroup(['searchInput','desc'],function(){
+            $scope.currentPage = 0;
+        },true);
 }]);

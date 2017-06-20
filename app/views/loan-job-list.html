@@ -78,6 +78,15 @@
                 <hr>
                 <div class="amount">
                     <label>BANK:</label>
+                    <ui-select ng-model="banks.selected" search-enabled="false" class="bank_input selectpicker select_page"
+                               onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in banks track by $index">
+                            <span ng-bind="item.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
                     <!--<div class="amount-slider">
                         <div ui-slider="{range: true}" min="0" max="10000" step="1" lower-bound="0" upper-bound="10000"
                              use-decimals ng-model="sliderVals">
@@ -89,11 +98,11 @@
                 </div>
 
                 <div class="start_date">
-                    <label>START DATE:</label>
+                    <label>SETTLEMENT DATE &nbsp;&nbsp;&nbsp;&nbsp;FROM:</label>
                     <input ui-date>
                 </div>
                 <div class="close_date">
-                    <label>CLOSE DATE:</label>
+                    <label>TO:</label>
                     <input ui-date>
                 </div>
             </div>
@@ -106,21 +115,30 @@
                         <button type="button" class="btn btn-default">SUBMISSION</button>
                         <button type="button" class="btn btn-default">ASSESSMENT</button>
                         <button type="button" class="btn btn-default">SETTLEMENT</button>
-                        <button type="button" class="btn btn-default">ALL</button>
+                        <button type="button" class="btn btn-default selected">ALL</button>
                     </div>
                 </div>
                 <div class="broker">
                     <label>BROKER:</label>
-                    <select class="selectpicker brokerInput">
-                        <option>ALL</option>
-                    </select>
-
+                    <ui-select ng-model="brokers.selected" class="broker_input selectpicker select_page" style="width:220px;">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in brokers | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
+                            <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                        </ui-select-choices>
+                    </ui-select>
                 </div>
                 <div class="admin">
                     <label>ADMIN:</label>
-                    <select class="selectpicker adminInput">
-                        <option>ALL</option>
-                    </select>
+                    <ui-select ng-model="brokers.selected" class="broker_input selectpicker select_page" style="width:220px;">
+                        <ui-select-match>
+                            <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in admins | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
+                            <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                        </ui-select-choices>
+                    </ui-select>
                 </div>
             </div>
 
@@ -130,11 +148,11 @@
         </section>
 
         <div class="content">
-            <a ng-repeat="item in jobs
-               | orderBy:convertName(sortBy.selected.name)
-               | rangeFilter:'loan_amount':sliderVals[0]:sliderVals[1]
+            <a ng-repeat="item in job
                | filter:searchInput
+               | startFrom:currentPage * pageAmount.selected.name
                | limitTo:pageAmount.selected.name
+               | orderBy:'first_name'
                track by $index">
                 <div class='item' ng-click="toApproval(item.id)">
                 <span class="side_light" ng-class="">

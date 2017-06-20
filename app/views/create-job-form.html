@@ -54,7 +54,7 @@
                   <ui-select ng-model="loan_type.selected" search-enabled="false" class="type_input selectpicker select_page"
                              onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
                       <ui-select-match>
-                          <span ng-bind="$select.selected"></span>
+                          <span ng-bind="$select.selected.label"></span>
                       </ui-select-match>
                       <ui-select-choices repeat="item in loan_type track by $index">
                           <span ng-bind="item.label"></span>
@@ -64,7 +64,7 @@
                   <ui-select ng-model="file_nature.selected" search-enabled="false" class="file_input selectpicker select_page"
                              onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
                       <ui-select-match>
-                          <span ng-bind="$select.selected"></span>
+                          <span ng-bind="$select.selected.label"></span>
                       </ui-select-match>
                       <ui-select-choices repeat="item in file_nature track by $index">
                           <span ng-bind="item.label"></span>
@@ -92,7 +92,7 @@
                   <ui-select ng-model="loan_purpose.selected" search-enabled="false" class="purpose_input selectpicker select_page"
                              onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
                       <ui-select-match>
-                          <span ng-bind="$select.selected"></span>
+                          <span ng-bind="$select.selected.label"></span>
                       </ui-select-match>
                       <ui-select-choices repeat="item in loan_purpose track by $index">
                           <span ng-bind="item.label"></span>
@@ -108,7 +108,7 @@
                       <ui-select ng-model="repayment_type.selected" search-enabled="false" class="bank_input selectpicker select_page"
                                  onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
                           <ui-select-match>
-                              <span ng-bind="$select.selected"></span>
+                              <span ng-bind="$select.selected.label"></span>
                           </ui-select-match>
                           <ui-select-choices repeat="item in repayment_type track by $index">
                               <span ng-bind="item.label"></span>

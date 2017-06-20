@@ -56,6 +56,13 @@ antloans.factory('jobService',['API_BASE','$http','OAuthService',
                     },
                     data:data
                 })
+            },
+            filterStatus:function(obj,status){
+                if(status == 'submission'){
+                    angular.forEach(obj,function(k,v){
+                        console.log(123);
+                    })
+                }
             }
         }
 }]);
