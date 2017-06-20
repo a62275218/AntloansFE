@@ -61,7 +61,7 @@
                  <div class='user_list'>
                     <table class='"table table-striped"'>
                        <thead>
-                         <tr><th ng-click="sort = 'first_name';desc=!desc">NAME &nbsp;<i ng-if="desc == true"  class="fa fa-caret-down fa-lg" aria-hidden="true"></i><i ng-if="desc == false"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                         <tr><th ng-click="sort = 'first_name';desc=!desc">NAME &nbsp;<i ng-if="desc == true"  class="fa fa-caret-down fa-lg" aria-hidden="true"></i><i ng-if="!desc"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                              <th ng-click="sort = 'role';desc=!desc">USER TYPE &nbsp;<i ng-if="desc"  class="fa fa-caret-down fa-lg" aria-hidden="true"></i><i ng-if="!desc"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                              <th ng-click="sort = 'mobile';desc=!desc">MOBILE &nbsp;<i ng-if="desc"  class="fa fa-caret-down fa-lg" aria-hidden="true"></i><i ng-if="!desc"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                              <th>ACTIONS</th>
@@ -69,10 +69,10 @@
                        </thead>
                        <tbody>
                          <tr ng-repeat="item in user
+                            | orderBy:sort:desc
                             | filter:searchInput
                             | startFrom:currentPage * pageAmount.selected.name
                             | limitTo:pageAmount.selected.name
-                            | orderBy:sort:desc
                             track by $index">
                            <td><img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
                                <img ng-if="!item.avatar" ng-src="/images/avatar.jpg" alt="">

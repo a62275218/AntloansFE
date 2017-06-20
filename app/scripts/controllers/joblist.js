@@ -3,7 +3,6 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         var vm = this;
         /*set default current page*/
         $scope.currentPage = 0;
-
         /*get all the paginated data*/
         vm.getPaginatedJobs = function() {
             jobService.getAllJobs()
@@ -11,7 +10,7 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
                     function (response) {
                         $scope.job = response.data.data.content;
                         $scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
-                        jobService.filterStatus($scope.jobs,'submission');
+                        jobService.filterStatus($scope.job,'submission');
                     },
                     function (e) {
                         console.log(e)
@@ -46,7 +45,6 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
             if($scope.currentPage>$scope.totalPage-1){
                 $scope.currentPage = $scope.totalPage-1
             }
-            vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
         };
         /*go to previous page*/
         $scope.prevPage = function(){
@@ -54,25 +52,22 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
             if($scope.currentPage < 0){
                 $scope.currentPage = 0
             }
-            vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
         };
         /*go to first page*/
         $scope.returnToFirst = function(){
             $scope.currentPage = 0;
-            vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
+            vm.getPaginatedJobs();
         };
         /*options of page amount*/
         $scope.pageAmount =[
-            {"name":5},
             {"name":10},
-            {"name":15}
+            {"name":20},
+            {"name":30}
         ];
         /*default page amount*/
         $scope.pageAmount.selected = $scope.pageAmount[0];
         /*load paginated data*/
-        vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
-        /*set up total page*/
-        $scope.totalPage = vm.getPaginatedJobs($scope.currentPage,$scope.pageAmount.selected.name);
+        vm.getPaginatedJobs();
 
         $scope.toApproval =function(id){
           $state.go('approval',{jobId:id})
@@ -89,8 +84,6 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
             {"name":"name"}
         ];
         $scope.sortBy.selected = $scope.sortBy[0];
-
-        $scope.sliderVals = [0, 10000];
 
         $scope.$watchGroup(['searchInput','sortBy.selected.name'],function(){
             $scope.currentPage = 0;

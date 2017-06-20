@@ -50,7 +50,9 @@ antloans
                 // Let the output be the input untouched
                 out = items;
             }
-
             return out;
         };
-    });
+    })
+.filter('statusFilter',function(obj,status){
+
+});

@@ -57,12 +57,19 @@ antloans.factory('jobService',['API_BASE','$http','OAuthService',
                     data:data
                 })
             },
-            filterStatus:function(obj,status){
+            /*filterStatus:function(obj,status){
+                var submission = [];
+                var assessment = [];
+                var settlement = [];
                 if(status == 'submission'){
                     angular.forEach(obj,function(k,v){
-                        console.log(123);
-                    })
+                        console.log(k);
+                        if(k.deal_status.value <4){
+                            submission.push(obj)
+                        }
+                    });
+                    return submission;
                 }
-            }
+            }*/
         }
 }]);

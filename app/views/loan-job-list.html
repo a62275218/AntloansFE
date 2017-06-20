@@ -131,7 +131,7 @@
                 </div>
                 <div class="admin">
                     <label>ADMIN:</label>
-                    <ui-select ng-model="brokers.selected" class="broker_input selectpicker select_page" style="width:220px;">
+                    <ui-select ng-model="admins.selected" class="broker_input selectpicker select_page" style="width:220px;">
                         <ui-select-match>
                             <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
                         </ui-select-match>
@@ -149,10 +149,10 @@
 
         <div class="content">
             <a ng-repeat="item in job
+               | orderBy:convertName(sortBy.selected.name)
                | filter:searchInput
                | startFrom:currentPage * pageAmount.selected.name
                | limitTo:pageAmount.selected.name
-               | orderBy:'first_name'
                track by $index">
                 <div class='item' ng-click="toApproval(item.id)">
                 <span class="side_light" ng-class="">
