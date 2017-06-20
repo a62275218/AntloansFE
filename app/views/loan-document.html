@@ -77,32 +77,10 @@
                              <th>ACTION </th></tr>
                        </thead>
                        <tbody>
-                         <tr>
-                           <td>Not Wraper</td>
+                         <tr ng-repeat="item in document track by $index">
+                           <td>{{item.name}}</td>
                            <td>0.0</td>
-                           <td>12/08/16</td>
-                           <td>Individual</td>
-                           <td>David Cutter</td>
-                           <td><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;
-                             <i class="fa fa-download" aria-hidden="true"></i>
-                           </td>
-                         </tr>
-
-                         <tr>
-                           <td>Not Wraper</td>
-                           <td>0.0</td>
-                           <td>12/08/16</td>
-                           <td>Individual</td>
-                           <td>David Cutter</td>
-                           <td><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;
-                             <i class="fa fa-download" aria-hidden="true"></i>
-                           </td>
-                         </tr>
-
-                         <tr>
-                           <td>Not Wraper</td>
-                           <td>0.0</td>
-                           <td>12/08/16</td>
+                           <td>{{item.createAt}}</td>
                            <td>Individual</td>
                            <td>David Cutter</td>
                            <td><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;
