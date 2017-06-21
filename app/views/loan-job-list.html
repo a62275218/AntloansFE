@@ -153,7 +153,7 @@
                 <span class="side_light" ng-class="judgeStatus(item.deal_status.value)">
                 </span>
                     <img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
-                    <img ng-if="!item.avatar" ng-src="/images/avatar.jpg" alt="">
+                    <img ng-if="!item.avatar" ng-src="{{default_img_url}}" alt="">
                     <div class='intro'>
                         <h4 class='name'>{{item.first_name}} {{item.last_name}}</h4>
                         <section class='state'><!--<i class="fa fa-clock-o" aria-hidden="true"></i>-->{{item.deal_status.label}}

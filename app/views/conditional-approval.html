@@ -179,7 +179,7 @@
                                     <div class="commenter">
                                         <div class="commenter_img">
                                             <img ng-if = "item.avatar" ng-src="item.avatar" alt="">
-                                            <img ng-if = "!item.avatar" ng-src="data:image/jpeg;base64,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" alt="">
+                                            <img ng-if = "!item.avatar" ng-src="{{default_img_url}}" alt="">
                                         </div>
                                         <div class="commenter_name">
                                             {{item.username}}
@@ -204,8 +204,8 @@
                         <div class="leave_message">
                             <div class="commenter commenter_leave">
                                 <div class="commenter_img">
-                                    <img ng-if = "user.avatar" ng-src="user.avatar" alt="">
-                                    <img ng-if = "!user.avatar" ng-src="/images/avatar.jpg" alt="">
+                                    <img ng-if = "user.avatar" ng-src="{{user.avatar}}" alt="">
+                                    <img ng-if = "!user.avatar" ng-src="{{default_img_url}}" alt="">
                                 </div>
                             </div>
                             <form class="comment_form">

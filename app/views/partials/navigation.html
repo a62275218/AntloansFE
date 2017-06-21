@@ -1,7 +1,8 @@
 <div class="brand">Antloans</div>
 
 <div class="dropdownl" ng-controller="navBarCtrl">
-    <img ng-src="/images/avatar.jpg" alt="">
+    <img ng-if = "user.avatar" ng-src="{{user.avatar}}" alt="">
+    <img ng-if = "!user.avatar" ng-src="{{default_img_url}}" alt="">
     <button class="dropbtn">{{user.first_name}} {{user.last_name}}</button>
     <div class="dropdown-content">
         <a ui-sref="user-profile">Profile</a>
