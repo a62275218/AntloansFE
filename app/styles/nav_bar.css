@@ -2,6 +2,16 @@
 input.disable{
   background-color: white;
 }
+.red{
+  background-color:red;
+}
+
+.orange{
+  background-color:orange;
+}
+.green{
+  background-color:green;
+}
 
 .nav_bar{
   background-color: #3D9EDC;

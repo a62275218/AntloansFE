@@ -56,8 +56,16 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         $scope.filterUser = function(obj,type){
             $scope.userType = type;
             obj.user_id? $scope.userId = obj.user_id:$scope.userId ='';
-            console.log($scope.userType);
-            console.log($scope.userId)
+        };
+
+        $scope.judgeStatus = function(status){
+            if(status<4){
+                return 'red';
+            }else if(status >= 4 && status <10){
+                return 'orange';
+            }else{
+                return 'red';
+            }
         };
 
         /*go to next page*/
@@ -106,7 +114,7 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         ];
         $scope.sortBy.selected = $scope.sortBy[0];
 
-        $scope.$watchGroup(['searchInput','sortBy.selected.name','jobStatus','searchBank'],function(){
+        $scope.$watchGroup(['searchInput','sortBy.selected.name','jobStatus','searchBank','userType'],function(){
             $scope.currentPage = 0;
         },true);
 

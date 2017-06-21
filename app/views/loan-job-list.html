@@ -150,7 +150,7 @@
                | limitTo:pageAmount.selected.name
                track by $index">
                 <div class='item' ng-click="toApproval(item.id)">
-                <span class="side_light" ng-class="">
+                <span class="side_light" ng-class="judgeStatus(item.deal_status.value)">
                 </span>
                     <img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
                     <img ng-if="!item.avatar" ng-src="/images/avatar.jpg" alt="">
