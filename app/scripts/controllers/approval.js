@@ -1,22 +1,45 @@
 antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'UserService',
     function ($scope, jobService, $stateParams, UserService) {
-    var vm = this;
-    var deal_status = '';
-        vm.showStatus = function (obj) {
+        var vm = this;
+        var deal_status = '1234';
+        vm.checkStatus = function (obj) {
             if (obj.deal_status) {
-                var value = obj.deal_status.value;
-
+                return obj.deal_status.value;
             }
         };
+
+        //  get the status value of current deal
         jobService.getaJob($stateParams.jobId)
-            .then(function (response) {
-                $scope.job = response.data.data;
-                console.log($scope.job)
-                $scope.status = $scope.job.deal_status.value;
-                deal_status = $scope.job.deal_status.value;
-            }, function (e) {
-                console.log(e)
-            });
+                .then(function (response) {
+                    $scope.job = response.data.data;
+                    deal_status = vm.checkStatus($scope.job);
+                    // console.log("================");
+                    // console.log(deal_status);
+                    vm.showStatus(deal_status);
+                }, function (e) {
+                    console.log(e)
+                });
+
+       // show status in the timeline
+       vm.showStatus = function (deal_status_value){
+         var status = [];
+         status.push($('.circle.1'), $('.circle.2'), $('.circle.3'), $('.circle.4'), $('.circle.5'),
+             $('.circle.6'), $('.circle.7'), $('.circle.8'), $('.circle.9'), $('.circle.10'),
+             $('.circle.11'), $('.circle.12'));
+         status[deal_status_value-1].addClass('done');
+         var index = parseInt(deal_status_value-1);
+         if (status[deal_status_value-1].hasClass("done")) {
+             for (var i = 0; i < index; i++) {
+                 status[i].addClass('done');
+             }
+             for (var j = index + 1; j < status.length; j++) {
+                 status[j].removeClass('done');
+             }
+             updateStatusLight();
+         }
+       }
+
+        // =======
         $scope.updateUser = function () {
             $('.job_show td input').attr('disabled');
             $('.job_show td input').addClass('disable');
@@ -40,17 +63,17 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         };
         // edit job info
         $scope.jobEdit = function () {
-
             $('.job_show td input').removeAttr('disabled').removeClass('disable');
         }
 
         // ========= edit vertical timeline ========
-        var status = [];
-        status.push($('.circle.1'), $('.circle.2'), $('.circle.3'), $('.circle.4'), $('.circle.5'),
-            $('.circle.6'), $('.circle.7'), $('.circle.8'), $('.circle.9'), $('.circle.10'),
-            $('.circle.11'), $('.circle.12'));
 
         $('.timeline_editBtn').click(function () {
+          var status = [];
+          status.push($('.circle.1'), $('.circle.2'), $('.circle.3'), $('.circle.4'), $('.circle.5'),
+              $('.circle.6'), $('.circle.7'), $('.circle.8'), $('.circle.9'), $('.circle.10'),
+              $('.circle.11'), $('.circle.12'));
+
             $('.timeline li div.circle').addClass('canEdit');
             $('.timeline_editBtn').addClass('edit');
             $('.timeline').css('border-left', "3px dotted #B5B5B5");
@@ -67,45 +90,50 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                         status[j].removeClass('done');
                     }
                 }
-
-                var num = $('.circle.done').length;
-                console.log("=================" + num);
-                if (num < 1) {
-                    $('.submission i').removeClass('done');
-                    $('.submission_name').removeClass('done');
-                    $('.assessment i').removeClass('done');
-                    $('.assessment_name').removeClass('done');
-                    $('.settlement i').removeClass('done');
-                    $('.settlement_name').removeClass('done');
-                }
-                if (num >= 1 && num <= 3) {
-                    $('.submission i').addClass('done');
-                    $('.submission_name').addClass('done');
-                    $('.assessment i').removeClass('done');
-                    $('.assessment_name').removeClass('done');
-                    $('.settlement i').removeClass('done');
-                    $('.settlement_name').removeClass('done');
-                }
-                if (num > 3 && num <= 9) {
-                    $('.submission i').addClass('done');
-                    $('.submission_name').addClass('done');
-                    $('.assessment i').addClass('done');
-                    $('.assessment_name').addClass('done');
-                    $('.settlement i').removeClass('done');
-                    $('.settlement_name').removeClass('done');
-                }
-                if (num > 9) {
-                    $('.submission i').addClass('done');
-                    $('.submission_name').addClass('done');
-                    $('.assessment i').addClass('done');
-                    $('.assessment_name').addClass('done');
-                    $('.settlement i').addClass('done');
-                    $('.settlement_name').addClass('done');
-                }
+                updateStatusLight();
             });
 
         });
 
+        // connect the timeline status to above status lights
+        function updateStatusLight(){
+          var num = $('.circle.done').length;
+          console.log("=================" + num);
+          if (num < 1) {
+              $('.submission i').removeClass('done');
+              $('.submission_name').removeClass('done');
+              $('.assessment i').removeClass('done');
+              $('.assessment_name').removeClass('done');
+              $('.settlement i').removeClass('done');
+              $('.settlement_name').removeClass('done');
+          }
+          if (num >= 1 && num <= 3) {
+              $('.submission i').addClass('done');
+              $('.submission_name').addClass('done');
+              $('.assessment i').removeClass('done');
+              $('.assessment_name').removeClass('done');
+              $('.settlement i').removeClass('done');
+              $('.settlement_name').removeClass('done');
+          }
+          if (num > 3 && num <= 9) {
+              $('.submission i').addClass('done');
+              $('.submission_name').addClass('done');
+              $('.assessment i').addClass('done');
+              $('.assessment_name').addClass('done');
+              $('.settlement i').removeClass('done');
+              $('.settlement_name').removeClass('done');
+          }
+          if (num > 9) {
+              $('.submission i').addClass('done');
+              $('.submission_name').addClass('done');
+              $('.assessment i').addClass('done');
+              $('.assessment_name').addClass('done');
+              $('.settlement i').addClass('done');
+              $('.settlement_name').addClass('done');
+          }
+        }
+
+        // ========
         $('.approval_down_left .saveBtn').click(function () {
             $('.timeline li div.circle').removeClass('canEdit');
             $('.timeline_editBtn').removeClass('edit');
@@ -114,6 +142,8 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             $('.circle').css('cursor', 'default');
         })
     }])
+
+// the second controller
     .controller('messageCtrl', ['$scope', 'jobService', '$stateParams', 'UserService',
         function ($scope, jobService, $stateParams, UserService) {
             /*get all comments*/
