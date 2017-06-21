@@ -1,6 +1,7 @@
 antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','localStorageService','jobService','paginationService','BankService','UserService',
     function($scope, $state,response,OAuthService,localStorageService,jobService,paginationService,BankService,UserService){
         var vm = this;
+
         /*set default current page*/
         $scope.currentPage = 0;
         /*get all the paginated data*/
@@ -16,7 +17,7 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
                     });
         };
         $scope.brokers = [];
-        $scope.admin = [];
+        $scope.admins = [];
         vm.getUsersByType = function (target,type) {
             UserService.getAllUsers()
                 .then(function (response) {
@@ -25,6 +26,7 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
                             target.push(response.data.data[i]);
                         }
                     }
+                    /*target.unshift({name:'ALL'});*/
                 }, function (e) {
                 })
         };
@@ -32,6 +34,7 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
             BankService.getAllBanks()
                 .then(function (response) {
                     $scope.banks = response.data.data;
+                    $scope.banks.unshift({name:'ALL'});
                 }, function (e) {
                 })
         };
@@ -39,7 +42,24 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         vm.getUsersByType($scope.brokers,'broker');
         vm.getUsersByType($scope.admins,'admin');
 
+        /*initiate filter attributes*/
         $scope.jobStatus ='all';
+        $scope.searchBank ='all';
+        $scope.userType = 'all';
+        $scope.userId = '';
+
+        /*filter bank*/
+        $scope.filterBankId = function(obj){
+            obj.id? $scope.searchBank = obj.id: $scope.searchBank = 'all';
+        };
+        /*filter user*/
+        $scope.filterUser = function(obj,type){
+            $scope.userType = type;
+            obj.user_id? $scope.userId = obj.user_id:$scope.userId ='';
+            console.log($scope.userType);
+            console.log($scope.userId)
+        };
+
         /*go to next page*/
         $scope.nextPage = function(){
             $scope.currentPage++;
@@ -86,7 +106,7 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         ];
         $scope.sortBy.selected = $scope.sortBy[0];
 
-        $scope.$watchGroup(['searchInput','sortBy.selected.name'],function(){
+        $scope.$watchGroup(['searchInput','sortBy.selected.name','jobStatus','searchBank'],function(){
             $scope.currentPage = 0;
         },true);
 
@@ -98,21 +118,25 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
            $('.status_assessment').removeClass('selected');
             $('.status_settlement').removeClass('selected');
              $('.status_all').removeClass('selected');
+             $scope.jobStatus = 'submission'
          }
          if($(status).hasClass('status_assessment')){
            $('.status_submission').removeClass('selected');
             $('.status_settlement').removeClass('selected');
              $('.status_all').removeClass('selected');
+             $scope.jobStatus = 'assessment'
          }
          if($(status).hasClass('status_settlement')){
            $('.status_assessment').removeClass('selected');
             $('.status_submission').removeClass('selected');
              $('.status_all').removeClass('selected');
+             $scope.jobStatus = 'settlement'
          }
          if($(status).hasClass('status_all')){
            $('.status_assessment').removeClass('selected');
             $('.status_submission').removeClass('selected');
              $('.status_settlement').removeClass('selected');
+             $scope.jobStatus = 'all'
          }
        }
 }]);

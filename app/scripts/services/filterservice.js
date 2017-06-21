@@ -72,8 +72,7 @@ antloans
                         if (items[k].deal_status && items[k].deal_status.value >=4 && items[k].deal_status.value<10) {
                             assessment.push(items[k]);
                         }
-                    }
-                );
+                    });
                 return assessment;
             }
             if(status == 'settlement'){
@@ -89,4 +88,34 @@ antloans
                 return items;
             }
         }
-    });
+    })
+.filter('bankFilter',function(){
+    return function(items,search){
+        var result = [];
+        if(search == 'all'){
+            return items;
+        }else {
+            angular.forEach(items, function (v, k) {
+                if (items[k].bank_id && items[k].bank_id == search) {
+                    result.push(items[k]);
+                }
+            });
+        }
+        return result;
+    }
+})
+.filter('userFilter',function(){
+    return function(items,usertype,id){
+        var result = [];
+        if(usertype == 'all'){
+            return items;
+        }else if(usertype = 'broker'){
+            angular.forEach(items, function (v, k) {
+                if (items[k].broker && items[k].broker.user_id == id) {
+                    result.push(items[k]);
+                }
+            });
+        }
+        return result;
+    }
+});

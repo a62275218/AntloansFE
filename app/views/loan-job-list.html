@@ -78,7 +78,7 @@
                 <hr>
                 <div class="bank">
                     <label>BANK:</label>
-                    <ui-select ng-model="banks.selected" search-enabled="false" class="bank_input selectpicker select_page"
+                    <ui-select ng-model="banks.selected" on-select="filterBankId(banks.selected)" search-enabled="false" class="bank_input selectpicker select_page"
                                onkeypress="return false;" ng-disabled="disabled">
                         <ui-select-match>
                             <span ng-bind="$select.selected.name"></span>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="broker">
                     <label>BROKER:</label>
-                    <ui-select ng-model="brokers.selected" class="broker_input selectpicker select_page" style="width:220px;">
+                    <ui-select ng-model="brokers.selected" on-select="filterUser(brokers.selected,'broker')" class="broker_input selectpicker select_page" style="width:220px;">
                         <ui-select-match>
                             <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
                         </ui-select-match>
@@ -143,7 +143,9 @@
             <a ng-repeat="item in job
                | orderBy:convertName(sortBy.selected.name)
                | filter:searchInput
-               | statusFilter:'all'
+               | statusFilter:jobStatus
+               | bankFilter:searchBank
+               | userFilter:userType:userId
                | startFrom:currentPage * pageAmount.selected.name
                | limitTo:pageAmount.selected.name
                track by $index">
