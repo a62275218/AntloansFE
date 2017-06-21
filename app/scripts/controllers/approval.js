@@ -1,7 +1,7 @@
 antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'UserService',
     function ($scope, jobService, $stateParams, UserService) {
         var vm = this;
-        var deal_status = '1234';
+        var deal_status_value = '';
         vm.checkStatus = function (obj) {
             if (obj.deal_status) {
                 return obj.deal_status.value;
@@ -12,10 +12,10 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         jobService.getaJob($stateParams.jobId)
                 .then(function (response) {
                     $scope.job = response.data.data;
-                    deal_status = vm.checkStatus($scope.job);
+                    deal_status_value = vm.checkStatus($scope.job);
                     // console.log("================");
                     // console.log(deal_status);
-                    vm.showStatus(deal_status);
+                    vm.showStatus(deal_status_value);
                 }, function (e) {
                     console.log(e)
                 });
@@ -39,7 +39,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
          }
        }
 
-        // =======
+        // ======= update the above user info
         $scope.updateUser = function () {
             $('.job_show td input').attr('disabled');
             $('.job_show td input').addClass('disable');
@@ -91,6 +91,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                     }
                 }
                 updateStatusLight();
+
             });
 
         });
@@ -98,7 +99,6 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         // connect the timeline status to above status lights
         function updateStatusLight(){
           var num = $('.circle.done').length;
-          console.log("=================" + num);
           if (num < 1) {
               $('.submission i').removeClass('done');
               $('.submission_name').removeClass('done');
@@ -133,13 +133,20 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
           }
         }
 
-        // ========
+        // ==== click saveBtn ==> get the updated value, and trigger put api
         $('.approval_down_left .saveBtn').click(function () {
             $('.timeline li div.circle').removeClass('canEdit');
             $('.timeline_editBtn').removeClass('edit');
             $('.timeline').css('border-left', "3px solid #B5B5B5");
             $('.circle').unbind();
             $('.circle').css('cursor', 'default');
+
+            var value = $('.circle.done').length; // get the value of updated status
+            console.log(value);
+            // === api function
+
+
+            // ===end
         })
     }])
 
