@@ -43,6 +43,7 @@ module.exports = function(config) {
       'bower_components/angular-dragdrop/src/angular-dragdrop.js',
       'bower_components/sweetalert/dist/sweetalert.min.js',
       'bower_components/angular-xeditable/dist/js/xeditable.js',
+      'bower_components/angular-base64-upload/src/angular-base64-upload.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
