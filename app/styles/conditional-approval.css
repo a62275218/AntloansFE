@@ -324,7 +324,7 @@ li.job-bar i, li.job-bar span.bar_name{
   margin-left: auto;
   margin-right: auto;
   border-left: 3px solid #B5B5B5;
-  height: 500px;
+  height: 470px;
 }
 
 .timeline li{
@@ -487,24 +487,24 @@ li.sett2, li.sett3, li.sett4 {
 
 .timeline li.sett1 {
     position: absolute;
-    bottom: 80px;
+    bottom: 50px;
 
 }
 
 .timeline .sett2 {
     position: absolute;
-    bottom: 50px;
+    bottom: 20px;
 }
 
 .timeline .sett3{
   position: absolute;
-  bottom: 20px;
+  bottom: -10px;
 }
 
-.timeline .sett4 {
+/*.timeline .sett4 {
     position: absolute;
     bottom: -10px;
-}
+}*/
 
 .approval_down_right {
     height: 850px;
@@ -549,7 +549,6 @@ li.sett2, li.sett3, li.sett4 {
 }
 
 .message_part {
-    /*padding-top: 20px;*/
     margin-top: 20px;
     width: 100%;
     height: 100%;
@@ -557,24 +556,6 @@ li.sett2, li.sett3, li.sett4 {
     box-shadow: 2px 5px 4px #E8EAEB;
     position: relative;
 }
-
-/*.message_up {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.message_up .title{
-  padding: 10px;
-  background-color: #717171;
-  color: white;
-}
-
-.message_up .para {
-    padding: 10px;
-    background-color: #D8D8D8;
-    color: black;
-}*/
 
 .message_list {
     width: 100%;

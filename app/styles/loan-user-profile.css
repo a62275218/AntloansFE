@@ -71,8 +71,13 @@ li.user-bar i, li.user-bar span.bar_name{
   width:60px;
 }
 
+.personal_detail .upload_input{
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
 .user_info, .control {
-  padding-left: 80px;
+  padding-left: 60px;
   vertical-align: middle;
 }
 
