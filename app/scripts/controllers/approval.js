@@ -280,6 +280,15 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 })
         };
 
+        vm.showStatusComment = function(obj,index){
+            $scope.comments = [];
+            angular.forEach(obj,function(v,k){
+                if(v.deal_status.value == index){
+                    $scope.comments.push(v);
+                }
+            })
+        };
+
         $(function () {
             var scrollBot = function () {
                 $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);

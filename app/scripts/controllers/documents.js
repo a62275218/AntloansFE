@@ -6,5 +6,4 @@ antloans.controller('documentCtrl',['UserService','$scope','API_BASE',
                 console.log($scope.document);
                 $scope.api = API_BASE +'/download/document/';
             },function(e){})
-
 }]);
