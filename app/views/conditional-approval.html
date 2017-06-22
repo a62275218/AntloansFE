@@ -65,20 +65,21 @@
                 </div>
 
                 <div class="contact_down">
-                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp; {{job.broker.phone || job.broker.mobile || 'no phone number now'}}</span>
-                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp; <a
-                            href="mailto:{{job.broker.email}}">{{job.broker.email}}</a></span>
+                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="tel:{{job.broker.phone || job.broker.mobile}}">{{job.broker.phone || job.broker.mobile || 'no phone number now'}}</a></span> <br>
+                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="mailto:{{job.broker.email}}">{{job.broker.email}}</a></span>
                 </div>
                 <div class="clear"></div>
             </div>
 
-            <div class="user_contact">
+            <div class="user_contact ">
                 <span class="user_plus" ng-if="selection[0] == 'origin'" ng-click="showUser(0)">
                     <i class="fa fa-plus-circle fa-4x" aria-hidden="true"></i>
                 </span>
                 <div class="clear"></div>
 
-                <ui-select ng-model="user[0].selected" class="selectpicker select_page" style="width:220px;"
+                <ui-select ng-model="user[0].selected" class="select_input selectpicker select_page"
                            ng-if="selection[0] == 'select'"
                            on-select="showUserInfo(0,'admin',user[0].selected.user_id)">
                     <ui-select-match>
@@ -101,19 +102,51 @@
                 </div>
 
                 <div class="contact_down" ng-if="selection[0] == 'selected'">
-                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp; {{user[0].selected.phone || user[0].selected.mobile || 'no phone number now'}}</span>
-                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp; <a
-                            href="mailto:{{user[0].selected.email}}">{{user[0].selected.email || 'no email now'}}</a></span>
+                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="tel:{{user[0].selected.phone || user[0].selected.mobile}}">{{user[0].selected.phone || user[0].selected.mobile || 'no phone number now'}}</a></span> <br>
+                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="mailto:{{user[0].selected.email}}">{{user[0].selected.email || 'no email now'}}</a></span>
                 </div>
                 <div class="clear"></div>
             </div>
 
-            <div class="user_contact user_plus">
-                <span ng-if="selection[1] == 'origin'" ng-click="showUser(1)">
+            <div class="user_contact ">
+                <span class="user_plus" ng-if="selection[1] == 'origin'" ng-click="showUser(1)">
                     <i class="fa fa-plus-circle fa-4x" aria-hidden="true"></i>
                 </span>
                 <div class="clear"></div>
+
+                <ui-select ng-model="user[0].selected" class="select_input selectpicker select_page"
+                           ng-if="selection[0] == 'select'"
+                           on-select="showUserInfo(0,'admin',user[0].selected.user_id)">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
+                    </ui-select-match>
+                    <ui-select-choices
+                            repeat="item in admins | propsFilter:{first_name:$select.search,last_name:$select.search,role:$select.search} track by $index">
+                        <strong><span ng-bind="item.role"></span></strong><br>
+                        <span ng-bind="item.first_name"></span> <span ng-bind="item.last_name"></span>
+                    </ui-select-choices>
+                </ui-select>
+                <div class="contact_up" ng-if="selection[0] == 'selected'">
+                    <img ng-if="user[0].selected.avatar" ng-src="{{user[0].selected.avatar}}" alt="">
+                    <img ng-if="!user[0].selected.avatar" ng-src="{{default_img_url}}" alt="">
+                    <div class="user_intro">
+                        <h4>{{user[0].selected.first_name}} {{user[0].selected.last_name}}</h4>
+                        <p>{{user[0].selected.address}}</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="contact_down" ng-if="selection[0] == 'selected'">
+                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="tel:{{user[0].selected.phone || user[0].selected.mobile}}">{{user[0].selected.phone || user[0].selected.mobile || 'no phone number now'}}</a></span> <br>
+                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="mailto:{{user[0].selected.email}}">{{user[0].selected.email || 'no email now'}}</a></span>
+                </div>
+                <div class="clear"></div>
             </div>
+
             <div class="clear"></div>
         </div>
 

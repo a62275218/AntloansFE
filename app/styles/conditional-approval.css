@@ -84,13 +84,42 @@ li.job-bar i, li.job-bar span.bar_name{
   float: left;
   margin-right: 1%;
   box-sizing: border-box;
-  padding-left: 50px;
+  height: 140px;
+  position: relative;
 }
 
-.user_contact.user_plus {
-    padding-left: 20px;
-    padding-top: 30px;
-    cursor: pointer;
+.user_contact .user_plus{
+  position: absolute;
+  left: 50%;
+  top:50%;
+  margin-left: -24px;
+  margin-top: -28px;
+  color:#D8D8D8;
+  outline: none;
+}
+
+.user_contact>.select_input{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -16px;
+  margin-left: -110px;
+  display: inline-block;
+  width:220px;
+  outline: none;
+}
+
+.approval_middle .user_contact .contact_up{
+  width:280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.approval_middle .user_contact .contact_down{
+  width:300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .user_contact img{
@@ -140,16 +169,16 @@ li.job-bar i, li.job-bar span.bar_name{
   color: #A5A5A5;
 }
 
-.approval_middle .user_plus {
+/*.approval_middle .user_plus {
     height: 120px;
-}
+}*/
 
-.user_plus span{
+/*.user_plus span{
   color:#D8D8D8;
   display: inline-block;
   width: 100%;
   text-align: center;
-}
+}*/
 
 .clear {
     clear: both;
@@ -316,8 +345,8 @@ li.job-bar i, li.job-bar span.bar_name{
 }
 
 .timeline li .num {
-    width: 17px;
-    height: 17px;
+    width: 18px;
+    height: 18px;
     background-color: #41A0DA;
     color: white;
     text-align: center;
@@ -391,14 +420,14 @@ li.subm1{
 
 .timeline .time {
     box-sizing: border-box;
-    width: 60px;
+    width: 140px;
     color: #B5B5B5;
 }
 
 li.subm2, li.subm3, li.subm4,
 li.assess2, li.assess3, li.assess4, li.assess5, li.assess6, li.assess7,
 li.sett2, li.sett3, li.sett4 {
-    margin-left: -112px;
+    margin-left: -192px;
 }
 
 .timeline .subm1 {
