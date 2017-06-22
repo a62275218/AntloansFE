@@ -26,7 +26,8 @@ var antloans = angular
         'chart.js',
         'angularFileUpload',
         'ngDragDrop',
-        'xeditable'
+        'xeditable',
+        'naif.base64'
     ])
     .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
         function ($stateProvider, $urlRouterProvider,ChartJsProvider) {
