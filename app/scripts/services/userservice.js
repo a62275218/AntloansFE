@@ -49,6 +49,16 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
                     data:data
                 });
             },
+            addUserToDeal:function(id,data){
+                return $http({
+                    method:'PUT',
+                    url:API_BASE+ '/deals/' + id,
+                    headers:{
+                        'Authorization': 'Bearer' + OAuthService.getToken()
+                    },
+                    data:data
+                });
+            },
             getDocuments:function(){
                 return $http({
                     method:'GET',

@@ -29,6 +29,7 @@
                  <h4>Profile</h4>
                  <hr>
                  <div class="user_name">
+
                      <img ng-if = "user.avatar" ng-src="{{user.avatar}}" alt="">
                      <img ng-if = "!user.avatar" ng-src="{{default_img_url}}" alt="">
                     <span><input class='disable' type="text" name="" ng-model="user.first_name" disabled><input class='disable' type="text" name="" ng-model="user.last_name" disabled></span>

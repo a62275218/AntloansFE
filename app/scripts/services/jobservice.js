@@ -38,6 +38,16 @@ antloans.factory('jobService',['API_BASE','$http','OAuthService',
                     }
                 })
             },
+            updateJob:function(id,data){
+                return $http({
+                    method: 'PUT',
+                    url: API_BASE + "/deals/"+ id + '/approve',
+                    headers: {
+                        'Authorization': 'Bearer' + OAuthService.getToken()
+                    },
+                    data:data
+                })
+            },
             getComments:function(id){
                 return $http({
                     method: 'GET',
@@ -57,19 +67,5 @@ antloans.factory('jobService',['API_BASE','$http','OAuthService',
                     data:data
                 })
             }
-            /*filterStatus:function(obj,status){
-                var submission = [];
-                var assessment = [];
-                var settlement = [];
-                if(status == 'submission'){
-                    angular.forEach(obj,function(k,v){
-                        console.log(k);
-                        if(k.deal_status.value <4){
-                            submission.push(obj)
-                        }
-                    });
-                    return submission;
-                }
-            }*/
         }
 }]);
