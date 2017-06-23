@@ -88,6 +88,13 @@ li.job-bar i, li.job-bar span.bar_name{
   margin-top: 5px;
 }
 
+.product_line3 textarea{
+  width: 220px;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  outline: none;
+}
+
 .product button.saveBtn{
   width: 100px;
   background-color:rgb(61,158,220);
