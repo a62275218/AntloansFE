@@ -140,7 +140,7 @@
         </section>
 
         <div class="content">
-            <a ng-repeat="item in job
+            <!-- <a ng-repeat="item in job
                | orderBy:convertName(sortBy.selected.name)
                | filter:searchInput
                | statusFilter:jobStatus
@@ -156,7 +156,7 @@
                     <img ng-if="!item.avatar" ng-src="{{default_img_url}}" alt="">
                     <div class='intro'>
                         <h4 class='name'>{{item.first_name}} {{item.last_name}}</h4>
-                        <section class='state'><!--<i class="fa fa-clock-o" aria-hidden="true"></i>-->{{item.deal_status.label}}
+                        <section class='state'>{{item.deal_status.label}}
                         </section>
                     </div>
                     <table>
@@ -185,8 +185,52 @@
                     </table>
 
                 </div>
-            </a>
-        </div>
+            </a> -->
+             <div class="job_list">
+                <table class='"table table-striped"'>
+                   <thead>
+                     <tr>
+                        <th>NAME &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                        <th>STATUS &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                        <th>LOAN AMOUNT &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                        <th>ASSIGN &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                        <th>LOAN PURPOSE &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                        <th>BROKER &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                        <th>REPAYMENT TYPE &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                        <th>FILE NATURE &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                     </tr>
+                   </thead>
+
+                   <tbody>
+                      <tr ng-repeat="item in job
+                      | orderBy:convertName(sortBy.selected.name)
+                      | filter:searchInput
+                      | statusFilter:jobStatus
+                      | bankFilter:searchBank
+                      | userFilter:userType:userId
+                      | startFrom:currentPage * pageAmount.selected.name
+                      | limitTo:pageAmount.selected.name
+                      track by $index" class='item' ng-click="toApproval(item.id)">
+                         <td>
+                         <img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
+                         <img ng-if="!item.avatar" ng-src="{{default_img_url}}" alt="">
+                         <span class='name'>{{item.first_name}} {{item.last_name}}</span>
+                         </td>
+
+                         <td>{{item.deal_status.label}}</td>
+                         <td>{{item.loan_amount|currency}}</td>
+                         <td>Notebook</td>
+                         <td>{{item.loan_purpose.label}}</td>
+                         <td>{{item.broker.first_name}} {{item.broker.last_name}}</td>
+                         <td>{{item.repayment_type.label}}</td>
+                         <td>{{item.file_nature.label}}</td>
+                     </tr>
+
+                   </tbody>
+                </table>
+             </div>
+
+        </div>  <!-- content end   -->
     </div>
 </div>
 <!--my js-->

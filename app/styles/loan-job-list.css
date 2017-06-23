@@ -122,27 +122,6 @@ li.job-bar i, li.job-bar span.bar_name{
   width: 130px !important;
   float: right !important;
 }
-/*
-.amount .amount-slider{
-  display: inline-block;
-  float: right;
-  width: 220px;
-  height: 30px;
-  position: relative;
-  padding-top: 5px;
-}
-
-.amount-slider .point-left{
-  position: absolute;
-  bottom: -30px;
-  left: 10px;
-}
-
-.amount-slider .point-right{
-  position: absolute;
-  bottom: -30px;
-  right: 10px;
-}*/
 
 .start_date{
   display: inline-block;
@@ -150,20 +129,11 @@ li.job-bar i, li.job-bar span.bar_name{
   margin-left: 70px;
 }
 
-/*.startDate{
-  width: 150px !important;
-}*/
-
 .close_date{
   display: inline-block;
   float: left;
   margin-left: 50px;
 }
-
-/*.closeDate{
-  width: 150px !important;
-  z-index: 0 !important;
-}*/
 
 .tool_bar_middle label{
   color:#AEAEAE;
@@ -235,7 +205,8 @@ li.job-bar i, li.job-bar span.bar_name{
   bottom: 5px;
 }
 
-.content table{
+/*=========================*/
+/*.content table{
   border: 0;
 }
 
@@ -321,4 +292,41 @@ td.special_note div{
   overflow: hidden;
   text-overflow:ellipsis;
   height: 20px;
+}*/
+/*===================*/
+.job_list {
+  margin: 20px;
+  background: white;
+}
+
+.job_list table{
+  width: 100%;
+}
+
+.job_list table th{
+  padding-top:20px !important;
+  padding-bottom:20px !important;
+}
+
+.job_list table th, .job_list table td{
+  text-align: left;
+  padding: 10px 0px 10px 10px;
+  border-bottom-width: 1px;
+  border-bottom-color: #F4F5F7;
+  border-bottom-style: solid;
+  box-sizing: border-box;
+}
+
+.job_list table td{
+  font-size: 15px;
+}
+
+.job_list table img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+}
+
+.job_list table tbody tr:hover{
+  background-color: #CCCCCC;
 }
