@@ -126,10 +126,4 @@ li.doc-bar i, li.doc-bar span.bar_name{
   font-size: 18px;
 }
 
-#document .page_message p{
-  color: #2C2F37;
-  position: absolute;
-  left: 4%;
-  bottom: 10px;
-
 }

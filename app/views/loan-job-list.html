@@ -24,121 +24,127 @@
     </aside>
 
     <div class="right_part">
+
+
         <section class='tool_bar'>
-
-            <div class="tool_top">
-                <h3>JobList</h3>
-                <button type="button" name="button" ui-sref="create-job"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>&nbsp;
-                    Create Job
-                </button>
-            </div>
-
-            <div class='tool_bar_above'>
-                <div class='search_input'>
-                    <div class="input-group margin-bottom-sm">
-                        <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-                        <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
-                    </div>
+             <div class="width_fix" style="position:relative">
+                <div class="tool_top">
+                    <h3>JobList</h3>
+                    <button type="button" name="button" ui-sref="create-job"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>&nbsp;
+                        Create Job
+                    </button>
                 </div>
 
-                <div class="sortBy">
-                    <label>SORT BY: &nbsp;</label>
-                    <ui-select ng-model="sortBy.selected" search-enabled="false" class="selectpicker select_date"
+                <div class='tool_bar_above'>
+                    <div class='search_input'>
+                        <div class="input-group margin-bottom-sm">
+                            <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                            <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
+                        </div>
+                    </div>
+
+                    <div class="sortBy">
+                        <label>SORT BY: &nbsp;</label>
+                        <ui-select ng-model="sortBy.selected" search-enabled="false" class="selectpicker select_date"
+                                   onkeypress="return false;" ng-disabled="disabled">
+                            <ui-select-match placeholder="Select the number of pages">
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in (sortBy|filter:$select.search) track by $index">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+
+                    <div class="page">
+                        <ul class="pager">
+                            <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                            {{currentPage+1}}/{{totalPage}}
+                            <li ><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
                                onkeypress="return false;" ng-disabled="disabled">
                         <ui-select-match placeholder="Select the number of pages">
                             <span ng-bind="$select.selected.name"></span>
                         </ui-select-match>
-                        <ui-select-choices repeat="item in (sortBy|filter:$select.search) track by $index">
-                            <span ng-bind="item.name"></span>
+                        <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
+                                           style="width:60px;" ng-click="returnToFirst()">
+                            <span ng-bind="item.name" style="width:60px;"></span>
                         </ui-select-choices>
                     </ui-select>
                 </div>
 
-                <div class="page">
-                    <ul class="pager">
-                        <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
-                        {{currentPage+1}}/{{totalPage}}
-                        <li ><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
-                           onkeypress="return false;" ng-disabled="disabled">
-                    <ui-select-match placeholder="Select the number of pages">
-                        <span ng-bind="$select.selected.name"></span>
-                    </ui-select-match>
-                    <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
-                                       style="width:60px;" ng-click="returnToFirst()">
-                        <span ng-bind="item.name" style="width:60px;"></span>
-                    </ui-select-choices>
-                </ui-select>
-            </div>
+                <div class="tool_bar_middle">
+                    <hr>
+                    <div class="bank">
+                        <label>BANK:</label>
+                        <ui-select ng-model="banks.selected" on-select="filterBankId(banks.selected)" search-enabled="false" class="bank_input selectpicker select_page"
+                                   onkeypress="return false;" ng-disabled="disabled">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in banks track by $index">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
 
-            <div class="tool_bar_middle">
-                <hr>
-                <div class="bank">
-                    <label>BANK:</label>
-                    <ui-select ng-model="banks.selected" on-select="filterBankId(banks.selected)" search-enabled="false" class="bank_input selectpicker select_page"
-                               onkeypress="return false;" ng-disabled="disabled">
-                        <ui-select-match>
-                            <span ng-bind="$select.selected.name"></span>
-                        </ui-select-match>
-                        <ui-select-choices repeat="item in banks track by $index">
-                            <span ng-bind="item.name"></span>
-                        </ui-select-choices>
-                    </ui-select>
-                </div>
-
-                <div class="start_date">
-                    <label>SETTLEMENT DATE &nbsp;&nbsp;&nbsp;&nbsp;FROM:</label>
-                    <input ui-date>
-                </div>
-                <div class="close_date">
-                    <label>TO:</label>
-                    <input ui-date>
-                </div>
-            </div>
-
-            <div class="tool_bar_below">
-                <hr>
-                <div class="status">
-                    <label>STATUS:</label>
-                    <div class="btn-group statusInput" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default status_submission" ng-click="active('.status_submission')">SUBMISSION</button>
-                        <button type="button" class="btn btn-default status_assessment" ng-click="active('.status_assessment')">ASSESSMENT</button>
-                        <button type="button" class="btn btn-default status_settlement" ng-click="active('.status_settlement')">SETTLEMENT</button>
-                        <button type="button" class="btn btn-default status_all selected" ng-click="active('.status_all')">ALL</button>
+                    <div class="start_date">
+                        <label>SETTLEMENT DATE &nbsp;&nbsp;&nbsp;&nbsp;FROM:</label>
+                        <input ui-date>
+                    </div>
+                    <div class="close_date">
+                        <label>TO:</label>
+                        <input ui-date>
                     </div>
                 </div>
-                <div class="broker">
-                    <label>BROKER:</label>
-                    <ui-select ng-model="brokers.selected" on-select="filterUser(brokers.selected,'broker')" class="broker_input selectpicker select_page" style="width:220px;">
-                        <ui-select-match>
-                            <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
-                        </ui-select-match>
-                        <ui-select-choices repeat="item in brokers | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
-                            <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
-                        </ui-select-choices>
-                    </ui-select>
-                </div>
-                <div class="admin">
-                    <label>ADMIN:</label>
-                    <ui-select ng-model="admins.selected" class="admin_input selectpicker select_page" style="width:220px;">
-                        <ui-select-match>
-                            <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
-                        </ui-select-match>
-                        <ui-select-choices repeat="item in admins | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
-                            <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
-                        </ui-select-choices>
-                    </ui-select>
-                </div>
-            </div>
 
-            <div class="showBtn">
-                <i class="fa fa-plus" aria-hidden="true">&nbsp;</i><span>show more</span>
-            </div>
+
+                <div class="tool_bar_below">
+                    <hr>
+                    <div class="status">
+                        <label>STATUS:</label>
+                        <div class="btn-group statusInput" role="group" aria-label="...">
+                            <button type="button" class="btn btn-default status_submission" ng-click="active('.status_submission')">SUBMISSION</button>
+                            <button type="button" class="btn btn-default status_assessment" ng-click="active('.status_assessment')">ASSESSMENT</button>
+                            <button type="button" class="btn btn-default status_settlement" ng-click="active('.status_settlement')">SETTLEMENT</button>
+                            <button type="button" class="btn btn-default status_all selected" ng-click="active('.status_all')">ALL</button>
+                        </div>
+                    </div>
+                    <div class="broker">
+                        <label>BROKER:</label>
+                        <ui-select ng-model="brokers.selected" on-select="filterUser(brokers.selected,'broker')" class="broker_input selectpicker select_page" style="width:220px;">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in brokers | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
+                                <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                    <div class="admin">
+                        <label>ADMIN:</label>
+                        <ui-select ng-model="admins.selected" class="admin_input selectpicker select_page" style="width:220px;">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in admins | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
+                                <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+
+
+                <div class="showBtn">
+                    <i class="fa fa-plus" aria-hidden="true">&nbsp;</i><span>show more</span>
+                </div>
+             </div>
         </section>
 
+      <div class="width_fix">
         <div class="content">
             <!-- <a ng-repeat="item in job
                | orderBy:convertName(sortBy.selected.name)
@@ -231,6 +237,8 @@
              </div>
 
         </div>  <!-- content end   -->
+
+      </div>
     </div>
 </div>
 <!--my js-->
