@@ -344,8 +344,7 @@ li.job-bar i, li.job-bar span.bar_name{
 
 .timeline li div.circle.canEdit:hover{
   border-color: #3D9EDC;
-  width: 18px;
-  height: 18px;
+  transform: scale(2);
 }
 
 .timeline li .num {
@@ -355,6 +354,11 @@ li.job-bar i, li.job-bar span.bar_name{
     color: white;
     text-align: center;
     border-radius: 50%;
+}
+
+.timeline li .num:hover{
+  cursor: pointer;
+  transform: scale(1.5);
 }
 
 .subm1 div {
@@ -504,11 +508,6 @@ li.sett2, li.sett3, li.sett4 {
   position: absolute;
   bottom: -10px;
 }
-
-/*.timeline .sett4 {
-    position: absolute;
-    bottom: -10px;
-}*/
 
 .approval_down_right {
     height: 850px;
