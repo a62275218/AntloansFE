@@ -34,7 +34,7 @@ li.job-bar i, li.job-bar span.bar_name{
 .tool_top button{
   position: absolute;
   right: 50px;
-  top:20px;
+  /*top:20px;*/
   height: 35px;
   width: 200px;
   border: 0;

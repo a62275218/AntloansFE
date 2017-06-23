@@ -12,7 +12,11 @@ input.disable{
 .green{
   background-color:green;
 }
-
+/*=========fix the width of div.width_fix inside div.right_part==============*/
+.width_fix{
+  max-width: 1200px;
+}
+/*=======================*/
 .nav_bar{
   background-color: #3D9EDC;
   width: 100%;
