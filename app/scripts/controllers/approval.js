@@ -1,5 +1,5 @@
-antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'UserService',
-    function ($scope, jobService, $stateParams, UserService) {
+antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'UserService','$anchorScroll','$location','$timeout',
+    function ($scope, jobService, $stateParams, UserService,$anchorScroll,$location,$timeout) {
         var vm = this;
         var deal_status_value = '';
         vm.checkStatus = function (obj) {
@@ -46,6 +46,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                     for (var i = 0; i < $scope.users.length; i++) {
                         if ($scope.users[i].role == 'admin') {
                             $scope.admins.push($scope.users[i])
+                            console.log($scope.admins)
                         } else if ($scope.users[i].role == 'supervisor') {
                             $scope.supervisors.push($scope.users[i])
                         }
@@ -229,6 +230,22 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
 
         /*message part*/
 
+        //customize input
+        tinymce.init({
+            selector: '.comment_input',
+            height: 500,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime table contextmenu paste code'
+            ],
+            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            content_css: [
+                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+                '//www.tinymce.com/css/codepen.min.css']
+        });
+
         //classify comments
         $scope.commentAmount = [];
         vm.countComments = function(obj,index){
@@ -247,11 +264,16 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 for(var i=1; i<13; i++){
                     vm.countComments($scope.comments,i);
                 }
+                $timeout(function() {
+                    var hashId = 'anchor';
+                    $location.hash(hashId);
+                    $anchorScroll();
+                });
                 var scrollBot = function () {
                     $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
                     console.log($('.message_wrap')[0].scrollHeight)
                 };
-                setTimeout(scrollBot(), 4000)
+                setTimeout(scrollBot(), 5)
             }, function (e) {
             });
         /*get current user*/
@@ -272,21 +294,35 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                             }, function (e) {
                             });
                         swal("Success!", "Comment added", "success");
-                        $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
-                        console.log($('.message_wrap')[0].scrollHeight)
+                        var scrollBot = function () {
+                            $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
+                            console.log($('.message_wrap')[0].scrollHeight)
+                        };
+                        $timeout(scrollBot());
                     }
                 }, function (e) {
                     swal("Oops...", "Something went wrong! Update failed", "error");
                 })
         };
 
-        vm.showStatusComment = function(obj,index){
+        $scope.showStatusComment = function(index){
             $scope.comments = [];
-            angular.forEach(obj,function(v,k){
-                if(v.deal_status.value == index){
-                    $scope.comments.push(v);
-                }
-            })
+            jobService.getComments($stateParams.jobId)
+                .then(function (response) {
+                    $scope.comments_tmp = response.data.data;
+                    angular.forEach($scope.comments_tmp,function(v,k){
+                        if(v.deal_status.value == index){
+                            $scope.comments.push(v);
+                        }
+                    });
+                    var scrollBot = function () {
+                        $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
+                        console.log($('.message_wrap')[0].scrollHeight)
+                    };
+                    $timeout(scrollBot());
+                }, function (e) {
+                });
+
         };
 
         $(function () {
@@ -294,6 +330,6 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
                 console.log($('.message_wrap')[0].scrollHeight)
             };
-            setTimeout(scrollBot(), 4000)
+            $timeout(scrollBot(),4000);
         });
     }]);
