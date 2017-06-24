@@ -6,4 +6,12 @@ antloans.controller('documentCtrl',['UserService','$scope','API_BASE',
                 console.log($scope.document);
                 $scope.api = API_BASE +'/download/document/';
             },function(e){})
+
+            // click th =>hightlight
+              $scope.thSelect = function(event){
+                $(event.target).toggleClass('selected');
+                if($(event.target).hasClass('selected')){
+                   $(event.target).siblings('.selected').removeClass('selected');
+                }
+              }
 }]);
