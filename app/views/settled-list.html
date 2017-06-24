@@ -1,227 +1,220 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>settled-list</title>
+    <title>loan-settled-list</title>
     <!-- <link rel="stylesheet" type="text/css" href="./assets/css/libs/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/libs/font-awesome.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/css/bootstrap-slider.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/css/bootstrap-slider.min.css">
 
     <!--my css-->
-    <!-- <link rel="stylesheet" href="../styles/nav_bar.css"> -->
-    <link rel="stylesheet" href="../styles/settled-list.css">
- </head>
+    <link rel="stylesheet" href="../styles/loan-job-list.css">
+</head>
 
-  <body>
-    <nav class="nav_bar" ng-include="'views/partials/navigation.html'">
-    </nav>
+<body>
+<nav class="nav_bar" ng-include="'views/partials/navigation.html'">
+</nav>
 
-     <div class='main'>
+<div class='main'>
 
-       <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
-       </aside>
+    <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
+    </aside>
 
-       <div class="right_part">
-          <section class='tool_bar'>
+    <div class="right_part">
 
-           <div class="width_fix" style="position:relative;">
-            <div class="tool_top">
-               <h3>Settled List</h3>
-            </div>
-
-             <div class='tool_bar_above'>
-                <div class='search_input'>
-                  <div class="input-group margin-bottom-sm">
-                    <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-                    <input class="form-control" type="text" placeholder="SEARCH">
-                  </div>
+        <section class='tool_bar'>
+            <div class="width_fix" style="position:relative">
+                <div class="tool_top">
+                    <h3>Settled Job List</h3>
+                    <button type="button" name="button" ui-sref="create-job"><i class="fa fa-plus-circle fa-lg"
+                                                                                aria-hidden="true"></i>&nbsp;
+                        Create Job
+                    </button>
                 </div>
 
-                <div class="sortBy">
-                  <label for="">SORT BY: &nbsp;</label>
-                  <select class="selectpicker select_date">
-                    <option>Date</option>
-                    <option>Gender</option>
-                    <option>Name</option>
-                  </select>
-                </div>
-
-                <div class="page">
-                    <ul class="pager">
-                      <li><a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
-                      <li><a href="#">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-
-                <select class="selectpicker select_page">
-                  <option>10</option>
-                  <option>20</option>
-                  <option>30</option>
-                </select>
-              </div>
-
-              <div class="tool_bar_middle">
-              <hr>
-                  <div class="amount">
-                    <label>AMOUNT:</label>
-                    <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/>
-                  </div>
-
-                  <div class="start_date">
-                    <label>START DATE:</label>
-                    <select class="selectpicker startDate">
-                      <option>3/3/15</option>
-                    </select>
-
-                  </div>
-                  <div class="close_date">
-                    <label for="">CLOSE DATE:</label>
-                    <select class="selectpicker closeDate">
-                      <option>14/4/16</option>
-                    </select>
-                  </div>
-              </div>
-
-              <div class="tool_bar_below">
-              <hr>
-                  <div class="status">
-                    <label for="">STATUS:</label>
-                    <div class="btn-group statusInput" role="group" aria-label="...">
-                      <button type="button" class="btn btn-default">SUBMISSION</button>
-                      <button type="button" class="btn btn-default">ASSESSMENT</button>
-                      <button type="button" class="btn btn-default">SETTLEMENT</button>
-                      <button type="button" class="btn btn-default">ALL</button>
+                <div class='tool_bar_above'>
+                    <div class='search_input'>
+                        <div class="input-group margin-bottom-sm">
+                            <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                            <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
+                        </div>
                     </div>
-                  </div>
-                  <div class="broker">
-                    <label for="">BROKER:</label>
-                    <select class="selectpicker brokerInput">
-                      <option>ALL</option>
-                    </select>
 
-                  </div>
-                  <div class="admin">
-                    <label for="">ADMIN:</label>
-                    <select class="selectpicker adminInput">
-                      <option>ALL</option>
-                    </select>
-                  </div>
-              </div>
+                    <div class="page">
+                        <ul class="pager">
+                            <li><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left"
+                                                                                aria-hidden="true"></i>&nbsp; Prev</a>
+                            </li>
+                            {{currentPage+1}}/{{totalPage}}
+                            <li><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right"
+                                                                                           aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
+                               onkeypress="return false;" ng-disabled="disabled">
+                        <ui-select-match placeholder="Select the number of pages">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
+                                           style="width:60px;" ng-click="returnToFirst()">
+                            <span ng-bind="item.name" style="width:60px;"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                </div>
 
-              <div class="showBtn">
-                 <i class="fa fa-plus" aria-hidden="true">&nbsp;</i><span>show more</span>
-              </div>
+                <div class="tool_bar_middle">
+                    <hr>
+                    <div class="bank">
+                        <label>BANK:</label>
+                        <ui-select ng-model="banks.selected" on-select="filterBankId(banks.selected)"
+                                   search-enabled="false" class="bank_input selectpicker select_page"
+                                   onkeypress="return false;" ng-disabled="disabled">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in banks track by $index">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
 
+                    <div class="start_date">
+                        <label>SETTLEMENT DATE &nbsp;&nbsp;&nbsp;&nbsp;FROM:</label>
+                        <input class="btn btn-default" ui-date ng-model="startDate">
+                    </div>
+                    <div class="close_date">
+                        <label>TO:</label>
+                        <input class="btn btn-default" ui-date ng-model="endDate">
+                    </div>
+                </div>
+
+
+                <div class="tool_bar_below">
+                    <hr>
+                    <div class="status">
+                        <label>STATUS:</label>
+                        <div class="btn-group statusInput" role="group" aria-label="...">
+                            <button type="button" class="btn btn-default status_submission"
+                                    ng-click="active('.status_submission')">SUBMISSION
+                            </button>
+                            <button type="button" class="btn btn-default status_assessment"
+                                    ng-click="active('.status_assessment')">ASSESSMENT
+                            </button>
+                            <button type="button" class="btn btn-default status_settlement"
+                                    ng-click="active('.status_settlement')">SETTLEMENT
+                            </button>
+                            <button type="button" class="btn btn-default status_all selected"
+                                    ng-click="active('.status_all')">ALL
+                            </button>
+                        </div>
+                    </div>
+                    <div class="broker">
+                        <label>BROKER:</label>
+                        <ui-select ng-model="brokers.selected" on-select="filterUser(brokers.selected,'broker')"
+                                   class="broker_input selectpicker select_page" style="width:220px;">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
+                            </ui-select-match>
+                            <ui-select-choices
+                                    repeat="item in brokers | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
+                                <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                    <div class="admin">
+                        <label>ADMIN:</label>
+                        <ui-select ng-model="admins.selected" class="admin_input selectpicker select_page"
+                                   style="width:220px;">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
+                            </ui-select-match>
+                            <ui-select-choices
+                                    repeat="item in admins | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
+                                <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+                </div>
+
+
+                <div class="showBtn">
+                    <i class="fa fa-plus" aria-hidden="true">&nbsp;</i><span>show more</span>
+                </div>
             </div>
-          </section>
+        </section>
 
-         <div class="width_fix">
+        <div class="width_fix">
+            <div class="content">
+                <div class="job_list">
+                    <table class='"table table-striped"'>
+                        <thead>
+                        <tr>
+                            <th style="min-width: 157px;">NAME &nbsp;<i ng-click="sortObj('first_name',$event)"
+                                                                        class="false fa fa-caret-up fa-lg"
+                                                                        aria-hidden="true"></i></th>
+                            <th style="min-width: 157px;">STATUS &nbsp;<i ng-click="sortObj('deal_status.label',$event)"
+                                                                          class="false fa fa-caret-up fa-lg"
+                                                                          aria-hidden="true"></i></th>
+                            <th style="min-width: 137px;">LOAN AMOUNT &nbsp;<i ng-click="sortObj('loan_amount',$event)"
+                                                                               class="false fa fa-caret-up fa-lg"
+                                                                               aria-hidden="true"></i></th>
+                            <!--<th style="min-width: 100px;"><span ng-click="sortObj('first_name',$event)">ASSIGN &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></span></th>-->
+                            <th style="min-width: 141px;">LOAN PURPOSE &nbsp;<i
+                                    ng-click="sortObj('loan_purpose.label',$event)" class="false fa fa-caret-up fa-lg"
+                                    aria-hidden="true"></i></th>
+                            <th style="min-width: 89px;">BROKER &nbsp;<i ng-click="sortObj('broker.first_name',$event)"
+                                                                         class="false fa fa-caret-up fa-lg"
+                                                                         aria-hidden="true"></i></th>
+                            <th style="min-width: 157px;">REPAYMENT TYPE &nbsp;<i
+                                    ng-click="sortObj('repayment_type.label',$event)" class="false fa fa-caret-up fa-lg"
+                                    aria-hidden="true"></i></th>
+                            <th style="min-width: 121px;">FILE NATURE &nbsp;<i
+                                    ng-click="sortObj('file_nature.label',$event)" class="false fa fa-caret-up fa-lg"
+                                    aria-hidden="true"></i></th>
+                        </tr>
+                        </thead>
 
-          <div class="content">
-            <a href="conditional-approval.html">
-              <div class='item'>
-                <span class="side_light">
-                </span>
-                <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
-                <div class='intro'>
-                  <h4 class='name'>Tommy Kuo</h4>
-                  <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
+                        <tbody>
+                        <tr ng-repeat="item in job
+                      | orderBy:sort:desc
+                      | filter:searchInput
+                      | statusFilter:jobStatus
+                      | bankFilter:searchBank
+                      | userFilter:userType:userId
+                      | dateFilter:startDate:endDate
+                      | startFrom:currentPage * pageAmount.selected.name
+                      | limitTo:pageAmount.selected.name
+                      track by $index" class='item' ng-click="toApproval(item.id)">
+                            <td>
+                                <img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
+                                <img ng-if="!item.avatar" ng-src="{{default_img_url}}" alt="">
+                                <span class='name'>{{item.first_name}} {{item.last_name}}</span>
+                            </td>
+
+                            <td>{{item.deal_status.label}}</td>
+                            <td>{{item.loan_amount|currency}}</td>
+                            <!--<td>Notebook</td>-->
+                            <td>{{item.loan_purpose.label}}</td>
+                            <td>{{item.broker.first_name}} {{item.broker.last_name}}</td>
+                            <td>{{item.repayment_type.label}}</td>
+                            <td>{{item.file_nature.label}}</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
                 </div>
-                <table>
-                   <tr><th>loan amount </th><td>$1000.00 </td><th>assign </th><td>Notebook</td></tr>
-                   <tr><th>loan purpose </th><td>Business </td><th>broker </th><td>Laurel siaw</td></tr>
-                   <tr><th>repayment type </th><td>ANZ </td><th>special notes </th><td>lorem ipsm</td></tr>
-                   <tr><th>file nature </th><td>commercial</td>
-                </table>
-              </div>
-            </a>
 
-            <a href="conditional-approval.html">
-              <div class='item'>
-                <span class="side_light">
-                </span>
-                <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
-                <div class='intro'>
-                  <h4 class='name'>Tommy Kuo</h4>
-                  <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
-                </div>
-                <table>
-                   <tr><th>loan amount </th><td>$1000.00 </td><th>assign </th><td>Notebook</td></tr>
-                   <tr><th>loan purpose </th><td>Business </td><th>broker </th><td>Laurel siaw</td></tr>
-                   <tr><th>repayment type </th><td>ANZ </td><th>special notes </th><td>lorem ipsm</td></tr>
-                   <tr><th>file nature </th><td>commercial</td>
-                </table>
-              </div>
-            </a>
-
-            <a href="conditional-approval.html">
-              <div class='item'>
-                <span class="side_light">
-                </span>
-                <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
-                <div class='intro'>
-                  <h4 class='name'>Tommy Kuo</h4>
-                  <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
-                </div>
-                <table>
-                   <tr><th>loan amount </th><td>$1000.00 </td><th>assign </th><td>Notebook</td></tr>
-                   <tr><th>loan purpose </th><td>Business </td><th>broker </th><td>Laurel siaw</td></tr>
-                   <tr><th>repayment type </th><td>ANZ </td><th>special notes </th><td>lorem ipsm</td></tr>
-                   <tr><th>file nature </th><td>commercial</td>
-                </table>
-              </div>
-            </a>
-
-            <a href="conditional-approval.html">
-              <div class='item'>
-                <span class="side_light">
-                </span>
-                <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
-                <div class='intro'>
-                  <h4 class='name'>Tommy Kuo</h4>
-                  <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
-                </div>
-                <table>
-                   <tr><th>loan amount </th><td>$1000.00 </td><th>assign </th><td>Notebook</td></tr>
-                   <tr><th>loan purpose </th><td>Business </td><th>broker </th><td>Laurel siaw</td></tr>
-                   <tr><th>repayment type </th><td>ANZ </td><th>special notes </th><td>lorem ipsm</td></tr>
-                   <tr><th>file nature </th><td>commercial</td>
-                </table>
-              </div>
-            </a>
-
-            <a href="conditional-approval.html">
-              <div class='item'>
-                <span class="side_light">
-                </span>
-                <img src="http://www.bloglet.com/gallery/small-pets/small-pets1.jpg" alt="">
-                <div class='intro'>
-                  <h4 class='name'>Tommy Kuo</h4>
-                  <section class='state'><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; WAITING FOR DATA</section>
-                </div>
-                <table>
-                   <tr><th>loan amount </th><td>$1000.00 </td><th>assign </th><td>Notebook</td></tr>
-                   <tr><th>loan purpose </th><td>Business </td><th>broker </th><td>Laurel siaw</td></tr>
-                   <tr><th>repayment type </th><td>ANZ </td><th>special notes </th><td>lorem ipsm</td></tr>
-                   <tr><th>file nature </th><td>commercial</td>
-                </table>
-              </div>
-            </a>
-          </div>
+            </div>  <!-- content end   -->
 
         </div>
-       </div>
-
-     </div>
-     <!-- <script src="./assets/js/libs/jquery-3.2.1.min.js"></script>
-     <script src="./assets/js/libs/bootstrap.min.js"></script> -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-     <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.8.0/bootstrap-slider.min.js'></script>
-     <!--my js-->
-     <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
-     <script type="text/javascript">
-      $("#ex2").slider({});
-     </script>
-  </body>
+    </div>
+</div>
+<!--my js-->
+<script type="text/javascript" src="../scripts/loan-job-list.js"></script>
+</body>
 </html>
+

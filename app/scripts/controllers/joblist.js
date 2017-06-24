@@ -128,18 +128,6 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
           $state.go('approval',{jobId:id})
         };
 
-        $scope.convertName = function(name){
-            if(name == "name" ){
-                return "first_name"
-            }
-        };
-        /*$scope.sortBy =[
-            {"name":"date"},
-            {"name":"gender"},
-            {"name":"name"}
-        ];
-        $scope.sortBy.selected = $scope.sortBy[0];*/
-
         $scope.$watchGroup(['searchInput','sort','jobStatus','searchBank','userType'],function(){
             $scope.currentPage = 0;
         },true);

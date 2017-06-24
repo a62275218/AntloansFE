@@ -75,7 +75,6 @@ li.doc-bar i, li.doc-bar span.bar_name{
   width:60px !important;
   display: inline-block !important;
   float: right !important;
-  z-index: 0 !important;
 }
 
 .page {
@@ -99,7 +98,6 @@ li.doc-bar i, li.doc-bar span.bar_name{
 }
 
 .document_list {
-  padding-bottom: 50px;
   width: 95%;
   background-color: white;
   margin-left: auto;
@@ -129,6 +127,4 @@ li.doc-bar i, li.doc-bar span.bar_name{
 
 #document table td{
   font-size: 18px;
-}
-
 }

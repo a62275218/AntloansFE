@@ -1,12 +1,9 @@
 antloans.controller('UserListCtrl',['$scope','UserService','paginationService',
-    function($scope,UserService,paginationService,BankService){
+    function($scope,UserService,paginationService){
     var vm =this;
     $scope.sort = '';
     $scope.desc = false;
-        $scope.currentPage = 0;
-        vm.numberOfPages=function(object){
-            return Math.ceil($scope.user.length/$scope.pageAmount.selected.name);
-        };
+
         vm.getPaginatedUsers = function() {
             UserService.getAllUsers()
                 .then(
@@ -50,15 +47,29 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService',
         /*set up total page*/
         $scope.totalPage = vm.getPaginatedUsers();
         //$watch search to update pagination
-        $scope.$watchGroup(['searchInput','desc'],function(){
+        $scope.$watchGroup(['searchInput','sort'],function(){
             $scope.currentPage = 0;
         },true);
 
-        // click th =>hightlight
-          $('#user table th').click(function(event){
-            $(event.target).toggleClass('selected');
-            if($(event.target).hasClass('selected')){
-               $(event.target).siblings('.selected').removeClass('selected');
+        /*sort job*/
+        $scope.sort = '';
+        $scope.desc = false;
+        $scope.sortObj = function(sort,obj){
+            $('th').removeClass('selected');
+            if($(obj.target).hasClass("false")){
+                $(obj.target).removeClass('fa-caret-up');
+                $(obj.target).addClass('fa-caret-down');
+                $(obj.target).removeClass("false");
+                $(obj.target).addClass("true");
+                $scope.desc = true;
+            }else{
+                $(obj.target).removeClass("true");
+                $(obj.target).addClass("false");
+                $(obj.target).removeClass('fa-caret-down');
+                $(obj.target).addClass('fa-caret-up');
+                $scope.desc = false;
             }
-          })
+            $scope.sort = sort;
+            $(obj.target).parent().addClass('selected');
+        };
 }]);

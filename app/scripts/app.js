@@ -126,8 +126,8 @@ var antloans = angular
 
                 .state('settle', {
                     url: '/settle',
-                    templateUrl: 'views/settled-list.html'
-                    // controller:''
+                    templateUrl: 'views/settled-list.html',
+                    controller:'settleListCtrl'
                 })
                 .state('user-detail',{
                     url: '/settle',

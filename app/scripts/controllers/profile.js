@@ -2,7 +2,6 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
     function($scope,response,FileUploader,API_BASE,OAuthService){
         if (response && response.status == 200 && response.data.success) {
             $scope.user = response.data.data;
-            console.log($scope.user);
         }
         //initiate uploader
         $scope.uploader = new FileUploader({
@@ -10,7 +9,7 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
             queueLimit:1,
             method:'PUT',
             removeAfterUpload:true,
-            url:API_BASE + "/users/4/avatar",
+            url:API_BASE + "/users/"+ $scope.user.user_id +"/avatar",
             headers:{'Authorization': 'Bearer' + OAuthService.getToken()}
         });
 
