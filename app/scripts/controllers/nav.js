@@ -19,4 +19,5 @@ antloans.controller('navBarCtrl', ['$scope', 'UserService', 'principal','OAuthSe
             }, function (e) {
                 console.log(e)
             });
+
     }]);

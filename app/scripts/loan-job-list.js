@@ -1,15 +1,21 @@
 
 $(document).ready(function(){
 
-  // $('.dropbtn').mouseenter(function(){
-  //    $('.dropbtn i').removeClass('fa-chevron-down');
-  //    $('.dropbtn i').addClass('fa-chevron-up');
-  // });
-  //
-  // $('.dropbtn').mouseleave(function(){
-  //    $('.dropbtn i').removeClass('fa-chevron-up');
-  //    $('.dropbtn i').addClass('fa-chevron-down');
-  // });
+
+ // nav bar bell notification
+ $('.bell .fa-bell').click(function(){
+     $('.bell .notify').toggleClass('show');
+ })
+
+ $('.notes_list .more').click(function(){
+    $('.note_details').show();
+ })
+
+ $('.note_details .back').click(function(){
+    $('.bell .notify').removeClass('show');
+    $('.note_details').hide();
+ })
+
 
 //  left bar js
 
