@@ -27,7 +27,8 @@ var antloans = angular
         'angularFileUpload',
         'ngDragDrop',
         'xeditable',
-        'naif.base64'
+        'naif.base64',
+        'ui.tinymce'
     ])
     .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
         function ($stateProvider, $urlRouterProvider,ChartJsProvider) {
@@ -130,9 +131,9 @@ var antloans = angular
                     controller:'settleListCtrl'
                 })
                 .state('user-detail',{
-                    url: '/settle',
-                    templateUrl: 'views/settled-list.html'
-                    // controller:''
+                    url: '/user-detail/:userId',
+                    templateUrl: 'views/user-detail.html',
+                    controller:'userDetailCtrl'
                 })
         }])
 .run(['$rootScope', '$state', '$urlRouter', 'principal','editableOptions',

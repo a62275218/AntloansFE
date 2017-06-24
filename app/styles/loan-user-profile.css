@@ -86,6 +86,14 @@ li.user-bar i, li.user-bar span.bar_name{
   text-align: left;
 }
 
+.user_info i{
+  cursor:pointer;
+}
+
+button, canvas{
+  margin-left: 30px;
+}
+
 .control label{
   width: 80px;
 }
