@@ -56,4 +56,12 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService',
         $scope.$watchGroup(['searchInput','desc'],function(){
             $scope.currentPage = 0;
         },true);
+
+        // click th =>hightlight
+          $('#user table th').click(function(event){
+            $(event.target).toggleClass('selected');
+            if($(event.target).hasClass('selected')){
+               $(event.target).siblings('.selected').removeClass('selected');
+            }
+          })
 }]);

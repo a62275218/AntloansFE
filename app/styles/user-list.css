@@ -124,6 +124,10 @@ li.user-bar i, li.user-bar span.bar_name{
   outline:none;
 }
 
+#user table th.selected{
+  color:#F0662C;
+}
+
 #user table td{
   font-size: 18px;
 }

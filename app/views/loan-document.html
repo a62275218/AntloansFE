@@ -70,20 +70,18 @@
                  <div class='document_list'>
                     <table class='"table table-striped"'>
                        <thead>
-                         <tr><th>TITLE &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                             <th>VERSION &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                             <th>MODIFIELD &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                             <th>TYPE &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                             <th>UPLOADER &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
-                             <th>ACTION </th></tr>
+                         <tr><th ng-click="thSelect($event)">TITLE &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                             <th ng-click="thSelect($event)">TYPE &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                             <th ng-click="thSelect($event)">UPLOADER &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                             <th ng-click="thSelect($event)">MODIFIELD &nbsp;<i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></th>
+                             <th ng-click="thSelect($event)">ACTION </th></tr>
                        </thead>
                        <tbody>
                          <tr ng-repeat="item in document track by $index">
                            <td>{{item.name}}</td>
-                           <td>0.0</td>
-                           <td>{{item.createAt}}</td>
                            <td>Individual</td>
                            <td>David Cutter</td>
+                           <td>{{item.createAt}}</td>
                            <td><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;
                              <a href="{{api+item.path}}"><i class="fa fa-download" aria-hidden="true" ></i></a>
                            </td>

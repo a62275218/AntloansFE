@@ -297,6 +297,7 @@ td.special_note div{
 .job_list {
   margin: 20px;
   background: white;
+  overflow: hidden;
 }
 
 .job_list table{
@@ -306,6 +307,12 @@ td.special_note div{
 .job_list table th{
   padding-top:20px !important;
   padding-bottom:20px !important;
+  cursor: pointer;
+  outline: none;
+}
+
+.job_list table th.selected{
+  color: #F0662C;
 }
 
 .job_list table th, .job_list table td{
@@ -328,5 +335,5 @@ td.special_note div{
 }
 
 .job_list table tbody tr:hover{
-  background-color: #CCCCCC;
+  background-color: #F4F4F4;
 }

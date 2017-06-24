@@ -120,6 +120,11 @@ li.doc-bar i, li.doc-bar span.bar_name{
   border-bottom-color: #F4F5F7;
   border-bottom-style: solid;
   box-sizing: border-box;
+  outline: none;
+}
+
+#document table th.selected{
+  color:#F0662C;
 }
 
 #document table td{
