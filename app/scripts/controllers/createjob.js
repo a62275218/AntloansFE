@@ -51,6 +51,11 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                     })
             }
         };
+        $scope.allowManualInput = function(obj){
+            if(obj.selected){
+
+            }
+        };
         $scope.listUser = function () {
             vm.user = vm.email
         };

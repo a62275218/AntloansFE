@@ -26,7 +26,7 @@
             <form>
                 <div class="email_search">
                   <label>Email</label>
-                  <ui-select class="email_input" ng-model="ctrl.email" ng-disabled="ctrl.disabled" reset-search-input="false"
+                  <ui-select allow-free-text="true" class="email_input" ng-model="ctrl.email" ng-disabled="ctrl.disabled" reset-search-input="false"
                              on-select="listUser()" required>
                       <ui-select-match placeholder="Type more than 3 characters to find the user by email"
                                        style="width:400px;">
