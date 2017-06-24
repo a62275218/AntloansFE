@@ -147,4 +147,9 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
              $scope.jobStatus = 'all'
          }
        }
+    // click th hight light
+      $scope.thSelect = function(e){
+        console.log(e.target);
+        console.log(e.target);
+      }
 }]);
