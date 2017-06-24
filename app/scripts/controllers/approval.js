@@ -25,7 +25,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 .then(function (response) {
                     $scope.job = response.data.data;
                     $scope.status = response.data.data.deal_status_log;
-                    for (var i = 1; i < 13; i++) {
+                    for (var i = 1; i < 12; i++) {
                         vm.convertStatus($scope.status, i)
                     }
                     deal_status_value = vm.checkStatus($scope.job);
@@ -155,19 +155,26 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             $('.timeline').css('border-left', "3px dotted #B5B5B5");
             $('.circle').css('cursor', 'pointer');
             $('.circle').click(function (e) {
-                $(e.target).toggleClass('done');
-                var index = parseInt($(e.target).attr('data-index'));
-                if ($(e.target).hasClass("done")) {
-                    for (var i = 0; i < index; i++) {
-                        status[i].addClass('done');
-                    }
-                } else {
-                    for (var j = index + 1; j < status.length; j++) {
-                        status[j].removeClass('done');
-                    }
-                }
-                updateStatusLight();
+               // prevent change preivous status and skip status
+               var num = $('.circle.done').length;
+               var index = parseInt($(e.target).attr('data-index'));
 
+                if (index == deal_status_value){
+                  $(e.target).toggleClass('done');
+                  var index = parseInt($(e.target).attr('data-index'));
+                  if ($(e.target).hasClass("done")) {
+                      for (var i = 0; i < index; i++) {
+                          status[i].addClass('done');
+                      }
+                  } else {
+                      for (var j = index + 1; j < status.length; j++) {
+                          status[j].removeClass('done');
+                      }
+                  }
+                  updateStatusLight();
+                }else{
+                  swal("Oops...", "You cannot change previous or skip any status !", "error");
+                }
             });
 
         });
@@ -177,32 +184,40 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             var num = $('.circle.done').length;
             if (num < 1) {
                 $('.submission i').removeClass('done');
+                $('.submission').removeClass('changed');
                 $('.submission_name').removeClass('done');
                 $('.assessment i').removeClass('done');
+                $('.assessment').removeClass('changed');
                 $('.assessment_name').removeClass('done');
                 $('.settlement i').removeClass('done');
                 $('.settlement_name').removeClass('done');
             }
             if (num >= 1 && num <= 3) {
                 $('.submission i').addClass('done');
+                $('.submission').addClass('changed');
                 $('.submission_name').addClass('done');
                 $('.assessment i').removeClass('done');
+                $('.assessment').removeClass('changed');
                 $('.assessment_name').removeClass('done');
                 $('.settlement i').removeClass('done');
                 $('.settlement_name').removeClass('done');
             }
             if (num > 3 && num <= 9) {
                 $('.submission i').addClass('done');
+                $('.submission').addClass('changed');
                 $('.submission_name').addClass('done');
                 $('.assessment i').addClass('done');
+                $('.assessment').addClass('changed');
                 $('.assessment_name').addClass('done');
                 $('.settlement i').removeClass('done');
                 $('.settlement_name').removeClass('done');
             }
             if (num > 9) {
                 $('.submission i').addClass('done');
+                $('.submission').addClass('changed');
                 $('.submission_name').addClass('done');
                 $('.assessment i').addClass('done');
+                $('.assessment').addClass('changed');
                 $('.assessment_name').addClass('done');
                 $('.settlement i').addClass('done');
                 $('.settlement_name').addClass('done');

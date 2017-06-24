@@ -293,6 +293,16 @@ li.job-bar i, li.job-bar span.bar_name{
     background: #B5B5B5;
 }
 
+.submission.changed::after{
+  border: 1px solid #FFF136;
+  background: #FFF136;
+}
+
+.assessment.changed::after{
+  border: 1px solid #F38671;
+  background: #F38671;
+}
+
 
 .submission i.done{
    color: #FFF136;

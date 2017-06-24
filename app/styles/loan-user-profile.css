@@ -17,7 +17,7 @@ li.user-bar i, li.user-bar span.bar_name{
   padding-bottom: 40px;
   position: relative;
 }
-
+/**/
 .personal_detail input.disable{
    border: 0;
    background-color: #FFF;
@@ -77,13 +77,13 @@ li.user-bar i, li.user-bar span.bar_name{
 }
 
 .user_info, .control {
-  padding-left: 60px;
+  padding-left: 30px;
   vertical-align: middle;
 }
 
 .user_info label, .control label{
   margin-right: 50px;
-  text-align: right;
+  text-align: left;
 }
 
 .control label{
@@ -97,7 +97,7 @@ li.user-bar i, li.user-bar span.bar_name{
 }
 
 .email_message, .number_message{
-  padding-left: 60px;
+  padding-left: 30px;
 }
 
 .email_message input{
@@ -106,7 +106,7 @@ li.user-bar i, li.user-bar span.bar_name{
 
 .personal_detail label{
   margin-right: 50px;
-  text-align: right;
+  text-align: left;
   width: 80px;
 }
 
