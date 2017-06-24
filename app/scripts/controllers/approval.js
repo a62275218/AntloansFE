@@ -113,6 +113,9 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         $scope.updateUser = function () {
             $('.job_show td input').attr('disabled');
             $('.job_show td input').addClass('disable');
+
+            $('.loan_show td input').attr('disabled');
+            $('.loan_show td input').addClass('disable');
             UserService.updateUser($scope.job.client_id,
                 {
                     firstName: $scope.job.first_name,
@@ -136,6 +139,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         // edit job info
         $scope.jobEdit = function () {
             $('.job_show td input').removeAttr('disabled').removeClass('disable');
+            $('.loan_show td input').removeAttr('disabled').removeClass('disable');
         }
 
         // ========= edit vertical timeline ========
@@ -233,7 +237,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         //customize input
         tinymce.init({
             selector: '.comment_input',
-            height: 500,
+            height: 150,
             menubar: false,
             plugins: [
                 'advlist autolink lists charmap print preview anchor',
