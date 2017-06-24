@@ -22,14 +22,14 @@
         <div class="approval_up">
             <span id="jobEditBtn" ng-click="jobEdit()"><i class="fa fa-pencil-square-o fa-2x"
                                                           aria-hidden="true"></i></span>
+            <label for="">Client</label>
+            <hr>
             <table class="job_show">
                 <tr>
-                    <form>
-                        <th>first name</th>
-                        <td><input type="text" class="disable" ng-model="job.first_name" disabled="disabled"></td>
-                        <th>last name</th>
-                        <td><input type="text" class="disable" ng-model="job.last_name" disabled></td>
-                    </form>
+                    <th>first name</th>
+                    <td><input type="text" class="disable" ng-model="job.first_name" disabled="disabled"></td>
+                    <th>last name</th>
+                    <td><input type="text" class="disable" ng-model="job.last_name" disabled></td>
                 </tr>
                 <tr>
                     <th>mobile</th>
@@ -49,15 +49,42 @@
                     <th>prefered method</th>
                     <td><input type="text" class="disable" ng-model="job.preferred_method" disabled></td>
                 </tr>
+            </table>
+            <label for="">Loan</label>
+            <hr>
+            <table class="loan_show">
                 <tr>
-                  <th>loan</th>
-                  <td><input type="text" class="disable" ng-model="job.loan" disabled></td>
+                  <th>status</th>
+                  <td><input type="text" class="disable" ng-model="job.deal_status.label" disabled></td>
+                  <th>loan amount</th>
+                  <td><input type="text" class="disable" ng-model="job.loan_amount|currency" disabled></td>
+                </tr>
+                <tr>
+                  <th>assign</th>
+                  <td><input type="text" class="disable" ng-model="job.preferred_time" disabled></td>
+                  <th>loan purpose</th>
+                  <td><input type="text" class="disable" ng-model="job.loan_purpose.label" disabled></td>
+                </tr>
+                <tr>
+                  <th>broke</th>
+                  <td><input style="display:inline-block; width:45%;" type="text" class="disable" ng-model="job.broker.first_name" disabled>
+                      <input style="display:inline-block; width:45%;" type="text" class="disable" ng-model="job.broker.last_name" disabled>
+                  </td>
+
+
+                </tr>
+                <tr>
+                  <th>repayment type</th>
+                  <td><input type="text" class="disable" ng-model="job.repayment_type.label" disabled></td>
+                  <th>file nature</th>
+                  <td><input type="text" class="disable" ng-model="job.file_nature.label" disabled></td>
                 </tr>
                 <tr>
                   <th>special notes</th>
                   <td colspan="3"><input class="disable special_note" type="text" ng-model="job.special_note" disabled></td>
                 </tr>
             </table>
+
 
             <button class="saveBtn01" type="button" name="button" ng-click="updateUser()">Save</button>
         </div>
@@ -252,12 +279,12 @@
                             <div class="scroll_container">
                                 <div class="message" ng-repeat="item in comments track by $index">
                                     <div class="commenter">
-                                        <div class="commenter_img">
+                                        <!-- <div class="commenter_img">
                                             <img ng-if="item.avatar" ng-src="item.avatar" alt="">
                                             <img ng-if="!item.avatar" ng-src="{{default_img_url}}" alt="">
-                                        </div>
+                                        </div> -->
                                         <div class="commenter_name">
-                                            {{item.username}}
+                                            <strong>{{item.username}}</strong>
                                         </div>
                                         <div class="comment_time">
                                             {{item.create_at | date:'dd/MM/yyyy'}} <br>
@@ -265,10 +292,11 @@
                                         </div>
                                     </div>
                                     <div class="comment">
-                                        <div class="triangle"><i class="fa fa-caret-left fa-3x" aria-hidden="true"></i>
-                                        </div>
+                                        <!-- <div class="triangle"><i class="fa fa-caret-left fa-3x" aria-hidden="true"></i>
+                                        </div> -->
                                         {{item.content}}
                                     </div>
+                                    <div class="clear"></div>
                                     <hr>
                                 </div>
                             </div>
@@ -277,12 +305,12 @@
                         <br>
                         <div class='comment_title'>Leave a comment</div>
                         <div class="leave_message">
-                            <div class="commenter commenter_leave">
+                            <!-- <div class="commenter commenter_leave">
                                 <div class="commenter_img">
                                     <img ng-if="user.avatar" ng-src="{{user.avatar}}" alt="">
                                     <img ng-if="!user.avatar" ng-src="{{default_img_url}}" alt="">
                                 </div>
-                            </div>
+                            </div> -->
                             <form class="comment_form" id="anchor">
                                 <textarea class='comment_input' name="name" placeholder="Add a comment..."
                                           ng-model="comment"></textarea>
@@ -299,7 +327,7 @@
             <div class="clear"></div>
         </div>
 
-      </div>  
+      </div>
       <!-- width_fix end -->
     </div>
     <!-- rigth_part end -->
