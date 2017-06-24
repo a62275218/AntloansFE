@@ -60,73 +60,102 @@ antloans
             var settlement = [];
             if (status == 'submission') {
                 angular.forEach(items, function (v, k) {
-                       if (items[k].deal_status && items[k].deal_status.value < 4) {
+                        if (items[k].deal_status && items[k].deal_status.value < 4) {
                             submission.push(items[k]);
                         }
                     }
                 );
                 return submission;
             }
-            if(status == 'assessment'){
+            if (status == 'assessment') {
                 angular.forEach(items, function (v, k) {
-                        if (items[k].deal_status && items[k].deal_status.value >=4 && items[k].deal_status.value<10) {
-                            assessment.push(items[k]);
-                        }
-                    });
+                    if (items[k].deal_status && items[k].deal_status.value >= 4 && items[k].deal_status.value < 10) {
+                        assessment.push(items[k]);
+                    }
+                });
                 return assessment;
             }
-            if(status == 'settlement'){
+            if (status == 'settlement') {
                 angular.forEach(items, function (v, k) {
-                        if (items[k].deal_status && items[k].deal_status.value >=10) {
+                        if (items[k].deal_status && items[k].deal_status.value >= 10) {
                             settlement.push(items[k]);
                         }
                     }
                 );
                 return settlement;
             }
-            if(status == 'all'){
+            if (status == 'all') {
                 return items;
             }
         }
     })
-.filter('bankFilter',function(){
-    return function(items,search){
-        var result = [];
-        if(search == 'all'){
-            return items;
-        }else {
-            angular.forEach(items, function (v, k) {
-                if (items[k].bank_id && items[k].bank_id == search) {
-                    result.push(items[k]);
-                }
-            });
+    .filter('bankFilter', function () {
+        return function (items, search) {
+            var result = [];
+            if (search == 'all') {
+                return items;
+            } else {
+                angular.forEach(items, function (v, k) {
+                    if (items[k].bank_id && items[k].bank_id == search) {
+                        result.push(items[k]);
+                    }
+                });
+            }
+            return result;
         }
-        return result;
-    }
-})
-.filter('userFilter',function(){
-    return function(items,usertype,id){
-        var result = [];
-        if(usertype == 'all'){
-            return items;
-        }else if(usertype = 'broker'){
-            angular.forEach(items, function (v, k) {
-                if (items[k].broker && items[k].broker.user_id == id) {
-                    result.push(items[k]);
-                }
-            });
+    })
+    .filter('userFilter', function () {
+        return function (items, usertype, id) {
+            var result = [];
+            if (usertype == 'all') {
+                return items;
+            } else if (usertype = 'broker') {
+                angular.forEach(items, function (v, k) {
+                    if (items[k].broker && items[k].broker.user_id == id) {
+                        result.push(items[k]);
+                    }
+                });
+            }
+            return result;
         }
-        return result;
-    }
-})
-    .directive('ngThumb', ['$window', function($window) {
+    })
+    .filter('dateFilter', function () {
+        return function (items,start,end){
+            var result = [];
+            /*if(isString(start) && isString(end)) {
+                var arr1 = start.split('/');
+                var arr2 = end.split('/');
+            }
+            var startDate = new Date(arr1[2],parseInt(arr1[0]-1),arr1[1]);
+            var endDate = new Date(arr2[2],parseInt(arr2[0]-1),arr2[1]);*/
+            if(start != '' && end != '') {
+                angular.forEach(items, function (v, k) {
+                    if (items[k].deal_status && items[k].deal_status.value > 9 && items[k].deal_status_log) {
+                        for (var i = 0; i < items[k].deal_status_log.length; i++) {
+                            if (items[k].deal_status_log[i].dealStatus.value == 10) {
+                                var targetDate = new Date(items[k].deal_status_log[i].createAt);
+                                if (targetDate >= start && targetDate <= end) {
+                                    result.push(items[k]);
+                                }
+                            }
+                        }
+                    }
+                });
+                return result;
+            }
+            if(start == '' && end == ''){
+                return items;
+            }
+        }
+    })
+    .directive('ngThumb', ['$window', function ($window) {
         var helper = {
             support: !!($window.FileReader && $window.CanvasRenderingContext2D),
-            isFile: function(item) {
+            isFile: function (item) {
                 return angular.isObject(item) && item instanceof $window.File;
             },
-            isImage: function(file) {
-                var type =  '|' + file.type.slice(file.type.lastIndexOf('/') + 1) + '|';
+            isImage: function (file) {
+                var type = '|' + file.type.slice(file.type.lastIndexOf('/') + 1) + '|';
                 return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
             }
         };
@@ -134,7 +163,7 @@ antloans
         return {
             restrict: 'A',
             template: '<canvas/>',
-            link: function(scope, element, attributes) {
+            link: function (scope, element, attributes) {
                 if (!helper.support) return;
 
                 var params = scope.$eval(attributes.ngThumb);
@@ -157,7 +186,7 @@ antloans
                 function onLoadImage() {
                     var width = params.width || this.width / this.height * params.height;
                     var height = params.height || this.height / this.width * params.width;
-                    canvas.attr({ width: width, height: height });
+                    canvas.attr({width: width, height: height});
                     canvas[0].getContext('2d').drawImage(this, 0, 0, width, height);
                 }
             }

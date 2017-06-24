@@ -51,11 +51,13 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                     })
             }
         };
-        $scope.allowManualInput = function(obj){
-            if(obj.selected){
-
+        /*$scope.allowManualInput = function(search){
+            var newUsers = vm.users.slice();
+            if (search && newUsers.indexOf(search) === -1) {
+                newUsers.unshift(search);
             }
-        };
+            return newUsers;
+        };*/
         $scope.listUser = function () {
             vm.user = vm.email
         };

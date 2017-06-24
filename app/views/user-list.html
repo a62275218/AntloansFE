@@ -65,9 +65,9 @@
                  <div class='user_list'>
                     <table class='"table table-striped"'>
                        <thead>
-                         <tr><th ng-click="sort = 'first_name';desc=!desc">NAME &nbsp;<i ng-if="desc == true"  class="fa fa-caret-down fa-lg" aria-hidden="true"></i><i ng-if="!desc"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                             <th ng-click="sort = 'role';desc=!desc">USER TYPE &nbsp;<i ng-if="desc"  class="fa fa-caret-down fa-lg" aria-hidden="true"></i><i ng-if="!desc"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                             <th ng-click="sort = 'mobile';desc=!desc">MOBILE &nbsp;<i ng-if="desc"  class="fa fa-caret-down fa-lg" aria-hidden="true"></i><i ng-if="!desc"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                       <tr><th ng-click="sort = 'first_name';desc=!desc"><span ng-click="sortObj('first_name')">NAME &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></span></th>
+                           <th ng-click="sort = 'role';desc=!desc"><span ng-click="sortObj('role')">USER TYPE &nbsp;<i ng-if="desc"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></span></th>
+                             <th ng-click="sort = 'mobile';desc=!desc">MOBILE &nbsp;<i ng-if="desc"  class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                              <th>ACTIONS</th>
                              </tr>
                        </thead>
@@ -96,10 +96,6 @@
           </div>
 
      </div>
-     <!-- <script src="./assets/js/libs/jquery-3.2.1.min.js"></script>
-     <script src="./assets/js/libs/bootstrap.min.js"></script> -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-     <!--my js-->
      <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
   </body>
 </html>

@@ -23,6 +23,10 @@ input.disable{
   height: 70px;
 }
 
+*{
+  outline:none;
+}
+
 .nav_bar .brand{
   width: 10%;
   height: inherit;

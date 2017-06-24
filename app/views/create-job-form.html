@@ -29,7 +29,7 @@
                   <ui-select allow-free-text="true" class="email_input" ng-model="ctrl.email" ng-disabled="ctrl.disabled" reset-search-input="false"
                              on-select="listUser()" required>
                       <ui-select-match placeholder="Type more than 3 characters to find the user by email"
-                                       style="width:400px;">
+                                       style="width:400px;" ng-model="emails">
                           <!--<span ng-bind="$select.selected.name" style="width:400px;"></span>-->
                           {{$select.selected.email}}
                       </ui-select-match>
@@ -39,6 +39,7 @@
                           <div ng-bind-html="item.email | highlight: $select.search"></div>
                       </ui-select-choices>
                   </ui-select>
+                    {{$select}}
                 </div>
                 <br>
                 <label>First name</label><input type="text" ng-model="ctrl.user.first_name" required>

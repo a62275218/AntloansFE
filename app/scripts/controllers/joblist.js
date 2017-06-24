@@ -58,15 +58,41 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
             obj.user_id? $scope.userId = obj.user_id:$scope.userId ='';
         };
 
-        $scope.judgeStatus = function(status){
+        /*sort job*/
+        $scope.sort = '';
+        $scope.desc = false;
+        $scope.sortObj = function(sort,obj){
+            $('th').removeClass('selected');
+            if($(obj.target).hasClass("false")){
+                $(obj.target).removeClass('fa-caret-up');
+                $(obj.target).addClass('fa-caret-down');
+                $(obj.target).removeClass("false");
+                $(obj.target).addClass("true");
+                $scope.desc = true;
+            }else{
+                $(obj.target).removeClass("true");
+                $(obj.target).addClass("false");
+                $(obj.target).removeClass('fa-caret-down');
+                $(obj.target).addClass('fa-caret-up');
+                $scope.desc = false;
+            };
+            $scope.sort = sort;
+            $(obj.target).parent().addClass('selected');
+        };
+
+        /*$scope.judgeStatus = function(status){
             if(status<4){
                 return 'red';
             }else if(status >= 4 && status <10){
                 return 'orange';
             }else{
-                return 'red';
+                return 'green';
             }
-        };
+        };*/
+
+        //date filter
+        $scope.startDate='';
+        $scope.endDate='';
 
         /*go to next page*/
         $scope.nextPage = function(){
@@ -107,14 +133,14 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
                 return "first_name"
             }
         };
-        $scope.sortBy =[
+        /*$scope.sortBy =[
             {"name":"date"},
             {"name":"gender"},
             {"name":"name"}
         ];
-        $scope.sortBy.selected = $scope.sortBy[0];
+        $scope.sortBy.selected = $scope.sortBy[0];*/
 
-        $scope.$watchGroup(['searchInput','sortBy.selected.name','jobStatus','searchBank','userType'],function(){
+        $scope.$watchGroup(['searchInput','sort','jobStatus','searchBank','userType'],function(){
             $scope.currentPage = 0;
         },true);
 
@@ -147,11 +173,4 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
              $scope.jobStatus = 'all'
          }
        }
-    // click th =>hightlight
-      $scope.thSelect = function(event){
-        $(event.target).toggleClass('selected');
-        if($(event.target).hasClass('selected')){
-           $(event.target).siblings('.selected').removeClass('selected');
-        }
-      }
 }]);

@@ -3,9 +3,6 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService',
     var vm =this;
     $scope.sort = '';
     $scope.desc = false;
-    $scope.sortBy = function(){
-
-    };
         $scope.currentPage = 0;
         vm.numberOfPages=function(object){
             return Math.ceil($scope.user.length/$scope.pageAmount.selected.name);
