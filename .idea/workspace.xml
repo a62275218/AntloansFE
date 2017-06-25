@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9804667b-6e28-441b-85ce-47f5973f57d0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/approval.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/approval.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/createjob.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/createjob.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/filterservice.js" afterPath="$PROJECT_DIR$/app/scripts/services/filterservice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/conditional-approval.css" afterPath="$PROJECT_DIR$/app/styles/conditional-approval.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/conditional-approval.html" afterPath="$PROJECT_DIR$/app/views/conditional-approval.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/create-job-form.html" afterPath="$PROJECT_DIR$/app/views/create-job-form.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/loan-user-profile.html" afterPath="$PROJECT_DIR$/app/views/loan-user-profile.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,7 +28,7 @@
     <favorites_list name="antloans-front-end" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.61839396">
+    <splitter split-orientation="horizontal" split-proportion="0.7264151">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="loan-job-list.html" pinned="false" current-in-tab="false">
@@ -60,9 +54,36 @@
           <file leaf-file-name="conditional-approval.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/views/conditional-approval.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="413">
-                  <caret line="294" column="66" lean-forward="true" selection-start-line="294" selection-start-column="66" selection-end-line="294" selection-end-column="66" />
+                <state relative-caret-position="421">
+                  <caret line="197" column="26" lean-forward="true" selection-start-line="197" selection-start-column="26" selection-end-line="197" selection-end-column="26" />
                   <folding>
+                    <element signature="e#4092#4098#0" expanded="true" />
+                    <element signature="e#4098#4104#0" expanded="true" />
+                    <element signature="e#4349#4355#0" expanded="true" />
+                    <element signature="e#4355#4361#0" expanded="true" />
+                    <element signature="e#6470#6476#0" expanded="true" />
+                    <element signature="e#6646#6652#0" expanded="true" />
+                    <element signature="e#7487#7493#0" expanded="true" />
+                    <element signature="e#7649#7655#0" expanded="true" />
+                    <element signature="e#9795#9801#0" expanded="true" />
+                    <element signature="e#9801#9807#0" expanded="true" />
+                    <element signature="e#9986#9992#0" expanded="true" />
+                    <element signature="e#9992#9998#0" expanded="true" />
+                    <element signature="e#10839#10845#0" expanded="true" />
+                    <element signature="e#10845#10851#0" expanded="true" />
+                    <element signature="e#11044#11050#0" expanded="true" />
+                    <element signature="e#11050#11056#0" expanded="true" />
+                    <element signature="e#12754#12760#0" expanded="true" />
+                    <element signature="e#13163#13169#0" expanded="true" />
+                    <element signature="e#13575#13581#0" expanded="true" />
+                    <element signature="e#14103#14109#0" expanded="true" />
+                    <element signature="e#14513#14519#0" expanded="true" />
+                    <element signature="e#14928#14934#0" expanded="true" />
+                    <element signature="e#15332#15338#0" expanded="true" />
+                    <element signature="e#15746#15752#0" expanded="true" />
+                    <element signature="e#16153#16159#0" expanded="true" />
+                    <element signature="e#16667#16673#1" expanded="true" />
+                    <element signature="e#17102#17108#0" expanded="true" />
                     <element signature="n#style#0;n#label#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#ui-select#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
@@ -110,7 +131,7 @@
           <file leaf-file-name="approval.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/approval.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-617">
+                <state relative-caret-position="-603">
                   <caret line="356" column="33" lean-forward="true" selection-start-line="356" selection-start-column="33" selection-end-line="356" selection-end-column="33" />
                   <folding />
                 </state>
@@ -121,7 +142,7 @@
             <entry file="file://$PROJECT_DIR$/app/styles/conditional-approval.css">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="472">
-                  <caret line="590" column="16" lean-forward="true" selection-start-line="590" selection-start-column="16" selection-end-line="590" selection-end-column="16" />
+                  <caret line="591" column="16" lean-forward="false" selection-start-line="591" selection-start-column="16" selection-end-line="591" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
@@ -234,9 +255,9 @@
         <option value="$PROJECT_DIR$/app/views/create-job-form.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/createjob.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/filterservice.js" />
-        <option value="$PROJECT_DIR$/app/views/conditional-approval.html" />
         <option value="$PROJECT_DIR$/app/styles/conditional-approval.css" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/approval.js" />
+        <option value="$PROJECT_DIR$/app/views/conditional-approval.html" />
       </list>
     </option>
   </component>
@@ -650,7 +671,7 @@
       <workItem from="1498271623301" duration="25995000" />
       <workItem from="1498299809269" duration="625000" />
       <workItem from="1498310175199" duration="19734000" />
-      <workItem from="1498350678833" duration="17752000" />
+      <workItem from="1498350678833" duration="18365000" />
     </task>
     <task id="LOCAL-00001" summary="date picker updated">
       <created>1496949719086</created>
@@ -988,11 +1009,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498341349033</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Merge branch 'master' of https://bitbucket.org/a62275218/antloans&#10;&#10;# Conflicts:&#10;#&#9;app/views/conditional-approval.html&#10;">
+      <created>1498372007320</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1498372007320</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="465154000" />
+    <option name="totallyTimeSpent" value="465767000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1009,13 +1037,13 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928312" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15509762" sideWeight="0.51599145" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13449024" sideWeight="0.48987207" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13449024" sideWeight="0.48987207" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15509762" sideWeight="0.48400852" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11930586" sideWeight="0.48560768" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11930586" sideWeight="0.48560768" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10074627" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12260128" sideWeight="0.6528822" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12260128" sideWeight="0.34711778" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22121535" sideWeight="0.6539409" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22121535" sideWeight="0.3460591" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11940298" sideWeight="0.21583514" order="2" side_tool="true" content_ui="tabs" />
@@ -1407,17 +1435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/conditional-approval.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="294" column="66" lean-forward="true" selection-start-line="294" selection-start-column="66" selection-end-line="294" selection-end-column="66" />
-          <folding>
-            <element signature="n#style#0;n#label#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#ui-select#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/createjob.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="246">
@@ -1429,16 +1446,54 @@
     <entry file="file://$PROJECT_DIR$/app/styles/conditional-approval.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="472">
-          <caret line="590" column="16" lean-forward="true" selection-start-line="590" selection-start-column="16" selection-end-line="590" selection-end-column="16" />
+          <caret line="591" column="16" lean-forward="false" selection-start-line="591" selection-start-column="16" selection-end-line="591" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/approval.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-617">
+        <state relative-caret-position="-603">
           <caret line="356" column="33" lean-forward="true" selection-start-line="356" selection-start-column="33" selection-end-line="356" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/conditional-approval.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="197" column="26" lean-forward="true" selection-start-line="197" selection-start-column="26" selection-end-line="197" selection-end-column="26" />
+          <folding>
+            <element signature="e#4092#4098#0" expanded="true" />
+            <element signature="e#4098#4104#0" expanded="true" />
+            <element signature="e#4349#4355#0" expanded="true" />
+            <element signature="e#4355#4361#0" expanded="true" />
+            <element signature="e#6470#6476#0" expanded="true" />
+            <element signature="e#6646#6652#0" expanded="true" />
+            <element signature="e#7487#7493#0" expanded="true" />
+            <element signature="e#7649#7655#0" expanded="true" />
+            <element signature="e#9795#9801#0" expanded="true" />
+            <element signature="e#9801#9807#0" expanded="true" />
+            <element signature="e#9986#9992#0" expanded="true" />
+            <element signature="e#9992#9998#0" expanded="true" />
+            <element signature="e#10839#10845#0" expanded="true" />
+            <element signature="e#10845#10851#0" expanded="true" />
+            <element signature="e#11044#11050#0" expanded="true" />
+            <element signature="e#11050#11056#0" expanded="true" />
+            <element signature="e#12754#12760#0" expanded="true" />
+            <element signature="e#13163#13169#0" expanded="true" />
+            <element signature="e#13575#13581#0" expanded="true" />
+            <element signature="e#14103#14109#0" expanded="true" />
+            <element signature="e#14513#14519#0" expanded="true" />
+            <element signature="e#14928#14934#0" expanded="true" />
+            <element signature="e#15332#15338#0" expanded="true" />
+            <element signature="e#15746#15752#0" expanded="true" />
+            <element signature="e#16153#16159#0" expanded="true" />
+            <element signature="e#16667#16673#1" expanded="true" />
+            <element signature="e#17102#17108#0" expanded="true" />
+            <element signature="n#style#0;n#label#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ui-select#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

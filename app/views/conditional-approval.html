@@ -185,7 +185,7 @@
 
                 <div class="contact_down" ng-if="selection[1] == 'selected'">
                     <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
-                      <a href="tel:{{user[1].phone || user[1].selected.mobile}}">{{user[1].phone || user[1].mobile || 'no phone number now'}}</a></span> <br>
+                      {{user[1].phone || user[1].mobile || 'no phone number now'}}</span> <br>
                     <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
                       <a href="mailto:{{user[1].email}}">{{user[1].email || 'no email now'}}</a></span>
                 </div>
@@ -201,7 +201,7 @@
 
                 <div class="contact_down" ng-if="selection[1] == 'settled'">
                     <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
-                      <a href="tel:{{job.supervisor.phone || job.supervisor.mobile}}">{{job.supervisor.phone || job.supervisor.mobile || 'no phone number now'}}</a></span> <br>
+                      {{job.supervisor.phone || job.supervisor.mobile || 'no phone number now'}}</span> <br>
                     <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
                       <a href="mailto:{{job.supervisor.email}}">{{job.supervisor.email || 'no email now'}}</a></span>
                 </div>
