@@ -5,7 +5,6 @@
     <title>conditional approval</title>
     <!--my css-->
     <link rel="stylesheet" href="../styles/conditional-approval.css">
-    <script src="../scripts/controllers/approval.js"></script>
 </head>
 
 <body>
@@ -79,6 +78,8 @@
         </div>
 
         <div class="approval_middle">
+
+           <!-- the first one   -->
             <div class="user_contact">
                 <div class="contact_up">
                     <img ng-if="job.broker.avatar" ng-src="{{job.broker.avatar}}" alt="">
@@ -98,6 +99,8 @@
                 </div>
                 <div class="clear"></div>
             </div>
+
+            <!-- the second one   -->
 
             <div class="user_contact ">
                 <span class="user_plus" ng-if="selection[0] == 'origin'" ng-click="showUser(0)">
@@ -149,6 +152,8 @@
                 </div>
                 <div class="clear"></div>
             </div>
+
+            <!-- the third one   -->
 
             <div class="user_contact ">
                 <span class="user_plus" ng-if="selection[1] == 'origin'" ng-click="showUser(1)">
