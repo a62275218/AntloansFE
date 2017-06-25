@@ -61,6 +61,18 @@ var antloans = angular
                     controller:'forgotPassCtrl',
                     controllerAs:'ctrl'
                 })
+
+                .state('notification', {
+                    url: '/notifications',
+                    templateUrl: 'views/full-notify-list.html',
+                    controller:'notificationListCtrl'
+                })
+
+                .state('notification-details', {
+                    url: '/notifications/show/:notificationId',
+                    templateUrl: 'views/notification-details.html',
+                    // controller:'notificationCtrl'
+                })
                 // ==========side bar list ================
                 .state('job-list', {
                     url: '/jobs',
