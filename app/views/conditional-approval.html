@@ -57,7 +57,7 @@
                   <th>status</th>
                   <td><input type="text" class="disable" ng-model="job.deal_status.label" disabled></td>
                   <th>loan amount</th>
-                  <td><input type="text" class="disable" disabled>{{job.loan_amount|currency}}</td>
+                  <td><input type="text" class="disable" ng-model="job.loan_amount|currency" disabled></td>
                 </tr>
                 <tr>
                   <th>assign</th>
@@ -90,6 +90,8 @@
         </div>
 
         <div class="approval_middle">
+
+           <!-- the first one   -->
             <div class="user_contact">
                 <div class="contact_up">
                     <img ng-if="job.broker.avatar" ng-src="{{job.broker.avatar}}" alt="">
@@ -109,6 +111,8 @@
                 </div>
                 <div class="clear"></div>
             </div>
+
+            <!-- the second one   -->
 
             <div class="user_contact ">
                 <span class="user_plus" ng-if="selection[0] == 'origin'" ng-click="showUser(0)">
@@ -139,10 +143,12 @@
                 </div>
 
                 <div class="contact_down" ng-if="selection[0] == 'selected'">
-                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp; {{user[0].selected.phone || user[0].selected.mobile || 'no phone number now'}}</span>
-                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp; <a
-                            href="mailto:{{user[0].selected.email}}">{{user[0].selected.email || 'no email now'}}</a></span>
+                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="tel:{{user[0].phone || user[0].selected.mobile}}">{{user[0].phone || user[0].mobile || 'no phone number now'}}</a></span> <br>
+                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="mailto:{{user[0].email}}">{{user[0].email || 'no email now'}}</a></span>
                 </div>
+
                 <div class="contact_up" ng-if="selection[0] == 'settled'">
                     <img ng-if="job.admin.avatar" ng-src="{{job.admin.avatar}}" alt="">
                     <img ng-if="!job.admin.avatar" ng-src="{{default_img_url}}" alt="">
@@ -152,14 +158,16 @@
                     </div>
                     <div class="clear"></div>
                 </div>
-
                 <div class="contact_down" ng-if="selection[0] == 'settled'">
-                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp; {{job.admin.phone || job.admin.mobile || 'no phone number now'}}</span>
-                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp; <a
-                            href="mailto:{{job.admin.email}}">{{job.admin.email || 'no email now'}}</a></span>
+                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="tel:{{job.admin.phone || job.admin.mobile}}">{{job.admin.phone || job.admin.mobile || 'no phone number now'}}</a></span><br>
+                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="mailto:{{job.admin.email}}">{{job.admin.email || 'no email now'}}</a></span>
                 </div>
                 <div class="clear"></div>
             </div>
+
+            <!-- the third one   -->
 
             <div class="user_contact ">
                 <span class="user_plus" ng-if="selection[1] == 'origin'" ng-click="showUser(1)">
@@ -195,6 +203,7 @@
                     <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
                       <a href="mailto:{{user[1].email}}">{{user[1].email || 'no email now'}}</a></span>
                 </div>
+
                 <div class="contact_up" ng-if="selection[1] == 'settled'">
                     <img ng-if="job.supervisor.avatar" ng-src="{{job.supervisor.avatar}}" alt="">
                     <img ng-if="!job.supervisor.avatar" ng-src="{{default_img_url}}" alt="">

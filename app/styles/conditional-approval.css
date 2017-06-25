@@ -137,7 +137,8 @@ li.job-bar i, li.job-bar span.bar_name{
   width:300px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .user_contact img{
