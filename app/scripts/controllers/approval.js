@@ -112,8 +112,8 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             $('.job_show td input').attr('disabled');
             $('.job_show td input').addClass('disable');
 
-            $('.loan_show td input').attr('disabled');
-            $('.loan_show td input').addClass('disable');
+            /*$('.loan_show td input').attr('disabled');
+            $('.loan_show td input').addClass('disable');*/
             UserService.updateUser($scope.job.client_id,
                 {
                     firstName: $scope.job.first_name,
@@ -137,7 +137,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         // edit job info
         $scope.jobEdit = function () {
             $('.job_show td input').removeAttr('disabled').removeClass('disable');
-            $('.loan_show td input').removeAttr('disabled').removeClass('disable');
+            /*$('.loan_show td input').removeAttr('disabled').removeClass('disable');*/
         }
 
         // ========= edit vertical timeline ========
@@ -252,6 +252,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             selector: '.comment_input',
             height: 150,
             menubar: false,
+            /*entity_encoding:'raw',*/
             plugins: [
                 'advlist autolink lists charmap print preview anchor',
                 'searchreplace visualblocks code fullscreen',
@@ -274,6 +275,59 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             });
             $scope.commentAmount[index] = sum;
         };
+
+        $scope.commentFilter =
+            [
+                {
+                    value:0,
+                    label:'All'
+                },
+                {
+                    value:1,
+                    label:'Interview conducted'
+                },
+                {
+                    value:2,
+                    label:'Document collected'
+                },
+                {
+                    value:3,
+                    label:'Application submitted'
+                },
+                {
+                    value:4,
+                    label:'Conditional approval'
+                },
+                {
+                    value:5,
+                    label:'Valuation ordered '
+                },
+                {
+                    value:6,
+                    label:'Unconditional approval '
+                },
+                {
+                    value:7,
+                    label:'Docs issued'
+                },
+                {
+                    value:8,
+                    label:'Signed docs returned'
+                },
+                {
+                    value:9,
+                    label:'Ready to book'
+                },
+                {
+                    value:10,
+                    label:'Settled'
+                },
+                {
+                    value:11,
+                    label:'One month post settlement confirmation'
+                }
+            ];
+        $scope.commentFilter.selected = $scope.commentFilter[0];
         //get all comments
         jobService.getComments($stateParams.jobId)
             .then(function (response) {
@@ -300,9 +354,15 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             }, function (e) {
             });
         $scope.comment = '';
+        vm.htmlDecode = function(value){
+            return (typeof value === 'undefined') ? '' : $('<div/>').html(value).text();
+        };
+        vm.html2Escape = function(sHtml){
+            return sHtml.replace(/[<>&"]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];});
+        };
         $scope.makeComment = function () {
-            alert(angular.toJson($scope.comment));
-            jobService.makeComment($stateParams.jobId, {content:$scope.comment})
+            var con = vm.htmlDecode($scope.comment);
+            jobService.makeComment($stateParams.jobId, {content:con})
                 .then(function (response) {
                     if (response.status == 200) {
                         $scope.comment = '';
@@ -328,6 +388,9 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             jobService.getComments($stateParams.jobId)
                 .then(function (response) {
                     $scope.comments_tmp = response.data.data;
+                    if(index == 0){
+                        $scope.comments = $scope.comments_tmp;
+                    }
                     angular.forEach($scope.comments_tmp,function(v,k){
                         if(v.deal_status.value == index){
                             $scope.comments.push(v);

@@ -120,15 +120,15 @@ antloans
         }
     })
     .filter('dateFilter', function () {
-        return function (items,start,end){
+        return function (items, start, end) {
             var result = [];
             /*if(isString(start) && isString(end)) {
-                var arr1 = start.split('/');
-                var arr2 = end.split('/');
-            }
-            var startDate = new Date(arr1[2],parseInt(arr1[0]-1),arr1[1]);
-            var endDate = new Date(arr2[2],parseInt(arr2[0]-1),arr2[1]);*/
-            if(start != '' && end != '') {
+             var arr1 = start.split('/');
+             var arr2 = end.split('/');
+             }
+             var startDate = new Date(arr1[2],parseInt(arr1[0]-1),arr1[1]);
+             var endDate = new Date(arr2[2],parseInt(arr2[0]-1),arr2[1]);*/
+            if (start != '' && end != '') {
                 angular.forEach(items, function (v, k) {
                     if (items[k].deal_status && items[k].deal_status.value > 9 && items[k].deal_status_log) {
                         for (var i = 0; i < items[k].deal_status_log.length; i++) {
@@ -143,8 +143,21 @@ antloans
                 });
                 return result;
             }
-            if(start == '' && end == ''){
+            if (start == '' && end == '') {
                 return items;
+            }
+        }
+    })
+    .directive('currency', function () {
+        return {
+            require: 'ngModel',
+            link: function (elem, $scope, attrs, ngModel) {
+                ngModel.$formatters.push(function (val) {
+                    return '$' + val
+                });
+                ngModel.$parsers.push(function (val) {
+                    return val.replace(/^\$/, '')
+                });
             }
         }
     })

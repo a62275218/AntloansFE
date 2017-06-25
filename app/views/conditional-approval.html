@@ -57,31 +57,19 @@
                   <th>status</th>
                   <td><input type="text" class="disable" ng-model="job.deal_status.label" disabled></td>
                   <th>loan amount</th>
-                  <td><input type="text" class="disable" ng-model="job.loan_amount|currency" disabled></td>
+                    <td><input type="text" class="disable" ng-model="job.loan_amount" currency disabled></td>
                 </tr>
                 <tr>
-                  <th>assign</th>
-                  <td><input type="text" class="disable" ng-model="job.preferred_time" disabled></td>
                   <th>loan purpose</th>
                   <td><input type="text" class="disable" ng-model="job.loan_purpose.label" disabled></td>
+                    <th>repayment type</th>
+                    <td><input type="text" class="disable" ng-model="job.repayment_type.label" disabled></td>
                 </tr>
                 <tr>
-                  <th>broke</th>
-                  <td><input style="display:inline-block; width:45%;" type="text" class="disable" ng-model="job.broker.first_name" disabled>
-                      <input style="display:inline-block; width:45%;" type="text" class="disable" ng-model="job.broker.last_name" disabled>
-                  </td>
-
-
-                </tr>
-                <tr>
-                  <th>repayment type</th>
-                  <td><input type="text" class="disable" ng-model="job.repayment_type.label" disabled></td>
                   <th>file nature</th>
                   <td><input type="text" class="disable" ng-model="job.file_nature.label" disabled></td>
-                </tr>
-                <tr>
-                  <th>special notes</th>
-                  <td colspan="3"><input class="disable special_note" type="text" ng-model="job.special_note" disabled></td>
+                    <th>special notes</th>
+                    <td colspan="3"><input class="disable special_note" type="text" ng-model="job.special_note" disabled></td>
                 </tr>
             </table>
 
@@ -143,12 +131,10 @@
                 </div>
 
                 <div class="contact_down" ng-if="selection[0] == 'selected'">
-                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
-                      <a href="tel:{{user[0].phone || user[0].selected.mobile}}">{{user[0].phone || user[0].mobile || 'no phone number now'}}</a></span> <br>
-                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
-                      <a href="mailto:{{user[0].email}}">{{user[0].email || 'no email now'}}</a></span>
+                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp; {{user[0].selected.phone || user[0].selected.mobile || 'no phone number now'}}</span><br>
+                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp; <a
+                            href="mailto:{{user[0].selected.email}}">{{user[0].selected.email || 'no email now'}}</a></span>
                 </div>
-
                 <div class="contact_up" ng-if="selection[0] == 'settled'">
                     <img ng-if="job.admin.avatar" ng-src="{{job.admin.avatar}}" alt="">
                     <img ng-if="!job.admin.avatar" ng-src="{{default_img_url}}" alt="">
@@ -158,11 +144,11 @@
                     </div>
                     <div class="clear"></div>
                 </div>
+
                 <div class="contact_down" ng-if="selection[0] == 'settled'">
-                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
-                      <a href="tel:{{job.admin.phone || job.admin.mobile}}">{{job.admin.phone || job.admin.mobile || 'no phone number now'}}</a></span><br>
-                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
-                      <a href="mailto:{{job.admin.email}}">{{job.admin.email || 'no email now'}}</a></span>
+                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp; {{job.admin.phone || job.admin.mobile || 'no phone number now'}}</span><br>
+                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp; <a
+                            href="mailto:{{job.admin.email}}">{{job.admin.email || 'no email now'}}</a></span>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -199,11 +185,10 @@
 
                 <div class="contact_down" ng-if="selection[1] == 'selected'">
                     <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
-                      <a href="tel:{{user[1].phone || user[1].selected.mobile}}">{{user[1].phone || user[1].mobile || 'no phone number now'}}</a></span> <br>
+                      {{user[1].phone || user[1].mobile || 'no phone number now'}}</span> <br>
                     <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
                       <a href="mailto:{{user[1].email}}">{{user[1].email || 'no email now'}}</a></span>
                 </div>
-
                 <div class="contact_up" ng-if="selection[1] == 'settled'">
                     <img ng-if="job.supervisor.avatar" ng-src="{{job.supervisor.avatar}}" alt="">
                     <img ng-if="!job.supervisor.avatar" ng-src="{{default_img_url}}" alt="">
@@ -216,7 +201,7 @@
 
                 <div class="contact_down" ng-if="selection[1] == 'settled'">
                     <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
-                      <a href="tel:{{job.supervisor.phone || job.supervisor.mobile}}">{{job.supervisor.phone || job.supervisor.mobile || 'no phone number now'}}</a></span> <br>
+                      {{job.supervisor.phone || job.supervisor.mobile || 'no phone number now'}}</span> <br>
                     <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
                       <a href="mailto:{{job.supervisor.email}}">{{job.supervisor.email || 'no email now'}}</a></span>
                 </div>
@@ -312,7 +297,17 @@
                     </div>
                     <div class="clear"></div>
                 </div>
-
+                <label style="display:inline-block">Status</label>
+                <ui-select ng-model="commentFilter.selected" class="selectpicker select_page"
+                           on-select="showStatusComment(commentFilter.selected.value)"
+                           style="width:220px;display:inline-block;margin-top:20px;margin-left:30px;">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected.label"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in commentFilter | propsFilter:{label:$select.search} track by $index">
+                        <span ng-bind="item.label"></span>
+                    </ui-select-choices>
+                </ui-select>
                 <div class="message_part">
                     <div class="message_list">
                         <div class="message_wrap">
@@ -353,7 +348,7 @@
                             </div> -->
                             <form class="comment_form">
                                 <textarea class='comment_input' placeholder="Add a comment..."
-                                          ui-tinymce="tinymceOptions" ng-model="comment"></textarea>
+                                          ui-tinymce="tinymceOptions" ng-model="comment" ng-bind-html="comment"></textarea>
                                 <button type="reset" class="cancelBtn">Cancel</button>
                                 <button type="submit" class="commentBtn" ng-click="makeComment()">Send</button>
                             </form>

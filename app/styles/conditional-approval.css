@@ -594,7 +594,7 @@ li.sett2, li.sett3, li.sett4 {
 .message_wrap{
     overflow:scroll;
     overflow-x:hidden;
-    height:450px;
+    height:390px;
 }
 
 /*.message_wrap .scroll_container{
