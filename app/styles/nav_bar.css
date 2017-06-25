@@ -132,6 +132,10 @@ a:hover,a:visited,a:link,a:active{
   color:#2C92C0;
 }
 
+.note .note_info .note_message, .note .note_info .note_time{
+  color:#2B3745;
+}
+
 .notes_list .note .note_img img{
   border: 1px solid #DEDEDE;
   margin-left: auto;

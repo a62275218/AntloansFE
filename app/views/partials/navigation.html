@@ -13,14 +13,13 @@
     </div>
 </div>
 
-<div class="bell">
+<div class="bell" ng-controller="notificationListCtrl">
     <i  data-status="close" class="fa fa-bell fa-lg" aria-hidden="true"><span class='num'>1</span></i>
 
     <div class="notify">
       <div class="notes_list">
 
-         <a href="#">
-         <div class="note">
+         <div class="note" ng-click="toNote(1)">
             <div class="note_img">
               <img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
             </div>
@@ -30,9 +29,7 @@
                 <div class="note_time">10:30am</div>
             </div>
          </div>
-         </a>
 
-         <a href="#">
          <div class="note">
             <div class="note_img">
               <img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
@@ -43,9 +40,7 @@
                 <div class="note_time">10:30am</div>
             </div>
          </div>
-         </a>
 
-         <a href="#">
          <div class="note">
             <div class="note_img">
               <img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
@@ -56,10 +51,9 @@
                 <div class="note_time">10:30am</div>
             </div>
          </div>
-         </a>
 
       </div>
-      <span class="more_notes"><a href="#">See more</a></span>
+      <span class="more_notes"><a ui-sref="notification">See more</a></span>
     </div>
 
 </div>

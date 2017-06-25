@@ -1,0 +1,85 @@
+
+#notification_detail{
+  margin-top: 40px;
+  width: 80%;
+  background-color: white;
+  margin-left: 5%;
+  padding-bottom: 40px;
+  position: relative;
+}
+
+#notification_detail h3, #notification_detail h4{
+  margin: 0;
+}
+
+#notification_detail h3{
+  height: 70px;
+  background-color: #273543;
+  color: white;
+  font-size: 20px;
+  padding-left: 30px;
+  padding-top: 25px;
+}
+
+#notification_detail h4{
+  height: 40px;
+  padding-left: 30px;
+  padding-top: 25px;
+  color: rgb(22,33,78);
+}
+
+#notification_detail hr{
+  border-top: 2px solid rgb(216,231,246);
+  margin: 10px;
+}
+
+
+#notification_detail .note_name, #notification_detail .note_time,  #notification_detail .note_message {
+ position: relative;
+ padding-top: 10px;
+ padding-left: 30px;
+ vertical-align: middle;
+}
+
+#dealBtn{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  border: 0;
+  outline: none;
+  color: white;
+  width: 100px;
+  border-radius: 4px;
+  background-color: #3D9EDC;
+}
+
+#notification_detail .note_details{
+   padding: 20px;
+ }
+
+#notification_detail .note_name img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+#notification_detail .note_name span{
+  font-size: 18px;
+  font-weight: normal;
+  color: #273543;
+  margin-left: 10px;
+}
+
+#notification_detail .note_name input{
+  width:60px;
+}
+
+#notification_detail .note_details{
+  padding-left: 30px;
+  vertical-align: middle;
+}
+
+#notification_detail .note_details label{
+  margin-right: 50px;
+  text-align: left;
+}
