@@ -57,7 +57,7 @@
                   <th>status</th>
                   <td><input type="text" class="disable" ng-model="job.deal_status.label" disabled></td>
                   <th>loan amount</th>
-                  <td><input type="text" class="disable" ng-model="job.loan_amount|currency" disabled></td>
+                  <td><input type="text" class="disable" disabled>{{job.loan_amount|currency}}</td>
                 </tr>
                 <tr>
                   <th>assign</th>
@@ -124,8 +124,8 @@
                     </ui-select-match>
                     <ui-select-choices
                             repeat="item in admins | propsFilter:{first_name:$select.search,last_name:$select.search,role:$select.search} track by $index">
-                        <strong><span ng-bind="item.role"></span></strong><br>
-                        <span ng-bind="item.first_name"></span> <span ng-bind="item.last_name"></span>
+                        <strong><span ng-bind="item.first_name"></span> <span ng-bind="item.last_name"></span></strong><br>
+                        <span ng-bind="item.role"></span>
                     </ui-select-choices>
                 </ui-select>
                 <div class="contact_up" ng-if="selection[0] == 'selected'">
@@ -143,6 +143,21 @@
                     <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp; <a
                             href="mailto:{{user[0].selected.email}}">{{user[0].selected.email || 'no email now'}}</a></span>
                 </div>
+                <div class="contact_up" ng-if="selection[0] == 'settled'">
+                    <img ng-if="job.admin.avatar" ng-src="{{job.admin.avatar}}" alt="">
+                    <img ng-if="!job.admin.avatar" ng-src="{{default_img_url}}" alt="">
+                    <div class="user_intro">
+                        <h4>{{job.admin.first_name}} {{job.admin.last_name}}</h4>
+                        <p>{{job.admin.address}}</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="contact_down" ng-if="selection[0] == 'settled'">
+                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp; {{job.admin.phone || job.admin.mobile || 'no phone number now'}}</span>
+                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp; <a
+                            href="mailto:{{job.admin.email}}">{{job.admin.email || 'no email now'}}</a></span>
+                </div>
                 <div class="clear"></div>
             </div>
 
@@ -154,14 +169,14 @@
 
                 <ui-select ng-model="user[1].selected" class="select_input selectpicker select_page"
                            ng-if="selection[1] == 'select'"
-                           on-select="showUserInfo(1,'admin',user[1].selected.user_id)">
+                           on-select="showUserInfo(1,'supervisor',user[1].selected.user_id)">
                     <ui-select-match>
                         <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
                     </ui-select-match>
                     <ui-select-choices
-                            repeat="item in admins | propsFilter:{first_name:$select.search,last_name:$select.search,role:$select.search} track by $index">
-                        <strong><span ng-bind="item.role"></span></strong><br>
-                        <span ng-bind="item.first_name"></span> <span ng-bind="item.last_name"></span>
+                            repeat="item in supervisors | propsFilter:{first_name:$select.search,last_name:$select.search,role:$select.search} track by $index">
+                        <strong><span ng-bind="item.first_name"></span> <span ng-bind="item.last_name"></span></strong><br>
+                        <span ng-bind="item.role"></span>
                     </ui-select-choices>
                 </ui-select>
                 <div class="contact_up" ng-if="selection[1] == 'selected'">
@@ -174,11 +189,27 @@
                     <div class="clear"></div>
                 </div>
 
-                <div class="contact_down" ng-if="selection[0] == 'selected'">
+                <div class="contact_down" ng-if="selection[1] == 'selected'">
                     <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
-                      <a href="tel:{{user[0].selected.phone || user[0].selected.mobile}}">{{user[0].selected.phone || user[0].selected.mobile || 'no phone number now'}}</a></span> <br>
+                      <a href="tel:{{user[1].phone || user[1].selected.mobile}}">{{user[1].phone || user[1].mobile || 'no phone number now'}}</a></span> <br>
                     <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
-                      <a href="mailto:{{user[0].selected.email}}">{{user[0].selected.email || 'no email now'}}</a></span>
+                      <a href="mailto:{{user[1].email}}">{{user[1].email || 'no email now'}}</a></span>
+                </div>
+                <div class="contact_up" ng-if="selection[1] == 'settled'">
+                    <img ng-if="job.supervisor.avatar" ng-src="{{job.supervisor.avatar}}" alt="">
+                    <img ng-if="!job.supervisor.avatar" ng-src="{{default_img_url}}" alt="">
+                    <div class="user_intro">
+                        <h4>{{job.supervisor.first_name}} {{job.supervisor.last_name}}</h4>
+                        <p>{{job.supervisor.address}}</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="contact_down" ng-if="selection[1] == 'settled'">
+                    <span><i class="fa fa-phone fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="tel:{{job.supervisor.phone || job.supervisor.mobile}}">{{job.supervisor.phone || job.supervisor.mobile || 'no phone number now'}}</a></span> <br>
+                    <span><i class="fa fa-envelope-o fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                      <a href="mailto:{{job.supervisor.email}}">{{job.supervisor.email || 'no email now'}}</a></span>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -311,9 +342,9 @@
                                     <img ng-if="!user.avatar" ng-src="{{default_img_url}}" alt="">
                                 </div>
                             </div> -->
-                            <form class="comment_form" id="anchor">
-                                <textarea class='comment_input' name="name" placeholder="Add a comment..."
-                                          ng-model="comment"></textarea>
+                            <form class="comment_form">
+                                <textarea class='comment_input' placeholder="Add a comment..."
+                                          ui-tinymce="tinymceOptions" ng-model="comment"></textarea>
                                 <button type="reset" class="cancelBtn">Cancel</button>
                                 <button type="submit" class="commentBtn" ng-click="makeComment()">Send</button>
                             </form>

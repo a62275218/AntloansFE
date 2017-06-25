@@ -1,8 +1,13 @@
-antloans.controller('UserListCtrl',['$scope','UserService','paginationService',
-    function($scope,UserService,paginationService){
+antloans.controller('UserListCtrl',['$scope','UserService','paginationService','$state',
+    function($scope,UserService,paginationService,$state){
     var vm =this;
     $scope.sort = '';
     $scope.desc = false;
+
+    //detailed user info
+        $scope.toUser =function(id){
+            $state.go('user-detail',{userId:id});
+        };
 
         vm.getPaginatedUsers = function() {
             UserService.getAllUsers()

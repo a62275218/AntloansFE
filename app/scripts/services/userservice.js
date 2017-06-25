@@ -36,6 +36,15 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
                     }
                 )
             },
+            getaUser:function(id){
+                return $http.get(API_BASE + '/users/'+id,
+                    {
+                        headers: {
+                            'Authorization': 'Bearer' + OAuthService.getToken()
+                        }
+                    }
+                )
+            },
             forgotPass:function(email){
                 return $http.post(API_BASE+ '/users/forgotpass',{email:email})
             },

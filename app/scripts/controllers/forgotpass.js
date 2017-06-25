@@ -1,15 +1,15 @@
-antloans.controller('forgotPassCtrl',['UserService','$scope',
-    function(UserService,$scope){
+antloans.controller('forgotPassCtrl',['UserService','$scope','$state',
+    function(UserService,$scope,$state){
         var vm = this;
         $scope.sent="";
         vm.OnSubmit = function(email) {
             UserService.forgotPass(email)
                 .then(function (response) {
-                    console.log(response.data);
                     if(response.data.message =="Email sent"){
-                        $scope.sent = "true"
+                        swal("Success!", "Please check your email to reset password", "success");
+                        $state.go('login');
                     }else{
-                        $scope.sent = "false"
+                        swal("Oops...", "Something went wrong! Please enter correct email", "error");
                     }
                 }, function (e) {
                 })
