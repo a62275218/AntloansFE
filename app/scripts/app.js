@@ -28,7 +28,8 @@ var antloans = angular
         'ngDragDrop',
         'xeditable',
         'naif.base64',
-        'ui.tinymce'
+        'ui.tinymce',
+        'luegg.directives'
     ])
     .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
         function ($stateProvider, $urlRouterProvider,ChartJsProvider) {

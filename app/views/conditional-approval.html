@@ -54,20 +54,18 @@
             <hr>
             <table class="loan_show">
                 <tr>
-                  <th>status</th>
-                  <td><input type="text" class="disable" ng-model="job.deal_status.label" disabled></td>
                   <th>loan amount</th>
                     <td><input type="text" class="disable" ng-model="job.loan_amount" currency disabled></td>
+                    <th>loan purpose</th>
+                    <td><input type="text" class="disable" ng-model="job.loan_purpose.label" disabled></td>
                 </tr>
                 <tr>
-                  <th>loan purpose</th>
-                  <td><input type="text" class="disable" ng-model="job.loan_purpose.label" disabled></td>
                     <th>repayment type</th>
                     <td><input type="text" class="disable" ng-model="job.repayment_type.label" disabled></td>
+                    <th>file nature</th>
+                    <td><input type="text" class="disable" ng-model="job.file_nature.label" disabled></td>
                 </tr>
                 <tr>
-                  <th>file nature</th>
-                  <td><input type="text" class="disable" ng-model="job.file_nature.label" disabled></td>
                     <th>special notes</th>
                     <td colspan="3"><input class="disable special_note" type="text" ng-model="job.special_note" disabled></td>
                 </tr>
@@ -309,7 +307,7 @@
                     </ui-select-choices>
                 </ui-select>
                 <div class="message_part">
-                    <div class="message_list">
+                    <div class="message_list" scroll-glue="glued">
                         <div class="message_wrap">
                             <div class="scroll_container">
                                 <div class="message" ng-repeat="item in comments track by $index">
@@ -326,10 +324,9 @@
                                             {{item.create_at | date:'HH:mm:ss'}}
                                         </div>
                                     </div>
-                                    <div class="comment">
+                                    <div class="comment" ng-bind-html="item.content">
                                         <!-- <div class="triangle"><i class="fa fa-caret-left fa-3x" aria-hidden="true"></i>
                                         </div> -->
-                                        {{item.content}}
                                     </div>
                                     <div class="clear"></div>
                                     <hr>

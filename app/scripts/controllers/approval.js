@@ -354,16 +354,17 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             }, function (e) {
             });
         $scope.comment = '';
-        vm.htmlDecode = function(value){
+        /*vm.htmlDecode = function(value){
             return (typeof value === 'undefined') ? '' : $('<div/>').html(value).text();
         };
         vm.html2Escape = function(sHtml){
             return sHtml.replace(/[<>&"]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];});
-        };
+        };*/
         $scope.makeComment = function () {
-            var con = vm.htmlDecode($scope.comment);
-            jobService.makeComment($stateParams.jobId, {content:con})
+            /*var con = vm.htmlDecode($scope.comment);*/
+            jobService.makeComment($stateParams.jobId, {content:$scope.comment})
                 .then(function (response) {
+                    console.log($scope.comment);
                     if (response.status == 200) {
                         $scope.comment = '';
                         jobService.getComments($stateParams.jobId)
