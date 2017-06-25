@@ -2,18 +2,20 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
     function ($scope, jobService, UserService, BankService) {
         var vm = this;
         vm.onSubmit = function () {
-            if(!vm.user || !vm.email || !$scope.banks.selected || !$scope.loan_type.selected || !$scope.job.product.loan_amount || !$scope.loan_purpose.selected
+            if(!vm.choosenUser || !$scope.banks.selected || !$scope.loan_type.selected || !$scope.job.product.loan_amount || !$scope.loan_purpose.selected
             || !$scope.repayment_type.selected || !$scope.file_nature.selected || !$scope.brokers.selected){
                 $scope.valid = false;
             }else {
                 $scope.valid = true;
                 jobService.createJob(
                     {
-                        "first_name": vm.user.first_name,
-                        "last_name": vm.user.last_name,
-                        "mobile": vm.user.mobile,
-                        "address": vm.user.address,
-                        "email": vm.email.email,
+                        "first_name": vm.user[0].first_name,
+                        "last_name": vm.user[0].last_name,
+                        "mobile": vm.user[0].mobile,
+                        "address": vm.user[0].address,
+                        "email": vm.user[0].email,
+                        "preferred_time":vm.user[0].preferred_time,
+                        "preferred_method":vm.user[0].preferred_method,
                         "bank_id": $scope.banks.selected.id,
                         "loan_type": $scope.loan_type.selected.value,
                         "loan_amount": $scope.job.product.loan_amount,
@@ -40,7 +42,7 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
             return newUser;
         };
         vm.users = [];
-        vm.refreshUser = function (email) {
+        /*vm.refreshUser = function (email) {
             if (email.length < 3) {
                 //do nothing if input is less than 3 characters
             } else {
@@ -50,58 +52,95 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                     }, function (e) {
                     })
             }
-        };
-        /*$scope.allowManualInput = function(search){
-            var newUsers = vm.users.slice();
-            if (search && newUsers.indexOf(search) === -1) {
-                newUsers.unshift(search);
-            }
-            return newUsers;
         };*/
-        $scope.listUser = function () {
-            vm.user = vm.email
+        vm.refreshUser = function(input){
+            if(input.length <3 ){
+                $scope.userobj = [];
+            }
         };
-        $scope.brokers = [];
-        vm.getUsersByType = function (target,type) {
-            UserService.getAllUsers()
-                .then(function (response) {
-                    for (var i = 0; i < response.data.data.length; i++) {
-                        if (response.data.data[i].role === type) {
-                            target.push(response.data.data[i])
+        //transform tag to user
+        vm.tagTransform = function (newTag) {
+            var item = {
+                first_name: '',
+                last_name: '',
+                email: newTag,
+                mobile: '',
+                address: ''
+            };
+            return item;
+        };
+            //get all users
+            vm.getUsers = function () {
+                UserService.getAllUsers()
+                    .then(function (response) {
+                        $scope.userobj =[];
+                        //filter all customers
+                        angular.forEach(response.data.data,function(v,k){
+                            if(v.role == 'customer'){
+                                $scope.userobj.push(v)
+                            }
+                        });
+                    })
+            };
+            vm.getUsers();
+            /*$scope.allowManualInput = function(search){
+             var newUsers = vm.users.slice();
+             if (search && newUsers.indexOf(search) === -1) {
+             newUsers.unshift(search);
+             }
+             return newUsers;
+             };*/
+            /*$scope.listUser = function () {
+                vm.user = vm.email
+            };*/
+            $scope.listUser = function(){
+                if(vm.choosenUser.length > 1){
+                    vm.choosenUser.shift();
+                }
+                vm.user = vm.choosenUser;
+                console.log(vm.user)
+            };
+            $scope.brokers = [];
+            vm.getUsersByType = function (target, type) {
+                UserService.getAllUsers()
+                    .then(function (response) {
+                        for (var i = 0; i < response.data.data.length; i++) {
+                            if (response.data.data[i].role === type) {
+                                target.push(response.data.data[i])
+                            }
                         }
-                    }
-                }, function (e) {
-                })
-        };
+                    }, function (e) {
+                    })
+            };
 
-        /*vm.brokers.selected*/
-        $scope.banks = [];
-        vm.getBanks = function () {
-            BankService.getAllBanks()
-                .then(function (response) {
-                    $scope.banks = response.data.data;
-                }, function (e) {
-                })
-        };
-        vm.repayment_type=[];
-        $scope.loan_type=[];
-        $scope.loan_pupose=[];
-        $scope.file_nature=[];
-        vm.getProperty = function(){
-            jobService.getJobProperty()
-                .then(function(response){
-                    $scope.loan_type = response.data.data.loan_type;
-                    $scope.repayment_type = response.data.data.repayment_type;
-                    $scope.loan_purpose = response.data.data.loan_purpose;
-                    $scope.file_nature = response.data.data.file_nature;
-                    $scope.loan_type.shift();
-                    $scope.file_nature.shift();
-                    $scope.repayment_type.shift();
-                    $scope.loan_purpose.shift();
-                },function(e){
-                })
-        };
-        vm.getUsersByType($scope.brokers,'broker');
-        vm.getBanks();
-        vm.getProperty();
-    }]);
+            /*vm.brokers.selected*/
+            $scope.banks = [];
+            vm.getBanks = function () {
+                BankService.getAllBanks()
+                    .then(function (response) {
+                        $scope.banks = response.data.data;
+                    }, function (e) {
+                    })
+            };
+            vm.repayment_type = [];
+            $scope.loan_type = [];
+            $scope.loan_pupose = [];
+            $scope.file_nature = [];
+            vm.getProperty = function () {
+                jobService.getJobProperty()
+                    .then(function (response) {
+                        $scope.loan_type = response.data.data.loan_type;
+                        $scope.repayment_type = response.data.data.repayment_type;
+                        $scope.loan_purpose = response.data.data.loan_purpose;
+                        $scope.file_nature = response.data.data.file_nature;
+                        $scope.loan_type.shift();
+                        $scope.file_nature.shift();
+                        $scope.repayment_type.shift();
+                        $scope.loan_purpose.shift();
+                    }, function (e) {
+                    })
+            };
+            vm.getUsersByType($scope.brokers, 'broker');
+            vm.getBanks();
+            vm.getProperty();
+}]);

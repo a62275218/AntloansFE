@@ -5,6 +5,7 @@
     <title>conditional approval</title>
     <!--my css-->
     <link rel="stylesheet" href="../styles/conditional-approval.css">
+    <script src="../scripts/controllers/approval.js"></script>
 </head>
 
 <body>
@@ -57,31 +58,19 @@
                   <th>status</th>
                   <td><input type="text" class="disable" ng-model="job.deal_status.label" disabled></td>
                   <th>loan amount</th>
-                  <td><input type="text" class="disable" disabled>{{job.loan_amount|currency}}</td>
+                    <td><input type="text" class="disable" ng-model="job.loan_amount" currency disabled></td>
                 </tr>
                 <tr>
-                  <th>assign</th>
-                  <td><input type="text" class="disable" ng-model="job.preferred_time" disabled></td>
                   <th>loan purpose</th>
                   <td><input type="text" class="disable" ng-model="job.loan_purpose.label" disabled></td>
+                    <th>repayment type</th>
+                    <td><input type="text" class="disable" ng-model="job.repayment_type.label" disabled></td>
                 </tr>
                 <tr>
-                  <th>broke</th>
-                  <td><input style="display:inline-block; width:45%;" type="text" class="disable" ng-model="job.broker.first_name" disabled>
-                      <input style="display:inline-block; width:45%;" type="text" class="disable" ng-model="job.broker.last_name" disabled>
-                  </td>
-
-
-                </tr>
-                <tr>
-                  <th>repayment type</th>
-                  <td><input type="text" class="disable" ng-model="job.repayment_type.label" disabled></td>
                   <th>file nature</th>
                   <td><input type="text" class="disable" ng-model="job.file_nature.label" disabled></td>
-                </tr>
-                <tr>
-                  <th>special notes</th>
-                  <td colspan="3"><input class="disable special_note" type="text" ng-model="job.special_note" disabled></td>
+                    <th>special notes</th>
+                    <td colspan="3"><input class="disable special_note" type="text" ng-model="job.special_note" disabled></td>
                 </tr>
             </table>
 
@@ -303,7 +292,17 @@
                     </div>
                     <div class="clear"></div>
                 </div>
-
+                <label style="display:inline-block">Status</label>
+                <ui-select ng-model="commentFilter.selected" class="selectpicker select_page"
+                           on-select="showStatusComment(commentFilter.selected.value)"
+                           style="width:220px;display:inline-block;margin-top:20px;margin-left:30px;">
+                    <ui-select-match>
+                        <span ng-bind="$select.selected.label"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in commentFilter | propsFilter:{label:$select.search} track by $index">
+                        <span ng-bind="item.label"></span>
+                    </ui-select-choices>
+                </ui-select>
                 <div class="message_part">
                     <div class="message_list">
                         <div class="message_wrap">
@@ -344,7 +343,7 @@
                             </div> -->
                             <form class="comment_form">
                                 <textarea class='comment_input' placeholder="Add a comment..."
-                                          ui-tinymce="tinymceOptions" ng-model="comment"></textarea>
+                                          ui-tinymce="tinymceOptions" ng-model="comment" ng-bind-html="comment"></textarea>
                                 <button type="reset" class="cancelBtn">Cancel</button>
                                 <button type="submit" class="commentBtn" ng-click="makeComment()">Send</button>
                             </form>
