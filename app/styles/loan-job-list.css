@@ -74,25 +74,6 @@ li.job-bar i, li.job-bar span.bar_name{
   color: white;
 }
 
-/*.input-group-addon{
-  background-color: #FFFFFF;
-}*/
-
-/*.sortBy{
-  margin-left: 100px;
-  width: 300px;
-  display: inline-block;
-  float: left;
-}
-
-.sortBy label{
-  color:#AEAEAE;
-  display: inline-block;
-  margin: 7px 0 0 0;
-  float: left;
-
-}*/
-
 .select_date{
   width: 150px !important;
   display: inline-block;
@@ -294,6 +275,8 @@ td.special_note div{
   margin: 20px;
   background: white;
   overflow: hidden;
+  padding-bottom: 50px;
+  position: relative;
 }
 
 .job_list table{
@@ -335,4 +318,10 @@ td.special_note div{
 
 .job_list table tbody tr:hover{
   background-color: #F4F4F4;
+}
+
+.job_list .page_num{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
 }
