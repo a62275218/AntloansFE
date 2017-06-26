@@ -128,9 +128,17 @@ li.job-bar i, li.job-bar span.bar_name{
 }
 
 .approval_middle .user_contact .contact_up{
+    position:relative;
   width:280px;
   margin-left: auto;
   margin-right: auto;
+}
+.approval_middle .user_contact .contact_up .userEditBtn{
+    position: absolute;
+    right: -36px;
+    top: -10px;
+    color: #717171;
+    text-align: center;
 }
 
 .approval_middle .user_contact .contact_down{
@@ -592,7 +600,6 @@ li.sett2, li.sett3, li.sett4 {
     width: 100%;
 }
 .message_wrap{
-    overflow:scroll;
     overflow-x:hidden;
     height:390px;
 }

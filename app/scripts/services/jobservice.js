@@ -48,12 +48,23 @@ antloans.factory('jobService',['API_BASE','$http','OAuthService',
                     data:data
                 })
             },
+            updateJobInfo:function(id,data){
+                return $http({
+                    method: 'PUT',
+                    url: API_BASE + "/deals/"+ id,
+                    headers: {
+                        'Authorization': 'Bearer' + OAuthService.getToken()
+                    },
+                    data:data
+                })
+            },
             getComments:function(id){
                 return $http({
                     method: 'GET',
                     url: API_BASE + "/deals/"+ id +"/comments",
                     headers: {
-                        'Authorization': 'Bearer' + OAuthService.getToken()
+                        'Authorization': 'Bearer' + OAuthService.getToken(),
+                        'Content-type': 'text/html;charset=utf-8'
                     }
                 })
             },
@@ -62,7 +73,8 @@ antloans.factory('jobService',['API_BASE','$http','OAuthService',
                     method: 'POST',
                     url: API_BASE + "/deals/"+ id +"/comments",
                     headers: {
-                        'Authorization': 'Bearer' + OAuthService.getToken()
+                        'Authorization': 'Bearer' + OAuthService.getToken(),
+                        'Content-type': 'application/json'
                     },
                     data:data
                 })
