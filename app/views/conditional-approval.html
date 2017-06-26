@@ -395,8 +395,22 @@
 
                 <div class="approval_down_right">
                     <div class="document_control">
-                        <div class="upload_doc">
+                        <!-- <div class="upload_doc">
                             <span><i class="fa fa-upload fa-lg" aria-hidden="true"></i></span><span class='doc'><strong>UP DOCUMENTS</strong></span>
+                        </div> -->
+                        <div class="status_select">
+                            <label>Status</label>
+                            <ui-select ng-model="commentFilter.selected" class="selectpicker select_page"
+                                       on-select="showStatusComment(commentFilter.selected.value)"
+                                       style="width:240px;display:inline-block;">
+                                <ui-select-match>
+                                    <span ng-bind="$select.selected.label"></span>
+                                </ui-select-match>
+                                <ui-select-choices
+                                        repeat="item in commentFilter | propsFilter:{label:$select.search} track by $index">
+                                    <span ng-bind="item.label"></span>
+                                </ui-select-choices>
+                            </ui-select>
                         </div>
                         <div class="download_doc">
                             <span><i class="fa fa-download fa-lg" aria-hidden="true"></i></span><span
@@ -404,18 +418,6 @@
                         </div>
                         <div class="clear"></div>
                     </div>
-                    <label style="display:inline-block">Status</label>
-                    <ui-select ng-model="commentFilter.selected" class="selectpicker select_page"
-                               on-select="showStatusComment(commentFilter.selected.value)"
-                               style="width:220px;display:inline-block;margin-top:20px;margin-left:30px;">
-                        <ui-select-match>
-                            <span ng-bind="$select.selected.label"></span>
-                        </ui-select-match>
-                        <ui-select-choices
-                                repeat="item in commentFilter | propsFilter:{label:$select.search} track by $index">
-                            <span ng-bind="item.label"></span>
-                        </ui-select-choices>
-                    </ui-select>
                     <div class="message_part">
                         <div class="message_list">
                             <div class="message_wrap" scroll-glue-bottom="!glued">
@@ -475,10 +477,7 @@
     </div>
     <!-- rigth_part end -->
 </div>
-<!-- <script src="./assets/js/libs/jquery-3.2.1.min.js"></script>
-<script src="./assets/js/libs/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
--->
+
 <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
 </body>
 </html>
