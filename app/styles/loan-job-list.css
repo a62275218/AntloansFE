@@ -55,11 +55,30 @@ li.job-bar i, li.job-bar span.bar_name{
   height: 50px;
 }
 
-.input-group-addon{
-  background-color: #FFFFFF;
+.status{
+  display: inline-block;
+  float: left;
+  margin-left: 10px;
 }
 
-.sortBy{
+.statusInput button{
+ color:  #AEAEAE;
+}
+
+.statusInput button:focus{
+  outline: none ;
+}
+
+.statusInput button.selected{
+  background-color: #F0662C;
+  color: white;
+}
+
+/*.input-group-addon{
+  background-color: #FFFFFF;
+}*/
+
+/*.sortBy{
   margin-left: 100px;
   width: 300px;
   display: inline-block;
@@ -72,7 +91,7 @@ li.job-bar i, li.job-bar span.bar_name{
   margin: 7px 0 0 0;
   float: left;
 
-}
+}*/
 
 .select_date{
   width: 150px !important;
@@ -126,7 +145,7 @@ li.job-bar i, li.job-bar span.bar_name{
 .start_date{
   display: inline-block;
   float: left;
-  margin-left: 70px;
+  margin-left: 50px;
 }
 
 .close_date{
@@ -135,12 +154,8 @@ li.job-bar i, li.job-bar span.bar_name{
   margin-left: 50px;
 }
 
-.tool_bar_middle label{
+.tool_bar_above label, .tool_bar_middle label, .tool_bar_below label{
   color:#AEAEAE;
-}
-
-.tool_bar_below label{
-  color: #AEAEAE;
 }
 
 .tool_bar_below {
@@ -155,25 +170,6 @@ li.job-bar i, li.job-bar span.bar_name{
 
 .tool_bar_below hr{
   margin-top: 0;
-}
-
-.status{
-  display: inline-block;
-  float: left;
-  margin-left: 50px;
-}
-
-.statusInput button{
- color:  #AEAEAE;
-}
-
-.statusInput button:focus{
-  outline: none ;
-}
-
-.statusInput button.selected{
-  background-color: #F0662C;
-  color: white;
 }
 
 .broker{

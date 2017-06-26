@@ -20,10 +20,27 @@ li.job-bar i, li.settle-bar span.bar_name{
 .tool_top{
   height: 50px;
   padding-left: 50px;
+  vertical-align: middle;
 }
 
+.tool_top h3, .tool_top button{
+  display: inline-block;
+}
 .tool_top h3{
+  float: left;
   margin-top: 0;
+}
+
+.tool_top button{
+  position: absolute;
+  right: 50px;
+  /*top:20px;*/
+  height: 35px;
+  width: 200px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #F0662C;
+  color: white;
 }
 
 .tool_bar_above{
@@ -51,17 +68,21 @@ li.job-bar i, li.settle-bar span.bar_name{
 
 .sortBy label{
   color:#AEAEAE;
+  display: inline-block;
+  margin: 7px 0 0 0;
+  float: left;
+
 }
 
 .select_date{
   width: 150px !important;
+  display: inline-block;
 }
 
 .select_page{
   width:60px !important;
   display: inline-block !important;
   float: right !important;
-  z-index: 0 !important;
 }
 
 .page {
@@ -85,31 +106,33 @@ li.job-bar i, li.settle-bar span.bar_name{
   transition: 1s;
 }
 
-.amount{
+.bank{
   display: inline-block;
   float: left;
   margin-left: 50px;
+  width: 200px;
+}
+
+.bank label{
+  margin-top: 5px;
+}
+
+.bank .bank_input{
+  display: inline-block !important;
+  width: 130px !important;
+  float: right !important;
 }
 
 .start_date{
   display: inline-block;
   float: left;
-  margin-left: 100px;
-}
-
-.startDate{
-  width: 150px !important;
+  margin-left: 70px;
 }
 
 .close_date{
   display: inline-block;
   float: left;
-  margin-left: 100px;
-}
-
-.closeDate{
-  width: 150px !important;
-  z-index: 0 !important;
+  margin-left: 50px;
 }
 
 .tool_bar_middle label{
@@ -144,20 +167,34 @@ li.job-bar i, li.settle-bar span.bar_name{
  color:  #AEAEAE;
 }
 
+.statusInput button:focus{
+  outline: none ;
+}
+
+.statusInput button.selected{
+  background-color: #F0662C;
+  color: white;
+}
+
 .broker{
   display: inline-block;
   float: left;
-  margin-left: 50px;
+  margin-left: 20px;
 }
 
-.brokerInput, .adminInput{
-  width: 150px !important;;
+.broker label, .admin label{
+  margin-top: 5px;
+}
+
+.broker_input, .admin_input{
+  width: 150px !important;
+  margin-left: 10px;
 }
 
 .admin{
   display: inline-block;
   float: left;
-  margin-left: 50px;
+  margin-left: 20px;
 }
 
 .showBtn{
@@ -168,71 +205,49 @@ li.job-bar i, li.settle-bar span.bar_name{
   bottom: 5px;
 }
 
-.content table{
-  border: 0;
+.settled_list {
+  margin: 20px;
+  background: white;
+  overflow: hidden;
 }
 
-.content .item{
-  width: 80%;
-  height: 130px;
-  margin-left: auto;
-  margin-right: auto;
-  border-left-width: 15px;
-  background-color: #FFFFFF;
-  margin-top: 20px;
+.settled_list table{
+  width: 100%;
 }
 
-.item .side_light{
-  display: inline-block;
-  width: 10px;
-  height: 100%;
-  background-color: #F68E56;
-  float: left;
+.settled_list table th{
+  padding-top:20px !important;
+  padding-bottom:20px !important;
+  outline: none;
 }
 
-.content img{
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  margin-top: 40px;
-  margin-left: 50px;
-  float: left;
+.settled_list table th i{
+  cursor:pointer;
 }
 
-.content .intro{
-  display: inline-block;
-  float: left;
-  height: 80px;
-  margin-left: 30px;
-  margin-top: 30px;
+.settled_list table th.selected{
+  color: #F0662C;
 }
 
-.content h4{
-  color: black;
-}
-
-.content section{
-  color: #3D9EDC;
-}
-
-.content table{
-  display: inline-block;
-  float: left;
-  margin-left: 50px;
-  margin-top: 25px;
-}
-
-table th{
-  padding-right: 10px;
-  width: 120px;
-  box-sizing: border-box;
-  text-align: right;
-  color: #AEAEAE;
-}
-table td{
-  width: 100px;
-  box-sizing: border-box;
+.settled_list table th, .settled_list table td{
   text-align: left;
-  color: #494C52;
+  padding: 10px 0px 10px 10px;
+  border-bottom-width: 1px;
+  border-bottom-color: #F4F5F7;
+  border-bottom-style: solid;
+  box-sizing: border-box;
+}
+
+.settled_list table td{
+  font-size: 15px;
+}
+
+.settled_list table img{
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+}
+
+.settled_list table tbody tr:hover{
+  background-color: #F4F4F4;
 }

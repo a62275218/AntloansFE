@@ -43,6 +43,24 @@
                         </div>
                     </div>
 
+                    <div class="status">
+                        <label>STATUS:</label>
+                        <div class="btn-group statusInput" role="group" aria-label="...">
+                            <button type="button" class="btn btn-default status_submission"
+                                    ng-click="active('.status_submission')">SUBMISSION
+                            </button>
+                            <button type="button" class="btn btn-default status_assessment"
+                                    ng-click="active('.status_assessment')">ASSESSMENT
+                            </button>
+                            <button type="button" class="btn btn-default status_settlement"
+                                    ng-click="active('.status_settlement')">SETTLEMENT
+                            </button>
+                            <button type="button" class="btn btn-default status_all selected"
+                                    ng-click="active('.status_all')">ALL
+                            </button>
+                        </div>
+                    </div>
+
                     <div class="page">
                         <ul class="pager">
                             <li><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left"
@@ -68,19 +86,6 @@
 
                 <div class="tool_bar_middle">
                     <hr>
-                    <div class="bank">
-                        <label>BANK:</label>
-                        <ui-select ng-model="banks.selected" on-select="filterBankId(banks.selected)"
-                                   search-enabled="false" class="bank_input selectpicker select_page"
-                                   onkeypress="return false;" ng-disabled="disabled">
-                            <ui-select-match>
-                                <span ng-bind="$select.selected.name"></span>
-                            </ui-select-match>
-                            <ui-select-choices repeat="item in banks track by $index">
-                                <span ng-bind="item.name"></span>
-                            </ui-select-choices>
-                        </ui-select>
-                    </div>
 
                     <div class="start_date">
                         <label>SETTLEMENT DATE &nbsp;&nbsp;&nbsp;&nbsp;FROM:</label>
@@ -95,23 +100,20 @@
 
                 <div class="tool_bar_below">
                     <hr>
-                    <div class="status">
-                        <label>STATUS:</label>
-                        <div class="btn-group statusInput" role="group" aria-label="...">
-                            <button type="button" class="btn btn-default status_submission"
-                                    ng-click="active('.status_submission')">SUBMISSION
-                            </button>
-                            <button type="button" class="btn btn-default status_assessment"
-                                    ng-click="active('.status_assessment')">ASSESSMENT
-                            </button>
-                            <button type="button" class="btn btn-default status_settlement"
-                                    ng-click="active('.status_settlement')">SETTLEMENT
-                            </button>
-                            <button type="button" class="btn btn-default status_all selected"
-                                    ng-click="active('.status_all')">ALL
-                            </button>
-                        </div>
+                    <div class="bank">
+                        <label>BANK:</label>
+                        <ui-select ng-model="banks.selected" on-select="filterBankId(banks.selected)"
+                                   search-enabled="false" class="bank_input selectpicker select_page"
+                                   onkeypress="return false;" ng-disabled="disabled">
+                            <ui-select-match>
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in banks track by $index">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
                     </div>
+
                     <div class="broker">
                         <label>BROKER:</label>
                         <ui-select ng-model="brokers.selected" on-select="filterUser(brokers.selected,'broker')"
@@ -153,28 +155,14 @@
                     <table class='"table table-striped"'>
                         <thead>
                         <tr>
-                            <th style="min-width: 157px;">NAME &nbsp;<i ng-click="sortObj('first_name',$event)"
-                                                                        class="false fa fa-caret-up fa-lg"
-                                                                        aria-hidden="true"></i></th>
-                            <th style="min-width: 157px;">STATUS &nbsp;<i ng-click="sortObj('deal_status.label',$event)"
-                                                                          class="false fa fa-caret-up fa-lg"
-                                                                          aria-hidden="true"></i></th>
-                            <th style="min-width: 137px;">LOAN AMOUNT &nbsp;<i ng-click="sortObj('loan_amount',$event)"
-                                                                               class="false fa fa-caret-up fa-lg"
-                                                                               aria-hidden="true"></i></th>
+                            <th style="min-width: 157px;" ng-click="sortObj('first_name',$event)">NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 157px;" ng-click="sortObj('deal_status.label',$event)">STATUS &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 137px;" ng-click="sortObj('loan_amount',$event)">LOAN AMOUNT &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <!--<th style="min-width: 100px;"><span ng-click="sortObj('first_name',$event)">ASSIGN &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></span></th>-->
-                            <th style="min-width: 141px;">LOAN PURPOSE &nbsp;<i
-                                    ng-click="sortObj('loan_purpose.label',$event)" class="false fa fa-caret-up fa-lg"
-                                    aria-hidden="true"></i></th>
-                            <th style="min-width: 89px;">BROKER &nbsp;<i ng-click="sortObj('broker.first_name',$event)"
-                                                                         class="false fa fa-caret-up fa-lg"
-                                                                         aria-hidden="true"></i></th>
-                            <th style="min-width: 157px;">REPAYMENT TYPE &nbsp;<i
-                                    ng-click="sortObj('repayment_type.label',$event)" class="false fa fa-caret-up fa-lg"
-                                    aria-hidden="true"></i></th>
-                            <th style="min-width: 121px;">FILE NATURE &nbsp;<i
-                                    ng-click="sortObj('file_nature.label',$event)" class="false fa fa-caret-up fa-lg"
-                                    aria-hidden="true"></i></th>
+                            <th style="min-width: 141px;" ng-click="sortObj('loan_purpose.label',$event)">LOAN PURPOSE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 89px;" ng-click="sortObj('broker.first_name',$event)">BROKER &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 157px;" ng-click="sortObj('repayment_type.label',$event)">REPAYMENT TYPE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 121px;" ng-click="sortObj('file_nature.label',$event)">FILE NATURE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                         </tr>
                         </thead>
 
