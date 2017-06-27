@@ -71,7 +71,7 @@ var antloans = angular
                 .state('notification-details', {
                     url: '/notifications/show/:notificationId',
                     templateUrl: 'views/notification-details.html',
-                    // controller:'notificationCtrl'
+                    controller:'notificationDetailCtrl'
                 })
                 // ==========side bar list ================
                 .state('job-list', {

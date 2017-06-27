@@ -17,7 +17,7 @@
          <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
          </aside>
 
-          <div class="right_part" nv-file-drop="" uploader="uploader">
+          <div class="right_part">
 
            <div class="width_fix">
              <div id="notification_detail">
@@ -25,22 +25,21 @@
                  <h4>Info</h4>
                  <hr>
                  <div class="note_name">
-                     <!-- <img ng-if = "user.avatar" ng-src="{{user.avatar}}" alt="">
-                     <img ng-if = "!user.avatar" ng-src="{{default_img_url}}" alt=""> -->
-                     <img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
-                    <span>John Smith</span>
+                     <img ng-if="notification.sender_avatar" ng-src="{{notification.sender_avatar}}" alt="">
+                     <img ng-if="!notification.sender_avatar" ng-src="{{default_img_url}}" alt="">
+                    <span>{{notification.sender_name}}</span>
                  </div>
                  <div class="note_time">
                      10:30am
                  </div>
                  <div class="note_message">
-                    Has provided some feedback
+                    {{notification.message}}
                  </div>
-                 <button id='dealBtn' type="button" name="button">Deal</button>
+                 <button id='dealBtn' type="button" ng-click="toDeal(notification.deal_id)">Deal</button>
                  <h4>Details</h4>
                  <hr>
                  <div class="note_details">
-                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                   <p></p>
                  </div>
 
              </div>

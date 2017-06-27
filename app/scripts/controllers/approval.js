@@ -19,7 +19,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 .then(function (response) {
                     $scope.job = response.data.data;
                     $scope.status = $scope.job.deal_status_log;
-
+                    console.log($scope.job);
                     if($scope.job.admin){
                         $scope.selection[0] = 'settled';
                     }
@@ -467,4 +467,13 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             type: 'json',
             properties: []
         });*/
+
+        //json data
+        /*pageJson = {
+            "customer":{
+                "first name":"233232",
+                "last name":"32432432"
+            }
+        };
+        console.log(pageJson);*/
     }]);

@@ -14,44 +14,22 @@
 </div>
 
 <div class="bell" ng-controller="notificationListCtrl">
-    <i  data-status="close" class="fa fa-bell fa-lg" aria-hidden="true"><span class='num'>1</span></i>
+    <i  data-status="close" class="fa fa-bell fa-lg" aria-hidden="true"><span class='num'>{{alert.unread_num}}</span></i>
 
     <div class="notify">
       <div class="notes_list">
 
-         <div class="note" ng-click="toNote(1)">
+         <div class="note" ng-repeat="item in alert.notifications" ng-click="toNote(item.notification_id)">
             <div class="note_img">
-              <img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
+                <img ng-if="item.sender_avatar" ng-src="{{item.sender_avatar}}" alt="">
+                <img ng-if="!item.sender_avatar" ng-src="{{default_img_url}}" alt="">
             </div>
             <div class="note_info">
-                <div class="note_message">Has provided some feedback</div>
-                <div class="note_sender"><strong>John Smith</strong></div>
+                <div class="note_message">Has {{item.message}}</div>
+                <div class="note_sender"><strong>{{item.sender_name}}</strong></div>
                 <div class="note_time">10:30am</div>
             </div>
          </div>
-
-         <div class="note">
-            <div class="note_img">
-              <img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
-            </div>
-            <div class="note_info">
-                <div class="note_message">Has provided some feedback</div>
-                <div class="note_sender"><strong>John Smith</strong></div>
-                <div class="note_time">10:30am</div>
-            </div>
-         </div>
-
-         <div class="note">
-            <div class="note_img">
-              <img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
-            </div>
-            <div class="note_info">
-                <div class="note_message">Has provided some feedback</div>
-                <div class="note_sender"><strong>John Smith</strong></div>
-                <div class="note_time">10:30am</div>
-            </div>
-         </div>
-
       </div>
       <span class="more_notes"><a ui-sref="notification">See more</a></span>
     </div>

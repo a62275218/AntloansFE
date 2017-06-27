@@ -1,5 +1,5 @@
-antloans.controller('navBarCtrl', ['$scope', 'UserService', 'principal','OAuthService','$state',
-    function ($scope, UserService, principal,OAuthService,$state) {
+antloans.controller('navBarCtrl', ['$scope', 'UserService', 'principal','OAuthService','$state','notificationService',
+    function ($scope, UserService, principal,OAuthService,$state,notificationService) {
         var vm = this;
         $scope.logout = function () {
             OAuthService.clearToken();
@@ -19,5 +19,4 @@ antloans.controller('navBarCtrl', ['$scope', 'UserService', 'principal','OAuthSe
             }, function (e) {
                 console.log(e)
             });
-
     }]);
