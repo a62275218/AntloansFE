@@ -460,4 +460,11 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         };
         vm.getBanks();
         vm.getProperty();
+
+        //print functionality
+        /*printJS({
+            printable: {"name":"123"},
+            type: 'json',
+            properties: []
+        });*/
     }]);

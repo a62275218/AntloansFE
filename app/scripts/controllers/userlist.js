@@ -62,12 +62,15 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService','
         $scope.sortObj = function(sort,obj){
             $('th').removeClass('selected');
             if($(obj.target).children().hasClass("false")){
+                    obj.stopPropagation();
                 $(obj.target).children().removeClass('fa-caret-up');
                 $(obj.target).children().addClass('fa-caret-down');
                 $(obj.target).children().removeClass("false");
                 $(obj.target).children().addClass("true");
+
                 $scope.desc = true;
             }else{
+                    obj.stopPropagation();
                 $(obj.target).children().removeClass("true");
                 $(obj.target).children().addClass("false");
                 $(obj.target).children().removeClass('fa-caret-down');

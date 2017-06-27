@@ -3,10 +3,10 @@ html, body, #main_content{
   height: 100%;
   width:100%;
 }
-/*input.disable{
+input.disable{
   background-color: white;
 }
-.red{
+/*.red{
   background-color:red;
 }
 
