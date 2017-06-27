@@ -82,21 +82,39 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
 
         $scope.sortObj = function(sort,obj){
             $('th').removeClass('selected');
-            if($(obj.target).children().hasClass("false")){
-                $(obj.target).children().removeClass('fa-caret-up');
-                $(obj.target).children().addClass('fa-caret-down');
-                $(obj.target).children().removeClass("false");
-                $(obj.target).children().addClass("true");
-                $scope.desc = true;
+            if($(obj.target).is("i")){
+                if($(obj.target).hasClass("false")){
+                    $(obj.target).removeClass('fa-caret-up');
+                    $(obj.target).addClass('fa-caret-down');
+                    $(obj.target).removeClass("false");
+                    $(obj.target).addClass("true");
+                    $scope.desc = true;
+                }else{
+                    $(obj.target).removeClass("true");
+                    $(obj.target).addClass("false");
+                    $(obj.target).removeClass('fa-caret-down');
+                    $(obj.target).addClass('fa-caret-up');
+                    $scope.desc = false;
+                };
+                $scope.sort = sort;
+                $(obj.target).parent().addClass('selected');
             }else{
-                $(obj.target).children().removeClass("true");
-                $(obj.target).children().addClass("false");
-                $(obj.target).children().removeClass('fa-caret-down');
-                $(obj.target).children().addClass('fa-caret-up');
-                $scope.desc = false;
-            };
-            $scope.sort = sort;
-            $(obj.target).addClass('selected');
+                if($(obj.target).children().hasClass("false")){
+                    $(obj.target).children().removeClass('fa-caret-up');
+                    $(obj.target).children().addClass('fa-caret-down');
+                    $(obj.target).children().removeClass("false");
+                    $(obj.target).children().addClass("true");
+                    $scope.desc = true;
+                }else{
+                    $(obj.target).children().removeClass("true");
+                    $(obj.target).children().addClass("false");
+                    $(obj.target).children().removeClass('fa-caret-down');
+                    $(obj.target).children().addClass('fa-caret-up');
+                    $scope.desc = false;
+                };
+                $scope.sort = sort;
+                $(obj.target).addClass('selected');
+           }
         };
 
         /*$scope.judgeStatus = function(status){
