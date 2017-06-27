@@ -310,6 +310,7 @@ a:hover,a:visited,a:link,a:active{
 .left_bar ul li:hover{
   color: white;
   background-color: #677583;
+  cursor: pointer;
 }
 
 .left_bar ul a:hover{

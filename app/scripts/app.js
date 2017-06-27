@@ -148,6 +148,12 @@ var antloans = angular
                     templateUrl: 'views/user-detail.html',
                     controller:'userDetailCtrl'
                 })
+
+                .state('blog', {
+                    url: '/blog',
+                    templateUrl: 'views/blog.html',
+                    controller:'blogCtrl'
+                })
         }])
 .run(['$rootScope', '$state', '$urlRouter', 'principal','editableOptions',
     function($rootScope, $state, $urlRouter, principal,editableOptions){
