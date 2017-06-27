@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9804667b-6e28-441b-85ce-47f5973f57d0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/approval.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/approval.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/nav.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/nav.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/notification.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/notification.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/notificationdetail.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/notificationdetail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/services/notificationservice.js" afterPath="$PROJECT_DIR$/app/scripts/services/notificationservice.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/conditional-approval.html" afterPath="$PROJECT_DIR$/app/views/conditional-approval.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/notification-details.html" afterPath="$PROJECT_DIR$/app/views/notification-details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/partials/navigation.html" afterPath="$PROJECT_DIR$/app/views/partials/navigation.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,8 +43,8 @@
           <file leaf-file-name="navigation.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/views/partials/navigation.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="585">
-                  <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+                <state relative-caret-position="276">
+                  <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -171,10 +161,10 @@
             <entry file="file://$PROJECT_DIR$/app/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="2112">
-                  <caret line="96" column="65" lean-forward="false" selection-start-line="96" selection-start-column="65" selection-end-line="96" selection-end-column="65" />
+                  <caret line="98" column="7" lean-forward="true" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
                   <folding>
-                    <marker date="1498551321470" expanded="true" signature="1342:1495" ph="..." />
-                    <marker date="1498551321470" expanded="true" signature="1435:1463" ph="..." />
+                    <marker date="1498554307879" expanded="true" signature="1342:1495" ph="..." />
+                    <marker date="1498554307879" expanded="true" signature="1435:1463" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -772,14 +762,7 @@
       <workItem from="1498523423800" duration="2264000" />
       <workItem from="1498531174090" duration="796000" />
       <workItem from="1498537709878" duration="11024000" />
-      <workItem from="1498553994866" duration="178000" />
-    </task>
-    <task id="LOCAL-00007" summary="Merge branch 'master' of https://bitbucket.org/a62275218/antloans into filter&#10;&#10;# Conflicts:&#10;#&#9;app/views/loan-job-list.html&#10;&#10;filter added">
-      <created>1497087469363</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1497087469363</updated>
+      <workItem from="1498553994866" duration="331000" />
     </task>
     <task id="LOCAL-00008" summary="Merge branch 'master' of https://bitbucket.org/a62275218/antloans into filter&#10;&#10;# Conflicts:&#10;#&#9;app/views/loan-job-list.html&#10;&#10;filter added">
       <created>1497087719492</created>
@@ -1117,11 +1100,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498552323670</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Merge branch 'master' of https://bitbucket.org/a62275218/antloans&#10;&#10;# Conflicts:&#10;#&#9;app/scripts/controllers/userlist.js&#10;">
+      <created>1498554181950</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1498554181951</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="496033000" />
+    <option name="totallyTimeSpent" value="496186000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1142,6 +1132,7 @@
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195629" sideWeight="0.38026124" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15509762" sideWeight="0.52025586" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13449024" sideWeight="0.48773986" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2527115" sideWeight="0.48134327" order="7" side_tool="false" content_ui="tabs" />
@@ -1150,7 +1141,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13449024" sideWeight="0.48773986" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15509762" sideWeight="0.47974414" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14957266" sideWeight="0.4181818" order="2" side_tool="true" content_ui="tabs" />
@@ -1530,10 +1520,10 @@
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2112">
-          <caret line="96" column="65" lean-forward="false" selection-start-line="96" selection-start-column="65" selection-end-line="96" selection-end-column="65" />
+          <caret line="98" column="7" lean-forward="true" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
           <folding>
-            <marker date="1498551321470" expanded="true" signature="1342:1495" ph="..." />
-            <marker date="1498551321470" expanded="true" signature="1435:1463" ph="..." />
+            <marker date="1498554307879" expanded="true" signature="1342:1495" ph="..." />
+            <marker date="1498554307879" expanded="true" signature="1435:1463" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1599,8 +1589,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/partials/navigation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="276">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
