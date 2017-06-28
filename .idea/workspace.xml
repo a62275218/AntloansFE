@@ -3,6 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="9804667b-6e28-441b-85ce-47f5973f57d0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/approval.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/approval.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/documents.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/documents.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/joblist.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/joblist.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/notification.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/notification.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/settlelist.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/settlelist.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/conditional-approval.css" afterPath="$PROJECT_DIR$/app/styles/conditional-approval.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/conditional-approval.html" afterPath="$PROJECT_DIR$/app/views/conditional-approval.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/full-notify-list.html" afterPath="$PROJECT_DIR$/app/views/full-notify-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/loan-document.html" afterPath="$PROJECT_DIR$/app/views/loan-document.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/loan-job-list.html" afterPath="$PROJECT_DIR$/app/views/loan-job-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/partials/navigation.html" afterPath="$PROJECT_DIR$/app/views/partials/navigation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/settled-list.html" afterPath="$PROJECT_DIR$/app/views/settled-list.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,74 +39,54 @@
     <favorites_list name="antloans-front-end" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6227545">
+    <splitter split-orientation="horizontal" split-proportion="0.39928827">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="notification-details.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/notification-details.html">
+          <file leaf-file-name="conditional-approval.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/views/conditional-approval.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="682">
-                  <caret line="31" column="40" lean-forward="false" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
-                  <folding />
+                <state relative-caret-position="500">
+                  <caret line="432" column="63" lean-forward="true" selection-start-line="432" selection-start-column="63" selection-end-line="432" selection-end-column="63" />
+                  <folding>
+                    <element signature="e#8235#8241#0" expanded="true" />
+                    <element signature="e#8419#8425#0" expanded="true" />
+                    <element signature="e#9537#9543#0" expanded="true" />
+                    <element signature="e#9709#9715#0" expanded="true" />
+                    <element signature="e#12223#12229#0" expanded="true" />
+                    <element signature="e#12407#12413#0" expanded="true" />
+                    <element signature="e#13519#13525#0" expanded="true" />
+                    <element signature="e#13689#13695#0" expanded="true" />
+                    <element signature="e#16206#16212#0" expanded="true" />
+                    <element signature="e#16212#16218#0" expanded="true" />
+                    <element signature="e#16401#16407#0" expanded="true" />
+                    <element signature="e#16407#16413#0" expanded="true" />
+                    <element signature="e#17517#17523#0" expanded="true" />
+                    <element signature="e#17523#17529#0" expanded="true" />
+                    <element signature="e#17726#17732#0" expanded="true" />
+                    <element signature="e#17732#17738#0" expanded="true" />
+                    <element signature="e#19580#19586#0" expanded="true" />
+                    <element signature="e#20234#20240#0" expanded="true" />
+                    <element signature="e#20889#20895#0" expanded="true" />
+                    <element signature="e#21674#21680#0" expanded="true" />
+                    <element signature="e#22330#22336#0" expanded="true" />
+                    <element signature="e#22986#22992#0" expanded="true" />
+                    <element signature="e#23641#23647#0" expanded="true" />
+                    <element signature="e#24283#24289#0" expanded="true" />
+                    <element signature="e#24936#24942#0" expanded="true" />
+                    <element signature="e#25691#25697#1" expanded="true" />
+                    <element signature="e#26262#26268#0" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="navigation.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/views/partials/navigation.html">
+          <file leaf-file-name="conditional-approval.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/styles/conditional-approval.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="276">
-                  <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="notificationservice.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/scripts/services/notificationservice.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="154">
-                  <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="nav.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/scripts/controllers/nav.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="132">
-                  <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="notification.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/scripts/controllers/notification.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="110">
-                  <caret line="5" column="60" lean-forward="false" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="60" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="notificationdetail.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/scripts/controllers/notificationdetail.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="242">
-                  <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1584">
-                  <caret line="72" column="67" lean-forward="false" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
+                <state relative-caret-position="366">
+                  <caret line="698" column="1" lean-forward="false" selection-start-line="698" selection-start-column="1" selection-end-line="698" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -103,88 +95,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="approval.js" pinned="false" current-in-tab="false">
+        <leaf>
+          <file leaf-file-name="approval.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/approval.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="10362">
-                  <caret line="471" column="10" lean-forward="false" selection-start-line="471" selection-start-column="8" selection-end-line="477" selection-end-column="32" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="nav_bar.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/styles/nav_bar.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="154">
-                  <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="loan-job-list.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/loan-job-list.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3960">
-                  <caret line="180" column="32" lean-forward="false" selection-start-line="180" selection-start-column="32" selection-end-line="181" selection-end-column="94" />
-                  <folding>
-                    <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="e#8881#8887#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="user-list.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/views/user-list.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1584">
-                  <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="joblist.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/scripts/controllers/joblist.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="22">
-                  <caret line="164" column="10" lean-forward="false" selection-start-line="164" selection-start-column="10" selection-end-line="164" selection-end-column="42" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2112">
-                  <caret line="98" column="7" lean-forward="true" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
-                  <folding>
-                    <marker date="1498554307879" expanded="true" signature="1342:1495" ph="..." />
-                    <marker date="1498554307879" expanded="true" signature="1435:1463" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="bower.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/bower.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="conditional-approval.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/styles/conditional-approval.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="3080">
-                  <caret line="140" column="23" lean-forward="false" selection-start-line="140" selection-start-column="23" selection-end-line="140" selection-end-column="23" />
+                <state relative-caret-position="136">
+                  <caret line="400" column="32" lean-forward="false" selection-start-line="400" selection-start-column="32" selection-end-line="400" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
@@ -205,12 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ui</find>
-      <find>showstatus</find>
-      <find>showStatus</find>
-      <find>comment</find>
-      <find>tiny</find>
-      <find>ui-sref</find>
       <find>deal_status_value</find>
       <find>loan amount</find>
       <find>refres</find>
@@ -235,6 +145,12 @@
       <find>print.js</find>
       <find>push</find>
       <find>avatar</find>
+      <find>full</find>
+      <find>document</find>
+      <find>notificationlist</find>
+      <find>page</find>
+      <find>print</find>
+      <find>prefer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -249,7 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/partials/create-document.html" />
         <option value="$PROJECT_DIR$/app/styles/create-document.css" />
         <option value="$PROJECT_DIR$/app/styles/report-analytics.css" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/report.js" />
@@ -266,10 +181,6 @@
         <option value="$PROJECT_DIR$/app/scripts/select-new.js" />
         <option value="$PROJECT_DIR$/bower_components/jquery/src/attributes/classes.js" />
         <option value="$PROJECT_DIR$/app/styles/loan-job-list.css" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/documents.js" />
-        <option value="$PROJECT_DIR$/app/views/loan-document.html" />
-        <option value="$PROJECT_DIR$/app/views/settled-list.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/settlelist.js" />
         <option value="$PROJECT_DIR$/app/styles/loan-document.css" />
         <option value="$PROJECT_DIR$/app/views/partials/sidebar.html" />
         <option value="$PROJECT_DIR$/app/styles/loan-user-profile.css" />
@@ -283,23 +194,28 @@
         <option value="$PROJECT_DIR$/app/views/create-job-form.html" />
         <option value="$PROJECT_DIR$/app/scripts/services/filterservice.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/createjob.js" />
-        <option value="$PROJECT_DIR$/app/styles/conditional-approval.css" />
         <option value="$PROJECT_DIR$/app/styles/nav_bar.css" />
-        <option value="$PROJECT_DIR$/app/views/loan-job-list.html" />
         <option value="$PROJECT_DIR$/app/views/user-list.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/userlist.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/approval.js" />
-        <option value="$PROJECT_DIR$/app/views/conditional-approval.html" />
         <option value="$PROJECT_DIR$/app/scripts/services/jobservice.js" />
         <option value="$PROJECT_DIR$/app/scripts/services/notificationservice.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/nav.js" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/notification.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/app/scripts/app.js" />
         <option value="$PROJECT_DIR$/app/views/notification-details.html" />
-        <option value="$PROJECT_DIR$/app/scripts/controllers/joblist.js" />
-        <option value="$PROJECT_DIR$/app/views/partials/navigation.html" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/notificationdetail.js" />
+        <option value="$PROJECT_DIR$/app/views/partials/navigation.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/notification.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/joblist.js" />
+        <option value="$PROJECT_DIR$/app/views/full-notify-list.html" />
+        <option value="$PROJECT_DIR$/app/views/loan-job-list.html" />
+        <option value="$PROJECT_DIR$/app/views/loan-document.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/documents.js" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/settlelist.js" />
+        <option value="$PROJECT_DIR$/app/views/settled-list.html" />
+        <option value="$PROJECT_DIR$/app/styles/conditional-approval.css" />
+        <option value="$PROJECT_DIR$/app/views/conditional-approval.html" />
+        <option value="$PROJECT_DIR$/app/scripts/controllers/approval.js" />
       </list>
     </option>
   </component>
@@ -381,7 +297,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -516,7 +431,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
+              <option name="myItemId" value="styles" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -535,10 +450,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -567,6 +478,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -762,14 +674,8 @@
       <workItem from="1498523423800" duration="2264000" />
       <workItem from="1498531174090" duration="796000" />
       <workItem from="1498537709878" duration="11024000" />
-      <workItem from="1498553994866" duration="331000" />
-    </task>
-    <task id="LOCAL-00008" summary="Merge branch 'master' of https://bitbucket.org/a62275218/antloans into filter&#10;&#10;# Conflicts:&#10;#&#9;app/views/loan-job-list.html&#10;&#10;filter added">
-      <created>1497087719492</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1497087719492</updated>
+      <workItem from="1498553994866" duration="1191000" />
+      <workItem from="1498612902014" duration="14015000" />
     </task>
     <task id="LOCAL-00009" summary="line chart added">
       <created>1497236968396</created>
@@ -1107,11 +1013,18 @@
       <option name="project" value="LOCAL" />
       <updated>1498554181951</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Merge branch 'master' of https://bitbucket.org/a62275218/antloans&#10;&#10;# Conflicts:&#10;#&#9;app/scripts/controllers/userlist.js&#10;">
+      <created>1498554370835</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1498554370835</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="496186000" />
+    <option name="totallyTimeSpent" value="511061000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1126,28 +1039,28 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.046375267" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195629" sideWeight="0.61973876" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928312" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.195629" sideWeight="0.38026124" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15509762" sideWeight="0.52025586" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13449024" sideWeight="0.48773986" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13449024" sideWeight="0.5181237" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13449024" sideWeight="0.48187634" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15509762" sideWeight="0.47974414" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2527115" sideWeight="0.48134327" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.046375267" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20469083" sideWeight="0.6152882" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20469083" sideWeight="0.38471177" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2527115" sideWeight="0.48134327" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11940298" sideWeight="0.21583514" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12798265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15509762" sideWeight="0.47974414" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14957266" sideWeight="0.4181818" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31344903" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12798265" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1183,7 +1096,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app/scripts/controllers/approval.js</url>
-          <line>114</line>
+          <line>122</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -1192,13 +1105,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/debug.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="15" column="66" lean-forward="false" selection-start-line="15" selection-start-column="66" selection-end-line="15" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/user-list.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2266">
@@ -1249,13 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/settlelist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="73" lean-forward="false" selection-start-line="14" selection-start-column="73" selection-end-line="14" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/loan-document.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2838">
@@ -1274,20 +1173,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="154" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/documents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/loan-document.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="83" column="55" lean-forward="true" selection-start-line="83" selection-start-column="55" selection-end-line="83" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -1316,13 +1201,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="19" column="97" lean-forward="false" selection-start-line="19" selection-start-column="97" selection-end-line="19" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/settled-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1779">
-          <caret line="30" column="40" lean-forward="false" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -1397,37 +1275,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/conditional-approval.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3080">
-          <caret line="140" column="23" lean-forward="false" selection-start-line="140" selection-start-column="23" selection-end-line="140" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/styles/nav_bar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/userlist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/create-document.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="819">
@@ -1439,14 +1286,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/approval.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10362">
-          <caret line="471" column="10" lean-forward="false" selection-start-line="471" selection-start-column="8" selection-end-line="477" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1465,43 +1304,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/conditional-approval.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="418" column="28" lean-forward="false" selection-start-line="418" selection-start-column="24" selection-end-line="421" selection-end-column="45" />
-          <folding>
-            <element signature="e#8124#8130#0" expanded="true" />
-            <element signature="e#8308#8314#0" expanded="true" />
-            <element signature="e#9350#9356#0" expanded="true" />
-            <element signature="e#9522#9528#0" expanded="true" />
-            <element signature="e#11960#11966#0" expanded="true" />
-            <element signature="e#12144#12150#0" expanded="true" />
-            <element signature="e#13180#13186#0" expanded="true" />
-            <element signature="e#13350#13356#0" expanded="true" />
-            <element signature="e#15791#15797#0" expanded="true" />
-            <element signature="e#15797#15803#0" expanded="true" />
-            <element signature="e#15986#15992#0" expanded="true" />
-            <element signature="e#15992#15998#0" expanded="true" />
-            <element signature="e#17026#17032#0" expanded="true" />
-            <element signature="e#17032#17038#0" expanded="true" />
-            <element signature="e#17235#17241#0" expanded="true" />
-            <element signature="e#17241#17247#0" expanded="true" />
-            <element signature="e#19089#19095#0" expanded="true" />
-            <element signature="e#19743#19749#0" expanded="true" />
-            <element signature="e#20398#20404#0" expanded="true" />
-            <element signature="e#21183#21189#0" expanded="true" />
-            <element signature="e#21839#21845#0" expanded="true" />
-            <element signature="e#22495#22501#0" expanded="true" />
-            <element signature="e#23150#23156#0" expanded="true" />
-            <element signature="e#23792#23798#0" expanded="true" />
-            <element signature="e#24445#24451#0" expanded="true" />
-            <element signature="e#25200#25206#1" expanded="true" />
-            <element signature="e#25771#25777#0" expanded="true" />
-            <marker date="1498547926004" expanded="true" signature="27735:27857" ph="{&quot;printable&quot;: pageJson...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/scripts/controllers/createjob.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1509,72 +1311,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+    <entry file="file://$PROJECT_DIR$/app/views/partials/navigation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="72" column="67" lean-forward="false" selection-start-line="72" selection-start-column="67" selection-end-line="72" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2112">
-          <caret line="98" column="7" lean-forward="true" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
-          <folding>
-            <marker date="1498554307879" expanded="true" signature="1342:1495" ph="..." />
-            <marker date="1498554307879" expanded="true" signature="1435:1463" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/loan-job-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3960">
-          <caret line="180" column="32" lean-forward="false" selection-start-line="180" selection-start-column="32" selection-end-line="181" selection-end-column="94" />
-          <folding>
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#8881#8887#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/joblist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="164" column="10" lean-forward="false" selection-start-line="164" selection-start-column="10" selection-end-line="164" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/notificationdetail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        <state relative-caret-position="394">
+          <caret line="21" column="79" lean-forward="false" selection-start-line="21" selection-start-column="79" selection-end-line="21" selection-end-column="118" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/notification-details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="31" column="40" lean-forward="false" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+        <state relative-caret-position="528">
+          <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/notification.js">
+    <entry file="file://$PROJECT_DIR$/app/views/user-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="60" lean-forward="false" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="60" />
+        <state relative-caret-position="308">
+          <caret line="68" column="82" lean-forward="false" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="82" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/nav.js">
+    <entry file="file://$PROJECT_DIR$/app/styles/nav_bar.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+        <state relative-caret-position="22">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/loan-job-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="168" column="31" lean-forward="true" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#8927#8933#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/loan-document.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="79" column="43" lean-forward="true" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/joblist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="117" column="10" lean-forward="true" selection-start-line="82" selection-start-column="8" selection-end-line="117" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/full-notify-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="80" column="44" lean-forward="true" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/userlist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/settlelist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="88" column="38" lean-forward="true" selection-start-line="88" selection-start-column="38" selection-end-line="88" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/documents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="67" column="18" lean-forward="false" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/settled-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1102">
+          <caret line="165" column="68" lean-forward="false" selection-start-line="165" selection-start-column="68" selection-end-line="165" selection-end-column="68" />
           <folding />
         </state>
       </provider>
@@ -1587,10 +1418,99 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/partials/navigation.html">
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/nav.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="132">
+          <caret line="6" column="47" lean-forward="false" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/notification.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="83" column="65" lean-forward="true" selection-start-line="83" selection-start-column="65" selection-end-line="83" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/notificationdetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="98" column="7" lean-forward="false" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
+          <folding>
+            <marker date="1498554307879" expanded="true" signature="1342:1495" ph="..." />
+            <marker date="1498554307879" expanded="true" signature="1435:1463" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="67" column="53" lean-forward="true" selection-start-line="67" selection-start-column="53" selection-end-line="67" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/styles/conditional-approval.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="698" column="1" lean-forward="false" selection-start-line="698" selection-start-column="1" selection-end-line="698" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/conditional-approval.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="432" column="63" lean-forward="true" selection-start-line="432" selection-start-column="63" selection-end-line="432" selection-end-column="63" />
+          <folding>
+            <element signature="e#8235#8241#0" expanded="true" />
+            <element signature="e#8419#8425#0" expanded="true" />
+            <element signature="e#9537#9543#0" expanded="true" />
+            <element signature="e#9709#9715#0" expanded="true" />
+            <element signature="e#12223#12229#0" expanded="true" />
+            <element signature="e#12407#12413#0" expanded="true" />
+            <element signature="e#13519#13525#0" expanded="true" />
+            <element signature="e#13689#13695#0" expanded="true" />
+            <element signature="e#16206#16212#0" expanded="true" />
+            <element signature="e#16212#16218#0" expanded="true" />
+            <element signature="e#16401#16407#0" expanded="true" />
+            <element signature="e#16407#16413#0" expanded="true" />
+            <element signature="e#17517#17523#0" expanded="true" />
+            <element signature="e#17523#17529#0" expanded="true" />
+            <element signature="e#17726#17732#0" expanded="true" />
+            <element signature="e#17732#17738#0" expanded="true" />
+            <element signature="e#19580#19586#0" expanded="true" />
+            <element signature="e#20234#20240#0" expanded="true" />
+            <element signature="e#20889#20895#0" expanded="true" />
+            <element signature="e#21674#21680#0" expanded="true" />
+            <element signature="e#22330#22336#0" expanded="true" />
+            <element signature="e#22986#22992#0" expanded="true" />
+            <element signature="e#23641#23647#0" expanded="true" />
+            <element signature="e#24283#24289#0" expanded="true" />
+            <element signature="e#24936#24942#0" expanded="true" />
+            <element signature="e#25691#25697#1" expanded="true" />
+            <element signature="e#26262#26268#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/approval.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="400" column="32" lean-forward="false" selection-start-line="400" selection-start-column="32" selection-end-line="400" selection-end-column="32" />
           <folding />
         </state>
       </provider>

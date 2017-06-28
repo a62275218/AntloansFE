@@ -693,3 +693,7 @@ li.sett2, li.sett3, li.sett4 {
     background-color: rgb(61, 158, 220);
     color: white;
 }
+
+#printJS-form .r,.l{
+    display:inline-block;
+}

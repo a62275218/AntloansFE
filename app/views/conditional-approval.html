@@ -74,7 +74,8 @@
                     <tr>
                         <th>repayment type</th>
                         <td>
-                            <input ng-if="!edit" type="text" class="disable" ng-model="job.repayment_type.label" disabled>
+                            <input ng-if="!edit" type="text" class="disable" ng-model="job.repayment_type.label"
+                                   disabled>
                             <ui-select ng-if="edit" ng-model="job.repayment_type" search-enabled="false"
                                        class="selectpicker select_page"
                                        onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
@@ -135,7 +136,8 @@
                         </ui-select-choices>
                     </ui-select>
                     <div class="contact_up" ng-if="selection[2] == 'selected'">
-                        <span class="userEditBtn" ng-click="editUser(2)"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
+                        <span class="userEditBtn" ng-click="editUser(2)"><i class="fa fa-pencil-square-o fa-2x"
+                                                                            aria-hidden="true"></i></span>
                         <img ng-if="user[2].selected.avatar" ng-src="{{user[2].selected.avatar}}" alt="">
                         <img ng-if="!user[2].selected.avatar" ng-src="{{default_img_url}}" alt="">
                         <div class="user_intro">
@@ -151,7 +153,8 @@
                                 href="mailto:{{user[2].selected.email}}">{{user[2].selected.email || 'no email now'}}</a></span>
                     </div>
                     <div class="contact_up" ng-if="selection[2] == 'settled'">
-                        <span class="userEditBtn" ng-click="editUser(2)"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
+                        <span class="userEditBtn" ng-click="editUser(2)"><i class="fa fa-pencil-square-o fa-2x"
+                                                                            aria-hidden="true"></i></span>
                         <img ng-if="job.broker.avatar" ng-src="{{job.broker.avatar}}" alt="">
                         <img ng-if="!job.broker.avatar" ng-src="{{default_img_url}}" alt="">
                         <div class="user_intro">
@@ -191,7 +194,8 @@
                         </ui-select-choices>
                     </ui-select>
                     <div class="contact_up" ng-if="selection[0] == 'selected'">
-                        <span class="userEditBtn" ng-click="editUser(0)"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
+                        <span class="userEditBtn" ng-click="editUser(0)"><i class="fa fa-pencil-square-o fa-2x"
+                                                                            aria-hidden="true"></i></span>
                         <img ng-if="user[0].selected.avatar" ng-src="{{user[0].selected.avatar}}" alt="">
                         <img ng-if="!user[0].selected.avatar" ng-src="{{default_img_url}}" alt="">
                         <div class="user_intro">
@@ -207,7 +211,8 @@
                                 href="mailto:{{user[0].selected.email}}">{{user[0].selected.email || 'no email now'}}</a></span>
                     </div>
                     <div class="contact_up" ng-if="selection[0] == 'settled'">
-                        <span class="userEditBtn" ng-click="editUser(0)"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
+                        <span class="userEditBtn" ng-click="editUser(0)"><i class="fa fa-pencil-square-o fa-2x"
+                                                                            aria-hidden="true"></i></span>
                         <img ng-if="job.admin.avatar" ng-src="{{job.admin.avatar}}" alt="">
                         <img ng-if="!job.admin.avatar" ng-src="{{default_img_url}}" alt="">
                         <div class="user_intro">
@@ -247,7 +252,8 @@
                         </ui-select-choices>
                     </ui-select>
                     <div class="contact_up" ng-if="selection[1] == 'selected'">
-                        <span class="userEditBtn" ng-click="editUser(1)"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
+                        <span class="userEditBtn" ng-click="editUser(1)"><i class="fa fa-pencil-square-o fa-2x"
+                                                                            aria-hidden="true"></i></span>
                         <img ng-if="user[1].selected.avatar" ng-src="{{user[1].selected.avatar}}" alt="">
                         <img ng-if="!user[1].selected.avatar" ng-src="{{default_img_url}}" alt="">
                         <div class="user_intro">
@@ -264,7 +270,8 @@
                       <a href="mailto:{{user[1].email}}">{{user[1].email || 'no email now'}}</a></span>
                     </div>
                     <div class="contact_up" ng-if="selection[1] == 'settled'">
-                        <span class="userEditBtn" ng-click="editUser(1)"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
+                        <span class="userEditBtn" ng-click="editUser(1)"><i class="fa fa-pencil-square-o fa-2x"
+                                                                            aria-hidden="true"></i></span>
                         <img ng-if="job.supervisor.avatar" ng-src="{{job.supervisor.avatar}}" alt="">
                         <img ng-if="!job.supervisor.avatar" ng-src="{{default_img_url}}" alt="">
                         <div class="user_intro">
@@ -412,14 +419,10 @@
                                 </ui-select-choices>
                             </ui-select>
                         </div>
-                        <div class="download_doc">
+                        <div class="download_doc" onclick="printJS('printJS-form', 'html')" style="cursor:pointer">
                             <span><i class="fa fa-download fa-lg" aria-hidden="true"></i></span><span
-                                class='doc'><strong>DOWNLOAD DOCUMENTS</strong></span>
+                                class='doc'><strong>PRINT DOCUMENT</strong></span>
                         </div>
-                        <!--<button on-click="printJS({
-                        printable: '../images/face.png',
-                        type: 'image'
-                        })">print</button>-->
                         <div class="clear"></div>
                     </div>
                     <div class="message_part">
@@ -480,16 +483,137 @@
         <!-- width_fix end -->
     </div>
     <!-- rigth_part end -->
+    <div id="printJS-form" style="visibility: hidden">
+        <div>
+            <h4>Customer</h4>
+            <div class="r">
+                <div>name:</div>
+                <div>mobile:</div>
+                <div>phone:</div>
+                <div>email:</div>
+                <div>address:</div>
+                <div>preferred time:</div>
+                <div>preferred method:</div>
+            </div>
+            <div class="l">
+                <div>{{job.first_name}} {{job.last_name}}</div>
+                <div>{{job.mobile}}</div>
+                <div>{{job.phone}}</div>
+                <div>{{job.email}}</div>
+                <div>{{job.preferred_time}}</div>
+                <div>{{job.preferred_method}}</div>
+            </div>
+            <h4>Loan</h4>
+            <div class="r">
+                <div>loan amount:</div>
+                <div>loan purpose:</div>
+                <div>status:</div>
+                <div>repayment type:</div>
+                <div>file nature:</div>
+                <div>special notes:</div>
+            </div>
+            <div class="l">
+                <div>{{job.loan_amount}}</div>
+                <div>{{job.loan_purpose.label}}</div>
+                <div>{{job.deal_status.label}}</div>
+                <div>{{job.repayment_type.label}}</div>
+                <div>{{job.file_nature.label}}</div>
+                <div>{{job.special_note}}</div>
+            </div>
+            <h4>Broker</h4>
+            <div class="r">
+                <div>name:</div>
+                <div>address:</div>
+                <div>phone:</div>
+                <div>email:</div>
+            </div>
+            <div class="l">
+                <div ng-if="user[2].selected">
+                    <div>{{user[2].selected.first_name}} {{user[2].selected.last_name}}</div>
+                    <div>{{user[2].selected.address || 'no address now'}}</div>
+                    <div>{{user[2].selected.phone || 'no phone number now'}}</div>
+                    <div>{{user[2].selected.email || 'no email now'}}</div>
+                </div>
+                <div ng-if="!user[2].selected">
+                    <div>{{job.broker.first_name}} {{job.broker.last_name}}</div>
+                    <div>{{job.broker.address || 'no address now'}}</div>
+                    <div>{{job.broker.phone || 'no phone number now'}}</div>
+                    <div>{{job.broker.email || 'no email now'}}</div>
+                </div>
+            </div>
+            <h4>Admin</h4>
+            <div class="r">
+                <div>name:</div>
+                <div>address:</div>
+                <div>phone:</div>
+                <div>email:</div>
+            </div>
+            <div class="l">
+                <div ng-if="user[0].selected">
+                    <div>{{user[0].selected.first_name}} {{user[0].selected.last_name}}</div>
+                    <div>{{user[0].selected.address || 'no address now'}}</div>
+                    <div>{{user[0].selected.phone || 'no phone number now'}}</div>
+                    <div>{{user[0].selected.email || 'no email now'}}</div>
+                </div>
+                <div ng-if="!user[0].selected">
+                    <div>{{job.admin.first_name}} {{job.admin.last_name}}</div>
+                    <div>{{job.admin.address || 'no address now'}}</div>
+                    <div>{{job.admin.phone || 'no phone number now'}}</div>
+                    <div>{{job.admin.email || 'no email now'}}</div>
+                </div>
+            </div>
+            <h4>Supervisor</h4>
+            <div class="r">
+                <div>name:</div>
+                <div>address:</div>
+                <div>phone:</div>
+                <div>email:</div>
+            </div>
+            <div class="l">
+                <div ng-if="user[1].selected">
+                    <div>{{user[1].selected.first_name}} {{user[1].selected.last_name}}</div>
+                    <div>{{user[1].selected.address || 'no address now'}}</div>
+                    <div>{{user[1].selected.phone || 'no phone number now'}}</div>
+                    <div>{{user[1].selected.email || 'no email now'}}</div>
+                </div>
+                <div ng-if="!user[1].selected">
+                    <div>{{job.supervisor.first_name}} {{job.supervisor.last_name}}</div>
+                    <div>{{job.supervisor.address || 'no address now'}}</div>
+                    <div>{{job.supervisor.phone || 'no phone number now'}}</div>
+                    <div>{{job.supervisor.email || 'no email now'}}</div>
+                </div>
+            </div>
+
+            <!--<table>
+                <tr>
+                    <th style="text-align:left">first name</th>
+                    <td>{{job.first_name}}</td>
+                    <th style="text-align:left">last name</th>
+                    <td>{{job.last_name}}</td>
+                </tr>
+                <tr>
+                    <th>mobile</th>
+                    <td>{{job.mobile}}</td>
+                    <th>phone</th>
+                    <td>{{job.phone}}</td>
+                </tr>
+                <tr>
+                    <th>email</th>
+                    <td>{{job.email}}</td>
+                    <th>security address</th>
+                    <td>{{job.address}}</td>
+                </tr>
+                <tr>
+                    <th>prefered time</th>
+                    <td>{{job.preferred_time}}</td>
+                    <th>prefered method</th>
+                    <td>{{job.preferred_method}}</td>
+                </tr>
+            </table>-->
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
-<script>
-    pageJson = {
-        "customer":{
-            "first name":"233232",
-            "last name":"32432432"
-        }
-    };
-</script>
 </body>
 </html>

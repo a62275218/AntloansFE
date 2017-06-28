@@ -1,114 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>full notify list</title>
     <!--my css-->
     <link rel="stylesheet" href="../styles/full-notify-list.css">
- </head>
+</head>
 
-  <body>
-    <nav class="nav_bar" ng-include="'views/partials/navigation.html'">
-    </nav>
+<body>
+<nav class="nav_bar" ng-include="'views/partials/navigation.html'">
+</nav>
 
-     <div class='main'>
-           <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
-           </aside>
+<div class='main'>
+    <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
+    </aside>
 
-           <div class="right_part">
-              <section class='tool_bar'>
-                <div class="width_fix" style="position:relative">
+    <div class="right_part">
+        <section class='tool_bar'>
+            <div class="width_fix" style="position:relative">
 
-                 <div class="tool_top">
+                <div class="tool_top">
                     <h3>Full notification list</h3>
-                 </div>
+                </div>
 
-                 <div class='tool_bar_above'>
+                <div class='tool_bar_above'>
                     <div class='search_input'>
-                      <div class="input-group margin-bottom-sm">
-                        <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
-                          <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
-                      </div>
+                        <div class="input-group margin-bottom-sm">
+                            <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                            <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
+                        </div>
                     </div>
                     <div class="page">
                         <ul class="pager">
-                            <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                            <li><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left"
+                                                                                aria-hidden="true"></i>&nbsp; Prev</a>
+                            </li>
                             {{currentPage+1}}/{{totalPage}}
-                            <li ><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                            <li><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right"
+                                                                                           aria-hidden="true"></i></a>
                             </li>
                         </ul>
                     </div>
-                     <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
-                                onkeypress="return false;" ng-disabled="disabled" style="z-index:1;">
-                         <ui-select-match placeholder="Select the number of pages">
-                             <span ng-bind="$select.selected.name"></span>
-                         </ui-select-match>
-                         <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
-                                            style="width:60px;" ng-click="returnToFirst()">
-                             <span ng-bind="item.name" style="width:60px;"></span>
-                         </ui-select-choices>
-                     </ui-select>
-                  </div>
+                    <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
+                               onkeypress="return false;" ng-disabled="disabled" style="z-index:1;">
+                        <ui-select-match placeholder="Select the number of pages">
+                            <span ng-bind="$select.selected.name"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
+                                           style="width:60px;" ng-click="returnToFirst()">
+                            <span ng-bind="item.name" style="width:60px;"></span>
+                        </ui-select-choices>
+                    </ui-select>
                 </div>
-              </section>
-
-              <div class="width_fix">
-              <div id="notification">
-                 <div class='notification_list'>
-                    <table class='"table table-striped"'>
-                       <thead>
-                        <tr>
-                           <th>NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                           <th>TIME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                           <th>MESSAGE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                        </tr>
-                       </thead>
-                       <tbody>
-                         <!-- notify list  -->
-                         <tr ng-click="toNote(1)">
-                           <td><img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
-                               John Smith</td>
-                           <td>10:30am</td>
-                           <td>Has provided some feedback</td>
-                         </tr>
-
-                         <tr>
-                           <td><img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
-                               John Smith</td>
-                           <td>10:30am</td>
-                           <td>Has provided some feedback</td>
-                         </tr>
-
-                         <tr>
-                           <td><img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
-                               John Smith</td>
-                           <td>10:30am</td>
-                           <td>Has provided some feedback</td>
-                         </tr>
-
-                         <tr>
-                           <td><img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
-                               John Smith</td>
-                           <td>10:30am</td>
-                           <td>Has provided some feedback</td>
-                         </tr>
-
-                         <tr>
-                           <td><img src="https://www.worldskills.org/components/angular-worldskills-utils/images/user.png" alt="">
-                               John Smith</td>
-                           <td>10:30am</td>
-                           <td>Has provided some feedback</td>
-                         </tr>
-                         <!-- end  ==================== -->
-                       </tbody>
-                    </table>
-                 </div>
-              </div>
-
             </div>
-          </div>
+        </section>
 
-     </div>
-     <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
-  </body>
+        <div class="width_fix">
+            <div id="notification">
+                <div class='notification_list'>
+                    <table class='"table table-striped"'>
+                        <thead>
+                        <tr>
+                            <th ng-click="sortObj('sender_name',$event)">NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th ng-click="sortObj('time',$event)">TIME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th ng-click="sortObj('message',$event)">MESSAGE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- notify list  -->
+                        <tr ng-repeat="item in alert.notifications
+                            | filter:searchInput
+                            | startFrom:currentPage * pageAmount.selected.name
+                            | limitTo:pageAmount.selected.name
+                            track by $index"
+                            ng-click="toNote(item.notification_id)">
+                            <td><img ng-if="item.sender_avatar" ng-src="{{item.sender_avatar}}" alt="">
+                                <img ng-if="!item.sender_avatar" ng-src="{{default_img_url}}" alt="">
+                                {{item.sender_name}}
+                            </td>
+                            <td>10:30am</td>
+                            <td>{{item.message}}</td>
+                        </tr>
+                        <!-- end  ==================== -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../scripts/loan-job-list.js"></script>
+</body>
 </html>

@@ -1,5 +1,5 @@
-antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'UserService','$anchorScroll','$location','$timeout','$q','BankService',
-    function ($scope, jobService, $stateParams, UserService,$anchorScroll,$location,$timeout,$q,BankService) {
+antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'UserService', '$anchorScroll', '$location', '$timeout', '$q', 'BankService',
+    function ($scope, jobService, $stateParams, UserService, $anchorScroll, $location, $timeout, $q, BankService) {
         var vm = this;
 
         $scope.status = [];
@@ -13,6 +13,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 }
             });
         };
+        pageJson =[{},{}];
         //  get the status value of current deal
         vm.getJob = function () {
             jobService.getaJob($stateParams.jobId)
@@ -20,15 +21,23 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                     $scope.job = response.data.data;
                     $scope.status = $scope.job.deal_status_log;
                     console.log($scope.job);
-                    if($scope.job.admin){
+                    if ($scope.job.admin) {
                         $scope.selection[0] = 'settled';
                     }
-                    if($scope.job.supervisor){
+                    if ($scope.job.supervisor) {
                         $scope.selection[1] = 'settled';
                     }
-                    if($scope.job.broker){
+                    if ($scope.job.broker) {
                         $scope.selection[2] = 'settled';
                     }
+                    pageJson[0]["customer name"] = $scope.job.first_name+" "+$scope.job.last_name;
+                    pageJson[0]["customer mobile"] = $scope.job.mobile;
+                    pageJson[0]["customer phone"] = $scope.job.phone;
+                    pageJson[0]["customer email"] = $scope.job.email;
+                    pageJson[0]["customer address"] = $scope.job.address;
+                    pageJson[0]["customer preferred time"] = $scope.job.preferred_time;
+                    pageJson[0]["customer preferred method"] = $scope.job.preferred_method;
+                    pageJson[0]["loan amount"] = $scope.job.loan_amount;
                     for (var i = 1; i < 12; i++) {
                         vm.convertStatus($scope.status, i)
                     }
@@ -37,7 +46,6 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 });
         };
         vm.getJob();
-
 
         //get all users except customer
         vm.getUsers = function () {
@@ -52,7 +60,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                             $scope.admins.push($scope.users[i]);
                         } else if ($scope.users[i].role == 'supervisor') {
                             $scope.supervisors.push($scope.users[i])
-                        }else if($scope.users[i].role == 'broker'){
+                        } else if ($scope.users[i].role == 'broker') {
                             $scope.brokers.push($scope.users[i])
                         }
                     }
@@ -92,7 +100,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                     }, function (e) {
                         swal("Oops...", "Something went wrong! Update failed", "error");
                     })
-            } else if(type == 'broker'){
+            } else if (type == 'broker') {
                 UserService.addUserToDeal($stateParams.jobId, {broker_id: id})
                     .then(function (response) {
                         if (response.status == 200) {
@@ -104,7 +112,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                     })
             }
         };
-        $scope.editUser = function(index){
+        $scope.editUser = function (index) {
             $scope.selection[index] = 'origin';
         };
 
@@ -139,27 +147,27 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
 
             $q.all(
                 UserService.updateUser($scope.job.client_id,
-                {
-                    firstName: $scope.job.first_name,
-                    lastName: $scope.job.last_name,
-                    phone: $scope.job.phone,
-                    mobile: $scope.job.mobile,
-                    address: $scope.job.address,
-                    email: $scope.job.email,
-                    role: 'customer',
-                    preferred_time: $scope.job.preferred_time,
-                    preferred_method: $scope.job.preferred_method
-                },
-                jobService.updateJobInfo($scope.job.id,{
-                    loan_amount: $scope.job.loan_amount,
-                    loan_purpose:$scope.job.loan_purpose.value,
-                    repayment_type:$scope.job.repayment_type.value,
-                    file_nature:$scope.job.file_nature.value,
-                    special_note:$scope.job.special_note
-                }))
+                    {
+                        firstName: $scope.job.first_name,
+                        lastName: $scope.job.last_name,
+                        phone: $scope.job.phone,
+                        mobile: $scope.job.mobile,
+                        address: $scope.job.address,
+                        email: $scope.job.email,
+                        role: 'customer',
+                        preferred_time: $scope.job.preferred_time,
+                        preferred_method: $scope.job.preferred_method
+                    },
+                    jobService.updateJobInfo($scope.job.id, {
+                        loan_amount: $scope.job.loan_amount,
+                        loan_purpose: $scope.job.loan_purpose.value,
+                        repayment_type: $scope.job.repayment_type.value,
+                        file_nature: $scope.job.file_nature.value,
+                        special_note: $scope.job.special_note
+                    }))
             ).then(function (response) {
                 console.log(response)
-                    swal("Success!", "Loan updated", "success")
+                swal("Success!", "Loan updated", "success")
             }, function (e) {
                 console.log(e)
                 swal("Oops...", "Something went wrong! Update failed", "error");
@@ -186,25 +194,25 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             $('.timeline').css('border-left', "3px dotted #B5B5B5");
             $('.circle').css('cursor', 'pointer');
             $('.circle').click(function (e) {
-               // prevent change preivous status and skip status
-               var num = $('.circle.done').length;
-               var index = parseInt($(e.target).attr('data-index'));
+                // prevent change preivous status and skip status
+                var num = $('.circle.done').length;
+                var index = parseInt($(e.target).attr('data-index'));
 
-                if (index == $scope.job.deal_status.value){
-                  $(e.target).toggleClass('done');
-                  var index = parseInt($(e.target).attr('data-index'));
-                  if ($(e.target).hasClass("done")) {
-                      for (var i = 0; i < index; i++) {
-                          status[i].addClass('done');
-                      }
-                  } else {
-                      for (var j = index + 1; j < status.length; j++) {
-                          status[j].removeClass('done');
-                      }
-                  }
-                  updateStatusLight();
-                }else{
-                  swal("Oops...", "You cannot change previous or skip any status !", "error");
+                if (index == $scope.job.deal_status.value) {
+                    $(e.target).toggleClass('done');
+                    var index = parseInt($(e.target).attr('data-index'));
+                    if ($(e.target).hasClass("done")) {
+                        for (var i = 0; i < index; i++) {
+                            status[i].addClass('done');
+                        }
+                    } else {
+                        for (var j = index + 1; j < status.length; j++) {
+                            status[j].removeClass('done');
+                        }
+                    }
+                    updateStatusLight();
+                } else {
+                    swal("Oops...", "You cannot change previous or skip any status !", "error");
                 }
             });
 
@@ -299,11 +307,11 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
 
         //classify comments
         $scope.commentAmount = [];
-        vm.countComments = function(obj,index){
+        vm.countComments = function (obj, index) {
             var sum = 0;
-            angular.forEach(obj,function(v,k){
-                if(v.deal_status.value == index){
-                    sum ++;
+            angular.forEach(obj, function (v, k) {
+                if (v.deal_status.value == index) {
+                    sum++;
                 }
             });
             $scope.commentAmount[index] = sum;
@@ -312,52 +320,52 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         $scope.commentFilter =
             [
                 {
-                    value:0,
-                    label:'All'
+                    value: 0,
+                    label: 'All'
                 },
                 {
-                    value:1,
-                    label:'Interview conducted'
+                    value: 1,
+                    label: 'Interview conducted'
                 },
                 {
-                    value:2,
-                    label:'Document collected'
+                    value: 2,
+                    label: 'Document collected'
                 },
                 {
-                    value:3,
-                    label:'Application submitted'
+                    value: 3,
+                    label: 'Application submitted'
                 },
                 {
-                    value:4,
-                    label:'Conditional approval'
+                    value: 4,
+                    label: 'Conditional approval'
                 },
                 {
-                    value:5,
-                    label:'Valuation ordered '
+                    value: 5,
+                    label: 'Valuation ordered '
                 },
                 {
-                    value:6,
-                    label:'Unconditional approval '
+                    value: 6,
+                    label: 'Unconditional approval '
                 },
                 {
-                    value:7,
-                    label:'Docs issued'
+                    value: 7,
+                    label: 'Docs issued'
                 },
                 {
-                    value:8,
-                    label:'Signed docs returned'
+                    value: 8,
+                    label: 'Signed docs returned'
                 },
                 {
-                    value:9,
-                    label:'Ready to book'
+                    value: 9,
+                    label: 'Ready to book'
                 },
                 {
-                    value:10,
-                    label:'Settled'
+                    value: 10,
+                    label: 'Settled'
                 },
                 {
-                    value:11,
-                    label:'One month post settlement confirmation'
+                    value: 11,
+                    label: 'One month post settlement confirmation'
                 }
             ];
         $scope.commentFilter.selected = $scope.commentFilter[0];
@@ -365,14 +373,14 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         jobService.getComments($stateParams.jobId)
             .then(function (response) {
                 $scope.comments = response.data.data;
-                for(var i=1; i<13; i++){
-                    vm.countComments($scope.comments,i);
+                for (var i = 1; i < 13; i++) {
+                    vm.countComments($scope.comments, i);
                 }
                 /*var scrollBot = function () {
-                    $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
-                    console.log($('.message_wrap')[0].scrollHeight)
-                };
-                setTimeout(scrollBot(), 5)*/
+                 $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
+                 console.log($('.message_wrap')[0].scrollHeight)
+                 };
+                 setTimeout(scrollBot(), 5)*/
             }, function (e) {
             });
         /*get current user*/
@@ -383,53 +391,57 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             });
         $scope.comment = '';
         /*vm.htmlDecode = function(value){
-            return (typeof value === 'undefined') ? '' : $('<div/>').html(value).text();
-        };
-        vm.html2Escape = function(sHtml){
-            return sHtml.replace(/[<>&"]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];});
-        };*/
+         return (typeof value === 'undefined') ? '' : $('<div/>').html(value).text();
+         };
+         vm.html2Escape = function(sHtml){
+         return sHtml.replace(/[<>&"]/g,function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];});
+         };*/
         $scope.makeComment = function () {
             /*var con = vm.htmlDecode($scope.comment);*/
-            jobService.makeComment($stateParams.jobId, {content:$scope.comment})
-                .then(function (response) {
-                    console.log($scope.comment);
-                    if (response.status == 200) {
-                        $scope.comment = '';
-                        jobService.getComments($stateParams.jobId)
-                            .then(function (response) {
-                                $scope.comments = response.data.data;
-                            }, function (e) {
-                            });
-                        swal("Success!", "Comment added", "success");
-                        /*var scrollBot = function () {
-                            $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
-                            console.log($('.message_wrap')[0].scrollHeight)
-                        };
-                        $timeout(scrollBot());*/
-                    }
-                }, function (e) {
-                    swal("Oops...", "Something went wrong! Update failed", "error");
-                })
+            if($scope.comment == ''){
+                swal("Oops...", "Please input content", "error");
+            }else {
+                jobService.makeComment($stateParams.jobId, {content: $scope.comment})
+                    .then(function (response) {
+                        console.log($scope.comment);
+                        if (response.status == 200) {
+                            $scope.comment = '';
+                            jobService.getComments($stateParams.jobId)
+                                .then(function (response) {
+                                    $scope.comments = response.data.data;
+                                }, function (e) {
+                                });
+                            swal("Success!", "Comment added", "success");
+                            /*var scrollBot = function () {
+                             $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
+                             console.log($('.message_wrap')[0].scrollHeight)
+                             };
+                             $timeout(scrollBot());*/
+                        }
+                    }, function (e) {
+                        swal("Oops...", "Something went wrong! Update failed", "error");
+                    })
+            }
         };
 
-        $scope.showStatusComment = function(index){
+        $scope.showStatusComment = function (index) {
             $scope.comments = [];
             jobService.getComments($stateParams.jobId)
                 .then(function (response) {
                     $scope.comments_tmp = response.data.data;
-                    if(index == 0){
+                    if (index == 0) {
                         $scope.comments = $scope.comments_tmp;
                     }
-                    angular.forEach($scope.comments_tmp,function(v,k){
-                        if(v.deal_status.value == index){
+                    angular.forEach($scope.comments_tmp, function (v, k) {
+                        if (v.deal_status.value == index) {
                             $scope.comments.push(v);
                         }
                     });
                     /*var scrollBot = function () {
-                        $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
-                        console.log($('.message_wrap')[0].scrollHeight)
-                    };
-                    $timeout(scrollBot());*/
+                     $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
+                     console.log($('.message_wrap')[0].scrollHeight)
+                     };
+                     $timeout(scrollBot());*/
                 }, function (e) {
                 });
 
@@ -462,18 +474,6 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         vm.getProperty();
 
         //print functionality
-        /*printJS({
-            printable: {"name":"123"},
-            type: 'json',
-            properties: []
-        });*/
-
         //json data
-        /*pageJson = {
-            "customer":{
-                "first name":"233232",
-                "last name":"32432432"
-            }
-        };
-        console.log(pageJson);*/
+        console.log(pageJson);
     }]);

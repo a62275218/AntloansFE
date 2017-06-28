@@ -111,7 +111,7 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
                     $(obj.target).children().removeClass('fa-caret-down');
                     $(obj.target).children().addClass('fa-caret-up');
                     $scope.desc = false;
-                };
+                }
                 $scope.sort = sort;
                 $(obj.target).addClass('selected');
            }

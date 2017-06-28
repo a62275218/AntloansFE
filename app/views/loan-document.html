@@ -73,10 +73,10 @@
                     <table class='"table table-striped"'>
                         <thead>
                         <tr>
-                            <th>TITLE &nbsp;<i ng-click="sortObj('name',$event)" class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th>TYPE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th>UPLOADER &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th>MODIFIELD &nbsp;<i ng-click="sortObj('create_at',$event)" class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th ng-click="sortObj('name',$event)">TITLE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <!--<th>TYPE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>-->
+                            <!--<th>UPLOADER &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>-->
+                            <th ng-click="sortObj('create_at',$event)">MODIFIELD &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <th>ACTION</th>
                         </tr>
                         </thead>
@@ -88,8 +88,8 @@
                             | limitTo:pageAmount.selected.name
                          track by $index">
                             <td>{{item.name}}</td>
-                            <td>Individual</td>
-                            <td>David Cutter</td>
+                            <!--<td>Individual</td>-->
+                            <!--<td>David Cutter</td>-->
                             <td>{{item.create_at}}</td>
                             <td><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;
                                 <a href="{{api+item.path}}"><i class="fa fa-download" aria-hidden="true"></i></a>
