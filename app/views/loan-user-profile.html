@@ -44,7 +44,9 @@
                  <hr>
                  <div class="user_info">
                      <label>Username</label><span>{{user.email||'null'}}</span><br>
-                     <label>Password</label><input type="password" placeholder='......' name="" value="">&nbsp;<i ui-sref="reset" class="fa fa-pencil" aria-hidden="true"></i>
+                     <label>Password</label><input class="not_display" ng-if="!reset" type="password" placeholder='......' name="" value="" disabled>
+                     <input ng-show="reset" class="pass" ng-model="newPass" type="password">&nbsp;<i ng-click="resetPass()" class="fa fa-pencil" aria-hidden="true"></i><br>
+                     <label ng-show="reset">Repeat Pass</label>&nbsp;<input ng-show="reset" class="pass" ng-model="RenewPass" type="password"><span style="color:red" ng-if="newPass != RenewPass">please enter the same password</span>
                  </div>
                  <!--<h4>Notifications</h4>
                  <hr>

@@ -1,5 +1,5 @@
-antloans.factory('chartService',[
-    function(){
+antloans.factory('chartService',['$http','API_BASE',
+    function($http,API_BASE){
         return{
             getTotal:function(data){
                 var sum = 0;
@@ -7,6 +7,9 @@ antloans.factory('chartService',[
                     sum += value;
                 });
                 return sum;
+            },
+            getChartData:function(start_date,end_date,step){
+                $http.get(API_BASE+'/reports?'+'')
             }
         }
 }]);

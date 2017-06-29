@@ -352,3 +352,7 @@ a:hover,a:visited,a:link,a:active{
 body input, body button{
   outline: none;
 }
+
+input[disabled]{
+  background-color:white;
+}

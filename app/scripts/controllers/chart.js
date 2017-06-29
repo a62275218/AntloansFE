@@ -1,7 +1,8 @@
+/*
 antloans
     .controller('lineChartCtrl', ['$scope', 'chartService',
         function ($scope, chartService) {
-            $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+            $scope.month = ["January", "February", "March", "April", "May", "June", "July","August","September","October","November","December"];
             $scope.type = 'bar';
             $scope.data = [
                 [100, 550, 700, 450, 1400, 1700, 1400],
@@ -154,4 +155,4 @@ antloans
                 [65, 59, 80, 81, 56, 55, 40],
                 [28, 48, 40, 19, 86, 27, 90]
             ];
-        }]);
+        }]);*/

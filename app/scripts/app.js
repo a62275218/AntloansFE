@@ -29,7 +29,8 @@ var antloans = angular
         'xeditable',
         'naif.base64',
         'ui.tinymce',
-        'luegg.directives'
+        'luegg.directives',
+        'googlechart'
     ])
     .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
         function ($stateProvider, $urlRouterProvider,ChartJsProvider) {
