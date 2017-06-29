@@ -98,7 +98,7 @@ button, canvas{
   width: 80px;
 }
 
-.user_info input{
+.not_display{
   border: 0;
   width: 70px;
   color: black;
@@ -115,7 +115,7 @@ button, canvas{
 .personal_detail label{
   margin-right: 50px;
   text-align: left;
-  width: 80px;
+  width: 90px;
 }
 
 .personal_detail label.prefer{

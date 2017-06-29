@@ -71,20 +71,21 @@
 
               <!-- charts content  -->
               <div id="charts_list">
-                 <div class="payments_received" ng-controller="lineChartCtrl">
+                 <div class="payments_received">
                      <div class="payments_left">
                          <h4>Payments Received</h4>
                          <div class="clear"></div>
                          <div class="payments_chart">
-                             <canvas id="line" class="chart chart-line" chart-data="data"
-                                     chart-labels="labels" chart-series="series" chart-options="options"
+                             <div google-chart chart="Chart"></div>
+                             <!--<canvas id="line" class="chart chart-line" chart-data="data"
+                                     chart-labels="time" chart-series="series" chart-options="options"
                                      chart-dataset-override="datasetOverride" chart-click="onClick">
-                             </canvas>
+                             </canvas>-->
                          </div>
                      </div>
 
                      <div class="payments_right">
-                        <h4>{{totalamount|currency}}</h4>
+                        <!--<h4>{{totalamount|currency}}</h4>
                         <p>Total Income</p>
 
                         <h5>{{total.credit|currency}}</h5>
@@ -93,14 +94,105 @@
 
                         <h5>{{total.paypal|currency}}</h5>
                         <img width="127px" height="27px;" src="./images/data-bar2.png" alt="">
-                        <p>PayPal Payments</p>
+                        <p>PayPal Payments</p>-->
+                         <div>
+                             <label>TIME:</label>
+                             <ui-select ng-model="timeFrame.selected"
+                                        search-enabled="false" class="bank_input selectpicker select_page"
+                                        onkeypress="return false;" ng-disabled="disabled">
+                                 <ui-select-match>
+                                     <span ng-bind="$select.selected.name"></span>
+                                 </ui-select-match>
+                                 <ui-select-choices repeat="item in timeFrame track by $index">
+                                     <span ng-bind="item.name"></span>
+                                 </ui-select-choices>
+                             </ui-select>
+                         </div>
+                         <div>
+                             <label>USER TYPE:</label>
+                             <ui-select ng-model="user_type.selected"
+                                        search-enabled="false" class="bank_input selectpicker select_page"
+                                        onkeypress="return false;" ng-disabled="disabled">
+                                 <ui-select-match>
+                                     <span ng-bind="$select.selected.name"></span>
+                                 </ui-select-match>
+                                 <ui-select-choices repeat="item in user_type track by $index">
+                                     <span ng-bind="item.name"></span>
+                                 </ui-select-choices>
+                             </ui-select>
+                         </div>
+                         <div>
+                             <label>BANK:</label>
+                             <ui-select ng-model="banks.selected"
+                                        search-enabled="false" class="bank_input selectpicker select_page"
+                                        onkeypress="return false;" ng-disabled="disabled">
+                                 <ui-select-match>
+                                     <span ng-bind="$select.selected.name"></span>
+                                 </ui-select-match>
+                                 <ui-select-choices repeat="item in banks track by $index">
+                                     <span ng-bind="item.name"></span>
+                                 </ui-select-choices>
+                             </ui-select>
+                         </div>
+                         <div>
+                             <label>LOAN TYPE:</label>
+                             <ui-select ng-model="loan_type.selected"
+                                        search-enabled="false" class="bank_input selectpicker select_page"
+                                        onkeypress="return false;" ng-disabled="disabled">
+                                 <ui-select-match>
+                                     <span ng-bind="$select.selected.name"></span>
+                                 </ui-select-match>
+                                 <ui-select-choices repeat="item in loan_type track by $index">
+                                     <span ng-bind="item.name"></span>
+                                 </ui-select-choices>
+                             </ui-select>
+                         </div>
+                         <div>
+                             <label>LOAN STATUS</label>
+                             <ui-select ng-model="loan_status.selected" class="selectpicker select_page"
+                                        style="width:240px;display:inline-block;">
+                                 <ui-select-match>
+                                     <span ng-bind="$select.selected.label"></span>
+                                 </ui-select-match>
+                                 <ui-select-choices
+                                         repeat="item in loan_status | propsFilter:{label:$select.search} track by $index">
+                                     <span ng-bind="item.label"></span>
+                                 </ui-select-choices>
+                             </ui-select>
+                         </div>
+                         <div>
+                             <label>PROCESSING TIME</label>
+                             <ui-select ng-model="processing_time.selected" class="selectpicker select_page"
+                                        style="width:240px;display:inline-block;" onkeypress="return false;" ng-disabled="disabled">
+                                 <ui-select-match>
+                                     <span ng-bind="$select.selected.name"></span>
+                                 </ui-select-match>
+                                 <ui-select-choices
+                                         repeat="item in processing_time track by $index">
+                                     <span ng-bind="item.name"></span>
+                                 </ui-select-choices>
+                             </ui-select>
+                         </div>
+                         <div>
+                             <label>CHART TYPE</label>
+                             <ui-select ng-model="chart_type.selected" class="selectpicker select_page"
+                                        style="width:240px;display:inline-block;" onkeypress="return false;" ng-disabled="disabled">
+                                 <ui-select-match>
+                                     <span ng-bind="$select.selected.name"></span>
+                                 </ui-select-match>
+                                 <ui-select-choices
+                                         repeat="item in chart_type track by $index">
+                                     <span ng-bind="item.name"></span>
+                                 </ui-select-choices>
+                             </ui-select>
+                         </div>
 
-                        <button type="button" name="button">APPLY</button>
+                         <button type="button" name="button" ng-click="applyFilter()">APPLY</button>
                      </div>
                  </div>
                  <br>
 
-                 <div class="payments_received" ng-controller="lineChartCtrl">
+                <!-- <div class="payments_received" ng-controller="lineChartCtrl">
                      <div class="payments_left">
                          <h4>Payments Received</h4>
                          <div class="clear"></div>
@@ -126,7 +218,7 @@
 
                         <button type="button" name="button">APPLY</button>
                      </div>
-                 </div>
+                 </div>-->
 
                  <!-- <div class="chartl lined_chart">
                     <div class="chart_name">
