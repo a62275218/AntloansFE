@@ -28,7 +28,6 @@
 
                  <div class="tool_top">
                     <h3>Report</h3>
-
                     <div class="data_show">
                         <div class="deal_total">
                           <div class=""><span class='data'>400</span>&nbsp;<span>deals</span></div>
@@ -136,19 +135,24 @@
                                  </ui-select-choices>
                              </ui-select>
                          </div>
-                         <div>
-                             <ui-select multiple tagging="ctrl.tagTransform" ng-model="ctrl.choosenCustomer"
-                                        theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
-                                        on-select="listUser()" style="width:300px;margin-left:170px;height:30px;">
-                                 <ui-select-match placeholder="Type to search or create customer">{{$item.email}}</ui-select-match>
-                                 <ui-select-choices repeat="item in userobj | propsFilter: {first_name: $select.search} | limitTo: ($select.search.length < 1) ? 0 : undefined">
-                                     <strong><div ng-bind-html="item.email | highlight:$select.search"></div></strong>
-                                     <small>
-                                         {{item.first_name}} {{item.last_name}}
-                                     </small>
-                                 </ui-select-choices>
-                             </ui-select>
-                         </div>
+                         <ui-select multiple ng-model="customers.selected" ng-if="filter_by.selected == filter_by[1] && user_type.selected == user_type[1]"
+                                    theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
+                                    style="width:250px;margin-top:5px;">
+                             <ui-select-match placeholder="Type to search customer">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
+                             <ui-select-choices repeat="item in customers | propsFilter: {email: $select.search,first_name: $select.search,last_name: $select.search}">
+                                 <strong><div ng-bind-html="item.first_name +' '+ item.last_name | highlight:$select.search"></div></strong>
+                                 <small>{{item.email}}</small>
+                             </ui-select-choices>
+                         </ui-select>
+                         <ui-select multiple ng-model="brokers.selected" ng-if="filter_by.selected == filter_by[1] && user_type.selected == user_type[2]"
+                                    theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
+                                    style="width:250px;margin-top:5px;">
+                             <ui-select-match placeholder="Type to search customer">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
+                             <ui-select-choices repeat="item in brokers | propsFilter: {email: $select.search,first_name: $select.search,last_name: $select.search}">
+                                 <strong><div ng-bind-html="item.first_name +' '+ item.last_name | highlight:$select.search"></div></strong>
+                                 <small>{{item.email}}</small>
+                             </ui-select-choices>
+                         </ui-select>
                          <div ng-if="filter_by.selected == filter_by[2]">
                              <label>BANK:</label>
                              <ui-select ng-model="banks.selected"
