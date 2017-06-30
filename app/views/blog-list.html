@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>edit blog</title>
+    <title>blog list</title>
 
     <!--my css-->
-    <link rel="stylesheet" href="../styles/blog.css">
+    <link rel="stylesheet" href="../styles/blog-list.css">
 </head>
 
 <body>
@@ -21,14 +21,20 @@
       <div class="width_fix">
 
 
-        <div id="blog_content">
+        <div id="blog_list">
             <h3>Blog</h3>
             <form>
-               <div class="blog_detail">
-                 <label for="" class="blog_title">blog 1</label>
-                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-               </div>
+               <ol class="blog_list">
+                   <li class="post" ng-click="toBlog(1)">
+                       <label class="blog_title" for=""><strong>blog 1</strong></label>
+                   </li>
+                   <li class="post">
+                       <label class="blog_title" for=""><strong>blog 2</strong></label>
+                   </li>
+                   <li class="post">
+                       <label class="blog_title" for=""><strong>blog 3</strong></label>
+                   </li>
+               </ol>
 
                <div class="blog_edit">
                    <textarea ui-tinymce="tinymceOptions" ng-model="blog"></textarea>
