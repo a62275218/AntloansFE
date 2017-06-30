@@ -126,17 +126,15 @@ li.report-bar i, li.report-bar span.bar_name{
   background-color: #F5F7F8;
   border: 5px solid #E6EAED;
   height: 600px;
-  overflow: hidden;
 }
 
 .payments_left{
-  width: 80%;
+  width: 75%;
   padding: 20px;
   height: 100%;
   box-sizing: border-box;
   display: inline-block;
   background-color: white;
-  overflow: hidden;
 }
 
 .payments_left h4, .payments_left label{
@@ -171,13 +169,13 @@ li.report-bar i, li.report-bar span.bar_name{
 }
 
 .payments_right{
-  width: 19%;
+  width: 24%;
   display: inline-block;
   background-color: #F5F7F8;
   height: 100%;
   box-sizing: border-box;
   float: right;
-  padding: 20px;
+  padding-top: 20px;
 }
 
 .payments_right h4{
@@ -205,6 +203,11 @@ li.report-bar i, li.report-bar span.bar_name{
   outline: none;
 }
 
+.selection{
+  width:120px;
+}
+
+
 .chartl{
   margin-top: 30px;
   width: 32%;
@@ -215,7 +218,6 @@ li.report-bar i, li.report-bar span.bar_name{
   float: left;
   margin-right: 1%;
   border: 2px solid #E7ECEE;
-  overflow: hidden;
 }
 
 .chart_name{
