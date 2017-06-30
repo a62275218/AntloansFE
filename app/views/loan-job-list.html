@@ -104,7 +104,7 @@
                         <label>BANK:</label>
                         <ui-select ng-model="banks.selected" on-select="filterBankId(banks.selected)"
                                    search-enabled="false" class="bank_input selectpicker select_page"
-                                   onkeypress="return false;" ng-disabled="disabled">
+                                   onkeypress="return false;" ng-disabled="disabled" style="width:500px;">
                             <ui-select-match>
                                 <span ng-bind="$select.selected.name"></span>
                             </ui-select-match>

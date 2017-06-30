@@ -6,16 +6,7 @@ html, body, #main_content{
 input.disable{
   background-color: white;
 }
-/*.red{
-  background-color:red;
-}
 
-.orange{
-  background-color:orange;
-}
-.green{
-  background-color:green;
-}*/
 /*=========fix the width of div.width_fix inside div.right_part==============*/
 .width_fix{
   max-width: 1200px;
@@ -30,6 +21,11 @@ input.disable{
 *{
   outline:none;
 }
+
+.select_page>ul.dropdown-menu{
+  min-width: inherit;
+}
+
 a:hover,a:visited,a:link,a:active{
   text-decoration:none;
 

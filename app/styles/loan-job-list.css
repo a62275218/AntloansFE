@@ -85,6 +85,10 @@ li.job-bar i, li.job-bar span.bar_name{
   float: right !important;
 }
 
+.select_page>ul.dropdown-menu{
+  min-width: inherit;
+}
+
 .page {
   width: 200px;
   display: inline-block;
