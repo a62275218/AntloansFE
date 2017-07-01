@@ -1,12 +1,61 @@
-antloans.controller('blogListCtrl',['$scope', '$state',
-    function($scope, $state){
+antloans.controller('blogListCtrl',['$scope', '$state', '$http', 'API_BASE','OAuthService', 'paginationService',
+    function($scope, $state, $http, API_BASE, OAuthService, paginationService){
       var vm = this;
-      $scope.blog='';
 
       // go to indiviual blog
       $scope.toBlog = function (id) {
           $state.go('blog', {blogId: id});
       };
+
+      /*options of page amount*/
+      $scope.pageAmount =[
+          {"name":10},
+          {"name":20},
+          {"name":30}
+      ];
+
+      /*default page amount*/
+      $scope.pageAmount.selected = $scope.pageAmount[0];
+
+      /*go to next page*/
+      $scope.nextPage = function(){
+          $scope.currentPage++;
+          if($scope.currentPage>$scope.totalPage-1){
+              $scope.currentPage = $scope.totalPage-1
+          }
+      };
+      /*go to previous page*/
+      $scope.prevPage = function(){
+          $scope.currentPage--;
+          if($scope.currentPage < 0){
+              $scope.currentPage = 0
+          }
+      };
+
+      /*go to first page*/
+      $scope.returnToFirst = function(){
+          $scope.currentPage = 0;
+          // vm.getPaginatedUsers();
+      };
+
+
+
+      // get all posts/blogs
+      $scope.getAllBlogs = function(){
+        $http.get(API_BASE + '/posts',
+            {
+                headers: {
+                    'Authorization': 'Bearer' + OAuthService.getToken()
+                }
+            }
+        ).then(function(response){
+           $scope.blogs = response.data.data;
+           $scope.totalPage = paginationService.numberOfPages($scope.blogs.length,$scope.pageAmount.selected.name);
+        })
+      }
+      $scope.getAllBlogs();
+
+
 
       //customize input
       $scope.tinymceOptions = {

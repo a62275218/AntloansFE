@@ -8,6 +8,9 @@ li.blog-bar i, li.blog-bar span.bar_name{
 }
 
 /*========================*/
+.clear{
+  clear: both;
+}
 
 #blog_list{
   margin-top: 40px;
@@ -19,21 +22,39 @@ li.blog-bar i, li.blog-bar span.bar_name{
   vertical-align: middle;
 }
 
-#blog_list form{
+/*#blog_list form{
   padding-top: 30px;
-}
-
-/*#blog_list label{
-  width: 150px;
-  text-align: right;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-
-#blog_list input{
-  width: 220px;
-  height: 33px;
 }*/
+
+#blog_list .page_tool{
+  margin-top: 20px;
+}
+
+#blog_list .select_page{
+  width:60px !important;
+  display: inline-block !important;
+  float: right !important;
+}
+
+#blog_list .page {
+  width: 200px;
+  display: inline-block;
+  float: right;
+  height: 20px;
+}
+
+#blog_list .pager{
+  margin: 0;
+}
+
+#blog_list .pager li a{
+  color: #4F4F4F;
+}
+
+#blog_list hr{
+  border-top: 2px solid rgb(216,231,246);
+  margin: 10px;
+}
 
 #blog_list .blog_list{
   padding: 20px;
