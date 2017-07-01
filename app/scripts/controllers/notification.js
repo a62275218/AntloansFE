@@ -16,16 +16,22 @@ antloans.controller('notificationListCtrl', ['$scope', '$state', 'notificationSe
                 console.log(e)
             });
 
-        vm.getAllNotifications = function () {
-            notificationService.getNotification()
+        vm.getRecentNotifications = function () {
+            notificationService.getRecentNotification()
                 .then(function (response) {
                     $scope.alert = response.data;
-                    $scope.totalPage = paginationService.numberOfPages($scope.alert.notifications, $scope.pageAmount.selected.name);
-                }, function (e) {
-                    console.log(e)
-                });
+                }, function (e) {});
         };
 
+        vm.getAllNotifications = function(){
+            notificationService.getNotification()
+                .then(function(response){
+                    $scope.alerts = response.data.notifications;
+                    $scope.totalPage = paginationService.numberOfPages($scope.alerts.length, $scope.pageAmount.selected.name);
+                },function(e){})
+        };
+
+        vm.getRecentNotifications();
         vm.getAllNotifications();
         /*go to next page*/
         $scope.nextPage = function () {

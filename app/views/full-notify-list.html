@@ -68,17 +68,17 @@
                         </thead>
                         <tbody>
                         <!-- notify list  -->
-                        <tr ng-repeat="item in alert.notifications
+                        <tr ng-repeat="item in alerts
                             | filter:searchInput
                             | startFrom:currentPage * pageAmount.selected.name
                             | limitTo:pageAmount.selected.name
                             track by $index"
-                            ng-click="toNote(item.notification_id)">
+                            ng-click="toNote(item.notification_id)" ng-class="{'unread':item.read == false}">
                             <td><img ng-if="item.sender_avatar" ng-src="{{item.sender_avatar}}" alt="">
                                 <img ng-if="!item.sender_avatar" ng-src="{{default_img_url}}" alt="">
                                 {{item.sender_name}}
                             </td>
-                            <td>10:30am</td>
+                            <td>{{item.time|date:'MM/dd/yyyy h:mma'}}</td>
                             <td>{{item.message}}</td>
                         </tr>
                         <!-- end  ==================== -->
