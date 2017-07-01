@@ -23,16 +23,36 @@
 
         <div id="blog_list">
             <h3>Blog</h3>
+            
+            <div class="page_tool">
+              <div class="page">
+                  <ul class="pager">
+                      <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                      {{currentPage+1}}/{{totalPage}}
+                      <li ><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                      </li>
+                  </ul>
+              </div>
+               <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
+                          onkeypress="return false;" ng-disabled="disabled" style="z-index:1;">
+                   <ui-select-match placeholder="Select the number of pages">
+                       <span ng-bind="$select.selected.name"></span>
+                   </ui-select-match>
+                   <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
+                                      style="width:60px;" ng-click="returnToFirst()">
+                       <span ng-bind="item.name" style="width:60px;"></span>
+                   </ui-select-choices>
+               </ui-select>
+            </div>
+
+
             <form>
                <ol class="blog_list">
-                   <li class="post" ng-click="toBlog(1)">
-                       <label class="blog_title" for=""><strong>blog 1</strong></label>
-                   </li>
-                   <li class="post">
-                       <label class="blog_title" for=""><strong>blog 2</strong></label>
-                   </li>
-                   <li class="post">
-                       <label class="blog_title" for=""><strong>blog 3</strong></label>
+                   <li class="post" ng-repeat="blog in blogs | startFrom:currentPage * pageAmount.selected.name
+                                                             | limitTo:pageAmount.selected.name track by $index" ng-click="toBlog(blog.id)">
+                       <label class="blog_title" for=""><strong>"{{blog.postTitle}}"</strong></label>
+                       <span>post by {{blog.postAuthor.profile.firstName}} {{blog.postAuthor.profile.lastName}}</span>
+                       <span> at {{blog.postDate | date: "HH:mm:ss dd/MM/yyyy"}}</span>
                    </li>
                </ol>
 
