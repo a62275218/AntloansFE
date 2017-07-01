@@ -77,7 +77,6 @@ antloans.controller('notificationListCtrl', ['$scope', '$state', 'notificationSe
                     $(obj.target).addClass('fa-caret-up');
                     $scope.desc = false;
                 }
-                ;
                 $scope.sort = sort;
                 $(obj.target).parent().addClass('selected');
             } else {
