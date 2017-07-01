@@ -60,11 +60,11 @@
 
               <div class="blog_title">
                    <hr>
-                   <label for=""><strong>Title: &nbsp;</strong></label><input type="text" name="" value="">
+                   <label for=""><strong>Title: &nbsp;</strong></label><input type="text" ng-model="blog_title">
               </div>
                <div class="blog_edit">
-                   <textarea ui-tinymce="tinymceOptions" ng-model="blog"></textarea>
-                   <button id="subBtn" type="submit" name="button">SUBMIT</button>
+                   <textarea ui-tinymce="tinymceOptions" ng-model="blog" ng-model="blog_content" ng-bind-html="blog_content"></textarea>
+                   <button id="subBtn" name="button" ng-click="addBlog()">SUBMIT</button>
                    <button id="resetBtn" type="reset" name="button">RESET</button>
                    <div class="clear"></div>
                </div>
