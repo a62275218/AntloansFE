@@ -15,8 +15,8 @@ antloans.factory('reportService',['$http','API_BASE','OAuthService',
                     }
                 )
             },
-            getReports:function(start_date,end_date,step,type){
-                return $http.get(API_BASE + '/reports',
+            getReports:function(start_date,end_date,type){
+                return $http.get(API_BASE + '/reports1',
                     {
                         headers: {
                             'Authorization': 'Bearer' + OAuthService.getToken()
@@ -24,7 +24,6 @@ antloans.factory('reportService',['$http','API_BASE','OAuthService',
                         params:{
                             startDateTime:start_date,
                             endDateTime:end_date,
-                            step:step,
                             type:type
                         }
                     }

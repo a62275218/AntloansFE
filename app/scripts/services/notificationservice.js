@@ -9,6 +9,24 @@ antloans.factory('notificationService',['$http','API_BASE','OAuthService',
                         'Authorization':'Bearer'+OAuthService.getToken()
                     }
                 })
+            },
+            getRecentNotification:function(){
+                return $http({
+                    method:'GET',
+                    url:API_BASE+"/recent_notifications",
+                    headers:{
+                        'Authorization':'Bearer'+OAuthService.getToken()
+                    }
+                })
+            },
+            getNotificationDetail:function(id){
+                return $http({
+                    method:'GET',
+                    url:API_BASE+"/notifications/"+id,
+                    headers:{
+                        'Authorization':'Bearer'+OAuthService.getToken()
+                    }
+                })
             }
         }
 }]);
