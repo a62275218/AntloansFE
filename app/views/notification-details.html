@@ -30,7 +30,7 @@
                     <span>{{notification.sender_name}}</span>
                  </div>
                  <div class="note_time">
-                     10:30am
+                     {{notification.time|date:'MM/dd/yyyy h:mma'}}
                  </div>
                  <div class="note_message">
                     {{notification.message}}

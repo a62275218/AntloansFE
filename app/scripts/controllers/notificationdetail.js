@@ -2,14 +2,9 @@ antloans.controller('notificationDetailCtrl', ['$scope', '$state', 'notification
     function ($scope, $state, notificationService, UserService, $stateParams) {
 
         //detailed user info
-        notificationService.getNotification()
+        notificationService.getNotificationDetail($stateParams.notificationId)
             .then(function (response) {
-                $scope.alert = response.data;
-                angular.forEach($scope.alert.notifications, function (v, k) {
-                    if (v.notification_id == $stateParams.notificationId) {
-                        $scope.notification = v;
-                    }
-                });
+                $scope.notification = response.data.notification;
             }, function (e) {
                 console.log(e)
             });

@@ -345,6 +345,10 @@ a:hover,a:visited,a:link,a:active{
   width: 87%;
 }
 
+.unread{
+  font-weight:bold;
+}
+
 body input, body button{
   outline: none;
 }
