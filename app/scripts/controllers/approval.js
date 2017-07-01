@@ -19,8 +19,6 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 .then(function (response) {
                     $scope.job = response.data.data;
                     $scope.status = $scope.job.deal_status_log;
-                    console.log("==================");
-                    console.log($scope.job);
                     if ($scope.job.admin) {
                         $scope.selection[0] = 'settled';
                     }
