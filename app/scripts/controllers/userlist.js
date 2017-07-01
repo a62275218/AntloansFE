@@ -50,7 +50,7 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService','
         /*load paginated data*/
         vm.getPaginatedUsers();
         /*set up total page*/
-        $scope.totalPage = vm.getPaginatedUsers();
+        // $scope.totalPage = vm.getPaginatedUsers();
         //$watch search to update pagination
         $scope.$watchGroup(['searchInput','sort'],function(){
             $scope.currentPage = 0;
@@ -94,6 +94,6 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService','
               }
               $scope.sort = sort;
               $(obj.target).addClass('selected');
-            }        
+            }
         };
 }]);

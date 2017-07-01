@@ -80,7 +80,7 @@
                         <h5>{{total.paypal|currency}}</h5>
                         <img width="127px" height="27px;" src="./images/data-bar2.png" alt="">
                         <p>PayPal Payments</p>-->
-                         <div>
+                         <div class="time_frame">
                              <label>TIME FRAME:</label>
                              <ui-select ng-model="timeFrame.selected"
                                         search-enabled="false" class="selection"
@@ -94,11 +94,11 @@
                              </ui-select>
                          </div>
                          <div class="start_date">
-                             <label>FROM:</label>
+                             <label>FROM:</label><br>
                              <input class="btn btn-default" ui-date ng-model="startDate" style="width:110px;margin-bottom:5px;margin-top:5px">
                          </div>
                          <div class="close_date">
-                             <label>TO:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             <label>TO:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
                              <input class="btn btn-default" ui-date ng-model="endDate" style="width:110px">
                          </div>
                          <span><small>*default start: 1st Jan of this year<br>default end: today</small></span>

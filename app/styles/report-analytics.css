@@ -125,16 +125,16 @@ li.report-bar i, li.report-bar span.bar_name{
   width: 100%;
   background-color: #F5F7F8;
   border: 5px solid #E6EAED;
-  height: 600px;
+  height: 530px;
 }
 
 .payments_left{
   width: 75%;
-  padding: 20px;
   height: 100%;
   box-sizing: border-box;
   display: inline-block;
   background-color: white;
+  overflow: hidden;
 }
 
 .payments_left h4, .payments_left label{
@@ -148,7 +148,7 @@ li.report-bar i, li.report-bar span.bar_name{
   margin: 0;
 }
 
-.payments_left label{
+/*.payments_left label{
   float: right;
   margin-left: 20px;
 }
@@ -166,7 +166,7 @@ li.report-bar i, li.report-bar span.bar_name{
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-}
+}*/
 
 .payments_right{
   width: 24%;
@@ -176,9 +176,14 @@ li.report-bar i, li.report-bar span.bar_name{
   box-sizing: border-box;
   float: right;
   padding-top: 20px;
+  padding-left: 20px;
 }
 
-.payments_right h4{
+.payments_right div{
+  margin-bottom: 5px;
+}
+
+/*.payments_right h4{
   color: #1A9F92;
   font-size: 1.5em;
   margin: 0;
@@ -190,7 +195,7 @@ li.report-bar i, li.report-bar span.bar_name{
 
 .payments_right p{
   color: #ADADAD;
-}
+}*/
 
 .payments_right button{
   margin-top: 20px;
@@ -207,7 +212,7 @@ li.report-bar i, li.report-bar span.bar_name{
   width:120px;
 }
 
-
+/*
 .chartl{
   margin-top: 30px;
   width: 32%;
@@ -262,7 +267,7 @@ li.report-bar i, li.report-bar span.bar_name{
   position:absolute;
   top:-5vh;
   left:1.5vw;
-}
+}*/
 
 /* sales list css*/
 #sales_list{

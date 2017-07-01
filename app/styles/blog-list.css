@@ -61,6 +61,10 @@ li.blog-bar i, li.blog-bar span.bar_name{
   cursor: pointer;
 }
 
+#blog_list .blog_title{
+  text-align: center;
+}
+
 
 #blog_list .blog_edit{
   padding: 10px;

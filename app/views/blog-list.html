@@ -38,7 +38,7 @@
                    <ui-select-match placeholder="Select the number of pages">
                        <span ng-bind="$select.selected.name"></span>
                    </ui-select-match>
-                   <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
+                   <ui-select-choices repeat="item in pageAmount track by $index"
                                       style="width:60px;" ng-click="returnToFirst()">
                        <span ng-bind="item.name" style="width:60px;"></span>
                    </ui-select-choices>
@@ -57,6 +57,11 @@
                    </li>
                </ol>
 
+
+              <div class="blog_title">
+                   <hr>
+                   <label for=""><strong>Title: &nbsp;</strong></label><input type="text" name="" value="">
+              </div>
                <div class="blog_edit">
                    <textarea ui-tinymce="tinymceOptions" ng-model="blog"></textarea>
                    <button id="subBtn" type="submit" name="button">SUBMIT</button>

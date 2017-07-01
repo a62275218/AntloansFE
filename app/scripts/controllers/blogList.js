@@ -1,6 +1,7 @@
 antloans.controller('blogListCtrl',['$scope', '$state', '$http', 'API_BASE','OAuthService', 'paginationService',
     function($scope, $state, $http, API_BASE, OAuthService, paginationService){
       var vm = this;
+      $scope.currentPage=0;
 
       // go to indiviual blog
       $scope.toBlog = function (id) {
@@ -35,10 +36,7 @@ antloans.controller('blogListCtrl',['$scope', '$state', '$http', 'API_BASE','OAu
       /*go to first page*/
       $scope.returnToFirst = function(){
           $scope.currentPage = 0;
-          // vm.getPaginatedUsers();
       };
-
-
 
       // get all posts/blogs
       $scope.getAllBlogs = function(){
@@ -51,7 +49,10 @@ antloans.controller('blogListCtrl',['$scope', '$state', '$http', 'API_BASE','OAu
         ).then(function(response){
            $scope.blogs = response.data.data;
            $scope.totalPage = paginationService.numberOfPages($scope.blogs.length,$scope.pageAmount.selected.name);
-        })
+        },
+        function (e) {
+            console.log(e)
+        });
       }
       $scope.getAllBlogs();
 

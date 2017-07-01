@@ -64,6 +64,17 @@ li.job-bar i, li.job-bar span.bar_name{
   width: 100%;
 }
 
+.approval_up button.saveBtn00 {
+    position: absolute;
+    right: 10px;
+    top: 180px;
+    background-color: #3D9EDC;
+    border: 0;
+    color: white;
+    text-align: center;
+    width:50px;
+}
+
 .approval_up button.saveBtn01 {
     position: absolute;
     right: 10px;
@@ -81,9 +92,15 @@ li.job-bar i, li.job-bar span.bar_name{
   top: 10px;
   color: #717171;
   text-align: center;
+  outline: none;
 }
 
-#jobEditBtn{
+#dealEditBtn{
+  position: absolute;
+  right: 10px;
+  top: 230px;
+  color: #717171;
+  text-align: center;
   outline: none;
 }
 

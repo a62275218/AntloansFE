@@ -1,7 +1,6 @@
 antloans.controller('blogCtrl',['$scope',
     function($scope){
       var vm = this;
-      $scope.blog='wawawawawawa';
 
       //customize input
       $scope.tinymceOptions = {
