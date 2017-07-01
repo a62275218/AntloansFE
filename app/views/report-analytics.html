@@ -109,6 +109,7 @@
                              <label>TO:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                              <input class="btn btn-default" ui-date ng-model="endDate" style="width:110px">
                          </div>
+                         <span><small>*default start: 1st Jan of this year<br>default end: today</small></span>
                          <div>
                              <label>FILTER BY:</label>
                              <ui-select ng-model="filter_by.selected"
@@ -135,7 +136,7 @@
                                  </ui-select-choices>
                              </ui-select>
                          </div>
-                         <ui-select multiple ng-model="customers.selected" ng-if="filter_by.selected == filter_by[1] && user_type.selected == user_type[1]"
+                         <!--<ui-select multiple ng-model="customers.selected" ng-if="filter_by.selected == filter_by[1] && user_type.selected == user_type[1]"
                                     theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
                                     style="width:250px;margin-top:5px;">
                              <ui-select-match placeholder="Type to search customer">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
@@ -152,8 +153,8 @@
                                  <strong><div ng-bind-html="item.first_name +' '+ item.last_name | highlight:$select.search"></div></strong>
                                  <small>{{item.email}}</small>
                              </ui-select-choices>
-                         </ui-select>
-                         <div ng-if="filter_by.selected == filter_by[2]">
+                         </ui-select>-->
+                         <!--<div ng-if="filter_by.selected == filter_by[2]">
                              <label>BANK:</label>
                              <ui-select ng-model="banks.selected"
                                         search-enabled="false" class="selection"
@@ -165,7 +166,7 @@
                                      <span ng-bind="item.name"></span>
                                  </ui-select-choices>
                              </ui-select>
-                         </div>
+                         </div>-->
                          <div ng-if="filter_by.selected == filter_by[3]">
                              <label>LOAN TYPE:</label>
                              <ui-select ng-model="loan_type.selected"

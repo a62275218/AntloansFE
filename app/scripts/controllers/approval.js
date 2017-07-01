@@ -13,7 +13,6 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 }
             });
         };
-        pageJson =[{},{}];
         //  get the status value of current deal
         vm.getJob = function () {
             jobService.getaJob($stateParams.jobId)
@@ -474,8 +473,4 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         vm.getBanks();
         vm.getProperty();
 
-        //print functionality
-        //json data
-        console.log("=========111111==========");
-        console.log(pageJson);
     }]);
