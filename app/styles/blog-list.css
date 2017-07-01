@@ -8,6 +8,9 @@ li.blog-bar i, li.blog-bar span.bar_name{
 }
 
 /*========================*/
+.clear{
+  clear: both;
+}
 
 #blog_list{
   margin-top: 40px;
@@ -19,13 +22,12 @@ li.blog-bar i, li.blog-bar span.bar_name{
   vertical-align: middle;
 }
 
-#blog_list form{
+/*#blog_list form{
   padding-top: 30px;
-}
+}*/
 
 #blog_list .page_tool{
   margin-top: 20px;
-  margin-right: 50px;
 }
 
 #blog_list .select_page{
@@ -47,6 +49,11 @@ li.blog-bar i, li.blog-bar span.bar_name{
 
 #blog_list .pager li a{
   color: #4F4F4F;
+}
+
+#blog_list hr{
+  border-top: 2px solid rgb(216,231,246);
+  margin: 10px;
 }
 
 #blog_list .blog_list{

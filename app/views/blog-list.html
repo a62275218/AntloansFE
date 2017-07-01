@@ -23,7 +23,7 @@
 
         <div id="blog_list">
             <h3>Blog</h3>
-            
+
             <div class="page_tool">
               <div class="page">
                   <ul class="pager">
@@ -43,9 +43,10 @@
                        <span ng-bind="item.name" style="width:60px;"></span>
                    </ui-select-choices>
                </ui-select>
+              <div class="clear"></div>
             </div>
 
-
+            <hr>
             <form>
                <ol class="blog_list">
                    <li class="post" ng-repeat="blog in blogs | startFrom:currentPage * pageAmount.selected.name

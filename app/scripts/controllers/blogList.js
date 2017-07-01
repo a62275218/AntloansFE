@@ -57,22 +57,6 @@ antloans.controller('blogListCtrl',['$scope', '$state', '$http', 'API_BASE','OAu
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       //customize input
       $scope.tinymceOptions = {
           selector: '.comment_input',
