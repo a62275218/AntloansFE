@@ -18,7 +18,7 @@
 
     <div class="notify">
       <div class="notes_list">
-
+<!--  -->
          <div class="note" ng-repeat="item in alert.notifications | limitTo:3" ng-click="toNote(item.notification_id)" ng-class="{'unread':item.read == false}">
             <div class="note_img">
                 <img ng-if="item.sender_avatar" ng-src="{{item.sender_avatar}}" alt="">
