@@ -18,7 +18,79 @@
     </aside>
 
     <div class="right_part">
+      <section class='tool_bar'>
+        <div class="width_fix" style="position:relative">
+
+         <div class="tool_top">
+            <h3>Banks Summary</h3>
+            <button type="button" name="button" ui-sref="create-blog"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>&nbsp; Add Bank Summary</button>
+         </div>
+
+         <div class='tool_bar_above'>
+            <div class='search_input'>
+              <div class="input-group margin-bottom-sm">
+                <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                  <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
+              </div>
+            </div>
+            <div class="page">
+                <ul class="pager">
+                    <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                    {{currentPage+1}}/{{totalPage}}
+                    <li ><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+            </div>
+             <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
+                        onkeypress="return false;" ng-disabled="disabled" style="z-index:1;">
+                 <ui-select-match placeholder="Select the number of pages">
+                     <span ng-bind="$select.selected.name"></span>
+                 </ui-select-match>
+                 <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
+                                    style="width:60px;" ng-click="returnToFirst()">
+                     <span ng-bind="item.name" style="width:60px;"></span>
+                 </ui-select-choices>
+             </ui-select>
+          </div>
+        </div>
+      </section>
+
       <div class="width_fix">
+      <div id="blog_list">
+         <div class='blog_list'>
+            <table class='"table table-striped"'>
+               <thead>
+               <tr><th style="width:33%" ng-click="sortObj('first_name',$event)">TITLE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                   <th style="width:33%" ng-click="sortObj('role',$event)">POST AUTHOR &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                   <th style="width:33%" ng-click="sortObj('mobile',$event)">POST DATE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+               </tr>
+               </thead>
+               <tbody>
+                 <tr ng-repeat="blog in blogs
+                    | orderBy:sort:desc
+                    | filter:searchInput
+                    | startFrom:currentPage * pageAmount.selected.name
+                    | limitTo:pageAmount.selected.name
+                    track by $index"
+                    ng-click="toBlog(blog.id)">
+                   <td>{{blog.postTitle}}</td>
+                   <td>{{blog.postAuthor.profile.firstName}} {{blog.postAuthor.profile.lastName}}</td>
+                   <td>{{blog.postDate | date: "HH:mm:ss dd/MM/yyyy"}}</td>
+                 </tr>
+               </tbody>
+            </table>
+            <div class="page_num">
+              <span>Page: {{currentPage+1}}/{{totalPage}}</span>
+            </div>
+         </div>
+      </div>
+
+    </div>
+
+
+
+
+      <!-- <div class="width_fix">
 
 
         <div id="blog_list">
@@ -71,7 +143,7 @@
             </form>
         </div>
 
-      </div>
+      </div> -->
     </div>
 
 </div>

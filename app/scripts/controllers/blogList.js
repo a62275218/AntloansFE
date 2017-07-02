@@ -36,6 +36,7 @@ antloans.controller('blogListCtrl',['$scope', '$state', '$http', 'API_BASE','OAu
       /*go to first page*/
       $scope.returnToFirst = function(){
           $scope.currentPage = 0;
+          $scope.getAllBlogs();
       };
 
       // get all posts/blogs
@@ -74,30 +75,5 @@ antloans.controller('blogListCtrl',['$scope', '$state', '$http', 'API_BASE','OAu
               '//www.tinymce.com/css/codepen.min.css']
       }
 
-      // create a new blog
-      $scope.addBlog = function () {
-          if($scope.blog_content === '' || $scope.blog_title === ''){
-              swal("Oops...", "Please input title and content", "error");
-          }else {
-                  $http({
-                      method:'POST',
-                      url:API_BASE+"/posts",
-                      headers:{
-                          'Authorization':'Bearer'+ OAuthService.getToken()
-                      },
-                      data:{post_content: $scope.blog_content,
-                            post_title: $scope.blog_title}
-                  }).then(function (response) {
-                      if (response.status == 200) {
-                          $scope.getAllBlogs();
-                          $scope.blog_content="";
-                          $scope.blog_title="";
-                          swal("Success!", "Blog added", "success");
-                      }
-                  }, function (e) {
-                      swal("Oops...", "Something went wrong! Update failed", "error");
-                  })
-          }
-      };
 
 }]);
