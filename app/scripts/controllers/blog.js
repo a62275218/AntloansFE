@@ -1,5 +1,10 @@
 antloans.controller('blogCtrl',['$scope','$state','UserService','$stateParams','API_BASE','$http','OAuthService',
     function($scope,$state,UserService,$stateParams,API_BASE,$http,OAuthService){
+        // go to indiviual blog
+        $scope.toBlog = function (id) {
+            $state.go('blog', {blogId: id});
+        };
+
         $scope.getABlog = function(id){
           $http({
               method: 'GET',
@@ -38,38 +43,12 @@ antloans.controller('blogCtrl',['$scope','$state','UserService','$stateParams','
                 $("#blog_content label input").addClass('disable');
                 $("#blog_content p.blog_show").show();
                 $("#blog_content div.blog_edit").hide();
-                // $scope.getABlog(id);
                 swal("Success!", "Blog saved", "success");
             }
           },function(e){
             swal("Oops...", "Something went wrong! Update failed", "error");
           })
         }
-
-
-
-
-
-        // $scope.edit = function(){
-        //     $('.personal_detail input').removeAttr('disabled').removeClass('disable');
-        // };
-        // $scope.save = function(){
-        //     $('.personal_detail input').attr('disabled');
-        //     $('.personal_detail input').addClass('disable');
-        //     UserService.updateUser($scope.user.user_id,{
-        //         firstName:$scope.user.first_name,
-        //         lastName:$scope.user.last_name,
-        //         email:$scope.user.email,
-        //         phone:$scope.user.phone,
-        //         mobile:$scope.user.mobile,
-        //         preferred_time:$scope.user.preferred_time,
-        //         preferred_method:$scope.user.preferred_method
-        //     }).then(function(){
-        //         swal("Success!", "User uploaded", "success")
-        //     },function(e){
-        //         swal("Oops...", "Something went wrong! Update failed", "error");
-        //     })
-        // }
 
         //customize input
         $scope.tinymceOptions = {
