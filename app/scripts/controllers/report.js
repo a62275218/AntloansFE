@@ -1,5 +1,5 @@
-antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','reportService',
-    function ($scope, BankService,UserService,reportService) {
+antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','reportService','jobService',
+    function ($scope, BankService,UserService,reportService,jobService) {
     var vm = this;
 
         /*google chart api*/
@@ -34,7 +34,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
 
         //get all customers and brokers
         $scope.brokers = [];
-        $scope.customers = [];
+        $scope.admins = [];
         vm.getUsersByType = function (target,type) {
             UserService.getAllUsers()
                 .then(function (response) {
@@ -47,7 +47,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
                 })
         };
         vm.getUsersByType($scope.brokers,'broker');
-        vm.getUsersByType($scope.customers,'customer');
+        vm.getUsersByType($scope.admins,'admin');
 
         /*set up filter properties*/
         $scope.timeFrame = [
@@ -62,89 +62,32 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
             {"name": "Time"},
             {"name": "User Type"},
             {"name": "Bank"},
-            {"name": "Loan Type"},
-            {"name": "Loan Status"},
-            {"name": "Processing Time"}
+            {"name": "Loan"}
         ];
         $scope.filter_by.selected = $scope.filter_by[0];
 
         $scope.user_type = [
-            {"name": "All"},
-            {"name": "File Owner"},
+            {"name": "Admin"},
             {"name": "Broker"}
         ];
         $scope.user_type.selected = $scope.user_type[0];
 
-        $scope.loan_type = [
-            {"name": "All"},
-            {"name": "Investment"},
-            {"name": "Owner Occupied"}
-        ];
-        $scope.loan_type.selected = $scope.loan_type[0];
+        //get all loan properties
+        jobService.getJobProperty()
+            .then(function(response){
+                $scope.loan_type = response.data.data.loan_type;
+                $scope.loan_type.shift();
+                $scope.loan_type.unshift({"label": "All","value":""});
+                $scope.loan_type.selected = $scope.loan_type[0];
+                console.log($scope.loan_type);
+                $scope.loan_status = response.data.data.deal_status;
+                $scope.loan_status.shift();
+                $scope.loan_status.unshift({"label": "All","value":""});
+                $scope.loan_status.selected = $scope.loan_type[0];
+                console.log($scope.loan_status);
+            },function(e){});
 
-        $scope.loan_status =
-            [
-                {
-                    value: 0,
-                    label: 'All'
-                },
-                {
-                    value: 1,
-                    label: 'Interview conducted'
-                },
-                {
-                    value: 2,
-                    label: 'Document collected'
-                },
-                {
-                    value: 3,
-                    label: 'Application submitted'
-                },
-                {
-                    value: 4,
-                    label: 'Conditional approval'
-                },
-                {
-                    value: 5,
-                    label: 'Valuation ordered '
-                },
-                {
-                    value: 6,
-                    label: 'Unconditional approval '
-                },
-                {
-                    value: 7,
-                    label: 'Docs issued'
-                },
-                {
-                    value: 8,
-                    label: 'Signed docs returned'
-                },
-                {
-                    value: 9,
-                    label: 'Ready to book'
-                },
-                {
-                    value: 10,
-                    label: 'Settled'
-                },
-                {
-                    value: 11,
-                    label: 'One month post settlement confirmation'
-                }
-            ];
-        $scope.loan_status.selected = $scope.loan_status[0];
-
-        $scope.processing_time = [
-            {"name":"All"},
-            {"name":"30 days"},
-            {"name":"45 days"},
-            {"name":"60 days"},
-            {"name":"90 days"},
-            {"name":"6 months"},
-            {"name":"Over 12 months"}
-        ];
-        $scope.processing_time.selected = $scope.processing_time[0];
+        $scope.processing_time = 10;
 
         $scope.chart_type = [
             {"name":"Bar chart"},
@@ -161,7 +104,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
         var today = new Date();
         $scope.start_time = Date.UTC(today.getFullYear(),0,1);
         $scope.end_time = Date.UTC(today.getFullYear(),today.getUTCMonth(),today.getUTCDate());
-        $scope.step = $scope.getDaysInOneMonth(today.getFullYear(),today.getUTCMonth()+1);
+        $scope.step = 30;
         $scope.transferMonth = function(timestamp){
             var date = new Date(timestamp);
             switch(date.getMonth()){
@@ -205,7 +148,6 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
         };
         $scope.transferYear = function(timestamp) {
             var date = new Date(timestamp);
-            console.log(date.getFullYear())
             return date.getFullYear().toString();
         };
         /*$scope.pushData = function(target,obj,attr,index){
@@ -218,8 +160,8 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
                 $scope.data = response.data;
                 $scope.Chart.data.push(['Month','Loan Amount', 'Deal Number']);
                 for(var i = 0; i< 12; i++){
-                    if($scope.data[i]) {
-                        $scope.Chart.data.push([$scope.transferMonth(($scope.data[i].start + $scope.data[i].end)/2),$scope.data[i].loan_amount,$scope.data[i].deal_numbers]);
+                    if($scope.data.content[i]) {
+                        $scope.Chart.data.push([$scope.transferMonth(($scope.data.content[i].start + $scope.data.content[i].end)/2),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
                     }else{
                     }
                 }
@@ -232,8 +174,8 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
                         name = v.first_name+ ' '+v.last_name;
                     }
                 })
-            }else if(type == 'customer'){
-                angular.forEach($scope.customers,function(v,k){
+            }else if(type == 'admin'){
+                angular.forEach($scope.admins,function(v,k){
                     if(v.user_id == id){
                         name = v.first_name+ ' '+v.last_name;
                     }
@@ -259,13 +201,13 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
             }
             //user type
             if($scope.filter_by.selected.name == 'User Type'){
-                if($scope.user_type.selected.name == 'File Owner'){
-                    $scope.Chart.data.push(['File Owner', 'Loan Amount', 'Deal Number']);
-                    reportService.getReports($scope.start_time,$scope.end_time,'customer')
+                if($scope.user_type.selected.name == 'Admin'){
+                    $scope.Chart.data.push(['Admin', 'Loan Amount', 'Deal Number']);
+                    reportService.getReports($scope.start_time,$scope.end_time,'admin')
                         .then(function(response){
-                            $scope.customer = response.data;
-                            angular.forEach($scope.customer,function(v,k){
-                                $scope.Chart.data.push([$scope.findUser('customer',v.customer_id),v.loan_amount,v.deal_number]);
+                            $scope.admin = response.data;
+                            angular.forEach($scope.admin.content,function(v,k){
+                                $scope.Chart.data.push([$scope.findUser('admin',v.admin_id),v.loan_amount,v.deal_number]);
                             });
                         },function(e){})
                 }else if($scope.user_type.selected.name == 'Broker'){
@@ -273,7 +215,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
                     reportService.getReports($scope.start_time,$scope.end_time,'broker')
                         .then(function(response){
                             $scope.broker = response.data;
-                            angular.forEach($scope.broker,function(v,k){
+                            angular.forEach($scope.broker.content,function(v,k){
                                 $scope.Chart.data.push([$scope.findUser('broker',v.broker_id),v.loan_amount,v.deal_number]);
                             });
                         },function(e){})
@@ -282,14 +224,14 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
             //time
             if($scope.filter_by.selected.name == 'Time'){
                 if($scope.timeFrame.selected.name == 'Month'){
-                    $scope.step = $scope.getDaysInOneMonth(today.getFullYear(),today.getUTCMonth()+1);
+                    $scope.step = 30;
                     reportService.getTimeReports($scope.start_time,$scope.end_time,$scope.step)
                         .then(function(response){
                             $scope.data = response.data;
                             $scope.Chart.data.push(['Month','Loan Amount', 'Deal Number']);
                             for(var i = 0; i< 12; i++){
-                                if($scope.data[i]) {
-                                    $scope.Chart.data.push([$scope.transferMonth(($scope.data[i].start + $scope.data[i].end)/2),$scope.data[i].loan_amount,$scope.data[i].deal_numbers]);
+                                if($scope.data.content[i]) {
+                                    $scope.Chart.data.push([$scope.transferMonth(($scope.data.content[i].start + $scope.data.content[i].end)/2),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
                                 }else{
                                 }
                             }
@@ -302,10 +244,9 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
                         .then(function(response){
                             $scope.data = response.data;
                             $scope.Chart.data.push(['Quarter','Loan Amount', 'Deal Number']);
-                            for(var i = 0; i< $scope.data.length; i++){
-                                if($scope.data[i]) {
-                                    console.log(new Date(($scope.data[i].start + $scope.data[i].end)/2));
-                                    $scope.Chart.data.push([$scope.transferQuarter(($scope.data[i].start + $scope.data[i].end)/2),$scope.data[i].loan_amount,$scope.data[i].deal_numbers]);
+                            for(var i = 0; i< $scope.data.content.length; i++){
+                                if($scope.data.content[i]) {
+                                    $scope.Chart.data.push([$scope.transferQuarter(($scope.data.content[i].start + $scope.data.content[i].end)/2),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
                                 }else{
                                 }
                             }
@@ -317,10 +258,9 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
                         .then(function(response){
                             $scope.data = response.data;
                             $scope.Chart.data.push(['Week','Loan Amount', 'Deal Number']);
-                            for(var i = 0; i< $scope.data.length; i++){
-                                if($scope.data[i]) {
-                                    console.log(new Date(($scope.data[i].start + $scope.data[i].end)/2));
-                                    $scope.Chart.data.push(['Week'+ (i+1),$scope.data[i].loan_amount,$scope.data[i].deal_numbers]);
+                            for(var i = 0; i< $scope.data.content.length; i++){
+                                if($scope.data.content[i]) {
+                                    $scope.Chart.data.push(['Week'+ (i+1),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
                                 }else{
                                 }
                             }
@@ -332,26 +272,141 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
                         .then(function(response){
                             $scope.data = response.data;
                             $scope.Chart.data.push(['Year','Loan Amount', 'Deal Number']);
-                            for(var i = 0; i< $scope.data.length; i++){
-                                if($scope.data[i]) {
-                                    console.log(new Date(($scope.data[i].start + $scope.data[i].end)/2));
-                                    $scope.Chart.data.push([$scope.transferYear(($scope.data[i].start + $scope.data[i].end)/2),$scope.data[i].loan_amount,$scope.data[i].deal_numbers]);
-                                }else{
-                                }
+                            for(var i = 0; i< $scope.data.content.length; i++){
+                                if($scope.data.content[i]) {
+                                    $scope.Chart.data.push([$scope.transferYear(($scope.data.content[i].start + $scope.data.content[i].end)/2),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
+                                }else{}
                             }
                         },function(e){});
                 }
             }
             //bank
             if($scope.filter_by.selected.name == 'Bank'){
-                $scope.Chart.data.push(['Bank','Loan Amount', 'Deal Number']);
-                reportService.getReports($scope.start_time,$scope.end_time,'bank')
-                    .then(function(response){
-                        $scope.bank = response.data;
-                        angular.forEach($scope.bank,function(v,k){
-                            $scope.Chart.data.push([v.bank_id,v.loan_amount,v.deal_number]);
-                        });
-                    },function(e){})
+                if($scope.banks.selected.name == 'All') {
+                    $scope.Chart.data.push(['Bank', 'Loan Amount', 'Deal Number']);
+                    reportService.getReports($scope.start_time, $scope.end_time, 'bank')
+                        .then(function (response) {
+                            $scope.bank = response.data;
+                            angular.forEach($scope.bank.content, function (v, k) {
+                                $scope.Chart.data.push([v.bank_id, v.loan_amount, v.deal_number]);
+                            });
+                        }, function (e) {})
+                }else{
+                    if($scope.timeFrame.selected.name == 'Month'){
+                        $scope.step = 30;
+                        reportService.getTimeReports($scope.start_time,$scope.end_time,$scope.step,$scope.banks.selected.id)
+                            .then(function(response){
+                                $scope.data = response.data;
+                                $scope.Chart.data.push(['Month','Loan Amount', 'Deal Number']);
+                                for(var i = 0; i< 12; i++){
+                                    if($scope.data.content[i]) {
+                                        $scope.Chart.data.push([$scope.transferMonth(($scope.data.content[i].start + $scope.data.content[i].end)/2),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
+                                    }else{
+                                    }
+                                }
+                            },function(e){});
+                    }
+                    else if($scope.timeFrame.selected.name == 'Quarter'){
+                        /*$scope.step = Math.floor($scope.getDaysInOneMonth(today.getFullYear(),today.getUTCMonth()+1) / 4);*/
+                        $scope.step = 90;
+                        reportService.getTimeReports($scope.start_time,$scope.end_time,$scope.step,$scope.banks.selected.id)
+                            .then(function(response){
+                                $scope.data = response.data;
+                                $scope.Chart.data.push(['Quarter','Loan Amount', 'Deal Number']);
+                                for(var i = 0; i< $scope.data.content.length; i++){
+                                    if($scope.data.content[i]) {
+                                        $scope.Chart.data.push([$scope.transferQuarter(($scope.data.content[i].start + $scope.data.content[i].end)/2),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
+                                    }else{
+                                    }
+                                }
+                            },function(e){});
+                    }
+                    else if($scope.timeFrame.selected.name == 'Week'){
+                        $scope.step =7;
+                        reportService.getTimeReports($scope.start_time,$scope.end_time,$scope.step,$scope.banks.selected.id)
+                            .then(function(response){
+                                $scope.data = response.data;
+                                $scope.Chart.data.push(['Week','Loan Amount', 'Deal Number']);
+                                for(var i = 0; i< $scope.data.content.length; i++){
+                                    if($scope.data.content[i]) {
+                                        $scope.Chart.data.push(['Week'+ (i+1),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
+                                    }else{
+                                    }
+                                }
+                            },function(e){});
+                    }
+                    else if($scope.timeFrame.selected.name == 'Year'){
+                        $scope.step = 365;
+                        reportService.getTimeReports($scope.start_time,$scope.end_time,$scope.step,$scope.banks.selected.id)
+                            .then(function(response){
+                                $scope.data = response.data;
+                                $scope.Chart.data.push(['Year','Loan Amount', 'Deal Number']);
+                                for(var i = 0; i< $scope.data.content.length; i++){
+                                    if($scope.data.content[i]) {
+                                        $scope.Chart.data.push([$scope.transferYear(($scope.data.content[i].start + $scope.data.content[i].end)/2),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
+                                    }else{}
+                                }
+                            },function(e){});
+                    }
+                }
+            }
+            //loan
+            if($scope.filter_by.selected.name == 'Loan'){
+                if($scope.timeFrame.selected.name == 'Month'){
+                    $scope.step = 30;
+                    reportService.getTimeReports($scope.start_time,$scope.end_time,$scope.step,'',$scope.loan_type.selected.value,$scope.loan_status.selected.value,$scope.processing_time)
+                        .then(function(response){
+                            $scope.data = response.data;
+                            $scope.Chart.data.push(['Month','Loan Amount', 'Deal Number']);
+                            for(var i = 0; i< 12; i++){
+                                if($scope.data.content[i]) {
+                                    $scope.Chart.data.push([$scope.transferMonth(($scope.data.content[i].start + $scope.data.content[i].end)/2),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
+                                }else{
+                                }
+                            }
+                        },function(e){});
+                }
+                else if($scope.timeFrame.selected.name == 'Quarter'){
+                    $scope.step = 90;
+                    reportService.getTimeReports($scope.start_time,$scope.end_time,$scope.step,'',$scope.loan_type.selected.value,$scope.loan_status.selected.value,$scope.processing_time)
+                        .then(function(response){
+                            $scope.data = response.data;
+                            $scope.Chart.data.push(['Quarter','Loan Amount', 'Deal Number']);
+                            for(var i = 0; i< $scope.data.content.length; i++){
+                                if($scope.data.content[i]) {
+                                    $scope.Chart.data.push([$scope.transferQuarter(($scope.data.content[i].start + $scope.data.content[i].end)/2),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
+                                }else{
+                                }
+                            }
+                        },function(e){});
+                }
+                else if($scope.timeFrame.selected.name == 'Week'){
+                    $scope.step =7;
+                    reportService.getTimeReports($scope.start_time,$scope.end_time,$scope.step,'',$scope.loan_type.selected.value,$scope.loan_status.selected.value,$scope.processing_time)
+                        .then(function(response){
+                            $scope.data = response.data;
+                            $scope.Chart.data.push(['Week','Loan Amount', 'Deal Number']);
+                            for(var i = 0; i< $scope.data.content.length; i++){
+                                if($scope.data.content[i]) {
+                                    $scope.Chart.data.push(['Week'+ (i+1),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
+                                }else{
+                                }
+                            }
+                        },function(e){});
+                }
+                else if($scope.timeFrame.selected.name == 'Year'){
+                    $scope.step = 365;
+                    reportService.getTimeReports($scope.start_time,$scope.end_time,$scope.step,'',$scope.loan_type.selected.value,$scope.loan_status.selected.value,$scope.processing_time)
+                        .then(function(response){
+                            $scope.data = response.data;
+                            $scope.Chart.data.push(['Year','Loan Amount', 'Deal Number']);
+                            for(var i = 0; i< $scope.data.content.length; i++){
+                                if($scope.data.content[i]) {
+                                    $scope.Chart.data.push([$scope.transferYear(($scope.data.content[i].start + $scope.data.content[i].end)/2),$scope.data.content[i].loan_amount,$scope.data.content[i].deal_numbers]);
+                                }else{}
+                            }
+                        },function(e){});
+                }
             }
         };
     }]);

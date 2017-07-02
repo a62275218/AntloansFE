@@ -714,3 +714,11 @@ li.sett2, li.sett3, li.sett4 {
 #printJS-form .r,.l{
     display:inline-block;
 }
+
+.left{
+    display:inline-block;width:350px;
+}
+
+.right{
+    display:inline-block;
+}

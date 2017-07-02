@@ -93,16 +93,16 @@
                                  </ui-select-choices>
                              </ui-select>
                          </div>
-                         <div class="start_date">
+                         <div class="start_date" style="display:inline-block">
                              <label>FROM:</label><br>
                              <input class="btn btn-default" ui-date ng-model="startDate" style="width:110px;margin-bottom:5px;margin-top:5px">
                          </div>
-                         <div class="close_date">
+                         <div class="close_date" style="display:inline-block">
                              <label>TO:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
                              <input class="btn btn-default" ui-date ng-model="endDate" style="width:110px">
                          </div>
-                         <span><small>*default start: 1st Jan of this year<br>default end: today</small></span>
-                         <div>
+                         <span><small>*default start: 1st Jan of this year<br>default end: today</small></span><br>
+                         <div style="display:inline-block">
                              <label>FILTER BY:</label>
                              <ui-select ng-model="filter_by.selected"
                                         search-enabled="false" class="selection"
@@ -146,7 +146,7 @@
                                  <small>{{item.email}}</small>
                              </ui-select-choices>
                          </ui-select>-->
-                         <!--<div ng-if="filter_by.selected == filter_by[2]">
+                         <div ng-if="filter_by.selected.name == 'Bank'">
                              <label>BANK:</label>
                              <ui-select ng-model="banks.selected"
                                         search-enabled="false" class="selection"
@@ -158,21 +158,21 @@
                                      <span ng-bind="item.name"></span>
                                  </ui-select-choices>
                              </ui-select>
-                         </div>-->
-                         <div ng-if="filter_by.selected == filter_by[3]">
+                         </div>
+                         <div ng-if="filter_by.selected.name == 'Loan'" style="display:inline-block">
                              <label>LOAN TYPE:</label>
                              <ui-select ng-model="loan_type.selected"
                                         search-enabled="false" class="selection"
                                         onkeypress="return false;" ng-disabled="disabled">
                                  <ui-select-match>
-                                     <span ng-bind="$select.selected.name"></span>
+                                     <span ng-bind="$select.selected.label"></span>
                                  </ui-select-match>
                                  <ui-select-choices repeat="item in loan_type track by $index">
-                                     <span ng-bind="item.name"></span>
+                                     <span ng-bind="item.label"></span>
                                  </ui-select-choices>
                              </ui-select>
                          </div>
-                         <div ng-if="filter_by.selected == filter_by[4]">
+                         <div ng-if="filter_by.selected.name == 'Loan'">
                              <label>LOAN STATUS</label>
                              <ui-select ng-model="loan_status.selected" class="selectpicker select_page"
                                         style="width:240px;display:inline-block;">
@@ -185,9 +185,10 @@
                                  </ui-select-choices>
                              </ui-select>
                          </div>
-                         <div ng-if="filter_by.selected == filter_by[5]">
-                             <label>PROCESSING TIME</label>
-                             <ui-select ng-model="processing_time.selected" class="selectpicker select_page"
+                         <div ng-if="filter_by.selected.name == 'Loan'">
+                             <label>PROCESSING TIME</label><br>
+                             <span>No more than </span><input style="width:90px;" class="btn btn-default" type="number" ng-model="processing_time"><span> Days</span>
+                             <!--<ui-select ng-model="processing_time.selected" class="selectpicker select_page"
                                         style="width:120px;" onkeypress="return false;" ng-disabled="disabled">
                                  <ui-select-match>
                                      <span ng-bind="$select.selected.name"></span>
@@ -196,7 +197,7 @@
                                          repeat="item in processing_time track by $index">
                                      <span ng-bind="item.name"></span>
                                  </ui-select-choices>
-                             </ui-select>
+                             </ui-select>-->
                          </div>
                          <div>
                              <label>CHART TYPE</label>
@@ -216,127 +217,6 @@
                      </div>
                  </div>
                  <br>
-
-                <!-- <div class="payments_received" ng-controller="lineChartCtrl">
-                     <div class="payments_left">
-                         <h4>Payments Received</h4>
-                         <div class="clear"></div>
-                         <div class="payments_chart">
-                             <canvas id="line" class="chart chart-line" chart-data="data"
-                                     chart-labels="labels" chart-series="series" chart-options="options"
-                                     chart-dataset-override="datasetOverride" chart-click="onClick">
-                             </canvas>
-                         </div>
-                     </div>
-
-                     <div class="payments_right">
-                        <h4>{{totalamount|currency}}</h4>
-                        <p>Total Income</p>
-
-                        <h5>{{total.credit|currency}}</h5>
-                        <img width="127px" height="27px;" src="./images/data-bar2.png" alt="">
-                        <p>Credit Card Payments</p>
-
-                        <h5>{{total.paypal|currency}}</h5>
-                        <img width="127px" height="27px;" src="./images/data-bar2.png" alt="">
-                        <p>PayPal Payments</p>
-
-                        <button type="button" name="button">APPLY</button>
-                     </div>
-                 </div>-->
-
-                 <!-- <div class="chartl lined_chart">
-                    <div class="chart_name">
-                      <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
-                      <span class="chart_name2">Lined Chart</span>
-                      <span class="chart_name3"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                    </div>
-
-                    <div class="diagram" ng-controller="lineChartCtrl">
-                        <canvas id="line2" class="chart chart-line" chart-data="data"
-                                chart-labels="labels" chart-series="series" chart-options="options"
-                                chart-dataset-override="datasetOverride" chart-click="onClick">
-                        </canvas>
-                    </div>
-
-                 </div> -->
-
-                 <!-- <div class="chartl donut_chart" data-drag="true">
-                   <div class="chart_name">
-                     <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
-                     <span class="chart_name2">Donut Chart</span>
-                     <span class="chart_name3"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                   </div>
-
-                   <div class="diagram donut" ng-controller="donutChartCtrl" style="position: relative; height:12vh; width:12vw">
-                       <canvas id="donut" class="chart chart-doughnut" chart-data="data"
-                               chart-labels="labels">
-                       </canvas>
-                   </div>
-
-                 </div> -->
-
-                 <!-- <div class="chartl scatter_chart">
-                   <div class="chart_name">
-                     <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
-                     <span class="chart_name2">Scatter Chart</span>
-                     <span class="chart_name3"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                   </div>
-                   <div class="diagram" ng-controller="scatterChartCtrl">
-                       <canvas id="line3" class="chart chart-line" chart-data="data"
-                               chart-labels="labels" chart-series="series" chart-options="options"
-                               chart-dataset-override="datasetOverride" chart-click="onClick">
-                       </canvas>
-                   </div>
-
-                 </div> -->
-
-                 <!-- <div class="chartl polar_line_chart">
-                   <div class="chart_name">
-                     <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
-                     <span class="chart_name2">Polar Line Chart</span>
-                     <span class="chart_name3"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                   </div>
-
-                   <div class="diagram polar" ng-controller="polarAreaCtrl" style="position: relative; height:12vh; width:12vw">
-                       <canvas id="polar-area" class="chart chart-polar-area"
-                               chart-data="data" chart-labels="labels" chart-options="options">
-                       </canvas>
-                   </div>
-
-                 </div> -->
-
-                 <!-- <div class="chartl vertical_grouped_chart">
-                   <div class="chart_name">
-                     <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
-                     <span class="chart_name2">Vertical Grouped Chart</span>
-                     <span class="chart_name3"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                   </div>
-
-                   <div class="diagram" ng-controller="barChartCtrl">
-                       <canvas id="bar" class="chart chart-horizontalBar"
-                               chart-data="data" chart-labels="labels" chart-options="options" chart-series="series">
-                       </canvas>
-                   </div>
-
-                 </div> -->
-
-                 <!-- <div class="chartl polar_area_chart">
-                   <div class="chart_name">
-                     <span class="chart_name1"><i class="fa fa-arrows" aria-hidden="true"></i></span>
-                     <span class="chart_name2">Polar Area Chart</span>
-                     <span class="chart_name3"><i class="fa fa-cog" aria-hidden="true"></i></span>
-                   </div>
-
-                   <div class="diagram radar" ng-controller="radarCtrl" style="position: relative; height:20vh; width:20vw">
-                       <canvas id="radar" class="chart chart-radar"
-                               chart-data="data" chart-options="options" chart-labels="labels">
-                       </canvas>
-                   </div>
-                 </div> -->
-
-
-
               <div class="clear"></div>
               </div>
 

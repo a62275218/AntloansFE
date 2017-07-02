@@ -4,6 +4,11 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
 
         $scope.status = [];
         $scope.newStatus = [];
+
+        //check current user
+        $scope.checkCurrentUser = function(){
+
+        };
         //convert status value to index
         vm.convertStatus = function (obj, index) {
             angular.forEach(obj, function (v, k) {
@@ -124,9 +129,8 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 updateStatusLight();
             }
         };
-
-        // ======= update the above user info
-        $scope.updateJob = function () {
+        //update user info
+        $scope.upUser = function () {
             $('.job_show td input').attr('disabled');
             $('.job_show td input').addClass('disable');
 
@@ -167,13 +171,44 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             var defer = $q.defer();
             defer.reject(console.log('123'));
         };
+        // ======= update the job info
+        $scope.updateJob = function () {
+            $('.job_show td input').attr('disabled');
+            $('.job_show td input').addClass('disable');
+
+            $('.loan_show td input').attr('disabled');
+            $('.loan_show td input').addClass('disable');
+
+            $scope.edit = false;
+                jobService.updateJobInfo($scope.job.id, {
+                    //user
+                    first_name: $scope.job.first_name,
+                    last_name: $scope.job.last_name,
+                    phone: $scope.job.phone,
+                    mobile: $scope.job.mobile,
+                    address: $scope.job.address,
+                    email: $scope.job.email,
+                    preferred_time: $scope.job.preferred_time,
+                    preferred_method: $scope.job.preferred_method,
+                    //loan
+                    loan_amount: $scope.job.loan_amount,
+                    loan_purpose: $scope.job.loan_purpose.value,
+                    repayment_type: $scope.job.repayment_type.value,
+                    file_nature: $scope.job.file_nature.value,
+                    special_note: $scope.job.special_note
+                }).then(function (response) {
+                    swal("Success!", "Loan updated", "success")
+            }, function (e) {
+                swal("Oops...", "Something went wrong! Update failed", "error");
+            });
+        };
         // edit job info
         $scope.edit = false;
         $scope.jobEdit = function () {
             $('.job_show td input').removeAttr('disabled').removeClass('disable');
             $('.loan_show td input').removeAttr('disabled').removeClass('disable');
             $scope.edit = true;
-        }
+        };
 
         // ========= edit vertical timeline ========
 
