@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>loan-job-list</title>
-    
+
     <!--my css-->
     <link rel="stylesheet" href="../styles/loan-job-list.css">
 </head>
@@ -28,7 +28,7 @@
                         Create Job
                     </button>
                 </div>
-
+<!--  -->
                 <div class='tool_bar_above'>
                     <div class='search_input'>
                         <div class="input-group margin-bottom-sm">
@@ -82,18 +82,14 @@
                     <hr>
 
                     <div class="start_date">
-                        <label>SETTLEMENT DATE &nbsp;&nbsp;&nbsp;&nbsp;FROM:</label>
+                        <label>SETTLEMENT&nbsp;FROM:</label>
                         <input class="btn btn-default" ui-date ng-model="startDate">
                     </div>
                     <div class="close_date">
                         <label>TO:</label>
                         <input class="btn btn-default" ui-date ng-model="endDate">
                     </div>
-                </div>
 
-
-                <div class="tool_bar_below">
-                    <hr>
                     <div class="bank">
                         <label>BANK:</label>
                         <ui-select ng-model="banks.selected" on-select="filterBankId(banks.selected)"
@@ -137,9 +133,15 @@
                 </div>
 
 
-                <div class="showBtn">
+                <!-- <div class="tool_bar_below">
+                    <hr>
+
+                </div> -->
+
+
+                <!-- <div class="showBtn">
                     <i class="fa fa-plus" aria-hidden="true">&nbsp;</i><span>show more</span>
-                </div>
+                </div> -->
             </div>
         </section>
 

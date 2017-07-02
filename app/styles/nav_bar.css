@@ -31,7 +31,7 @@ a:hover,a:visited,a:link,a:active{
 
 }
 
-[scroll-glue-top],
+/*[scroll-glue-top],
 [scroll-glue-bottom],
 [scroll-glue]{
   height: 100px;
@@ -43,7 +43,7 @@ a:hover,a:visited,a:link,a:active{
   width: 100px;
   overflow-x: scroll;
   padding: 10px;
-}
+}*/
 
 .nav_bar .brand{
   width: 10%;

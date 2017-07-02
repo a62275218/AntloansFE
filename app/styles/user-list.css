@@ -89,7 +89,8 @@ li.user-bar i, li.user-bar span.bar_name{
   position: relative;
   z-index: 0;
   padding-bottom: 50px;
-  box-shadow: 4px 6px 5px #E8EAEB;
+  /*box-shadow: 4px 6px 5px #E8EAEB;*/
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 #user .user_list .page_num{
