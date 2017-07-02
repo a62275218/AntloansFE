@@ -180,50 +180,34 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             $('.loan_show td input').addClass('disable');
 
             $scope.edit = false;
-
-            var p1 = UserService.updateUser($scope.job.client_id,
-                {
-                    firstName: $scope.job.first_name,
-                    lastName: $scope.job.last_name,
+                jobService.updateJobInfo($scope.job.id, {
+                    //user
+                    first_name: $scope.job.first_name,
+                    last_name: $scope.job.last_name,
                     phone: $scope.job.phone,
                     mobile: $scope.job.mobile,
                     address: $scope.job.address,
                     email: $scope.job.email,
-                    role: 'customer',
                     preferred_time: $scope.job.preferred_time,
-                    preferred_method: $scope.job.preferred_method
-                });
-            var p2 = jobService.updateJobInfo($scope.job.id, {
-                loan_amount: $scope.job.loan_amount,
-                loan_purpose: $scope.job.loan_purpose.value,
-                repayment_type: $scope.job.repayment_type.value,
-                file_nature: $scope.job.file_nature.value,
-                special_note: $scope.job.special_note
-            });
-            $q.all(p1,p2).then(function (response) {
-                console.log(response.$$state);
-                if(response.$$state.status == 0){
-                    swal("Oops...", "You don't have permission to do that", "error");
-                }else {
+                    preferred_method: $scope.job.preferred_method,
+                    //loan
+                    loan_amount: $scope.job.loan_amount,
+                    loan_purpose: $scope.job.loan_purpose.value,
+                    repayment_type: $scope.job.repayment_type.value,
+                    file_nature: $scope.job.file_nature.value,
+                    special_note: $scope.job.special_note
+                }).then(function (response) {
                     swal("Success!", "Loan updated", "success")
-                }
             }, function (e) {
                 swal("Oops...", "Something went wrong! Update failed", "error");
             });
-            var defer = $q.defer();
-            defer.reject(console.log('123'));
-        };
-        // edit user info
-        $scope.useredit = false;
-        $scope.userEdit = function () {
-            $('.job_show td input').removeAttr('disabled').removeClass('disable');
-            $scope.useredit = true;
         };
         // edit job info
-        $scope.jobedit = false;
+        $scope.edit = false;
         $scope.jobEdit = function () {
+            $('.job_show td input').removeAttr('disabled').removeClass('disable');
             $('.loan_show td input').removeAttr('disabled').removeClass('disable');
-            $scope.jobedit = true;
+            $scope.edit = true;
         };
 
         // ========= edit vertical timeline ========

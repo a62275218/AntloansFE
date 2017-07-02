@@ -186,8 +186,8 @@
                              </ui-select>
                          </div>
                          <div ng-if="filter_by.selected.name == 'Loan'">
-                             <label>PROCESSING TIME</label>
-                             <input type="text">
+                             <label>PROCESSING TIME</label><br>
+                             <span>No more than </span><input style="width:90px;" class="btn btn-default" type="number" ng-model="processing_time"><span> Days</span>
                              <!--<ui-select ng-model="processing_time.selected" class="selectpicker select_page"
                                         style="width:120px;" onkeypress="return false;" ng-disabled="disabled">
                                  <ui-select-match>
