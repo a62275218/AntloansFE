@@ -31,7 +31,7 @@ a:hover,a:visited,a:link,a:active{
 
 }
 
-[scroll-glue-top],
+/*[scroll-glue-top],
 [scroll-glue-bottom],
 [scroll-glue]{
   height: 100px;
@@ -43,7 +43,7 @@ a:hover,a:visited,a:link,a:active{
   width: 100px;
   overflow-x: scroll;
   padding: 10px;
-}
+}*/
 
 .nav_bar .brand{
   width: 10%;
@@ -96,7 +96,7 @@ a:hover,a:visited,a:link,a:active{
   overflow: hidden;
   box-sizing: padding-box;
   position: absolute;
-  width: 300px;
+  width: 320px;
   top: 70px;
   z-index: 2;
   background-color: #f9f9f9;
@@ -120,7 +120,7 @@ a:hover,a:visited,a:link,a:active{
   width: 100%;
   overflow: hidden;
   background-color: #FFFFFF;
-  height: 80px;
+  min-height: 80px;
   border-bottom: 1px solid #E1E1E1;
   box-sizing: border-box;
   cursor: pointer;
@@ -131,15 +131,19 @@ a:hover,a:visited,a:link,a:active{
 }
 
 .notes_list .note .note_img, .notes_list .note .note_info{
-  padding-top: 10px;
-  height: 68px;
   display: inline-block;
   float: left;
   text-align: left;
 }
 
 .notes_list .note .note_img{
+  padding-top: 10px;
   width:70px;
+}
+
+.notes_list .note .note_info{
+  padding-top: 5px;
+  width: 248px;
 }
 
 .note .note_info .note_sender{
