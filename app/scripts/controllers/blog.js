@@ -1,8 +1,8 @@
 antloans.controller('blogCtrl',['$scope','$state','UserService','$stateParams','API_BASE','$http','OAuthService',
     function($scope,$state,UserService,$stateParams,API_BASE,$http,OAuthService){
         // go to indiviual blog
-        $scope.toBlog = function (id) {
-            $state.go('blog', {blogId: id});
+        $scope.toBlogList = function () {
+            $state.go('blog-list');
         };
 
         $scope.getABlog = function(id){
