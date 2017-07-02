@@ -1,5 +1,5 @@
-antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','reportService',
-    function ($scope, BankService,UserService,reportService) {
+antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','reportService','jobService',
+    function ($scope, BankService,UserService,reportService,jobService) {
     var vm = this;
 
         /*google chart api*/
@@ -62,78 +62,31 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
             {"name": "Time"},
             {"name": "User Type"},
             {"name": "Bank"},
-            {"name": "Loan Type"},
-            {"name": "Loan Status"},
-            {"name": "Processing Time"}
+            {"name": "Loan"}
         ];
         $scope.filter_by.selected = $scope.filter_by[0];
 
         $scope.user_type = [
             {"name": "All"},
-            {"name": "File Owner"},
+            {"name": "Admin"},
             {"name": "Broker"}
         ];
         $scope.user_type.selected = $scope.user_type[0];
 
-        $scope.loan_type = [
-            {"name": "All"},
-            {"name": "Investment"},
-            {"name": "Owner Occupied"}
-        ];
-        $scope.loan_type.selected = $scope.loan_type[0];
-
-        $scope.loan_status =
-            [
-                {
-                    value: 0,
-                    label: 'All'
-                },
-                {
-                    value: 1,
-                    label: 'Interview conducted'
-                },
-                {
-                    value: 2,
-                    label: 'Document collected'
-                },
-                {
-                    value: 3,
-                    label: 'Application submitted'
-                },
-                {
-                    value: 4,
-                    label: 'Conditional approval'
-                },
-                {
-                    value: 5,
-                    label: 'Valuation ordered '
-                },
-                {
-                    value: 6,
-                    label: 'Unconditional approval '
-                },
-                {
-                    value: 7,
-                    label: 'Docs issued'
-                },
-                {
-                    value: 8,
-                    label: 'Signed docs returned'
-                },
-                {
-                    value: 9,
-                    label: 'Ready to book'
-                },
-                {
-                    value: 10,
-                    label: 'Settled'
-                },
-                {
-                    value: 11,
-                    label: 'One month post settlement confirmation'
-                }
-            ];
-        $scope.loan_status.selected = $scope.loan_status[0];
+        //get all loan properties
+        jobService.getJobProperty()
+            .then(function(response){
+                $scope.loan_type = response.data.data.loan_type;
+                $scope.loan_type.shift();
+                $scope.loan_type.unshift({"label": "All"});
+                $scope.loan_type.selected = $scope.loan_type[0];
+                console.log($scope.loan_type);
+                $scope.loan_status = response.data.data.deal_status;
+                $scope.loan_status.shift();
+                $scope.loan_status.unshift({"label": "All"});
+                $scope.loan_status.selected = $scope.loan_type[0];
+                console.log($scope.loan_status);
+            },function(e){});
 
         $scope.processing_time = [
             {"name":"All"},
@@ -259,8 +212,8 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
             }
             //user type
             if($scope.filter_by.selected.name == 'User Type'){
-                if($scope.user_type.selected.name == 'File Owner'){
-                    $scope.Chart.data.push(['File Owner', 'Loan Amount', 'Deal Number']);
+                if($scope.user_type.selected.name == 'Admin'){
+                    $scope.Chart.data.push(['Admin', 'Loan Amount', 'Deal Number']);
                     reportService.getReports($scope.start_time,$scope.end_time,'customer')
                         .then(function(response){
                             $scope.customer = response.data;

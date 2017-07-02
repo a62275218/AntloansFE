@@ -50,10 +50,10 @@
                         <td><input type="text" class="disable" ng-model="job.preferred_method" disabled></td>
                     </tr>
                 </table>
-                <button class="saveBtn00" type="button" name="button" >Save</button>
+                <button class="saveBtn00" type="button" name="button" ng-click="upUser()">Save</button>
                 <label>Loan</label>
                 <hr>
-                <span id="dealEditBtn"><i class="fa fa-pencil-square-o fa-2x"  aria-hidden="true"></i></span>
+                <span id="dealEditBtn" ng-click="jobEdit()"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
                 <table class="loan_show">
                     <tr>
                         <th>loan amount</th>
@@ -433,10 +433,6 @@
                                 <div class="scroll_container">
                                     <div class="message" ng-repeat="item in comments track by $index">
                                         <div class="commenter">
-                                            <!-- <div class="commenter_img">
-                                                <img ng-if="item.avatar" ng-src="item.avatar" alt="">
-                                                <img ng-if="!item.avatar" ng-src="{{default_img_url}}" alt="">
-                                            </div> -->
                                             <div class="commenter_name">
                                                 <strong>{{item.username}}</strong>
                                             </div>
@@ -446,8 +442,6 @@
                                             </div>
                                         </div>
                                         <div class="comment" ng-bind-html="item.content">
-                                            <!-- <div class="triangle"><i class="fa fa-caret-left fa-3x" aria-hidden="true"></i>
-                                            </div> -->
                                         </div>
                                         <div class="clear"></div>
                                         <hr>
@@ -487,131 +481,131 @@
     <!-- rigth_part end -->
     <div id="printJS-form" style="visibility: hidden">
         <div>
-            <h4>Customer</h4>
-            <div class="r">
-                <div>name:</div>
-                <div>mobile:</div>
-                <div>phone:</div>
-                <div>email:</div>
-                <div>address:</div>
-                <div>preferred time:</div>
-                <div>preferred method:</div>
-            </div>
-            <div class="l">
-                <div>{{job.first_name}} {{job.last_name}}</div>
-                <div>{{job.mobile}}</div>
-                <div>{{job.phone}}</div>
-                <div>{{job.email}}</div>
-                <div>{{job.preferred_time}}</div>
-                <div>{{job.preferred_method}}</div>
-            </div>
-            <h4>Loan</h4>
-            <div class="r">
-                <div>loan amount:</div>
-                <div>loan purpose:</div>
-                <div>status:</div>
-                <div>repayment type:</div>
-                <div>file nature:</div>
-                <div>special notes:</div>
-            </div>
-            <div class="l">
-                <div>{{job.loan_amount}}</div>
-                <div>{{job.loan_purpose.label}}</div>
-                <div>{{job.deal_status.label}}</div>
-                <div>{{job.repayment_type.label}}</div>
-                <div>{{job.file_nature.label}}</div>
-                <div>{{job.special_note}}</div>
-            </div>
-            <h4>Broker</h4>
-            <div class="r">
-                <div>name:</div>
-                <div>address:</div>
-                <div>phone:</div>
-                <div>email:</div>
-            </div>
-            <div class="l">
-                <div ng-if="user[2].selected">
-                    <div>{{user[2].selected.first_name}} {{user[2].selected.last_name}}</div>
-                    <div>{{user[2].selected.address || 'no address now'}}</div>
-                    <div>{{user[2].selected.phone || 'no phone number now'}}</div>
-                    <div>{{user[2].selected.email || 'no email now'}}</div>
+            <div class="left">
+                <div class="r">
+                    <h4>Customer</h4>
+                    <div>name:</div>
+                    <div>mobile:</div>
+                    <div>phone:</div>
+                    <div>email:</div>
+                    <div>address:</div>
+                    <div>preferred time:</div>
+                    <div>preferred method:</div>
                 </div>
-                <div ng-if="!user[2].selected">
-                    <div>{{job.broker.first_name}} {{job.broker.last_name}}</div>
-                    <div>{{job.broker.address || 'no address now'}}</div>
-                    <div>{{job.broker.phone || 'no phone number now'}}</div>
-                    <div>{{job.broker.email || 'no email now'}}</div>
-                </div>
-            </div>
-            <h4>Admin</h4>
-            <div class="r">
-                <div>name:</div>
-                <div>address:</div>
-                <div>phone:</div>
-                <div>email:</div>
-            </div>
-            <div class="l">
-                <div ng-if="user[0].selected">
-                    <div>{{user[0].selected.first_name}} {{user[0].selected.last_name}}</div>
-                    <div>{{user[0].selected.address || 'no address now'}}</div>
-                    <div>{{user[0].selected.phone || 'no phone number now'}}</div>
-                    <div>{{user[0].selected.email || 'no email now'}}</div>
-                </div>
-                <div ng-if="!user[0].selected">
-                    <div>{{job.admin.first_name}} {{job.admin.last_name}}</div>
-                    <div>{{job.admin.address || 'no address now'}}</div>
-                    <div>{{job.admin.phone || 'no phone number now'}}</div>
-                    <div>{{job.admin.email || 'no email now'}}</div>
-                </div>
-            </div>
-            <h4>Supervisor</h4>
-            <div class="r">
-                <div>name:</div>
-                <div>address:</div>
-                <div>phone:</div>
-                <div>email:</div>
-            </div>
-            <div class="l">
-                <div ng-if="user[1].selected">
-                    <div>{{user[1].selected.first_name}} {{user[1].selected.last_name}}</div>
-                    <div>{{user[1].selected.address || 'no address now'}}</div>
-                    <div>{{user[1].selected.phone || 'no phone number now'}}</div>
-                    <div>{{user[1].selected.email || 'no email now'}}</div>
-                </div>
-                <div ng-if="!user[1].selected">
-                    <div>{{job.supervisor.first_name}} {{job.supervisor.last_name}}</div>
-                    <div>{{job.supervisor.address || 'no address now'}}</div>
-                    <div>{{job.supervisor.phone || 'no phone number now'}}</div>
-                    <div>{{job.supervisor.email || 'no email now'}}</div>
+                <div class="l">
+                    <div>{{job.first_name}} {{job.last_name}}</div>
+                    <div>{{job.mobile}}</div>
+                    <div>{{job.phone}}</div>
+                    <div>{{job.email}}</div>
+                    <div>{{job.address}}</div>
+                    <div>{{job.preferred_time}}</div>
+                    <div>{{job.preferred_method}}</div>
                 </div>
             </div>
 
-            <!--<table>
-                <tr>
-                    <th style="text-align:left">first name</th>
-                    <td>{{job.first_name}}</td>
-                    <th style="text-align:left">last name</th>
-                    <td>{{job.last_name}}</td>
-                </tr>
-                <tr>
-                    <th>mobile</th>
-                    <td>{{job.mobile}}</td>
-                    <th>phone</th>
-                    <td>{{job.phone}}</td>
-                </tr>
-                <tr>
-                    <th>email</th>
-                    <td>{{job.email}}</td>
-                    <th>security address</th>
-                    <td>{{job.address}}</td>
-                </tr>
-                <tr>
-                    <th>prefered time</th>
-                    <td>{{job.preferred_time}}</td>
-                    <th>prefered method</th>
-                    <td>{{job.preferred_method}}</td>
-                </tr>
-            </table>-->
+            <div class="right">
+                <div class="r">
+                    <h4>Loan</h4>
+                    <div>loan amount:</div>
+                    <div>loan purpose:</div>
+                    <div>status:</div>
+                    <div>repayment type:</div>
+                    <div>file nature:</div>
+                    <div>special notes:</div>
+                    <div></div>
+                </div>
+                <div class="l">
+                    <div>{{job.loan_amount}}</div>
+                    <div>{{job.loan_purpose.label}}</div>
+                    <div>{{job.deal_status.label}}</div>
+                    <div>{{job.repayment_type.label}}</div>
+                    <div>{{job.file_nature.label}}</div>
+                    <div>{{job.special_note}}</div>
+                    <div></div>
+                </div>
+            </div>
+            <br>
+            <div class="left">
+                <div class="r">
+                    <h4>Broker</h4>
+                    <div>name:</div>
+                    <div>address:</div>
+                    <div>phone:</div>
+                    <div>email:</div>
+                </div>
+                <div class="l">
+                    <div ng-if="user[2].selected">
+                        <div>{{user[2].selected.first_name}} {{user[2].selected.last_name}}</div>
+                        <div>{{user[2].selected.address || 'no address now'}}</div>
+                        <div>{{user[2].selected.phone || 'no phone number now'}}</div>
+                        <div>{{user[2].selected.email || 'no email now'}}</div>
+                    </div>
+                    <div ng-if="!user[2].selected">
+                        <div>{{job.broker.first_name}} {{job.broker.last_name}}</div>
+                        <div>{{job.broker.address || 'no address now'}}</div>
+                        <div>{{job.broker.phone || 'no phone number now'}}</div>
+                        <div>{{job.broker.email || 'no email now'}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="r">
+                    <h4>Admin</h4>
+                    <div>name:</div>
+                    <div>address:</div>
+                    <div>phone:</div>
+                    <div>email:</div>
+                </div>
+                <div class="l">
+                    <div ng-if="user[0].selected">
+                        <div>{{user[0].selected.first_name}} {{user[0].selected.last_name}}</div>
+                        <div>{{user[0].selected.address || 'no address now'}}</div>
+                        <div>{{user[0].selected.phone || 'no phone number now'}}</div>
+                        <div>{{user[0].selected.email || 'no email now'}}</div>
+                    </div>
+                    <div ng-if="!user[0].selected">
+                        <div>{{job.admin.first_name}} {{job.admin.last_name}}</div>
+                        <div>{{job.admin.address || 'no address now'}}</div>
+                        <div>{{job.admin.phone || 'no phone number now'}}</div>
+                        <div>{{job.admin.email || 'no email now'}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="left">
+                <div class="r">
+                    <h4>Supervisor</h4>
+                    <div>name:</div>
+                    <div>address:</div>
+                    <div>phone:</div>
+                    <div>email:</div>
+                </div>
+                <div class="l">
+                    <div ng-if="user[1].selected">
+                        <div>{{user[1].selected.first_name}} {{user[1].selected.last_name}}</div>
+                        <div>{{user[1].selected.address || 'no address now'}}</div>
+                        <div>{{user[1].selected.phone || 'no phone number now'}}</div>
+                        <div>{{user[1].selected.email || 'no email now'}}</div>
+                    </div>
+                    <div ng-if="!user[1].selected">
+                        <div>{{job.supervisor.first_name}} {{job.supervisor.last_name}}</div>
+                        <div>{{job.supervisor.address || 'no address now'}}</div>
+                        <div>{{job.supervisor.phone || 'no phone number now'}}</div>
+                        <div>{{job.supervisor.email || 'no email now'}}</div>
+                    </div>
+                </div>
+            </div><br>
+            <div>
+                <h4>Comment</h4>
+                <div ng-repeat="item in comments track by $index">
+                        <div class="r left">
+                            <strong>{{item.username}}</strong>
+                            {{item.create_at | date:'dd/MM/yyyy'}}
+                            {{item.create_at | date:'HH:mm:ss'}}
+                        </div>
+                    <div class="l right" ng-bind-html="item.content">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
