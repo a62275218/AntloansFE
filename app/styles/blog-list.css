@@ -84,36 +84,42 @@ li.blog-bar i, li.blog-bar span.bar_name{
   width: 80%;
   background-color: white;
   margin-left: 41px;
-  padding-top: 30px;
+  padding-top: 10px;
   position: relative;
   z-index: 0;
   padding-bottom: 50px;
   /*box-shadow: 4px 6px 5px #E8EAEB;*/
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px #D1D3D3;
 }
 
 #blog_list .blog_list .page_num{
   position: absolute;
-  left: 10px;
+  left: 3%;
   bottom: 10px;
+  color: #B9BDC3;
 }
 
 #blog_list table{
-  width: 100%;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #blog_list table th, #blog_list table td{
-  /*width: 25%;*/
+  outline: none;
   text-align: left;
-  padding: 10px 0px 10px 20px;
-  border-bottom-width: 1px;
-  border-bottom-color: #F4F5F7;
-  border-bottom-style: solid;
+  padding: 15px 0px 15px 10px;
+  border-bottom: 1px solid #D0D4D9;
   box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 #blog_list table th{
-  outline:none;
+  padding-top:20px !important;
+  padding-bottom:20px !important;
+  color: #B9BDC3;
+  font-weight: 500;
 }
 
 #blog_list table th.selected{
@@ -121,11 +127,12 @@ li.blog-bar i, li.blog-bar span.bar_name{
 }
 
 #blog_list table td{
-  font-size: 18px;
+  font-weight: 300;
+  color: #41464D;
 }
 
 #blog_list table tbody tr:hover{
-  background-color: #F3F5F7;
+  background-color: #F2F3F4;
 }
 
 #blog_list .blog_list img{

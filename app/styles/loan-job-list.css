@@ -297,18 +297,12 @@ td.special_note div{
   overflow: hidden;
   padding-bottom: 50px;
   position: relative;
-  /*box-shadow: 4px 6px 5px #E8EAEB;*/
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+  box-shadow: 0 0 8px #D1D3D3;
 }
 
 .job_list table{
   width: 100%;
-}
-
-.job_list table th{
-  padding-top:20px !important;
-  padding-bottom:20px !important;
-  outline: none;
 }
 
 .job_list table th i{
@@ -320,30 +314,42 @@ td.special_note div{
 }
 
 .job_list table th, .job_list table td{
+  outline: none;
   text-align: left;
-  padding: 10px 0px 10px 10px;
-  border-bottom-width: 1px;
-  border-bottom-color: #F4F5F7;
-  border-bottom-style: solid;
+  padding: 15px 0px 15px 10px;
+  border-bottom: 1px solid #D0D4D9;
   box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.job_list table th{
+  padding-top:20px !important;
+  padding-bottom:20px !important;
+  color: #B9BDC3;
+  font-weight: 500;
 }
 
 .job_list table td{
-  font-size: 15px;
+  font-weight: 300;
+  color: #41464D;
 }
 
 .job_list table img{
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   border-radius: 50px;
+  border: 1px solid #d0d4d9;
+  overflow: hidden;
 }
 
 .job_list table tbody tr:hover{
-  background-color: #F4F4F4;
+  background-color: #F2F3F4;
 }
 
 .job_list .page_num{
   position: absolute;
   left: 10px;
   bottom: 10px;
+  color: #B9BDC3;
 }

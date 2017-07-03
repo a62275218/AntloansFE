@@ -125,7 +125,7 @@ li.report-bar i, li.report-bar span.bar_name{
   width: 100%;
   background-color: #F5F7F8;
   border: 5px solid #E6EAED;
-  height: 550px;
+  height: 630px;
 }
 
 .payments_left{
@@ -176,7 +176,7 @@ li.report-bar i, li.report-bar span.bar_name{
   box-sizing: border-box;
   float: right;
   padding-top: 20px;
-  padding-left: 20px;
+  padding-left: 5px;
 }
 
 .payments_right div{

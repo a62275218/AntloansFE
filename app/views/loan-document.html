@@ -73,11 +73,11 @@
                     <table class='"table table-striped"'>
                         <thead>
                         <tr>
-                            <th ng-click="sortObj('name',$event)">TITLE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th width="50%" ng-click="sortObj('name',$event)">TITLE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <!--<th>TYPE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>-->
                             <!--<th>UPLOADER &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>-->
-                            <th ng-click="sortObj('create_at',$event)">MODIFIELD &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th>ACTION</th>
+                            <th width="25%" ng-click="sortObj('create_at',$event)">MODIFIELD &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th width="25%" >ACTION</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -98,7 +98,9 @@
                         </tbody>
 
                     </table>
-
+                    <div class="page_num">
+                      <span>Page: {{currentPage+1}}/{{totalPage}}</span>
+                    </div>
                 </div>
             </div>
         </div>

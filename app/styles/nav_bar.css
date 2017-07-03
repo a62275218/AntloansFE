@@ -73,8 +73,8 @@ a:hover,a:visited,a:link,a:active{
 .bell .num{
   position: absolute;
   display: block;
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background-color: rgb(237,28,36);
   color: white;
@@ -82,8 +82,8 @@ a:hover,a:visited,a:link,a:active{
   font-size: 10px;
   font-weight: bold;
   text-align: center;
-  top:25px;
-  right: 12px;
+  top:20px;
+  right: 8px;
 }
 
 .bell .fa-bell{
@@ -342,6 +342,7 @@ a:hover,a:visited,a:link,a:active{
   display: inline-block;
   float: left;
   background-color: #F3F5F7;
+  /*background-color: #EAEAEA;*/
   height: 100%;
   position: relative;
   padding-bottom: 10px;

@@ -69,6 +69,7 @@
                         <tbody>
                         <!-- notify list  -->
                         <tr ng-repeat="item in alerts
+                            | orderBy:sort:desc
                             | filter:searchInput
                             | startFrom:currentPage * pageAmount.selected.name
                             | limitTo:pageAmount.selected.name
@@ -84,6 +85,9 @@
                         <!-- end  ==================== -->
                         </tbody>
                     </table>
+                    <div class="page_num">
+                      <span>Page: {{currentPage+1}}/{{totalPage}}</span>
+                    </div>
                 </div>
             </div>
         </div>
