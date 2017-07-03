@@ -36,6 +36,7 @@ antloans.controller('blogListCtrl',['$scope', '$state', '$http', 'API_BASE','OAu
       /*go to first page*/
       $scope.returnToFirst = function(){
           $scope.currentPage = 0;
+          $scope.getAllBlogs();
       };
 
       // get all posts/blogs
@@ -56,47 +57,49 @@ antloans.controller('blogListCtrl',['$scope', '$state', '$http', 'API_BASE','OAu
       }
       $scope.getAllBlogs();
 
-      //customize input
-      $scope.tinymceOptions = {
-          selector: '.comment_input',
-          height: 150,
-          menubar: false,
-          /*entity_encoding:'raw',*/
-          plugins: [
-              'advlist autolink lists charmap print preview anchor',
-              'searchreplace visualblocks code fullscreen',
-              'insertdatetime table contextmenu paste code',
-              'emoticons'
-          ],
-          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | emoticons',
-          content_css: [
-              '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-              '//www.tinymce.com/css/codepen.min.css']
-      }
+      //$watch search to update pagination
+      $scope.$watchGroup(['searchInput','sort'],function(){
+          $scope.currentPage = 0;
+      },true);
 
-      // create a new blog
-      $scope.addBlog = function () {
-          if($scope.blog_content === '' || $scope.blog_title === ''){
-              swal("Oops...", "Please input title and content", "error");
-          }else {
-                  $http({
-                      method:'POST',
-                      url:API_BASE+"/posts",
-                      headers:{
-                          'Authorization':'Bearer'+ OAuthService.getToken()
-                      },
-                      data:{post_content: $scope.blog_content,
-                            post_title: $scope.blog_title}
-                  }).then(function (response) {
-                      if (response.status == 200) {
-                          $scope.getAllBlogs();
-                          $scope.blog_content="";
-                          $scope.blog_title="";
-                          swal("Success!", "Blog added", "success");
-                      }
-                  }, function (e) {
-                      swal("Oops...", "Something went wrong! Update failed", "error");
-                  })
+      /*sort blogs*/
+      $scope.sort = '';
+      $scope.desc = false;
+      $scope.sortObj = function(sort,obj){
+          $('th').removeClass('selected');
+
+          if($(obj.target).is("i")){
+              if($(obj.target).hasClass("false")){
+                  $(obj.target).removeClass('fa-caret-up');
+                  $(obj.target).addClass('fa-caret-down');
+                  $(obj.target).removeClass("false");
+                  $(obj.target).addClass("true");
+                  $scope.desc = true;
+              }else{
+                  $(obj.target).removeClass("true");
+                  $(obj.target).addClass("false");
+                  $(obj.target).removeClass('fa-caret-down');
+                  $(obj.target).addClass('fa-caret-up');
+                  $scope.desc = false;
+              };
+              $scope.sort = sort;
+              $(obj.target).parent().addClass('selected');
+          }else{
+            if($(obj.target).children().hasClass("false")){
+                $(obj.target).children().removeClass('fa-caret-up');
+                $(obj.target).children().addClass('fa-caret-down');
+                $(obj.target).children().removeClass("false");
+                $(obj.target).children().addClass("true");
+                $scope.desc = true;
+            }else{
+                $(obj.target).children().removeClass("true");
+                $(obj.target).children().addClass("false");
+                $(obj.target).children().removeClass('fa-caret-down');
+                $(obj.target).children().addClass('fa-caret-up');
+                $scope.desc = false;
+            }
+            $scope.sort = sort;
+            $(obj.target).addClass('selected');
           }
       };
 

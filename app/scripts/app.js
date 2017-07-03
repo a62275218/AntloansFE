@@ -155,11 +155,17 @@ var antloans = angular
                     templateUrl: 'views/blog-list.html',
                     controller:'blogListCtrl'
                 })
+                .state('create-blog', {
+                    url: '/blog/new',
+                    templateUrl: 'views/create-blog-form.html',
+                    controller:'createBlogCtrl'
+                })
                 .state('blog', {
                     url: '/blogs/:blogId',
                     templateUrl: 'views/blog.html',
                     controller:'blogCtrl'
-                });
+                })
+
         }])
 .run(['$rootScope', '$state', '$urlRouter', 'principal','editableOptions',
     function($rootScope, $state, $urlRouter, principal,editableOptions){

@@ -18,60 +18,74 @@
     </aside>
 
     <div class="right_part">
-      <div class="width_fix">
+            <section class='tool_bar'>
+              <div class="width_fix" style="position:relative">
 
+               <div class="tool_top">
+                  <h3>Banks Summary</h3>
+                  <button type="button" name="button" ui-sref="create-blog"><i class="fa fa-plus-circle fa-lg" aria-hidden="true"></i>&nbsp; Add Bank Summary</button>
+               </div>
 
-        <div id="blog_list">
-            <h3>Blog</h3>
-
-            <div class="page_tool">
-              <div class="page">
-                  <ul class="pager">
-                      <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
-                      {{currentPage+1}}/{{totalPage}}
-                      <li ><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-                      </li>
-                  </ul>
+               <div class='tool_bar_above'>
+                  <div class='search_input'>
+                    <div class="input-group margin-bottom-sm">
+                      <span class="input-group-addon"><i class="fa fa-search fa-fw"></i></span>
+                        <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
+                    </div>
+                  </div>
+                  <div class="page">
+                      <ul class="pager">
+                          <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                          {{currentPage+1}}/{{totalPage}}
+                          <li ><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                          </li>
+                      </ul>
+                  </div>
+                   <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
+                              onkeypress="return false;" ng-disabled="disabled" style="z-index:1;">
+                       <ui-select-match placeholder="Select the number of pages">
+                           <span ng-bind="$select.selected.name"></span>
+                       </ui-select-match>
+                       <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
+                                          style="width:60px;" ng-click="returnToFirst()">
+                           <span ng-bind="item.name" style="width:60px;"></span>
+                       </ui-select-choices>
+                   </ui-select>
+                </div>
               </div>
-               <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
-                          onkeypress="return false;" ng-disabled="disabled" style="z-index:1;">
-                   <ui-select-match placeholder="Select the number of pages">
-                       <span ng-bind="$select.selected.name"></span>
-                   </ui-select-match>
-                   <ui-select-choices repeat="item in pageAmount track by $index"
-                                      style="width:60px;" ng-click="returnToFirst()">
-                       <span ng-bind="item.name" style="width:60px;"></span>
-                   </ui-select-choices>
-               </ui-select>
-              <div class="clear"></div>
+            </section>
+
+            <div class="width_fix">
+            <div id="blog_list">
+               <div class='blog_list'>
+                  <table class='"table table-striped"'>
+                     <thead>
+                     <tr><th style="width:33%" ng-click="sortObj('first_name',$event)">TITLE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                         <th style="width:33%" ng-click="sortObj('role',$event)">POST AUTHOR &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                         <th style="width:33%" ng-click="sortObj('mobile',$event)">POST DATE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                     </tr>
+                     </thead>
+                     <tbody>
+                       <tr ng-repeat="blog in blogs
+                          | orderBy:sort:desc
+                          | filter:searchInput
+                          | startFrom:currentPage * pageAmount.selected.name
+                          | limitTo:pageAmount.selected.name
+                          track by $index"
+                          ng-click="toBlog(blog.id)">
+                         <td>{{blog.postTitle}}</td>
+                         <td>{{blog.postAuthor.profile.firstName}} {{blog.postAuthor.profile.lastName}}</td>
+                         <td>{{blog.postDate | date: "HH:mm:ss dd/MM/yyyy"}}</td>
+                       </tr>
+                     </tbody>
+                  </table>
+                  <div class="page_num">
+                    <span>Page: {{currentPage+1}}/{{totalPage}}</span>
+                  </div>
+               </div>
             </div>
 
-            <hr>
-            <form>
-               <ol class="blog_list">
-                   <li class="post" ng-repeat="blog in blogs | startFrom:currentPage * pageAmount.selected.name
-                                                             | limitTo:pageAmount.selected.name track by $index" ng-click="toBlog(blog.id)">
-                       <label class="blog_title" for=""><strong>"{{blog.postTitle}}"</strong></label>
-                       <span>post by {{blog.postAuthor.profile.firstName}} {{blog.postAuthor.profile.lastName}}</span>
-                       <span> at {{blog.postDate | date: "HH:mm:ss dd/MM/yyyy"}}</span>
-                   </li>
-               </ol>
-
-
-              <div class="blog_title">
-                   <hr>
-                   <label for=""><strong>Title: &nbsp;</strong></label><input type="text" ng-model="blog_title">
-              </div>
-               <div class="blog_edit">
-                   <textarea ui-tinymce="tinymceOptions" ng-model="blog" ng-model="blog_content" ng-bind-html="blog_content"></textarea>
-                   <button id="subBtn" name="button" ng-click="addBlog()">SUBMIT</button>
-                   <button id="resetBtn" type="reset" name="button">RESET</button>
-                   <div class="clear"></div>
-               </div>
-            </form>
-        </div>
-
-      </div>
+          </div>
     </div>
 
 </div>
