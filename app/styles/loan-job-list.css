@@ -111,13 +111,13 @@ li.job-bar i, li.job-bar span.bar_name{
 }
 
 .tool_bar_middle hr{
-  margin-top: 0px;
+  margin: 0px;
 }
 
 .bank{
   display: inline-block;
   float: left;
-  margin-left: 10px;
+  margin-left: 25px;
   width: 150px;
 }
 
@@ -129,6 +129,14 @@ li.job-bar i, li.job-bar span.bar_name{
   display: inline-block !important;
   width: 100px !important;
   float: right !important;
+}
+
+.tool_bar_middle .settle_date{
+  color:#AEAEAE;
+  padding-left: 130px;
+  font-size: 1.2em;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .start_date{
