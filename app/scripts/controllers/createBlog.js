@@ -12,9 +12,10 @@ antloans.controller('createBlogCtrl',['$scope', '$state', '$http', 'API_BASE','O
               'advlist autolink lists charmap print preview anchor',
               'searchreplace visualblocks code fullscreen',
               'insertdatetime table contextmenu paste code',
-              'emoticons'
+              'emoticons',
+              'image imagetools'
           ],
-          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | emoticons',
+          toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | emoticons | image' ,
           content_css: [
               '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
               '//www.tinymce.com/css/codepen.min.css']
