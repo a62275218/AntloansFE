@@ -96,7 +96,7 @@ li.report-bar i, li.report-bar span.bar_name{
   color: #4F4F4F;
 }
 
-#charts_list{
+.charts_list{
   display: block;
 }
 
@@ -113,7 +113,7 @@ li.report-bar i, li.report-bar span.bar_name{
 }
 
 /* charts list css*/
-#charts_list{
+.charts_list{
   box-sizing: border-box;
   margin-top: 20px;
   width: 95%;
@@ -129,6 +129,7 @@ li.report-bar i, li.report-bar span.bar_name{
 }
 
 .payments_left{
+  padding:20px;
   width: 75%;
   height: 100%;
   box-sizing: border-box;
@@ -211,6 +212,13 @@ li.report-bar i, li.report-bar span.bar_name{
   width:120px;
 }
 
+.total,.avg{
+  display:inline-block;
+  float:right;
+  margin-left:20px;
+  vertical-align: middle;
+  color: #AEB2BA;
+}
 /*
 .chartl{
   margin-top: 30px;
