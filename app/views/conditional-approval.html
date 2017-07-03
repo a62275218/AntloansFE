@@ -457,12 +457,13 @@
                                 <form class="comment_form">
                                 <textarea class='comment_input' placeholder="Add a comment..."
                                           ui-tinymce="tinymceOptions" ng-model="comment"
-                                          ng-bind-html="comment" required></textarea>
+                                          required></textarea>
                                     <button type="reset" class="cancelBtn">Cancel</button>
                                     <button type="submit" class="commentBtn" ng-click="makeComment()">Send</button>
                                 </form>
                                 <div class="clear"></div>
                             </div>
+                            {{comment}}
                         </div>
                     </div>
                 </div>

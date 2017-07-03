@@ -430,6 +430,8 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             if($scope.comment == ''){
                 swal("Oops...", "Please input content", "error");
             }else {
+                console.log($('.comment_input').val());
+                    $scope.comment = $('.comment_input').val();
                 jobService.makeComment($stateParams.jobId, {content: $scope.comment})
                     .then(function (response) {
                         console.log($scope.comment);
@@ -440,7 +442,6 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                                     $scope.comments = response.data.data;
                                 }, function (e) {
                                 });
-                            swal("Success!", "Comment added", "success");
                             /*var scrollBot = function () {
                              $('.message_wrap').scrollTop($('.message_wrap')[0].scrollHeight);
                              console.log($('.message_wrap')[0].scrollHeight)
@@ -473,7 +474,6 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                      $timeout(scrollBot());*/
                 }, function (e) {
                 });
-
         };
 
         //get all the selective attributes

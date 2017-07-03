@@ -158,6 +158,8 @@ antloans.controller('reportCtrl', ['$scope', 'BankService','UserService','report
         reportService.getTimeReports($scope.start_time,$scope.end_time,$scope.step)
             .then(function(response){
                 $scope.data = response.data;
+                $scope.total_loan_amount = response.data.total_loan_amount;
+                $scope.average_loan_amount = response.data.average_loan_amount;
                 $scope.Chart.data.push(['Month','Loan Amount', 'Deal Number']);
                 for(var i = 0; i< 12; i++){
                     if($scope.data.content[i]) {

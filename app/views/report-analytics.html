@@ -30,17 +30,17 @@
                     <h3>Report</h3>
                     <div class="data_show">
                         <div class="deal_total">
-                          <div class=""><span class='data'>400</span>&nbsp;<span>deals</span></div>
+                          <div class=""><span>Total Loan Amount: </span><br><span class='data'> {{total_loan_amount|currency}}</span>&nbsp;</div>
                           <img width="127px" height="27px;" src="./images/data-bar.png" alt="">
                         </div>
                         <div class="settle_total">
-                          <div class=""><span class='data'>123</span>&nbsp;<span>settled</span></div>
+                          <div class=""><span>Average Loan Amount: </span><br><span class='data'>{{average_loan_amount|currency}}</span>&nbsp;</div>
                           <img width="127px" height="27px;" src="./images/data-bar.png" alt="">
                         </div>
-                        <div class="overdue_total">
+                        <!--<div class="overdue_total">
                           <div class=""><span class='data'>28</span>&nbsp;<span>overdue</span></div>
                           <img width="127px" height="27px;" src="./images/data-bar.png" alt="">
-                        </div>
+                        </div>-->
                     </div>
                  <div class="clear"></div>
                  </div>
@@ -70,16 +70,6 @@
                      </div>
 
                      <div class="payments_right">
-                        <!--<h4>{{totalamount|currency}}</h4>
-                        <p>Total Income</p>
-
-                        <h5>{{total.credit|currency}}</h5>
-                        <img width="127px" height="27px;" src="./images/data-bar2.png" alt="">
-                        <p>Credit Card Payments</p>
-
-                        <h5>{{total.paypal|currency}}</h5>
-                        <img width="127px" height="27px;" src="./images/data-bar2.png" alt="">
-                        <p>PayPal Payments</p>-->
                          <div class="time_frame">
                              <label>TIME FRAME:</label>
                              <ui-select ng-model="timeFrame.selected"
@@ -188,16 +178,6 @@
                          <div ng-if="filter_by.selected.name == 'Loan'">
                              <label>PROCESSING TIME</label><br>
                              <span>No more than </span><input style="width:90px;" class="btn btn-default" type="number" ng-model="processing_time"><span> Days</span>
-                             <!--<ui-select ng-model="processing_time.selected" class="selectpicker select_page"
-                                        style="width:120px;" onkeypress="return false;" ng-disabled="disabled">
-                                 <ui-select-match>
-                                     <span ng-bind="$select.selected.name"></span>
-                                 </ui-select-match>
-                                 <ui-select-choices
-                                         repeat="item in processing_time track by $index">
-                                     <span ng-bind="item.name"></span>
-                                 </ui-select-choices>
-                             </ui-select>-->
                          </div>
                          <div>
                              <label>CHART TYPE</label>
@@ -219,6 +199,144 @@
                  <br>
               <div class="clear"></div>
               </div>
+                  <div id="charts_list">
+                      <div class="payments_received">
+                          <div class="payments_left">
+                              <h4>Payments Received</h4>
+                              <div class="clear"></div>
+                              <div google-chart chart="Chart"></div>
+                          </div>
+
+                          <div class="payments_right">
+                              <div class="time_frame">
+                                  <label>TIME FRAME:</label>
+                                  <ui-select ng-model="timeFrame.selected"
+                                             search-enabled="false" class="selection"
+                                             onkeypress="return false;" ng-disabled="disabled">
+                                      <ui-select-match>
+                                          <span ng-bind="$select.selected.name"></span>
+                                      </ui-select-match>
+                                      <ui-select-choices repeat="item in timeFrame track by $index">
+                                          <span ng-bind="item.name"></span>
+                                      </ui-select-choices>
+                                  </ui-select>
+                              </div>
+                              <div class="start_date" style="display:inline-block">
+                                  <label>FROM:</label><br>
+                                  <input class="btn btn-default" ui-date ng-model="startDate" style="width:110px;margin-bottom:5px;margin-top:5px">
+                              </div>
+                              <div class="close_date" style="display:inline-block">
+                                  <label>TO:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                                  <input class="btn btn-default" ui-date ng-model="endDate" style="width:110px">
+                              </div>
+                              <span><small>*default start: 1st Jan of this year<br>default end: today</small></span><br>
+                              <div style="display:inline-block">
+                                  <label>FILTER BY:</label>
+                                  <ui-select ng-model="filter_by.selected"
+                                             search-enabled="false" class="selection"
+                                             onkeypress="return false;" ng-disabled="disabled">
+                                      <ui-select-match>
+                                          <span ng-bind="$select.selected.name"></span>
+                                      </ui-select-match>
+                                      <ui-select-choices repeat="item in filter_by track by $index">
+                                          <span ng-bind="item.name"></span>
+                                      </ui-select-choices>
+                                  </ui-select>
+                              </div>
+                              <div ng-if="filter_by.selected == filter_by[1]">
+                                  <label>USER TYPE:</label>
+                                  <ui-select ng-model="user_type.selected"
+                                             search-enabled="false" class="selection"
+                                             onkeypress="return false;" ng-disabled="disabled">
+                                      <ui-select-match>
+                                          <span ng-bind="$select.selected.name"></span>
+                                      </ui-select-match>
+                                      <ui-select-choices repeat="item in user_type track by $index">
+                                          <span ng-bind="item.name"></span>
+                                      </ui-select-choices>
+                                  </ui-select>
+                              </div>
+                              <!--<ui-select multiple ng-model="customers.selected" ng-if="filter_by.selected == filter_by[1] && user_type.selected == user_type[1]"
+                                         theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
+                                         style="width:250px;margin-top:5px;">
+                                  <ui-select-match placeholder="Type to search customer">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
+                                  <ui-select-choices repeat="item in customers | propsFilter: {email: $select.search,first_name: $select.search,last_name: $select.search}">
+                                      <strong><div ng-bind-html="item.first_name +' '+ item.last_name | highlight:$select.search"></div></strong>
+                                      <small>{{item.email}}</small>
+                                  </ui-select-choices>
+                              </ui-select>
+                              <ui-select multiple ng-model="brokers.selected" ng-if="filter_by.selected == filter_by[1] && user_type.selected == user_type[2]"
+                                         theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
+                                         style="width:250px;margin-top:5px;">
+                                  <ui-select-match placeholder="Type to search customer">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
+                                  <ui-select-choices repeat="item in brokers | propsFilter: {email: $select.search,first_name: $select.search,last_name: $select.search}">
+                                      <strong><div ng-bind-html="item.first_name +' '+ item.last_name | highlight:$select.search"></div></strong>
+                                      <small>{{item.email}}</small>
+                                  </ui-select-choices>
+                              </ui-select>-->
+                              <div ng-if="filter_by.selected.name == 'Bank'">
+                                  <label>BANK:</label>
+                                  <ui-select ng-model="banks.selected"
+                                             search-enabled="false" class="selection"
+                                             onkeypress="return false;" ng-disabled="disabled">
+                                      <ui-select-match>
+                                          <span ng-bind="$select.selected.name"></span>
+                                      </ui-select-match>
+                                      <ui-select-choices repeat="item in banks track by $index">
+                                          <span ng-bind="item.name"></span>
+                                      </ui-select-choices>
+                                  </ui-select>
+                              </div>
+                              <div ng-if="filter_by.selected.name == 'Loan'" style="display:inline-block">
+                                  <label>LOAN TYPE:</label>
+                                  <ui-select ng-model="loan_type.selected"
+                                             search-enabled="false" class="selection"
+                                             onkeypress="return false;" ng-disabled="disabled">
+                                      <ui-select-match>
+                                          <span ng-bind="$select.selected.label"></span>
+                                      </ui-select-match>
+                                      <ui-select-choices repeat="item in loan_type track by $index">
+                                          <span ng-bind="item.label"></span>
+                                      </ui-select-choices>
+                                  </ui-select>
+                              </div>
+                              <div ng-if="filter_by.selected.name == 'Loan'">
+                                  <label>LOAN STATUS</label>
+                                  <ui-select ng-model="loan_status.selected" class="selectpicker select_page"
+                                             style="width:240px;display:inline-block;">
+                                      <ui-select-match>
+                                          <span ng-bind="$select.selected.label"></span>
+                                      </ui-select-match>
+                                      <ui-select-choices
+                                              repeat="item in loan_status | propsFilter:{label:$select.search} track by $index">
+                                          <span ng-bind="item.label"></span>
+                                      </ui-select-choices>
+                                  </ui-select>
+                              </div>
+                              <div ng-if="filter_by.selected.name == 'Loan'">
+                                  <label>PROCESSING TIME</label><br>
+                                  <span>No more than </span><input style="width:90px;" class="btn btn-default" type="number" ng-model="processing_time"><span> Days</span>
+                              </div>
+                              <div>
+                                  <label>CHART TYPE</label>
+                                  <ui-select ng-model="chart_type.selected" class="selectpicker select_page"
+                                             style="width:120px;" onkeypress="return false;" ng-disabled="disabled">
+                                      <ui-select-match>
+                                          <span ng-bind="$select.selected.name"></span>
+                                      </ui-select-match>
+                                      <ui-select-choices
+                                              repeat="item in chart_type track by $index">
+                                          <span ng-bind="item.name"></span>
+                                      </ui-select-choices>
+                                  </ui-select>
+                              </div>
+
+                              <button type="button" name="button" ng-click="applyFilter()">APPLY</button>
+                          </div>
+                      </div>
+                      <br>
+                      <div class="clear"></div>
+                  </div>
 
 
               <!--sales content  -->
