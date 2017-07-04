@@ -1,4 +1,4 @@
-
+/**/
 /*my css*/
 /* side bar*/
 .left_bar ul li.settle-bar{
@@ -55,23 +55,23 @@ li.job-bar i, li.settle-bar span.bar_name{
   height: 50px;
 }
 
-.input-group-addon{
-  background-color: #FFFFFF;
-}
-
-.sortBy{
-  margin-left: 100px;
-  width: 300px;
+.status{
   display: inline-block;
   float: left;
+  margin-left: 10px;
 }
 
-.sortBy label{
-  color:#AEAEAE;
-  display: inline-block;
-  margin: 7px 0 0 0;
-  float: left;
+.statusInput button{
+ color:  #AEAEAE;
+}
 
+.statusInput button:focus{
+  outline: none ;
+}
+
+.statusInput button.selected{
+  background-color: #F0662C;
+  color: white;
 }
 
 .select_date{
@@ -83,6 +83,10 @@ li.job-bar i, li.settle-bar span.bar_name{
   width:60px !important;
   display: inline-block !important;
   float: right !important;
+}
+
+.select_page>ul.dropdown-menu{
+  min-width: inherit;
 }
 
 .page {
@@ -102,15 +106,19 @@ li.job-bar i, li.settle-bar span.bar_name{
 
 .tool_bar_middle{
   height: 80px;
-  display: none;
+  /*display: none;*/
   transition: 1s;
+}
+
+.tool_bar_middle hr{
+  margin: 0px;
 }
 
 .bank{
   display: inline-block;
   float: left;
-  margin-left: 50px;
-  width: 200px;
+  margin-left: 25px;
+  width: 150px;
 }
 
 .bank label{
@@ -119,61 +127,36 @@ li.job-bar i, li.settle-bar span.bar_name{
 
 .bank .bank_input{
   display: inline-block !important;
-  width: 130px !important;
+  width: 100px !important;
   float: right !important;
+}
+
+.tool_bar_middle .settle_date{
+  color:#AEAEAE;
+  padding-left: 130px;
+  font-size: 1.2em;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .start_date{
   display: inline-block;
   float: left;
-  margin-left: 70px;
+  margin-left: 50px;
 }
 
 .close_date{
   display: inline-block;
   float: left;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 
-.tool_bar_middle label{
+.start_date input, .close_date input{
+  width: 100px;
+}
+
+.tool_bar_above label, .tool_bar_middle label, .tool_bar_below label{
   color:#AEAEAE;
-}
-
-.tool_bar_below label{
-  color: #AEAEAE;
-}
-
-.tool_bar_below {
-  height: 80px;
-  display: none;
-  transition: 1s;
-}
-
-.show_block{
-  display: block;
-}
-
-.tool_bar_below hr{
-  margin-top: 0;
-}
-
-.status{
-  display: inline-block;
-  float: left;
-  margin-left: 50px;
-}
-
-.statusInput button{
- color:  #AEAEAE;
-}
-
-.statusInput button:focus{
-  outline: none ;
-}
-
-.statusInput button.selected{
-  background-color: #F0662C;
-  color: white;
 }
 
 .broker{
@@ -187,7 +170,7 @@ li.job-bar i, li.settle-bar span.bar_name{
 }
 
 .broker_input, .admin_input{
-  width: 150px !important;
+  width: 160px !important;
   margin-left: 10px;
 }
 
@@ -197,18 +180,14 @@ li.job-bar i, li.settle-bar span.bar_name{
   margin-left: 20px;
 }
 
-.showBtn{
-  color:#AEAEAE;
-  cursor: pointer;
-  position: absolute;
-  right: 10px;
-  bottom: 5px;
-}
-
+/*================*/
 .settled_list {
   margin: 20px;
   background: white;
   overflow: hidden;
+  padding-bottom: 50px;
+  position: relative;
+  box-shadow: 0 0 8px #D1D3D3;
 }
 
 .settled_list table{
@@ -218,7 +197,8 @@ li.job-bar i, li.settle-bar span.bar_name{
 .settled_list table th{
   padding-top:20px !important;
   padding-bottom:20px !important;
-  outline: none;
+  color: #B9BDC3;
+  font-weight: 500;
 }
 
 .settled_list table th i{
@@ -230,24 +210,35 @@ li.job-bar i, li.settle-bar span.bar_name{
 }
 
 .settled_list table th, .settled_list table td{
+  outline: none;
   text-align: left;
-  padding: 10px 0px 10px 10px;
-  border-bottom-width: 1px;
-  border-bottom-color: #F4F5F7;
-  border-bottom-style: solid;
+  padding: 15px 0px 15px 10px;
+  border-bottom: 1px solid #D0D4D9;
   box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .settled_list table td{
-  font-size: 15px;
+  font-weight: 300;
+  color: #41464D;
 }
 
 .settled_list table img{
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   border-radius: 50px;
+  border: 1px solid #d0d4d9;
+  overflow: hidden;
 }
 
 .settled_list table tbody tr:hover{
-  background-color: #F4F4F4;
+  background-color: #F2F3F4;
+}
+
+.settled_list .page_num{
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: #B9BDC3;
 }

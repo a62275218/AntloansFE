@@ -26,11 +26,11 @@
             <form>
                <div class="blog_detail">
                    <label for="" class="blog_title">
-                    <input type="text" ng-model="blog_title">
+                    <input type="text" ng-model="blog_title" required="">
                    </label>
                    <hr>
                    <div class="blog_edit">
-                       <textarea ui-tinymce="tinymceOptions" ng-model="blog_content"></textarea>
+                       <textarea ui-tinymce="tinymceOptions" ng-model="blog_content" required=""></textarea>
                        <button id="subBtn" type="submit" name="button" ng-click="addBlog()">SAVE</button>
                        <button id="resetBtn" type="reset" name="button">CANCEL</button>
                        <div class="clear"></div>
