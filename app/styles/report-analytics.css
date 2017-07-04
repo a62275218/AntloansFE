@@ -277,7 +277,7 @@ li.report-bar i, li.report-bar span.bar_name{
 }*/
 
 /* sales list css*/
-#sales_list{
+/*#sales_list{
   width: 100%;
   margin-top: 20px;
 }
@@ -325,10 +325,10 @@ li.report-bar i, li.report-bar span.bar_name{
 
 #sales_list table a,#sales_list table a:hover {
   color: black;
-}
+}*/
 
 /* deals list css*/
-#deals_list{
+/*#deals_list{
   width: 100%;
   margin-top: 20px;
 }
@@ -376,7 +376,7 @@ li.report-bar i, li.report-bar span.bar_name{
 
 #deals_list table a,#deals_list table a:hover {
   color: black;
-}
+}*/
 
 /* log list css*/
 #log_list{
@@ -385,31 +385,51 @@ li.report-bar i, li.report-bar span.bar_name{
 }
 
 #log_list .user_list {
-  height: 800px;
   width: 95%;
   background-color: white;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 30px;
+  padding-top: 10px;
   position: relative;
+  padding-bottom: 50px;
+  /*box-shadow: 4px 6px 5px #E8EAEB;*/
+  box-shadow: 0 0 8px #D1D3D3;
 }
 
 #log_list table{
-  width: 100%;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #log_list table th, #log_list table td{
-  width: 25%;
+  outline: none;
   text-align: left;
-  padding: 10px 0px 10px 20px;
-  border-bottom-width: 1px;
-  border-bottom-color: #F4F5F7;
-  border-bottom-style: solid;
+  padding: 15px 0px 15px 10px;
+  border-bottom: 1px solid #D0D4D9;
   box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+#log_list table th{
+padding-top:20px !important;
+padding-bottom:20px !important;
+color: #B9BDC3;
+font-weight: 500;
+}
+
+#log_list table th.selected{
+  color:#F0662C;
 }
 
 #log_list table td{
-  font-size: 18px;
+  font-weight: 300;
+  color: #41464D;
+}
+
+#log_list table tbody tr:hover{
+  background-color: #F2F3F4;
 }
 
 #log_list .page_message p{
@@ -420,11 +440,16 @@ li.report-bar i, li.report-bar span.bar_name{
 }
 
 #log_list .user_list img{
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   border-radius: 50px;
+  border: 1px solid #d0d4d9;
+  overflow: hidden;
 }
 
-#log_list table a,#log_list table a:hover {
-  color: black;
+.user_list .page_num{
+  position: absolute;
+  left: 3%;
+  bottom: 10px;
+  color: #B9BDC3;
 }

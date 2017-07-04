@@ -2,7 +2,7 @@
 .left_bar ul li.blog-bar {
     background-color: #677583;
 }
-
+/**/
 li.blog-bar i, li.blog-bar span.bar_name{
   color: white !important;
 }
@@ -133,12 +133,6 @@ li.blog-bar i, li.blog-bar span.bar_name{
 
 #blog_list table tbody tr:hover{
   background-color: #F2F3F4;
-}
-
-#blog_list .blog_list img{
-  width: 35px;
-  height: 35px;
-  border-radius: 50px;
 }
 
 #blog_list table a, #blog_list table a:hover {
