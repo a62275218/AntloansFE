@@ -28,26 +28,37 @@ antloans.controller('blogCtrl',['$scope','$state','UserService','$stateParams','
         }
 
         $scope.saveBlog = function(id){
-          $http({
-              method: 'PUT',
-              url: API_BASE + "/posts/" + id,
-              headers: {
-                  'Authorization': 'Bearer' + OAuthService.getToken()
-              },
-              data:{post_content: $scope.blog.postContent,
-                    post_title: $scope.blog.postTitle}
-          }).then(function(response){
-            if (response.status == 200) {
-                $("#blogEditBtn").removeClass('edit');
-                $("#blog_content label input").attr('disabled');
-                $("#blog_content label input").addClass('disable');
-                $("#blog_content p.blog_show").show();
-                $("#blog_content div.blog_edit").hide();
-                swal("Success!", "Blog saved", "success");
-            }
-          },function(e){
-            swal("Oops...", "Something went wrong! Update failed", "error");
-          })
+          if($scope.blog.postTitle === '' || $scope.blog.postContent === ''){
+              swal("Oops...", "Please input title and content", "error");
+          }else {
+              console.log("=====================")
+              console.log($scope.blog.postTitle);
+              console.log($scope.blog.postContent);
+              $http({
+                  method: 'PUT',
+                  url: API_BASE + "/posts/" + id,
+                  headers: {
+                      'Authorization': 'Bearer' + OAuthService.getToken()
+                  },
+                  data:{post_content: $scope.blog.postContent,
+                        post_title: $scope.blog.postTitle}
+              }).then(function(response){
+                if (response.status == 200) {
+                    $("#blogEditBtn").removeClass('edit');
+                    $("#blog_content label input").attr('disabled');
+                    $("#blog_content label input").addClass('disable');
+                    $("#blog_content p.blog_show").show();
+                    $("#blog_content div.blog_edit").hide();
+                    swal("Success!", "Blog saved", "success");
+                }
+              },function(e){
+                swal("Oops...", "Something went wrong! Update failed", "error");
+              })
+          }
+
+
+
+
         }
 
         //customize input
@@ -63,7 +74,7 @@ antloans.controller('blogCtrl',['$scope','$state','UserService','$stateParams','
                 'emoticons',
                 'image imagetools'
             ],
-            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | emoticons | image' ,
+            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | emoticons | image' ,
             content_css: [
                 '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
                 '//www.tinymce.com/css/codepen.min.css']
