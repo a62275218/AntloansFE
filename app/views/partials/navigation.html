@@ -17,21 +17,21 @@
     <i  data-status="close" class="fa fa-bell fa-lg" aria-hidden="true"><span class='num' ng-if="alert.unread_num > 0">{{alert.unread_num}}</span></i>
 
     <div class="notify">
+      <div class="unread_mess">Unread messages</div>
       <div class="notes_list">
-<!--  -->
          <div class="note" ng-repeat="item in alert.notifications | limitTo:3" ng-click="toNote(item.notification_id)" ng-class="{'unread':item.read == false}">
             <div class="note_img">
                 <img ng-if="item.sender_avatar" ng-src="{{item.sender_avatar}}" alt="">
                 <img ng-if="!item.sender_avatar" ng-src="{{default_img_url}}" alt="">
             </div>
             <div class="note_info">
-                <div class="note_message">Has {{item.message}}</div>
                 <div class="note_sender"><strong>{{item.sender_name}}</strong></div>
-                <div class="note_time">{{item.time|date:'MM/dd/yyyy h:mma'}}</div>
+                <div class="note_message">Has {{item.message}}</div>
+                <div class="note_time"><strong>{{item.time|date:'MM/dd/yyyy'}} at {{item.time|date:'h:mma'}}</strong></div>
             </div>
          </div>
       </div>
-      <span class="more_notes"><a ui-sref="notification">See more</a></span>
+      <div class="more_notes"><a ui-sref="notification">See more</a></div>
     </div>
 
 </div>

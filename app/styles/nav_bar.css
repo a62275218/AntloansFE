@@ -99,35 +99,49 @@ a:hover,a:visited,a:link,a:active{
   width: 320px;
   top: 70px;
   z-index: 2;
-  background-color: #f9f9f9;
+  background-color: white;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   transition: 0.1s;
-  border: 1px solid #F9F9F9;
+  /*border: 1px solid #F9F9F9;*/
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 0px 5px 0px 5px;
 }
 
 .bell div.notify.show{
+  padding: 5px 5px 0px 5px;
   height: auto;
-  padding: 5px 0px 30px 0px;
   transition: 0.1s;
+  border: 1px solid rgb(202,202,202);
+
+}
+
+.notify .unread_mess{
+  color: rgb(168,168,168);
+  text-align: left;
 }
 
 .notify .notes_list{
   width: 100%;
   overflow: hidden;
+  margin-top: 10px;
 }
 
 .notes_list .note{
   width: 100%;
   overflow: hidden;
-  background-color: #FFFFFF;
-  min-height: 80px;
-  border-bottom: 1px solid #E1E1E1;
+  background-color: #E9E8EA;
+  min-height: 95px;
   box-sizing: border-box;
   cursor: pointer;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  padding: 10px;
 }
 
 .notes_list .note:hover{
   background-color: #E1F3FD;
+  /*background-color: #e9e8ea;*/
 }
 
 .notes_list .note .note_img, .notes_list .note .note_info{
@@ -137,21 +151,39 @@ a:hover,a:visited,a:link,a:active{
 }
 
 .notes_list .note .note_img{
-  padding-top: 10px;
+  /*padding-top: 10px;*/
   width:70px;
 }
 
 .notes_list .note .note_info{
-  padding-top: 5px;
-  width: 248px;
+  /*padding-top: 10px;*/
+  width: 218px;
 }
 
 .note .note_info .note_sender{
-  color:#2C92C0;
+  color:rgb(149,148,153);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .note .note_info .note_message, .note .note_info .note_time{
-  color:#2B3745;
+  color:rgb(200,199,204);
+}
+.note .note_info .note_message{
+  min-height: 40px;
+  font-size: 11px;
+  line-height: normal;
+  color: #aeacb4;
+}
+
+.note .note_info .note_time{
+  text-align: right;
+  /*padding-right: 10px;*/
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 600;
+  color: #aeacb4;
 }
 
 .notes_list .note .note_img img{
@@ -160,24 +192,27 @@ a:hover,a:visited,a:link,a:active{
   margin-right: auto;
   overflow: hidden;
   display: block;
-  width:50px;
-  height:50px;
-  border-radius: 50px;
+  width:60px;
+  height:60px;
+  border-radius: 8px;
 }
 
-/*.notify .notes_list tr{
-  border-bottom: 1px solid #CCCCCC;
-}*/
-
 .notify .more_notes{
-  position: absolute;
-  bottom: 5px;
-  right: 10px;
+  padding: 3px 20px 3px 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.notify div.more_notes:hover{
+  background-color: #F5F5F5;
 }
 
 .notify .more_notes a{
-  color: #3084A6;
+  color: #007AFF;
   text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  line-height: 35px;
 }
 
 .notify .more_notes a:hover{
