@@ -108,7 +108,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
             .then(function (response) {
                 $scope.loan_type = response.data.data.loan_type;
                 $scope.loan_type.shift();
-                $scope.loan_type.unshift({"label": "All", "value": ""});
+                $scope.loan_type.unshift({"label": "All", "name": ""});
                 $scope.loan_type.selected = $scope.loan_type[0];
                 console.log($scope.loan_type);
                 $scope.loan_status = response.data.data.deal_status;
@@ -416,7 +416,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
             if ($scope.filter_by.selected.name == 'Loan') {
                 if ($scope.timeFrame.selected.name == 'Month') {
                     $scope.step = 30;
-                    reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, '', $scope.loan_type.selected.value, $scope.loan_status.selected.value, $scope.processing_time)
+                    reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, '', $scope.loan_type.selected.name, $scope.loan_status.selected.name, $scope.processing_time)
                         .then(function (response) {
                             $scope.loan = response.data;
                             $scope.LineChart.data.push(['Month', 'Loan Amount', 'Deal Number']);
@@ -431,7 +431,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 }
                 else if ($scope.timeFrame.selected.name == 'Quarter') {
                     $scope.step = 90;
-                    reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, '', $scope.loan_type.selected.value, $scope.loan_status.selected.value, $scope.processing_time)
+                    reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, '', $scope.loan_type.selected.name, $scope.loan_status.selected.name, $scope.processing_time)
                         .then(function (response) {
                             $scope.loan = response.data;
                             $scope.Chart.data.push(['Quarter', 'Loan Amount', 'Deal Number']);
@@ -446,7 +446,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 }
                 else if ($scope.timeFrame.selected.name == 'Week') {
                     $scope.step = 7;
-                    reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, '', $scope.loan_type.selected.value, $scope.loan_status.selected.value, $scope.processing_time)
+                    reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, '', $scope.loan_type.selected.name, $scope.loan_status.selected.name, $scope.processing_time)
                         .then(function (response) {
                             $scope.loan = response.data;
                             $scope.Chart.data.push(['Week', 'Loan Amount', 'Deal Number']);
@@ -461,7 +461,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 }
                 else if ($scope.timeFrame.selected.name == 'Year') {
                     $scope.step = 365;
-                    reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, '', $scope.loan_type.selected.value, $scope.loan_status.selected.value, $scope.processing_time)
+                    reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, '', $scope.loan_type.selected.name, $scope.loan_status.selected.name, $scope.processing_time)
                         .then(function (response) {
                             $scope.loan = response.data;
                             $scope.Chart.data.push(['Year', 'Loan Amount', 'Deal Number']);
