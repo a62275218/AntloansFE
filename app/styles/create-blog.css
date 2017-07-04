@@ -59,6 +59,7 @@ li.blog-bar i, li.blog-bar span.bar_name{
   display: inline-block;
   margin: 10px;
   outline: none;
+  border-radius: 4px;
 }
 
 #create_blog .blog_edit #resetBtn{

@@ -84,12 +84,13 @@ li.blog-bar i, li.blog-bar span.bar_name{
   width: 100%;
 }
 
-#blog_content .blog_edit #subBtn, #blog_content .blog_edit #resetBtn{
+#blog_content .blog_edit #subBtn, #blog_content .blog_edit #resetBtn, #blog_content .blog_edit #deleteBtn{
   width: 80px;
   float: right;
   display: inline-block;
   margin: 10px;
   outline: none;
+  border-radius: 4px;
 }
 
 #blog_content .blog_edit #resetBtn{
@@ -101,6 +102,12 @@ li.blog-bar i, li.blog-bar span.bar_name{
 #blog_content .blog_edit #subBtn{
   background: #3D9EDC;
   color:white;
+  border: 0;
+}
+
+#blog_content .blog_edit #deleteBtn{
+  background-color: #ED1C24;
+  color: white;
   border: 0;
 }
 

@@ -27,15 +27,16 @@
                <div class="blog_detail">
                    <span id="blogEditBtn" ng-click="blogEdit()"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
                    <label for="" class="blog_title">
-                    <input class="disable" type="text" ng-model="blog.postTitle" disabled>
+                    <input class="disable" type="text" ng-model="blog.post_title" disabled>
                    </label>
                    <hr>
-                   <p class="blog_show" ng-bind-html="blog.postContent"></p>
+                   <p class="blog_show" ng-bind-html="blog.post_content"></p>
 
                    <div class="blog_edit">
-                       <textarea ui-tinymce="tinymceOptions" ng-model="blog.postContent"></textarea>
+                       <textarea ui-tinymce="tinymceOptions" ng-model="blog.post_content"></textarea>
                        <button id="subBtn" type="submit" name="button" ng-click="saveBlog(blog.id)">SAVE</button>
                        <button id="resetBtn" name="button" ng-click="toBlogList()">CANCEL</button>
+                       <button id="deleteBtn" name="button" ng-click="deleteBlog(blog.id)">DELETE</button>
                        <div class="clear"></div>
                    </div>
 

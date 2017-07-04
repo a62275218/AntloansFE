@@ -28,7 +28,7 @@ antloans.controller('blogCtrl',['$scope','$state','UserService','$stateParams','
         }
 
         $scope.saveBlog = function(id){
-          if($scope.blog.postTitle === '' || $scope.blog.postContent === ''){
+          if($scope.blog.post_title === '' || $scope.blog.post_content === ''){
               swal("Oops...", "Please input title and content", "error");
           }else {
               $http({
@@ -37,8 +37,8 @@ antloans.controller('blogCtrl',['$scope','$state','UserService','$stateParams','
                   headers: {
                       'Authorization': 'Bearer' + OAuthService.getToken()
                   },
-                  data:{post_content: $scope.blog.postContent,
-                        post_title: $scope.blog.postTitle}
+                  data:{post_content: $scope.blog.post_content,
+                        post_title: $scope.blog.post_title}
               }).then(function(response){
                 if (response.status == 200) {
                     $("#blogEditBtn").removeClass('edit');
@@ -52,10 +52,28 @@ antloans.controller('blogCtrl',['$scope','$state','UserService','$stateParams','
                 swal("Oops...", "Something went wrong! Update failed", "error");
               })
           }
+        }
 
-
-
-
+        // delete a blog
+        $scope.deleteBlog = function(id){
+          $http.delete(
+              API_BASE + "/posts/" + id, {
+              headers: {
+                  'Authorization': 'Bearer' + OAuthService.getToken()
+              }
+            }).then(function(response){
+            if (response.status == 200) {
+                $("#blogEditBtn").removeClass('edit');
+                $("#blog_content label input").attr('disabled');
+                $("#blog_content label input").addClass('disable');
+                $("#blog_content p.blog_show").show();
+                $("#blog_content div.blog_edit").hide();
+                swal("Success!", "Blog deleted", "success");
+                $scope.toBlogList();
+            }
+          },function(e){
+            swal("Oops...", "Something went wrong! Update failed", "error");
+          })
         }
 
         //customize input
