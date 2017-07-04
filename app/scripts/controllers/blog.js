@@ -31,9 +31,6 @@ antloans.controller('blogCtrl',['$scope','$state','UserService','$stateParams','
           if($scope.blog.postTitle === '' || $scope.blog.postContent === ''){
               swal("Oops...", "Please input title and content", "error");
           }else {
-              console.log("=====================")
-              console.log($scope.blog.postTitle);
-              console.log($scope.blog.postContent);
               $http({
                   method: 'PUT',
                   url: API_BASE + "/posts/" + id,
