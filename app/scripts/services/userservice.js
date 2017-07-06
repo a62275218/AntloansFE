@@ -5,11 +5,10 @@ var configs = {
 antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
     function ($http, API_BASE,OAuthService) {
         return {
-            resetPassword: function (token, email, password) {
-                return $http.put(API_BASE + '/users/resetpass', {
+            resetPassword: function (id,token, password) {
+                return $http.post(API_BASE + '/users/'+id+'resetpass', {
                     token: token,
-                    email: password,
-                    password: password
+                    newpass: password
                 });
             },
             injectToken: function (token) {

@@ -1,9 +1,11 @@
-antloans.controller('ResetPassCtrl',['OAuthService','UserService','$state','$stateParams','$scope',
-    function(OAuthService,UserService,$state,$stateParams,$scope){
-        $scope.user = this;
-        OAuthService.accessToken();
-        $scope.user.onSubmit = function(){
-            UserService.resetPassword($stateParams.token,$scope.user.password);
-            $state.go('login');
+antloans.controller('ResetPassCtrl',['OAuthService','UserService','$state','$stateParams','$scope','$location',
+    function(OAuthService,UserService,$state,$stateParams,$scope,$location){
+        $scope.onSubmit = function(){
+            $scope.token = $location.search().token;
+            UserService.resetPassword($stateParams.userId,$scope.token,$scope.password)
+                .then(function(response){
+                    console.log(response);
+                    $state.go('login');
+                },function(e){});
         }
 }]);

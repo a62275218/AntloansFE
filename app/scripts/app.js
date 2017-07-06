@@ -32,13 +32,19 @@ var antloans = angular
         'luegg.directives',
         'googlechart'
     ])
-    .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider',
-        function ($stateProvider, $urlRouterProvider,ChartJsProvider) {
+    .config(['$stateProvider', '$urlRouterProvider','ChartJsProvider','$locationProvider','$urlServiceProvider',
+        function ($stateProvider, $urlRouterProvider,ChartJsProvider,$locationProvider,$urlServiceProvider) {
             ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
             $urlRouterProvider.when('', 'login');
             $urlRouterProvider.when('/', '/login');
             $urlRouterProvider.otherwise('/404');
-            /*$locationProvider.html5Mode(true);*/
+
+            //strip # tag
+            /*$locationProvider.html5Mode({
+                enabled: true,
+                requireBase: false
+            });*/
+            $urlServiceProvider.config.html5Mode(true);
 
             $stateProvider
                 .state('404', {
@@ -46,7 +52,7 @@ var antloans = angular
                     templateUrl: '/404.html'
                 })
                 .state('reset', {
-                    url: '/reset',
+                    url: '/users/:userId/resetpass',
                     templateUrl: 'views/loan-reset-pw.html'
                     // controller:''
                 })

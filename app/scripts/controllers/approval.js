@@ -321,6 +321,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             selector: '.comment_input',
             height: 150,
             menubar: false,
+            debounce:false,
             /*entity_encoding:'raw',*/
             plugins: [
                 'advlist autolink lists charmap print preview anchor',
