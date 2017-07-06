@@ -191,7 +191,9 @@ li.job-bar i, li.settle-bar span.bar_name{
 }
 
 .settled_list table{
-  width: 100%;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .settled_list table th{
