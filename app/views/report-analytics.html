@@ -287,7 +287,7 @@
                       <thead>
                         <tr><th ng-click="sortObj('user',$event)">USER&nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <th ng-click="sortObj('action',$event)">ACTION &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th ng-click="sortObj('content',$event)" style="min-width:150px;">CONTENT &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <!--<th ng-click="sortObj('content',$event)" style="min-width:150px;">CONTENT &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>-->
                             <th ng-click="sortObj('createAt',$event)">TIME &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             </tr>
                       </thead>
@@ -300,7 +300,7 @@
                          track by $index">
                           <td>{{item.user}}</td>
                           <td>{{item.action}}</td>
-                          <td>{{item.content}}</td>
+                          <!--<td>{{item.content}}</td>-->
                           <td>{{item.createAt|date:"MM/dd/yyyy   h:mma"}}</td>
                         </tr>
                       </tbody>

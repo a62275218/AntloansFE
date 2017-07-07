@@ -43,3 +43,9 @@
   padding-left: 30px;
   padding-top: 25px;
 }
+
+.selection_role{
+  display:inline-block;
+  width:220px;
+  margin-left: -4px;
+}
