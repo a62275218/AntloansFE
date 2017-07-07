@@ -82,11 +82,10 @@ li.report-bar i, li.report-bar span.bar_name{
 }
 
 .page {
-  width: 200px;
+  width: 220px;
   display: inline-block;
   float: right;
   margin-top: 20px;
-  margin-right: 20px;
 }
 
 .pager{
