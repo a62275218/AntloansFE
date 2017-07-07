@@ -32,6 +32,14 @@ antloans.factory('reportService',['$http','API_BASE','OAuthService',
                         }
                     }
                 )
+            },
+            getAllLogs:function(){
+                return $http.get(API_BASE + '/antloans_log',
+                    {
+                        headers: {
+                            'Authorization': 'Bearer' + OAuthService.getToken()
+                        }
+                    })
             }
         }
     }]);

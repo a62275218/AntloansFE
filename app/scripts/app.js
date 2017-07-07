@@ -40,11 +40,13 @@ var antloans = angular
             $urlRouterProvider.otherwise('/404');
 
             //strip # tag
-            /*$locationProvider.html5Mode({
-                enabled: true,
-                requireBase: false
-            });*/
-            $urlServiceProvider.config.html5Mode(true);
+            if(window.history && window.history.pushState) {
+                /*$locationProvider.html5Mode({
+                    enabled: true,
+                    requireBase: false
+                });*/
+            }
+            /*$urlServiceProvider.config.html5Mode(true);*/
 
             $stateProvider
                 .state('404', {
@@ -53,8 +55,8 @@ var antloans = angular
                 })
                 .state('reset', {
                     url: '/users/:userId/resetpass',
-                    templateUrl: 'views/loan-reset-pw.html'
-                    // controller:''
+                    templateUrl: 'views/loan-reset-pw.html',
+                    controller:'ResetPassCtrl'
                 })
                 .state('login', {
                     url: '/login',
@@ -112,8 +114,8 @@ var antloans = angular
                 })
                 .state('create-user', {
                     url: '/users/new',
-                    templateUrl: 'views/create-user-form.html'
-                    // controller:''
+                    templateUrl: 'views/create-user-form.html',
+                    controller:'createUserCtrl'
                 })
                 .state('user-profile', {
                     url: '/user-profile',

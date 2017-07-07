@@ -61,24 +61,6 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         /*sort job*/
         $scope.sort = '';
         $scope.desc = false;
-        // $scope.sortObj = function(sort,obj){
-        //     $('th').removeClass('selected');
-        //     if($(obj.target).hasClass("false")){
-        //         $(obj.target).removeClass('fa-caret-up');
-        //         $(obj.target).addClass('fa-caret-down');
-        //         $(obj.target).removeClass("false");
-        //         $(obj.target).addClass("true");
-        //         $scope.desc = true;
-        //     }else{
-        //         $(obj.target).removeClass("true");
-        //         $(obj.target).addClass("false");
-        //         $(obj.target).removeClass('fa-caret-down');
-        //         $(obj.target).addClass('fa-caret-up');
-        //         $scope.desc = false;
-        //     };
-        //     $scope.sort = sort;
-        //     $(obj.target).parent().addClass('selected');
-        // };
 
         $scope.sortObj = function(sort,obj){
             $('th').removeClass('selected');
@@ -159,7 +141,6 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         /*default page amount*/
         $scope.pageAmount.selected = $scope.pageAmount[0];
         /*load paginated data*/
-        vm.getPaginatedJobs();
 
         $scope.toApproval =function(id){
           $state.go('approval',{jobId:id})
@@ -168,7 +149,6 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
         $scope.$watchGroup(['searchInput','sort','jobStatus','searchBank','userType'],function(){
             $scope.currentPage = 0;
         },true);
-
 
        // bank active button
        $scope.active = function(status){

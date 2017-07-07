@@ -6,7 +6,7 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
     function ($http, API_BASE,OAuthService) {
         return {
             resetPassword: function (id,token, password) {
-                return $http.post(API_BASE + '/users/'+id+'resetpass', {
+                return $http.post(API_BASE + '/users/'+id+'/resetpass', {
                     token: token,
                     newpass: password
                 });
@@ -74,6 +74,16 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
                     headers:{
                         'Authorization': 'Bearer' + OAuthService.getToken()
                     }
+                });
+            },
+            createUser:function(data){
+                return $http({
+                    method:'POST',
+                    url:API_BASE+ '/signup',
+                    headers:{
+                        'Authorization': 'Bearer' + OAuthService.getToken()
+                    },
+                    data:data
                 });
             }
         }

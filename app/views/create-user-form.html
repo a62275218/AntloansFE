@@ -25,15 +25,13 @@
         <div class="personal_detail">
             <h3>Personal Details</h3>
             <form>
-                <label>Email</label><input type="text" name="" value="">
-                <label>Role</label><input type="text" name="" value="">
+                <label>Email</label><input type="text" name="" value="" ng-model="email">
+                <label>Role</label><input type="text" name="" value="" ng-model="role">
                 <br>
-                <label>First name</label><input type="text" ng-model="ctrl.user.first_name">
-                <label>Last name</label><input type="text" ng-model="ctrl.user.last_name"><br>
+                <label>First name</label><input type="text" ng-model="first_name">
+                <label>Last name</label><input type="text" ng-model="last_name"><br>
 
-                <label>Mobile</label><input type="text" ng-model="ctrl.user.mobile">
-                <label>Security address</label><input type="text" ng-model="ctrl.user.address"><br>
-                <button class="saveBtn" type='submit' name="button">Save</button>
+                <button class="saveBtn" type='submit' name="button" ng-click="createUser()">Save</button>
             </form>
         </div>
 

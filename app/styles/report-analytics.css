@@ -453,3 +453,9 @@ font-weight: 500;
   bottom: 10px;
   color: #B9BDC3;
 }
+
+.search_input {
+  width: 300px;
+  margin-left: 50px;
+  height: 50px;
+}
