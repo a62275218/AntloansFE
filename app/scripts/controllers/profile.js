@@ -30,6 +30,8 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
         };
 
     $scope.edit = function(){
+      $('.saveBtn').show();
+      $('.editBtn').addClass('edit');
       $('.personal_detail input').removeAttr('disabled').removeClass('disable');
     };
 
@@ -83,5 +85,7 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
                 swal("Oops...", "Something went wrong! Update failed", "error");
             })
         }
+        $('.editBtn').removeClass('edit');
+        $('.saveBtn').hide();
     }
 }]);

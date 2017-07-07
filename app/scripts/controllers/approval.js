@@ -178,6 +178,8 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
 
             $('.loan_show td input').attr('disabled');
             $('.loan_show td input').addClass('disable');
+            $('#jobEditBtn').removeClass('edit');
+            $('.saveBtn01').hide();
 
             $scope.edit = false;
                 jobService.updateJobInfo($scope.job.id, {
@@ -206,13 +208,16 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         $scope.edit = false;
         $scope.jobEdit = function () {
             /*$('.job_show td input').removeAttr('disabled').removeClass('disable');*/
+            $('#jobEditBtn').addClass('edit');
             $('.loan_show td input').removeAttr('disabled').removeClass('disable');
             $scope.edit = true;
+            $('.saveBtn01').show();
         };
 
         // ========= edit vertical timeline ========
 
         $('.timeline_editBtn').click(function () {
+            $('button.saveBtn').show();
             var status = [];
             status.push($('.circle.1'), $('.circle.2'), $('.circle.3'), $('.circle.4'), $('.circle.5'),
                 $('.circle.6'), $('.circle.7'), $('.circle.8'), $('.circle.9'), $('.circle.10'),
@@ -299,6 +304,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             $('.timeline').css('border-left', "3px solid #B5B5B5");
             $('.circle').unbind();
             $('.circle').css('cursor', 'default');
+            $('.saveBtn').hide();
 
             var value = $('.circle.done').length; // get the value of updated status
             // === api function
@@ -329,7 +335,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 'insertdatetime table contextmenu paste code',
                 'emoticons'
             ],
-            toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | emoticons',
+            toolbar: 'undo redo | insert | styleselect | bold italic | bullist numlist outdent indent | link image | emoticons',
             content_css: [
                 '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
                 '//www.tinymce.com/css/codepen.min.css']

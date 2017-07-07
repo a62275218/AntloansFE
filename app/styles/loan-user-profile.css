@@ -152,6 +152,10 @@ button, canvas{
   cursor: pointer;
 }
 
+.personal_detail .editBtn.edit{
+  color:#3D9EDC;
+}
+
 .personal_detail .saveBtn{
   position: absolute;
   bottom: 20px;
@@ -159,6 +163,7 @@ button, canvas{
   border: 0;
   color: white;
   background-color: #3D9EDC;
+  display: none;
 }
 
 .email_notify, .sms_notify{

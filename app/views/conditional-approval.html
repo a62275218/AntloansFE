@@ -12,7 +12,7 @@
 </nav>
 
 <div class='main'>
-
+<!--  -->
     <aside class="left_bar" data-status='open' ng-include="'views/partials/sidebar.html'">
     </aside>
 
@@ -314,21 +314,21 @@
                             <li class='subm2'><span
                                     class='time'>{{newStatus[1].createAt | date:'MM/dd/yyyy h:mma'}}</span>
                                 <div class="circle 1" data-index='0'></div>
-                                <span class='stage_name'>Interview conducted</span> &nbsp;<span class='num'
+                                <span class='stage_name'>Interview conducted</span> &nbsp;<span class='num badge'
                                                                                                 ng-if="commentAmount[1]"
                                                                                                 ng-click="showStatusComment(1)">{{commentAmount[1]}}</span>
                             </li>
                             <li class='subm3'><span
                                     class='time'>{{newStatus[2].createAt | date:'MM/dd/yyyy h:mma'}}</span>
                                 <div class="circle 2" data-index='1'></div>
-                                <span class='stage_name'>Document collected</span> &nbsp;<span class='num'
+                                <span class='stage_name'>Document collected</span> &nbsp;<span class='num badge'
                                                                                                ng-if="commentAmount[2]"
                                                                                                ng-click="showStatusComment(2)">{{commentAmount[2]}}</span>
                             </li>
                             <li class='subm4'><span
                                     class='time'>{{newStatus[3].createAt | date:'MM/dd/yyyy h:mma'}}</span>
                                 <div class="circle 3" data-index='2'></div>
-                                <span class='stage_name'>Application submitted</span> &nbsp;<span class='num'
+                                <span class='stage_name'>Application submitted</span> &nbsp;<span class='num badge'
                                                                                                   ng-if="commentAmount[3]"
                                                                                                   ng-click="showStatusComment(3)">{{commentAmount[3]}}</span>
                             </li>
@@ -337,42 +337,42 @@
                             <li class='assess2'><span
                                     class='time'>{{newStatus[4].createAt | date:'MM/dd/yyyy h:mma'}}</span>
                                 <div class="circle 4" data-index='3'></div>
-                                <span class='stage_name'>Conditional approval</span> &nbsp;<span class='num'
+                                <span class='stage_name'>Conditional approval</span> &nbsp;<span class='num badge'
                                                                                                  ng-if="commentAmount[4]"
                                                                                                  ng-click="showStatusComment(4)">{{commentAmount[4]}}</span>
                             </li>
                             <li class='assess3'><span
                                     class='time'>{{newStatus[5].createAt | date:'MM/dd/yyyy h:mma'}}</span>
                                 <div class="circle 5" data-index='4'></div>
-                                <span class='stage_name'>Valuation ordered</span>&nbsp; <span class='num'
+                                <span class='stage_name'>Valuation ordered</span>&nbsp; <span class='num badge'
                                                                                               ng-if="commentAmount[5]"
                                                                                               ng-click="showStatusComment(5)">{{commentAmount[5]}}</span>
                             </li>
                             <li class='assess4'><span
                                     class='time'>{{newStatus[6].createAt | date:'MM/dd/yyyy h:mma'}}</span>
                                 <div class="circle 6" data-index='5'></div>
-                                <span class='stage_name'>Unconditional approval</span>&nbsp; <span class='num'
+                                <span class='stage_name'>Unconditional approval</span>&nbsp; <span class='num badge'
                                                                                                    ng-if="commentAmount[6]"
                                                                                                    ng-click="showStatusComment(6)">{{commentAmount[6]}}</span>
                             </li>
                             <li class='assess5'><span
                                     class='time'>{{newStatus[7].createAt | date:'MM/dd/yyyy h:mma'}}</span>
                                 <div class="circle 7" data-index='6'></div>
-                                <span class='stage_name'>Docs issued</span>&nbsp; <span class='num'
+                                <span class='stage_name'>Docs issued</span>&nbsp; <span class='num badge'
                                                                                         ng-if="commentAmount[7]"
                                                                                         ng-click="showStatusComment(7)">{{commentAmount[7]}}</span>
                             </li>
                             <li class='assess6'><span
                                     class='time'>{{newStatus[8].createAt | date:'MM/dd/yyyy h:mma'}}</span>
                                 <div class="circle 8" data-index='7'></div>
-                                <span class='stage_name'>Signed docs returned</span>&nbsp; <span class='num'
+                                <span class='stage_name'>Signed docs returned</span>&nbsp; <span class='num badge'
                                                                                                  ng-if="commentAmount[8]"
                                                                                                  ng-click="showStatusComment(8)">{{commentAmount[8]}}</span>
                             </li>
                             <li class='assess7'><span
                                     class='time'>{{newStatus[9].createAt | date:'MM/dd/yyyy h:mma'}}</span>
                                 <div class="circle 9" data-index='8'></div>
-                                <span class='stage_name'>Ready to book</span>&nbsp; <span class='num'
+                                <span class='stage_name'>Ready to book</span>&nbsp; <span class='num badge'
                                                                                           ng-if="commentAmount[9]"
                                                                                           ng-click="showStatusComment(9)">{{commentAmount[9]}}</span>
                             </li>
@@ -382,14 +382,14 @@
                             <li class='sett2'><span
                                     class='time'>{{newStatus[10].createAt | date:'MM/dd/yyyy h:mma'}}</span>
                                 <div class="circle 10" data-index='9'></div>
-                                <span class='stage_name'>Settled</span>&nbsp;<span class='num' ng-if="commentAmount[10]"
+                                <span class='stage_name'>Settled</span>&nbsp;<span class='num badge' ng-if="commentAmount[10]"
                                                                                    ng-click="showStatusComment(10)">{{commentAmount[10]}}</span>
                             </li>
                             <li class='sett3'><span
                                     class='time'>{{newStatus[11].createAt | date:'MM/dd/yyyy h:mma'}}</span>
                                 <div class="circle 11" data-index='10'></div>
                                 <span class='stage_name'>One month post settlement confirmation</span> &nbsp;<span
-                                        class='num' ng-if="commentAmount[11]" ng-click="showStatusComment(11)">{{commentAmount[11]}}</span>
+                                        class='num badge' ng-if="commentAmount[11]" ng-click="showStatusComment(11)">{{commentAmount[11]}}</span>
                             </li>
                         </ul>
                     </div>

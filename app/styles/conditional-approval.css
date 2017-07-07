@@ -61,7 +61,15 @@ li.job-bar i, li.job-bar span.bar_name{
 }
 
 .approval_up td input{
+  padding: 6px 12px;
   width: 100%;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .approval_up button.saveBtn00 {
@@ -84,6 +92,7 @@ li.job-bar i, li.job-bar span.bar_name{
     color: white;
     text-align: center;
     width:50px;
+    display: none;
 }
 
 #jobEditBtn {
@@ -93,6 +102,10 @@ li.job-bar i, li.job-bar span.bar_name{
   color: #717171;
   text-align: center;
   outline: none;
+}
+
+#jobEditBtn.edit{
+  color:#3D9EDC;
 }
 
 #dealEditBtn{
@@ -260,6 +273,7 @@ li.job-bar i, li.job-bar span.bar_name{
     color: white;
     border-radius: 5px;
     text-align: center;
+    display: none;
 }
 
 .approval_down h3 {
@@ -390,12 +404,12 @@ li.job-bar i, li.job-bar span.bar_name{
 }
 
 .timeline li .num {
-    width: 20px;
-    height: 20px;
+    /*width: 20px;
+    height: 20px;*/
     background-color: #41A0DA;
     color: white;
     text-align: center;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
 }
 
 .timeline li .num:hover{
@@ -692,6 +706,7 @@ li.sett2, li.sett3, li.sett4 {
     color: black;
     position: relative;
     text-align: right;
+    width: 100%;
 }
 
 .cancelBtn, .commentBtn {
