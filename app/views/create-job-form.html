@@ -23,14 +23,14 @@
 
         <div class="personal_detail">
             <h3>Personal Details</h3>
-            <form>
+            <form name="myform">
                 <div class="email_search">
                   <label>Email</label>
 
                     <ui-select multiple tagging="ctrl.tagTransform" ng-model="ctrl.choosenUser"
                                theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
                                on-select="listUser()" style="width:300px;margin-left:170px;height:30px;">
-                        <ui-select-match placeholder="Type to search or create customer">{{$item.email}}</ui-select-match>
+                        <ui-select-match placeholder="Type to search or create customer" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" name="email">{{$item.email}}</ui-select-match>
                         <ui-select-choices repeat="item in userobj | propsFilter: {email: $select.search} | limitTo: ($select.search.length < 1) ? 0 : undefined">
                             <strong><div ng-bind-html="item.email | highlight:$select.search"></div></strong>
                             <small>
@@ -54,7 +54,7 @@
                   </ui-select>-->
                 </div>
                 <br>
-                <label>First name</label><input type="text" ng-model="ctrl.user[0].first_name" required>
+                <label>First name</label><input class="" type="text" ng-model="ctrl.user[0].first_name" required>
                 <label>Last name</label><input type="text" ng-model="ctrl.user[0].last_name" required><br>
 
                 <label>Mobile</label><input type="text" ng-model="ctrl.user[0].mobile">
