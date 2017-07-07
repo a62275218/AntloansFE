@@ -131,8 +131,8 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         };
         //update user info
         $scope.upUser = function () {
-            $('.job_show td input').attr('disabled');
-            $('.job_show td input').addClass('disable');
+            /*$('.job_show td input').attr('disabled');
+            $('.job_show td input').addClass('disable');*/
 
             $('.loan_show td input').attr('disabled');
             $('.loan_show td input').addClass('disable');
@@ -173,8 +173,8 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         };
         // ======= update the job info
         $scope.updateJob = function () {
-            $('.job_show td input').attr('disabled');
-            $('.job_show td input').addClass('disable');
+            /*$('.job_show td input').attr('disabled');
+            $('.job_show td input').addClass('disable');*/
 
             $('.loan_show td input').attr('disabled');
             $('.loan_show td input').addClass('disable');
@@ -205,7 +205,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         // edit job info
         $scope.edit = false;
         $scope.jobEdit = function () {
-            $('.job_show td input').removeAttr('disabled').removeClass('disable');
+            /*$('.job_show td input').removeAttr('disabled').removeClass('disable');*/
             $('.loan_show td input').removeAttr('disabled').removeClass('disable');
             $scope.edit = true;
         };

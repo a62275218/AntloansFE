@@ -1,7 +1,7 @@
 antloans.factory('reportService',['$http','API_BASE','OAuthService',
     function($http,API_BASE,OAuthService){
         return {
-            getTimeReports:function(start_date,end_date,step,bank_id,loan_type,loan_status,processing_time){
+            getTimeReports:function(start_date,end_date,step,bank,loan_type,loan_status,processing_time){
                 return $http.get(API_BASE + '/reports',
                     {
                         headers: {
@@ -11,7 +11,7 @@ antloans.factory('reportService',['$http','API_BASE','OAuthService',
                             startDateTime:start_date,
                             endDateTime:end_date,
                             step:step,
-                            bank:bank_id,
+                            bank:bank,
                             loanType:loan_type,
                             loanStatus:loan_status,
                             processingTime:processing_time

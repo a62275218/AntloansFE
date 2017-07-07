@@ -9,7 +9,6 @@ antloans.controller('forgotPassCtrl',['UserService','$scope','$state',
                     $scope.sending= false;
                     if(response.data.message =="Email sent"){
                         swal("Success!", "Please check your email to reset password", "success");
-                        $state.go('login');
                     }else{
                         $scope.sending= false;
                         swal("Oops...", "Please enter correct email", "error");

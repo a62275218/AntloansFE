@@ -34,6 +34,9 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
     };
 
     //reset password
+        $scope.newPass = '';
+        $scope.RenewPass = '';
+
     $scope.reset = false;
     $scope.resetPass = function(){
         if($scope.reset == false) {
@@ -55,7 +58,7 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
     $scope.save = function() {
         if ($scope.newPass != $scope.RenewPass) {
             swal("Oops...", "Please Input the same password", "error");
-        }else if($scope.newPass == '' || $scope.RenewPass ==''){
+        }else if($scope.reset == true && ($scope.newPass == '' || $scope.RenewPass =='')){
             swal("Oops...", "Please Input password", "error");
         }else {
             $('.personal_detail input').attr('disabled');
@@ -73,6 +76,9 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
                 preferred_method: $scope.user.preferred_method
             }).then(function () {
                 swal("Success!", "User uploaded", "success")
+                $scope.reset = false;
+                $scope.newPass = '';
+                $scope.RenewPass = '';
             }, function (e) {
                 swal("Oops...", "Something went wrong! Update failed", "error");
             })

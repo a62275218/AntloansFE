@@ -29,13 +29,11 @@
                  <div class="tool_top">
                     <h3>Report</h3>
                     <div class="data_show">
-                        <div class="deal_total">
-                          <div class=""><span>Total Loan Amount: </span><br><span class='data'> {{total_loan_amount|currency}}</span>&nbsp;</div>
-                          <img width="127px" height="27px;" src="./images/data-bar.png" alt="">
+                        <div class="deal_total amount_box">
+                          <div class=""><span>Total Loan Amount: </span><br><span class='data'> {{total_loan_amount|currency:"$":0}}</span>&nbsp;</div>
                         </div>
-                        <div class="settle_total">
-                          <div class=""><span>Average Loan Amount: </span><br><span class='data'>{{average_loan_amount|currency}}</span>&nbsp;</div>
-                          <img width="127px" height="27px;" src="./images/data-bar.png" alt="">
+                        <div class="settle_total amount_box">
+                          <div class=""><span>Average Loan Amount: </span><br><span class='data'>{{average_loan_amount|currency:"$":0}}</span>&nbsp;</div>
                         </div>
                         <!--<div class="overdue_total">
                           <div class=""><span class='data'>28</span>&nbsp;<span>overdue</span></div>
@@ -85,12 +83,12 @@
                  <div class="payments_received">
                      <div class="payments_left">
                          <h4>Payments Received</h4>
-                         <h5 class="avg" ng-if="filter_by.selected.name == 'Time'">Average Amount: {{data.average_loan_amount|currency}}</h5>
-                         <h5 class="total" ng-if="filter_by.selected.name == 'Time'">Total Amount: {{data.total_loan_amount|currency}}</h5>
-                         <h5 class="avg" ng-if="filter_by.selected.name == 'Bank'">Average Amount: {{bank.average_loan_amount|currency}}</h5>
-                         <h5 class="total" ng-if="filter_by.selected.name == 'Bank'">Total Amount: {{bank.total_loan_amount|currency}}</h5>
-                         <h5 class="avg" ng-if="filter_by.selected.name == 'Loan'">Average Amount: {{loan.average_loan_amount|currency}}</h5>
-                         <h5 class="total" ng-if="filter_by.selected.name == 'Loan'">Total Amount: {{loan.total_loan_amount|currency}}</h5>
+                         <h5 class="avg p_amount" ng-if="filter_by.selected.name == 'Time'">Average Amount: <br>{{data.average_loan_amount|currency:"$":0}}</h5>
+                         <h5 class="total p_amount" ng-if="filter_by.selected.name == 'Time'">Total Amount: <br>{{data.total_loan_amount|currency:"$":0}}</h5>
+                         <h5 class="avg p_amount" ng-if="filter_by.selected.name == 'Bank'">Average Amount: <br>{{bank.average_loan_amount|currency:"$":0}}</h5>
+                         <h5 class="total p_amount" ng-if="filter_by.selected.name == 'Bank'">Total Amount: <br>{{bank.total_loan_amount|currency:"$":0}}</h5>
+                         <h5 class="avg p_amount" ng-if="filter_by.selected.name == 'Loan'">Average Amount: <br>{{loan.average_loan_amount|currency:"$":0}}</h5>
+                         <h5 class="total p_amount" ng-if="filter_by.selected.name == 'Loan'">Total Amount: <br>{{loan.total_loan_amount|currency:"$":0}}</h5>
                          <div class="clear"></div>
                              <div google-chart chart="LineChart"></div>
                      </div>
@@ -116,7 +114,6 @@
                              <label>TO:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
                              <input class="btn btn-default" ui-date ng-model="endDate" style="width:110px">
                          </div>
-                         {{startDate}}
                          <span><small>*default start: 1st Jan of this year<br>default end: today</small></span><br>
                          <div style="display:inline-block">
                              <label>FILTER BY:</label>
@@ -217,13 +214,13 @@
                       <div class="payments_received">
                           <div class="payments_left">
                               <h4>Payments Received</h4>
-                              <h5 class="avg" ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Admin'">Average Amount: {{admin.average_loan_amount|currency}}</h5>
-                              <h5 class="total" ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Admin'">Total Amount: {{admin.total_loan_amount|currency}}</h5>
-                              <h5 class="avg" ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Broker'">Average Amount: {{broker.average_loan_amount|currency}}</h5>
-                              <h5 class="total" ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Broker'">Total Amount: {{broker.total_loan_amount|currency}}</h5>
-                              <h5 class="avg" ng-if="filter_by_bar.selected.name == 'Bank'">Average Amount: {{bank_bar.average_loan_amount|currency}}</h5>
-                              <h5 class="total" ng-if="filter_by_bar.selected.name == 'Bank'">Total Amount: {{bank_bar.total_loan_amount|currency}}</h5>
-                              <div class="clear"></div>
+                              <h5 class="avg p_amount" ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Admin'">Average Amount: <br>{{admin.average_loan_amount|currency:"$":0}}</h5>
+                              <h5 class="total p_amount" ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Admin'">Total Amount: <br>{{admin.total_loan_amount|currency:"$":0}}</h5>
+                              <h5 class="avg p_amount" ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Broker'">Average Amount: <br>{{broker.average_loan_amount|currency:"$":0}}</h5>
+                              <h5 class="total p_amount" ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Broker'">Total Amount: <br>{{broker.total_loan_amount|currency:"$":0}}</h5>
+                              <h5 class="avg p_amount" ng-if="filter_by_bar.selected.name == 'Bank'">Average Amount: <br>{{bank_bar.average_loan_amount|currency:"$":0}}</h5>
+                              <h5 class="total p_amount" ng-if="filter_by_bar.selected.name == 'Bank'">Total Amount: <br>{{bank_bar.total_loan_amount|currency:"$":0}}</h5>
+                              <div class="clear p_amount"></div>
                               <div google-chart chart="BarChart"></div>
                           </div>
 

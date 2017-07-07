@@ -339,12 +339,14 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
             }
             //bank
             if ($scope.filter_by.selected.name == 'Bank') {
+                console.log($scope.banks)
                 if ($scope.banks.selected.name == 'All') {
                     $scope.LineChart.data.push(['Bank', 'Loan Amount', 'Deal Number']);
                     reportService.getReports($scope.start_time, $scope.end_time, 'bank')
                         .then(function (response) {
                             $scope.bank = response.data;
                             angular.forEach($scope.bank.content, function (v, k) {
+                                console.log(v)
                                 $scope.LineChart.data.push([v.bank_id, v.loan_amount, v.deal_number]);
                             });
                         }, function (e) {
@@ -352,7 +354,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 } else {
                     if ($scope.timeFrame.selected.name == 'Month') {
                         $scope.step = 30;
-                        reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, $scope.banks.selected.id)
+                        reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, $scope.banks.selected.name)
                             .then(function (response) {
                                 $scope.bank = response.data;
                                 $scope.LineChart.data.push(['Month', 'Loan Amount', 'Deal Number']);
@@ -368,7 +370,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                     else if ($scope.timeFrame.selected.name == 'Quarter') {
                         /*$scope.step = Math.floor($scope.getDaysInOneMonth(today.getFullYear(),today.getUTCMonth()+1) / 4);*/
                         $scope.step = 90;
-                        reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, $scope.banks.selected.id)
+                        reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, $scope.banks.selected.name)
                             .then(function (response) {
                                 $scope.bank = response.data;
                                 $scope.LineChart.data.push(['Quarter', 'Loan Amount', 'Deal Number']);
@@ -383,7 +385,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                     }
                     else if ($scope.timeFrame.selected.name == 'Week') {
                         $scope.step = 7;
-                        reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, $scope.banks.selected.id)
+                        reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, $scope.banks.selected.name)
                             .then(function (response) {
                                 $scope.bank = response.data;
                                 $scope.LineChart.data.push(['Week', 'Loan Amount', 'Deal Number']);
@@ -398,7 +400,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                     }
                     else if ($scope.timeFrame.selected.name == 'Year') {
                         $scope.step = 365;
-                        reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, $scope.banks.selected.id)
+                        reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step, $scope.banks.selected.name)
                             .then(function (response) {
                                 $scope.bank = response.data;
                                 $scope.Chart.data.push(['Year', 'Loan Amount', 'Deal Number']);

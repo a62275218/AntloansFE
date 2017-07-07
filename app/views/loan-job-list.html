@@ -114,7 +114,7 @@
                             </ui-select-match>
                             <ui-select-choices
                                     repeat="item in brokers | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
-                                <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                                <span ng-bind="item.first_name"></span>&nbsp;<span ng-bind="item.last_name"></span>
                             </ui-select-choices>
                         </ui-select>
                     </div>
@@ -127,7 +127,7 @@
                             </ui-select-match>
                             <ui-select-choices
                                     repeat="item in admins | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
-                                <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                                <span ng-bind="item.first_name"></span>&nbsp;<span ng-bind="item.last_name"></span>
                             </ui-select-choices>
                         </ui-select>
                     </div>
