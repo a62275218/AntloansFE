@@ -11,6 +11,8 @@
 
 .personal_detail form{
   padding-top: 30px;
+  padding-bottom: 50px;
+  position: relative;
 }
 
 .personal_detail label{
@@ -27,11 +29,13 @@
 }
 
 .personal_detail button.saveBtn{
+  position: absolute;
   background-color:rgb(61,158,220);
   color: white;
   border: 0;
   float: right;
-  margin-right: 50px;
+  bottom: 5px;
+  right: 50px;
 }
 
 .personal_detail h3{
@@ -44,8 +48,25 @@
   padding-top: 25px;
 }
 
+.person_line1, .person_line2{
+  height: 33px;
+}
+
+.person_line1 label, .person_line2 label{
+   padding-top: 5px;
+}
+
+.person_line1 label, .person_line1 input, .person_line1 .selection_role{
+  display: inline-block;
+  float: left;
+}
+
 .selection_role{
-  display:inline-block;
   width:220px;
   margin-left: -4px;
+}
+
+.person_line2 label, .person_line2 input{
+  display: inline-block;
+  float: left;
 }

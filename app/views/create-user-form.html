@@ -26,22 +26,25 @@
             <h3>Personal Details</h3>
             <form name="createForm">
                 <span style="margin-left:170px;color:red" class="error" ng-if="createForm.email.$error.email">Not valid email!</span><br>
-                <label>Email</label><input type="email" class="form-control" name="email" value="" ng-model="email">
-                <label>Role</label>
-                <ui-select ng-model="roles.selected"
-                                              search-enabled="false" class="selection_role"
-                                              onkeypress="return false;" ng-disabled="disabled" required>
-                <ui-select-match>
-                    <span ng-bind="$select.selected.label"></span>
-                </ui-select-match>
-                <ui-select-choices repeat="item in roles track by $index">
-                    <span ng-bind="item.label"></span>
-                </ui-select-choices>
-                </ui-select>
+                <div class="person_line1">
+                  <label>Email</label><input type="email" class="form-control" name="email" value="" ng-model="email">
+                  <label>Role</label>
+                  <ui-select ng-model="roles.selected"
+                                                search-enabled="false" class="selection_role"
+                                                onkeypress="return false;" ng-disabled="disabled" required>
+                  <ui-select-match>
+                      <span ng-bind="$select.selected.label"></span>
+                  </ui-select-match>
+                  <ui-select-choices repeat="item in roles track by $index">
+                      <span ng-bind="item.label"></span>
+                  </ui-select-choices>
+                  </ui-select>
+                </div>
                 <br>
-                <label>First name</label><input class="form-control" type="text" ng-model="first_name" required>
-                <label>Last name</label><input class="form-control" type="text" ng-model="last_name" required><br>
-
+                <div class="person_line2">
+                  <label>First name</label><input class="form-control" type="text" ng-model="first_name" required>
+                  <label>Last name</label><input class="form-control" type="text" ng-model="last_name" required><br>
+                </div>
                 <button class="saveBtn btn btn-default btn-sm" type='submit' name="button" ng-click="createUser()" ng-disabled="createForm.$invalid">SAVE</button>
             </form>
         </div>

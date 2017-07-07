@@ -427,8 +427,9 @@
                         <div class="message_list">
                             <div class="message_wrap" scroll-glue-bottom="!glued">
                                 <div class="scroll_container">
+
                                     <div class="message" ng-repeat="item in comments track by $index">
-                                        <div class="commenter">
+                                  <!-- <div class="commenter">
                                             <div class="commenter_name">
                                                 <strong>{{item.username}}</strong>
                                             </div>
@@ -438,9 +439,20 @@
                                             </div>
                                         </div>
                                         <div class="comment" ng-bind-html="item.content">
+                                        </div> -->
+
+                                        <div class="commenter">
+                                            <img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
+                                            <img ng-if="!item.avatar" ng-src="{{default_img_url}}" alt="">
                                         </div>
+                                        <div class="comment_info">
+                                            <div class="commenter_name"><strong>{{item.username}}</strong></div>
+                                            <div class="comment" ng-bind-html="item.content"></div>
+                                            <div class="comment_time"><strong>{{item.create_at|date:'MM/dd/yyyy'}} at {{item.create_at|date:'h:mma'}}</strong></div>
+                                        </div>
+
                                         <div class="clear"></div>
-                                        <hr>
+
                                     </div>
                                 </div>
                             </div>
