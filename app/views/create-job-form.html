@@ -54,14 +54,14 @@
                   </ui-select>-->
                 </div>
                 <br>
-                <label>First name</label><input class="" type="text" ng-model="ctrl.user[0].first_name" required>
-                <label>Last name</label><input type="text" ng-model="ctrl.user[0].last_name" required><br>
+                <label>First name</label><input class="form-control" type="text" ng-model="ctrl.user[0].first_name" required>
+                <label>Last name</label><input class="form-control" type="text" ng-model="ctrl.user[0].last_name" required><br>
 
-                <label>Mobile</label><input type="text" ng-model="ctrl.user[0].mobile">
-                <label>Security address</label><input type="text" ng-model="ctrl.user[0].address"><br>
+                <label>Mobile</label><input class="form-control" type="text" ng-model="ctrl.user[0].mobile">
+                <label>Security address</label><input class="form-control" type="text" ng-model="ctrl.user[0].address"><br>
 
-                <label>Preferred contact time</label><input type="text" ng-model="ctrl.user[0].preferred_time">
-                <label>Preferred contact method</label><input type="text" ng-model="ctrl.user[0].preferred_method"><br>
+                <label class="prefer">Preferred contact time</label><input class="form-control" type="text" ng-model="ctrl.user[0].preferred_time">
+                <label class="prefer">Preferred contact method</label><input class="form-control" type="text" ng-model="ctrl.user[0].preferred_method"><br>
             </form>
         </div>
 
@@ -92,7 +92,7 @@
                 </div>
                 <br>
                 <div class="product_line2">
-                  <label>Loan amount</label><input type="number" ng-model="job.product.loan_amount">
+                  <label>Loan amount</label><input class="form-control" type="number" ng-model="job.product.loan_amount">
 
                   <label>Broker</label>
                   <ui-select ng-model="brokers.selected" class="broker_input selectpicker select_page" style="width:220px;">
@@ -118,7 +118,7 @@
                       </ui-select-choices>
                   </ui-select>
                     <label>Special notes</label>
-                    <textarea style="resize:none" ng-model="job.product.special_note"></textarea>
+                    <textarea class="form-control" style="resize:none" ng-model="job.product.special_note"></textarea>
                     <br>
                 </div>
                 <br>
@@ -145,7 +145,7 @@
                     </ui-select>
                 </div>
                 <br>
-                <button class="saveBtn" type='submit' name="button" ng-click="ctrl.onSubmit()" ng-disabled="form.input.$error.required">Save</button>
+                <button class="saveBtn btn btn-default btn-sm" type='submit' name="button" ng-click="ctrl.onSubmit()" ng-disabled="form.input.$error.required">SAVE</button>
                 <span style="color:red" ng-if="valid === false">Please input required information</span>
             </form>
         </div>

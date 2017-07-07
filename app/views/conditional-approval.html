@@ -55,7 +55,7 @@
                 <table class="loan_show">
                     <tr>
                         <th>loan amount</th>
-                        <td><input type="number" class="disable" ng-model="job.loan_amount" disabled></td>
+                        <td><input type="number" class="disable" ng-model="job.loan_amount" disabled=""></td>
                         <th>loan purpose</th>
                         <td>
                             <input ng-if="!edit" type="text" class="disable" ng-model="job.loan_purpose.label" disabled>
@@ -108,7 +108,7 @@
                                                disabled></td>
                     </tr>
                 </table>
-                <button class="saveBtn01" type="button" name="button" ng-click="updateJob()">Save</button>
+                <button class="saveBtn01 btn btn-default btn-sm" type="button" name="button" ng-click="updateJob()">SAVE</button>
             </div>
 
             <div class="approval_middle">
@@ -394,7 +394,7 @@
                         </ul>
                     </div>
 
-                    <button class='saveBtn' type="button" name="button">Save</button>
+                    <button class='saveBtn btn btn-default btn-sm' type="button" name="button">SAVE</button>
 
                 </div>
 
@@ -458,8 +458,8 @@
                                 <textarea class='comment_input' placeholder="Add a comment..."
                                           ui-tinymce="tinymceOptions" ng-model="comment"
                                           required></textarea>
-                                    <button type="reset" class="cancelBtn">Cancel</button>
-                                    <button type="submit" class="commentBtn" ng-click="makeComment()">Send</button>
+                                    <button type="reset" class="cancelBtn btn btn-default btn-sm">Cancel</button>
+                                    <button class="commentBtn btn btn-default btn-sm" ng-click="makeComment()">Send</button>
                                 </form>
                                 <div class="clear"></div>
                             </div>

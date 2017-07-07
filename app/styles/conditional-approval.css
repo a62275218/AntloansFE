@@ -695,7 +695,6 @@ li.sett2, li.sett3, li.sett4 {
 }
 
 .cancelBtn, .commentBtn {
-    width: 100px;
     margin-left: 10px;
     border: 0;
     margin-right: 5px;
@@ -709,6 +708,11 @@ li.sett2, li.sett3, li.sett4 {
 .commentBtn {
     background-color: rgb(61, 158, 220);
     color: white;
+}
+
+.commentBtn:hover {
+    background-color: rgb(61, 158, 220) !important;
+    color: white !important;
 }
 
 #printJS-form .r,.l{

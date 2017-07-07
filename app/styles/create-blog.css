@@ -36,6 +36,10 @@ li.blog-bar i, li.blog-bar span.bar_name{
   margin-left: 20px;
 }
 
+#create_blog .blog_detail input{
+  display: inline-block;
+}
+
 #create_blog hr{
   margin-top: 0;
 }
@@ -54,12 +58,10 @@ li.blog-bar i, li.blog-bar span.bar_name{
 }
 
 #create_blog .blog_edit #subBtn, #create_blog .blog_edit #resetBtn{
-  width: 80px;
   float: right;
   display: inline-block;
   margin: 10px;
   outline: none;
-  border-radius: 4px;
 }
 
 #create_blog .blog_edit #resetBtn{
@@ -74,14 +76,6 @@ li.blog-bar i, li.blog-bar span.bar_name{
   border: 0;
 }
 
-#create_blog button.saveBtn{
-  width: 100px;
-  background-color:rgb(61,158,220);
-  color: white;
-  border: 0;
-  float: right;
-  margin-right: 50px;
-}
 
 #create_blog h3{
   margin: 0;
