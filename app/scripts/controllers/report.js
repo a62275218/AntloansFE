@@ -60,19 +60,25 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         //get all customers and brokers
         $scope.brokers = [];
         $scope.admins = [];
+        $scope.users = [];
         vm.getUsersByType = function (target, type) {
             UserService.getAllUsers()
                 .then(function (response) {
-                    for (var i = 0; i < response.data.data.length; i++) {
-                        if (response.data.data[i].role === type) {
-                            target.push(response.data.data[i]);
+                    if(type) {
+                        for (var i = 0; i < response.data.data.length; i++) {
+                            if (response.data.data[i].role === type) {
+                                target.push(response.data.data[i]);
+                            }
                         }
+                    }else{
+                        target = response.data.data;
                     }
                 }, function (e) {
                 })
         };
         vm.getUsersByType($scope.brokers, 'broker');
         vm.getUsersByType($scope.admins, 'admin');
+        vm.getUsersByType($scope.users);
 
         /*set up filter properties*/
         $scope.timeFrame = [
@@ -236,6 +242,17 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                         name = v.first_name + ' ' + v.last_name;
                     }
                 });
+            }else if (type == 'all'){
+                UserService.getAllUsers()
+                    .then(function(response){
+                        $scope.users = response.data.data;
+                        angular.forEach($scope.users, function (v, k) {
+                            if (v.user_id == id) {
+                                name = v.first_name + ' ' + v.last_name;
+                                return name;
+                            }
+                    },function(e){});
+                });
             }
             return name;
         };
@@ -339,14 +356,12 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
             }
             //bank
             if ($scope.filter_by.selected.name == 'Bank') {
-                console.log($scope.banks)
                 if ($scope.banks.selected.name == 'All') {
                     $scope.LineChart.data.push(['Bank', 'Loan Amount', 'Deal Number']);
                     reportService.getReports($scope.start_time, $scope.end_time, 'bank')
                         .then(function (response) {
                             $scope.bank = response.data;
                             angular.forEach($scope.bank.content, function (v, k) {
-                                console.log(v)
                                 $scope.LineChart.data.push([v.bank_id, v.loan_amount, v.deal_number]);
                             });
                         }, function (e) {
@@ -538,6 +553,10 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
             reportService.getAllLogs()
                 .then(function (response) {
                     $scope.logs = response.data.data;
+                    angular.forEach($scope.logs,function(v,k){
+                        v.name = $scope.findUser('all',v.id);
+                    });
+                    console.log($scope.logs)
                     $scope.totalPage = paginationService.numberOfPages($scope.logs.length,$scope.pageAmount.selected.name);
                 }, function (e) {
                 })
