@@ -65,7 +65,7 @@
                  <div class='user_list'>
                     <table class='"table table-striped"'>
                        <thead>
-                       <tr><th width="40%" ng-click="sortObj('first_name',$event)">NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                       <tr><th width="40%" ng-click="sortObj('name',$event)">NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                            <th width="30%" ng-click="sortObj('role',$event)">USER TYPE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                            <th width="30%" ng-click="sortObj('mobile',$event)">MOBILE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                        </tr>
@@ -80,7 +80,7 @@
                             ng-click="toUser(item.user_id)">
                            <td><img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
                                <img ng-if="!item.avatar" ng-src="/images/avatar.jpg" alt="">
-                               {{item.first_name}} {{item.last_name}}</td>
+                               {{item.name}}</td>
                            <td>{{item.role}}</td>
                            <td>{{item.mobile}}</td>
                          </tr>

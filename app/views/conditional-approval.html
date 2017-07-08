@@ -447,7 +447,7 @@
                                         </div>
                                         <div class="comment_info">
                                             <div class="commenter_name"><strong>{{item.username}}</strong></div>
-                                            <div class="comment" ng-bind-html="item.content"></div>
+                                            <div class="comment" ng-bind-html="deliberatelyTrustDangerousSnippet(item.content)"></div>
                                             <div class="comment_time"><strong>{{item.create_at|date:'MM/dd/yyyy'}} at {{item.create_at|date:'h:mma'}}</strong></div>
                                         </div>
 

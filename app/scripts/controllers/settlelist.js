@@ -16,6 +16,7 @@ antloans.controller('settleListCtrl',['$scope','$state','OAuthService','localSto
                                 $scope.job.push(v);
                             }
                         });
+                        UserService.findFullName($scope.job);
                         $scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
                     },
                     function (e) {

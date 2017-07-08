@@ -123,7 +123,7 @@
                     <table class='"table table-striped"'>
                         <thead>
                         <tr>
-                            <th style="min-width: 157px;" ng-click="sortObj('first_name',$event)">NAME &nbsp;<i
+                            <th style="min-width: 157px;" ng-click="sortObj('name',$event)">NAME &nbsp;<i
                                                                         class="false fa fa-caret-up fa-lg"
                                                                         aria-hidden="true"></i></th>
                             <th style="min-width: 157px;" ng-click="sortObj('deal_status.label',$event)">STATUS &nbsp;<i
@@ -136,7 +136,7 @@
                             <th ng-click="sortObj('loan_purpose.label',$event)" style="min-width: 141px;">LOAN PURPOSE &nbsp;<i
                                      class="false fa fa-caret-up fa-lg"
                                     aria-hidden="true"></i></th>
-                            <th ng-click="sortObj('broker.first_name',$event)" style="min-width: 89px;">BROKER &nbsp;<i
+                            <th ng-click="sortObj('broker.name',$event)" style="min-width: 89px;">BROKER &nbsp;<i
                                                                          class="false fa fa-caret-up fa-lg"
                                                                          aria-hidden="true"></i></th>
                             <th ng-click="sortObj('repayment_type.label',$event)" style="min-width: 157px;">REPAYMENT TYPE &nbsp;<i
@@ -162,14 +162,14 @@
                             <td>
                                 <img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
                                 <img ng-if="!item.avatar" ng-src="{{default_img_url}}" alt="">
-                                <span class='name'>{{item.first_name}} {{item.last_name}}</span>
+                                <span class='name'>{{item.name}}</span>
                             </td>
 
                             <td>{{item.deal_status.label}}</td>
                             <td>{{item.loan_amount|currency}}</td>
                             <!--<td>Notebook</td>-->
                             <td>{{item.loan_purpose.label}}</td>
-                            <td>{{item.broker.first_name}} {{item.broker.last_name}}</td>
+                            <td>{{item.broker.name}}</td>
                             <td>{{item.repayment_type.label}}</td>
                             <td>{{item.file_nature.label}}</td>
                         </tr>

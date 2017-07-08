@@ -28,6 +28,15 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                 ).then(function (response) {
                     if (response.status == 200) {
                         swal("Success!", "You created a new deal!", "success")
+                        /*UserService.createUser(
+                            {
+                                "email": vm.user[0].email,
+                                "password": "12345",
+                                "first_name": vm.user[0].first_name,
+                                "last_name": vm.user[0].last_name,
+                                "role":5
+                            }
+                        )*/
                     }
                 }, function (e) {
                     swal("Oops...", "Something went wrong! Upload failed", "error");

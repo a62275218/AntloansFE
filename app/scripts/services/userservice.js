@@ -94,6 +94,16 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
                         'Authorization': 'Bearer' + OAuthService.getToken()
                     }
                 });
+            },
+            findFullName:function(obj){
+                    angular.forEach(obj, function (v, k) {
+                        if (v.first_name && v.last_name) {
+                            v.name = v.first_name + ' ' + v.last_name;
+                        }
+                        if(v.broker){
+                            v.broker.name = v.broker.first_name + ' ' + v.broker.last_name;
+                        }
+                    });
             }
         }
     }]);

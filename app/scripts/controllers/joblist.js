@@ -4,12 +4,14 @@ antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorag
 
         /*set default current page*/
         $scope.currentPage = 0;
+
         /*get all the paginated data*/
         vm.getPaginatedJobs = function() {
             jobService.getAllJobs()
                 .then(
                     function (response) {
                         $scope.job = response.data.data.content;
+                        UserService.findFullName($scope.job);
                         $scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
                     },
                     function (e) {

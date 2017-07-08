@@ -14,6 +14,7 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService','
                 .then(
                     function (response) {
                         $scope.user = response.data.data;
+                        UserService.findFullName($scope.user);
                         $scope.totalPage = paginationService.numberOfPages($scope.user.length,$scope.pageAmount.selected.name);
                     },
                     function (e) {

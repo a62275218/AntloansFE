@@ -1,5 +1,5 @@
-antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'UserService', '$anchorScroll', '$location', '$timeout', '$q', 'BankService',
-    function ($scope, jobService, $stateParams, UserService, $anchorScroll, $location, $timeout, $q, BankService) {
+antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'UserService', '$anchorScroll', '$location', '$timeout', '$q', 'BankService','$sce',
+    function ($scope, jobService, $stateParams, UserService, $anchorScroll, $location, $timeout, $q, BankService,$sce) {
         var vm = this;
 
         $scope.status = [];
@@ -324,6 +324,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
 
         //customize input
         $scope.tinymceOptions = {
+            theme: "modern",
             selector: '.comment_input',
             height: 150,
             menubar: false,
@@ -333,12 +334,14 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 'advlist autolink lists charmap print preview anchor',
                 'searchreplace visualblocks code fullscreen',
                 'insertdatetime table contextmenu paste code',
-                'emoticons'
+                'emoticons','textcolor colorpicker'
             ],
-            toolbar: 'undo redo | insert | styleselect | bold italic | bullist numlist outdent indent | link image | emoticons',
+            toolbar: 'insert | styleselect | bold italic | bullist numlist outdent indent | link image | emoticons | forecolor | backcolor',
             content_css: [
-                '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-                '//www.tinymce.com/css/codepen.min.css']
+                /*'//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',*/
+                '//www.tinymce.com/css/codepen.min.css',
+                '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css'
+            ]
         }
 
         //classify comments
@@ -406,9 +409,15 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             ];
         $scope.commentFilter.selected = $scope.commentFilter[0];
         //get all comments
+        $scope.deliberatelyTrustDangerousSnippet = function(obj) {
+            return $sce.trustAsHtml(obj);
+        };
         jobService.getComments($stateParams.jobId)
             .then(function (response) {
                 $scope.comments = response.data.data;
+                angular.forEach($scope.comments,function(v,k){
+                    /*$sce.trustAsHtml(v.content);*/
+                });
                 for (var i = 1; i < 13; i++) {
                     vm.countComments($scope.comments, i);
                 }
