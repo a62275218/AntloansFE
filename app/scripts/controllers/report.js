@@ -242,17 +242,6 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                         name = v.first_name + ' ' + v.last_name;
                     }
                 });
-            }else if (type == 'all'){
-                UserService.getAllUsers()
-                    .then(function(response){
-                        $scope.users = response.data.data;
-                        angular.forEach($scope.users, function (v, k) {
-                            if (v.user_id == id) {
-                                name = v.first_name + ' ' + v.last_name;
-                                return name;
-                            }
-                    },function(e){});
-                });
             }
             return name;
         };
@@ -513,7 +502,6 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                     reportService.getReports($scope.start_time, $scope.end_time, 'admin')
                         .then(function (response) {
                             $scope.admin = response.data;
-                            console.log($scope.admin);
                             angular.forEach($scope.admin.content, function (v, k) {
                                 $scope.BarChart.data.push([$scope.findUser('admin', v.admin_id), v.loan_amount, v.deal_number]);
                             });
@@ -552,14 +540,8 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         $scope.getPaginatedLogs = function () {
             reportService.getAllLogs()
                 .then(function (response) {
-                    $scope.logs = response.data.data;
-                    angular.forEach($scope.logs,function(v,k){
-                        v.name = $scope.findUser('all',v.id);
-                    });
-                    console.log($scope.logs)
                     $scope.totalPage = paginationService.numberOfPages($scope.logs.length,$scope.pageAmount.selected.name);
-                }, function (e) {
-                })
+                }, function (e) {})
         };
         $scope.getPaginatedLogs();
 

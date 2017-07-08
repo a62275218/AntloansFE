@@ -40,12 +40,11 @@ var antloans = angular
             $urlRouterProvider.otherwise('/404');
 
             //strip # tag
-            if(window.history && window.history.pushState) {
                 /*$locationProvider.html5Mode({
                     enabled: true,
                     requireBase: false
                 });*/
-            }
+
             /*$urlServiceProvider.config.html5Mode(true);*/
 
             $stateProvider
@@ -121,12 +120,12 @@ var antloans = angular
                     url: '/user-profile',
                     templateUrl: 'views/loan-user-profile.html',
                     controller:'userProfileCtrl',
-                    cache:false,
-                    resolve:{
+                    cache:false
+                    /*resolve:{
                         response:function(UserService){
                             return UserService.getCurrentUser();
                         }
-                    }
+                    }*/
                 })
                 .state('create-job', {
                     url: '/jobs/new',

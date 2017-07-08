@@ -1,5 +1,5 @@
-antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','localStorageService','jobService','paginationService','BankService','UserService',
-    function($scope, $state,response,OAuthService,localStorageService,jobService,paginationService,BankService,UserService){
+antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorageService','jobService','paginationService','BankService','UserService',
+    function($scope, $state,OAuthService,localStorageService,jobService,paginationService,BankService,UserService){
         var vm = this;
 
         /*set default current page*/
@@ -16,6 +16,7 @@ antloans.controller('JobListCtrl',['$scope','$state','response','OAuthService','
                         console.log(e)
                     });
         };
+        vm.getPaginatedJobs();
         $scope.brokers = [];
         $scope.admins = [];
         vm.getUsersByType = function (target,type) {
