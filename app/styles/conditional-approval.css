@@ -243,7 +243,7 @@ li.job-bar i, li.job-bar span.bar_name{
 
 .approval_down_left {
     padding-top: 30px;
-    height: 850px;
+    height: 950px;
     background-color: white;
     box-sizing: border-box;
     display: inline-block;
@@ -334,7 +334,6 @@ li.job-bar i, li.job-bar span.bar_name{
   background: #F38671;
 }
 
-
 .submission i.done{
    color: #FFF136;
 }
@@ -385,7 +384,8 @@ li.job-bar i, li.job-bar span.bar_name{
   margin-left: auto;
   margin-right: auto;
   border-left: 3px solid #B5B5B5;
-  height: 470px;
+  /*height: 470px;*/
+  height: 670px;
 }
 
 .timeline li{
@@ -405,12 +405,9 @@ li.job-bar i, li.job-bar span.bar_name{
 }
 
 .timeline li .num {
-    /*width: 20px;
-    height: 20px;*/
     background-color: #41A0DA;
     color: white;
     text-align: center;
-    /*border-radius: 50%;*/
 }
 
 .timeline li .num:hover{
@@ -426,7 +423,7 @@ li.job-bar i, li.job-bar span.bar_name{
     background-color: #B5B5B5;
 }
 
-.subm2 div, .subm3 div, .subm4 div{
+.subm2 div, .subm3 div, .subm4 div, .subm5 div, .subm6 div{
   width: 14px;
   height: 14px;
   border: 2px solid #B5B5B5;
@@ -434,11 +431,11 @@ li.job-bar i, li.job-bar span.bar_name{
   background-color: white;
 }
 
-.subm2 div.done, .subm3 div.done, .subm4 div.done {
+.subm2 div.done, .subm3 div.done, .subm4 div.done, .subm5 div.done, .subm6 div.done {
     background-color: #FFF136;
 }
 
-.assess2 div, .assess3 div, .assess4 div, .assess5 div, .assess6 div, .assess7 div{
+.progress2 div, .progress3 div, .progress4 div, .progress5 div{
   width: 14px;
   height: 14px;
   border: 2px solid #B5B5B5;
@@ -446,7 +443,19 @@ li.job-bar i, li.job-bar span.bar_name{
   background-color: white;
 }
 
-.assess2 div.done, .assess3 div.done, .assess4 div.done, .assess5 div.done, .assess6 div.done, .assess7 div.done{
+.progress2 div.done, .progress3 div.done, .progress4 div.done, .progress5 div.done{
+    background-color: #0072BC;
+}
+
+.assess2 div, .assess3 div, .assess4 div, .assess5 div, .assess6 div, .assess7 div, .assess8 div{
+  width: 14px;
+  height: 14px;
+  border: 2px solid #B5B5B5;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.assess2 div.done, .assess3 div.done, .assess4 div.done, .assess5 div.done, .assess6 div.done, .assess7 div.done, .assess8 div.done{
   background-color: #F06D54;
 }
 
@@ -470,10 +479,6 @@ li.job-bar i, li.job-bar span.bar_name{
   font-size: 1.5em;
 }
 
-.assess1, .sett1{
-  margin-top: 20px;
-}
-
 .timeline li div{
   margin-right: 20px;
 }
@@ -483,14 +488,20 @@ li.subm1{
   padding: 0;
 }
 
+li.progress1, li.assess1, li.sett1{
+  padding: 0;
+  margin-left: -10px;
+}
+
 .timeline .time {
     box-sizing: border-box;
     width: 140px;
     color: #B5B5B5;
 }
 
-li.subm2, li.subm3, li.subm4,
-li.assess2, li.assess3, li.assess4, li.assess5, li.assess6, li.assess7,
+li.subm2, li.subm3, li.subm4, li.subm5, li.subm6,
+li.progress2, li.progress3, li.progress4, li.progress5,
+li.assess2, li.assess3, li.assess4, li.assess5, li.assess6, li.assess7, li.assess8,
 li.sett2, li.sett3, li.sett4 {
     margin-left: -192px;
 }
@@ -515,41 +526,84 @@ li.sett2, li.sett3, li.sett4 {
     top: 80px;
 }
 
-.timeline li.assess1 {
+.timeline .subm5 {
     position: absolute;
-    top: 120px;
+    top: 110px;
 }
 
-.timeline .assess2 {
+.timeline .subm6 {
+    position: absolute;
+    top: 140px;
+}
+
+/*==*/
+.timeline .progress1 {
     position: absolute;
     top: 180px;
 }
 
-.timeline .assess3 {
+.timeline .progress2 {
     position: absolute;
     top: 210px;
 }
 
-.timeline .assess4 {
+.timeline .progress3 {
     position: absolute;
     top: 240px;
 }
 
-.timeline .assess5{
-  position: absolute;
-  top:270px;
+.timeline .progress4 {
+    position: absolute;
+    top: 270px;
 }
 
-.timeline .assess6 {
+.timeline .progress5 {
     position: absolute;
     top: 300px;
 }
 
-.timeline .assess7{
-  position: absolute;
-  top:330px;
+/*==*/
+.timeline li.assess1 {
+    position: absolute;
+    top: 340px;
 }
 
+.timeline .assess2 {
+    position: absolute;
+    top: 370px;
+}
+
+.timeline .assess3 {
+    position: absolute;
+    top: 400px;
+}
+
+.timeline .assess4 {
+    position: absolute;
+    top: 430px;
+}
+
+.timeline .assess5{
+  position: absolute;
+  top:460px;
+}
+
+.timeline .assess6 {
+    position: absolute;
+    top: 490px;
+}
+
+.timeline .assess7{
+  position: absolute;
+  top:520px;
+}
+
+.timeline .assess8{
+  position: absolute;
+  top:550px;
+}
+
+/**/
 .timeline li.sett1 {
     position: absolute;
     bottom: 50px;
@@ -567,7 +621,7 @@ li.sett2, li.sett3, li.sett4 {
 }
 
 .approval_down_right {
-    height: 850px;
+    min-height: 950px;
     box-sizing: border-box;
     display: inline-block;
     width: 49%;
@@ -627,7 +681,6 @@ li.sett2, li.sett3, li.sett4 {
 .message_part {
     margin-top: 20px;
     width: 100%;
-    /*height: 100%;*/
     background-color: white;
     box-shadow: 2px 5px 4px #E8EAEB;
     position: relative;
@@ -639,7 +692,7 @@ li.sett2, li.sett3, li.sett4 {
 }
 .message_wrap{
     overflow-x:hidden;
-    height:440px;
+    height:535px;
     padding: 5px;
 }
 
