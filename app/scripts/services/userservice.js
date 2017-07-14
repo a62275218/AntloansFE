@@ -104,6 +104,19 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
                             v.broker.name = v.broker.first_name + ' ' + v.broker.last_name;
                         }
                     });
+            },
+            hasPermission: function(role,permission) {
+                if (permission) {
+                    if (typeof(permission) == "string") {
+                        if (role.indexOf(permission) > -1) {
+                            return true;
+                        }else{
+                            return false;
+                        }
+                    }
+                }else {
+                    return true;
+                }
             }
         }
     }]);
