@@ -40,7 +40,7 @@
                     <tr>
                         <th>email</th>
                         <td><input type="text" class="disable" ng-model="job.email" disabled></td>
-                        <th>security address</th>
+                        <th>residential address</th>
                         <td><input type="text" class="disable" ng-model="job.address" disabled></td>
                     </tr>
                     <tr>
@@ -87,7 +87,7 @@
                                 </ui-select-choices>
                             </ui-select>
                         </td>
-                        <th>file nature</th>
+                        <!-- <th>file nature</th>
                         <td>
                             <input ng-if="!edit" type="text" class="disable" ng-model="job.file_nature.label" disabled>
                             <ui-select ng-if="edit" ng-model="job.file_nature" search-enabled="false"
@@ -100,7 +100,27 @@
                                     <span ng-bind="item.label"></span>
                                 </ui-select-choices>
                             </ui-select>
-                        </td>
+                        </td> -->
+                        <th>loan type</th>
+                        <td><input ng-if="!edit" type="text" class="disable" disabled></td>
+                    </tr>
+                    <tr>
+                       <th>lender</th>
+                       <td><input ng-if="!edit" type="text" class="disable" disabled></td>
+
+                       <th>pricing</th>
+                       <td><input ng-if="!edit" type="text" class="disable" disabled></td>
+                    </tr>
+                    <tr>
+                       <th>security</th>
+                       <td><input ng-if="!edit" type="text" class="disable" disabled></td>
+
+                       <th>security value</th>
+                       <td><input ng-if="!edit" type="text" class="disable" disabled></td>
+                    </tr>
+                    <tr>
+                       <th>security address</th>
+                       <td><input ng-if="!edit" type="text" class="disable" disabled></td>
                     </tr>
                     <tr>
                         <th>special notes</th>
@@ -296,7 +316,7 @@
                     <span class="timeline_editBtn"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></span>
                     <h3>Conditional Approval</h3>
                     <div class="process">
-                        <span class='submission'><i class="fa fa-arrow-circle-left fa-3x" aria-hidden="true"></i></span>
+                        <span class='submission'><i class="fa fa-arrow-circle-right fa-3x" aria-hidden="true"></i></span>
                         <span class='assessment'><i class="fa fa-refresh fa-4x" aria-hidden="true"></i></span>
                         <span class='settlement'><i class="fa fa-check-circle fa-3x" aria-hidden="true"></i></span>
                     </div>

@@ -117,8 +117,8 @@ li.job-bar i, li.settle-bar span.bar_name{
 .bank{
   display: inline-block;
   float: left;
-  margin-left: 25px;
-  width: 150px;
+  margin-left: 10px;
+  width: 275px;
 }
 
 .bank label{
@@ -127,7 +127,7 @@ li.job-bar i, li.settle-bar span.bar_name{
 
 .bank .bank_input{
   display: inline-block !important;
-  width: 100px !important;
+  width: 225px !important;
   float: right !important;
 }
 
@@ -162,7 +162,7 @@ li.job-bar i, li.settle-bar span.bar_name{
 .broker{
   display: inline-block;
   float: left;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .broker label, .admin label{
@@ -177,7 +177,7 @@ li.job-bar i, li.settle-bar span.bar_name{
 .admin{
   display: inline-block;
   float: left;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 /*================*/

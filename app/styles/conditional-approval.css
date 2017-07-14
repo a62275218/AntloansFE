@@ -48,6 +48,7 @@ li.job-bar i, li.job-bar span.bar_name{
   text-align: right;
   padding-right: 30px;
   color: #A5A5A5;
+  font-weight: normal;
 }
 
 .approval_up td{

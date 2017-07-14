@@ -68,7 +68,7 @@ li.job-bar i, li.job-bar span.bar_name{
   display: inline-block;
 }
 
-.product_line1, .product_line2, .product_line3, .product_line4{
+.product_line1, .product_line2, .product_line3, .product_line4, .product_line5 , .product_line6 , .product_line7{
   height: 33px;
 }
 
@@ -96,7 +96,22 @@ li.job-bar i, li.job-bar span.bar_name{
   float: left;
 }
 
-.product_line1 label, .product_line2 label, .product_line3 label, .product_line4 label{
+.product_line5 label, .product_line5 input{
+  display: inline-block;
+  float: left;
+}
+
+.product_line6 label, .product_line6 input{
+  display: inline-block;
+  float: left;
+}
+
+.product_line7 label, .product_line7 input{
+  display: inline-block;
+  float: left;
+}
+
+.product_line1 label, .product_line2 label, .product_line3 label, .product_line4 label, .product_line5 label, .product_line6 label, .product_line7 label{
   margin-top: 5px;
 }
 
