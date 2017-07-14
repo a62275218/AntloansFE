@@ -83,8 +83,6 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         /*set up filter properties*/
         $scope.timeFrame = [
             {"name": "Month"},
-            {"name": "Quarter"},
-            {"name": "Week"},
             {"name": "Year"}
         ];
         $scope.timeFrame.selected = $scope.timeFrame[0];

@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc overview
  * @name antloansFrontEndApp
@@ -50,12 +49,14 @@ var antloans = angular
             $stateProvider
                 .state('404', {
                     url: '/404',
-                    templateUrl: '/404.html'
+                    templateUrl: '/404.html',
+                    permission:"*"
                 })
                 .state('reset', {
                     url: '/users/:userId/resetpass',
                     templateUrl: 'views/loan-reset-pw.html',
-                    controller:'ResetPassCtrl'
+                    controller:'ResetPassCtrl',
+                    permission:"*"
                 })
                 .state('login', {
                     url: '/login',
@@ -67,19 +68,22 @@ var antloans = angular
                     url: '/forget-pw',
                     templateUrl: 'views/loan-pw.html',
                     controller:'forgotPassCtrl',
-                    controllerAs:'ctrl'
+                    controllerAs:'ctrl',
+                    permission:"*"
                 })
 
                 .state('notification', {
                     url: '/notifications',
                     templateUrl: 'views/full-notify-list.html',
-                    controller:'notificationListCtrl'
+                    controller:'notificationListCtrl',
+                    permission:"*"
                 })
 
                 .state('notification-details', {
                     url: '/notifications/show/:notificationId',
                     templateUrl: 'views/notification-details.html',
-                    controller:'notificationDetailCtrl'
+                    controller:'notificationDetailCtrl',
+                    permission:"*"
                 })
                 // ==========side bar list ================
                 .state('job-list', {
@@ -92,58 +96,67 @@ var antloans = angular
                         response:function(UserService){
                             return UserService.getCurrentUser();
                         }
-                    }
+                    },
+                    permission:"12312312"
                 })
                 .state('approval', {
                     url: '/jobs/approval/:jobId',
                     templateUrl: 'views/conditional-approval.html',
-                    controller:'approvalCtrl'
+                    controller:'approvalCtrl',
+                    permission:"*"
                 })
 
                 .state('documents', {
                     url: '/documents',
                     templateUrl: 'views/loan-document.html',
-                    controller:'documentCtrl'
+                    controller:'documentCtrl',
+                    permission:"*"
                 })
 
                 .state('users', {
                     url: '/users',
                     templateUrl: 'views/user-list.html',
-                    controller:'UserListCtrl'
+                    controller:'UserListCtrl',
+                    permission:"*"
                 })
                 .state('create-user', {
                     url: '/users/new',
                     templateUrl: 'views/create-user-form.html',
-                    controller:'createUserCtrl'
+                    controller:'createUserCtrl',
+                    permission:"*"
                 })
                 .state('user-profile', {
                     url: '/user-profile',
                     templateUrl: 'views/loan-user-profile.html',
                     controller:'userProfileCtrl',
-                    cache:false
-                    /*resolve:{
+                    cache:false,
+                    resolve:{
                         response:function(UserService){
                             return UserService.getCurrentUser();
                         }
-                    }*/
+                    },
+                    permission:"*"
                 })
                 .state('create-job', {
                     url: '/jobs/new',
                     templateUrl: 'views/create-job-form.html',
                     controller:'createJob',
-                    controllerAs:'ctrl'
+                    controllerAs:'ctrl',
+                    permission:"*"
                 })
                 .state('create-document',{
                     url: '/document/new',
                     templateUrl: 'views/create-document.html',
                     controller:'createDocument',
-                    controllerAs:'ctrl'
+                    controllerAs:'ctrl',
+                    permission:"*"
                 })
 
                 .state('reports', {
                     url: '/reports',
                     templateUrl: 'views/report-analytics.html',
-                    controller:'reportCtrl'
+                    controller:'reportCtrl',
+                    permission:"super admin"
                 })
 
                 .state('settle', {
@@ -154,18 +167,21 @@ var antloans = angular
                 .state('user-detail',{
                     url: '/user-detail/:userId',
                     templateUrl: 'views/user-detail.html',
-                    controller:'userDetailCtrl'
+                    controller:'userDetailCtrl',
+                    permission:"*"
                 })
 
                 .state('blog-list', {
                     url: '/blogs',
                     templateUrl: 'views/blog-list.html',
-                    controller:'blogListCtrl'
+                    controller:'blogListCtrl',
+                    permission:"*"
                 })
                 .state('create-blog', {
                     url: '/blog/new',
                     templateUrl: 'views/create-blog-form.html',
-                    controller:'createBlogCtrl'
+                    controller:'createBlogCtrl',
+                    permission:"*"
                 })
                 .state('blog', {
                     url: '/blogs/:blogId',
@@ -174,9 +190,8 @@ var antloans = angular
                 })
 
         }])
-.run(['$rootScope', '$state', '$urlRouter', 'principal','editableOptions',
-    function($rootScope, $state, $urlRouter, principal,editableOptions){
-        editableOptions.theme = 'bs3';
+.run(['$rootScope', '$state', '$urlRouter', 'principal','UserService',
+    function($rootScope, $state, $urlRouter, principal,UserService){
         $rootScope.default_img_url = "data:image/jpeg;base64,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";
         $rootScope.$on('$locationChangeSuccess', function (e, newUrl) {
             if (principal.isIdentityResolved()) {return;}
@@ -191,8 +206,21 @@ var antloans = angular
                     $urlRouter.sync(); // do an update
                 });
         });
-        /*$rootScope.on('$stateChangeStart',function(){
-
-        });*/
-
+        $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+            //event.preventDefault();
+            var permission = toState.permission;
+            console.log(toState);
+            if (toState.name!="login") {
+                UserService.getCurrentUser()
+                    .then(function(response){
+                        console.log(response.data.data.role);
+                        console.log(permission);
+                        if(!UserService.hasPermission(response.data.data.role,permission)){
+                            console.log('no permission')
+                        }
+                    },function(e){});
+                //$state.transitionTo("login");
+                //$state.go('login');
+            }
+        });
     }]);
