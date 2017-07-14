@@ -21,6 +21,7 @@ var antloans = angular
         'ui.date',
         'ui.select',
         'ui.slider',
+        'ui.bootstrap',
         'LocalStorageModule',
         'chart.js',
         'angularFileUpload',
@@ -75,15 +76,13 @@ var antloans = angular
                 .state('notification', {
                     url: '/notifications',
                     templateUrl: 'views/full-notify-list.html',
-                    controller:'notificationListCtrl',
-                    permission:"*"
+                    controller:'notificationListCtrl'
                 })
 
                 .state('notification-details', {
                     url: '/notifications/show/:notificationId',
                     templateUrl: 'views/notification-details.html',
-                    controller:'notificationDetailCtrl',
-                    permission:"*"
+                    controller:'notificationDetailCtrl'
                 })
                 // ==========side bar list ================
                 .state('job-list', {
@@ -102,8 +101,7 @@ var antloans = angular
                 .state('approval', {
                     url: '/jobs/approval/:jobId',
                     templateUrl: 'views/conditional-approval.html',
-                    controller:'approvalCtrl',
-                    permission:"*"
+                    controller:'approvalCtrl'
                 })
 
                 .state('documents', {
