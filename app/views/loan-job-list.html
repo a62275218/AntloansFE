@@ -94,12 +94,11 @@
                     <div class="bank">
                         <label>BANK:</label>
                         <ui-select ng-model="banks.selected" on-select="filterBankId(banks.selected)"
-                                   search-enabled="false" class="bank_input selectpicker select_page"
-                                   onkeypress="return false;" ng-disabled="disabled" style="width:500px;">
+                                   search-enabled="true" class="bank_input selectpicker select_page">
                             <ui-select-match>
                                 <span ng-bind="$select.selected.name"></span>
                             </ui-select-match>
-                            <ui-select-choices repeat="item in banks track by $index">
+                            <ui-select-choices repeat="item in banks | propsFilter:{name:$select.search} track by $index">
                                 <span ng-bind="item.name"></span>
                             </ui-select-choices>
                         </ui-select>

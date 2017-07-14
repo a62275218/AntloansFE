@@ -22,7 +22,7 @@
 
 
         <div class="personal_detail">
-            <h3>Personal Details</h3>
+            <h3>Customer Details</h3>
             <form name="myform">
                 <div class="email_search">
                   <label>Email</label>
@@ -39,29 +39,18 @@
                         </ui-select-choices>
                     </ui-select>
 
-                  <!--<ui-select multiple class="email_input" ng-model="ctrl.email" ng-disabled="ctrl.disabled" reset-search-input="false"
-                             on-select="listUser()" required>
-                      <ui-select-match placeholder="Type more than 3 characters to find the user by email"
-                                       style="width:400px;" ng-model="emails">
-                          &lt;!&ndash;<span ng-bind="$select.selected.name" style="width:400px;"></span>&ndash;&gt;
-                          {{$select.selected.email}}
-                      </ui-select-match>
-                      <ui-select-choices class="ui-select-choices" repeat="item in ctrl.users track by $index"
-                                         refresh="ctrl.refreshUser($select.search)" refresh-delay="0" style="width:400px;">
-                          <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
-                          <div ng-bind-html="item.email | highlight: $select.search"></div>
-                      </ui-select-choices>
-                  </ui-select>-->
                 </div>
                 <br>
                 <label>First name</label><input class="form-control" type="text" ng-model="ctrl.user[0].first_name" required>
                 <label>Last name</label><input class="form-control" type="text" ng-model="ctrl.user[0].last_name" required><br>
 
                 <label>Mobile</label><input class="form-control" type="text" ng-model="ctrl.user[0].mobile">
-                <label>Security address</label><input class="form-control" type="text" ng-model="ctrl.user[0].address"><br>
+                <label>Residential address</label><input class="form-control" type="text" ng-model="ctrl.user[0].address"><br>
 
                 <label class="prefer">Preferred contact time</label><input class="form-control" type="text" ng-model="ctrl.user[0].preferred_time">
                 <label class="prefer">Preferred contact method</label><input class="form-control" type="text" ng-model="ctrl.user[0].preferred_method"><br>
+
+                <label>DOB</label><input class="form-control" type="text"><br>
             </form>
         </div>
 
@@ -71,7 +60,7 @@
                 <div class="product_line1">
                   <label>Loan type</label>
                   <ui-select ng-model="loan_type.selected" search-enabled="false" class="type_input selectpicker select_page"
-                             onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
+                             onkeypress="return false;" ng-disabled="disabled" style="width:220px; height:33px !important;">
                       <ui-select-match>
                           <span ng-bind="$select.selected.label"></span>
                       </ui-select-match>
@@ -79,7 +68,7 @@
                           <span ng-bind="item.label"></span>
                       </ui-select-choices>
                   </ui-select>
-                  <label>File nature</label>
+                  <!-- <label>File nature</label>
                   <ui-select ng-model="file_nature.selected" search-enabled="false" class="file_input selectpicker select_page"
                              onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
                       <ui-select-match>
@@ -88,7 +77,17 @@
                       <ui-select-choices repeat="item in file_nature track by $index">
                           <span ng-bind="item.label"></span>
                       </ui-select-choices>
-                  </ui-select>
+                  </ui-select> -->
+                  <label>Repayment type</label>
+                      <ui-select ng-model="repayment_type.selected" search-enabled="false" class="bank_input selectpicker select_page"
+                                 onkeypress="return false;" ng-disabled="disabled" style="width:220px;height:33px !important;">
+                          <ui-select-match>
+                              <span ng-bind="$select.selected.label"></span>
+                          </ui-select-match>
+                          <ui-select-choices repeat="item in repayment_type track by $index">
+                              <span ng-bind="item.label"></span>
+                          </ui-select-choices>
+                      </ui-select>
                 </div>
                 <br>
                 <div class="product_line2">
@@ -123,16 +122,6 @@
                 </div>
                 <br>
                 <div class="product_line4">
-                  <label>Repayment type</label>
-                      <ui-select ng-model="repayment_type.selected" search-enabled="false" class="bank_input selectpicker select_page"
-                                 onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
-                          <ui-select-match>
-                              <span ng-bind="$select.selected.label"></span>
-                          </ui-select-match>
-                          <ui-select-choices repeat="item in repayment_type track by $index">
-                              <span ng-bind="item.label"></span>
-                          </ui-select-choices>
-                      </ui-select>
                     <label>Bank</label>
                     <ui-select ng-model="banks.selected" search-enabled="false" class="bank_input selectpicker select_page"
                                onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
@@ -143,8 +132,36 @@
                             <span ng-bind="item.name"></span>
                         </ui-select-choices>
                     </ui-select>
+                    <label for="">Settlement date</label>
+                    <input class="form-control" type="text" name="" value="">
                 </div>
                 <br>
+
+                <div class="product_line5">
+                  <label for="">Lender</label>
+                  <input class="form-control" type="text" name="" value="">
+
+                  <label for="">Pricing</label>
+                  <input class="form-control" type="text" name="" value="">
+                </div>
+                <br>
+
+                <div class="product_line6">
+                  <label for="">Security</label>
+                  <input class="form-control" type="text" name="" value="">
+
+                  <label for="">Security value</label>
+                  <input class="form-control" type="text" name="" value="">
+                </div>
+                <br>
+
+                <div class="product_line7">
+                  <label for="">Security address</label>
+                  <input class="form-control" type="text" name="" value="">
+
+                </div>
+                <br>
+
                 <button class="saveBtn btn btn-default btn-sm" type='submit' name="button" ng-click="ctrl.onSubmit()" ng-disabled="form.input.$error.required">SAVE</button>
                 <span style="color:red" ng-if="valid === false">Please input required information</span>
             </form>
