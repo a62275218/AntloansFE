@@ -1,5 +1,5 @@
-antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'reportService', 'jobService','paginationService',
-    function ($scope, BankService, UserService, reportService, jobService,paginationService) {
+antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'reportService', 'jobService', 'paginationService',
+    function ($scope, BankService, UserService, reportService, jobService, paginationService) {
         var vm = this;
 
         /*google chart api*/
@@ -114,6 +114,11 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 $scope.banks.selected = $scope.banks[0];
             }, function (e) {
             });
+        BankService.getAllBanks()
+            .then(function (response) {
+                $scope.multi_bank = response.data.data;
+            }, function (e) {
+            });
 
         //get all customers and brokers
         $scope.brokers = [];
@@ -125,7 +130,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                     if (type) {
                         for (var i = 0; i < response.data.data.length; i++) {
                             if (response.data.data[i].role === type) {
-                                response.data.data[i].name = response.data.data[i].first_name+' '+response.data.data[i].last_name
+                                response.data.data[i].name = response.data.data[i].first_name + ' ' + response.data.data[i].last_name
                                 target.push(response.data.data[i]);
                             }
                         }
@@ -173,6 +178,13 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
             {"name": "Customize"}
         ];
         $scope.user_type_broker.selected = $scope.user_type_broker[1];
+
+        $scope.bank_type = [
+            {"name": "All"},
+            {"name": "None"},
+            {"name": "Customize"}
+        ];
+        $scope.bank_type.selected = $scope.bank_type[1];
 
         //get all loan properties
         jobService.getJobProperty()
@@ -265,20 +277,44 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         };
 
         //initiate line chart data
-        reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step)
-            .then(function (response) {
-                $scope.data = response.data;
-                $scope.total_loan_amount = response.data.total_loan_amount;
-                $scope.average_loan_amount = response.data.average_loan_amount;
-                $scope.LineChart.data.push(['Month', 'Loan Amount', 'Deal Number']);
-                for (var i = 0; i < 12; i++) {
-                    if ($scope.data.content[i]) {
-                        $scope.LineChart.data.push([$scope.transferMonth(($scope.data.content[i].start + $scope.data.content[i].end) / 2), $scope.data.content[i].loan_amount, $scope.data.content[i].deal_numbers]);
-                    } else {
+        //super admin
+        $scope.initSuper = function() {
+            reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step)
+                .then(function (response) {
+                    $scope.data = response.data;
+                    $scope.total_loan_amount = response.data.total_loan_amount;
+                    $scope.average_loan_amount = response.data.average_loan_amount;
+                    $scope.LineChart.data.push(['Month', 'Loan Amount', 'Deal Number']);
+                    for (var i = 0; i < $scope.data.content.length; i++) {
+                        if ($scope.data.content[i]) {
+                            $scope.LineChart.data.push([$scope.transferMonth(($scope.data.content[i].start + $scope.data.content[i].end) / 2), $scope.data.content[i].loan_amount, $scope.data.content[i].deal_numbers]);
+                        } else {
+                        }
                     }
-                }
-            }, function (e) {
-            });
+                }, function (e) {
+                });
+        };
+        $scope.initSuper();
+        //broker or admin
+        $scope.initNormal = function(){
+            reportService.getUserReports($scope.start_time, $scope.end_time, $scope.step)
+                .then(function (response) {
+                    $scope.data = response.data;
+                    console.log($scope.data)
+                    $scope.total_loan_amount = response.data.total_loan_amount;
+                    $scope.average_loan_amount = response.data.average_loan_amount;
+                    $scope.LineChart.data.push(['Month', 'Loan Amount', 'Deal Number']);
+                    for (var i = 0; i < $scope.data.content.length; i++) {
+                        if ($scope.data.content[i]) {
+                            $scope.LineChart.data.push([$scope.transferMonth(($scope.data.content[i].start + $scope.data.content[i].end) / 2), $scope.data.content[i].loan_amount, $scope.data.content[i].deal_numbers]);
+                        } else {
+                        }
+                    }
+                }, function (e) {
+                });
+        };
+        $scope.initNormal();
+
         //initiate bar chart data
         reportService.getReports($scope.start_time, $scope.end_time, 'admin')
             .then(function (response) {
@@ -446,7 +482,8 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                         }, function (e) {
                         });
                 }
-            };
+            }
+            ;
             //loan
             if ($scope.filter_by.selected.name == 'Loan') {
                 if ($scope.timeFrame.selected.name == 'Month') {
@@ -540,7 +577,8 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 .then(function (response) {
                     $scope.logs = response.data.data;
                     $scope.totalPage = paginationService.numberOfPages($scope.logs.length, $scope.pageAmount.selected.name);
-                }, function (e) {})
+                }, function (e) {
+                })
         };
         $scope.getPaginatedLogs();
 
@@ -548,16 +586,16 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         $scope.sort = '';
         $scope.desc = false;
 
-        $scope.sortObj = function(sort,obj){
+        $scope.sortObj = function (sort, obj) {
             $('th').removeClass('selected');
-            if($(obj.target).is("i")){
-                if($(obj.target).hasClass("false")){
+            if ($(obj.target).is("i")) {
+                if ($(obj.target).hasClass("false")) {
                     $(obj.target).removeClass('fa-caret-up');
                     $(obj.target).addClass('fa-caret-down');
                     $(obj.target).removeClass("false");
                     $(obj.target).addClass("true");
                     $scope.desc = true;
-                }else{
+                } else {
                     $(obj.target).removeClass("true");
                     $(obj.target).addClass("false");
                     $(obj.target).removeClass('fa-caret-down');
@@ -566,14 +604,14 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 }
                 $scope.sort = sort;
                 $(obj.target).parent().addClass('selected');
-            }else{
-                if($(obj.target).children().hasClass("false")){
+            } else {
+                if ($(obj.target).children().hasClass("false")) {
                     $(obj.target).children().removeClass('fa-caret-up');
                     $(obj.target).children().addClass('fa-caret-down');
                     $(obj.target).children().removeClass("false");
                     $(obj.target).children().addClass("true");
                     $scope.desc = true;
-                }else{
+                } else {
                     $(obj.target).children().removeClass("true");
                     $(obj.target).children().addClass("false");
                     $(obj.target).children().removeClass('fa-caret-down');
@@ -586,34 +624,34 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         };
 
         /*go to next page*/
-        $scope.nextPage = function(){
+        $scope.nextPage = function () {
             $scope.currentPage++;
-            if($scope.currentPage>$scope.totalPage-1){
-                $scope.currentPage = $scope.totalPage-1
+            if ($scope.currentPage > $scope.totalPage - 1) {
+                $scope.currentPage = $scope.totalPage - 1
             }
         };
         /*go to previous page*/
-        $scope.prevPage = function(){
+        $scope.prevPage = function () {
             $scope.currentPage--;
-            if($scope.currentPage < 0){
+            if ($scope.currentPage < 0) {
                 $scope.currentPage = 0
             }
         };
         /*go to first page*/
-        $scope.returnToFirst = function(){
+        $scope.returnToFirst = function () {
             $scope.currentPage = 0;
             vm.getPaginatedJobs();
         };
         /*options of page amount*/
-        $scope.pageAmount =[
-            {"name":10},
-            {"name":20},
-            {"name":30}
+        $scope.pageAmount = [
+            {"name": 10},
+            {"name": 20},
+            {"name": 30}
         ];
         /*default page amount*/
         $scope.pageAmount.selected = $scope.pageAmount[0];
 
-        $scope.$watchGroup(['searchInput','sort','jobStatus','searchBank','userType'],function(){
+        $scope.$watchGroup(['searchInput', 'sort', 'jobStatus', 'searchBank', 'userType'], function () {
             $scope.currentPage = 0;
-        },true);
+        }, true);
     }]);
