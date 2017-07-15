@@ -111,9 +111,30 @@ antloans
             var result = [];
             if (usertype == 'all') {
                 return items;
-            } else if (usertype = 'broker') {
+            } else if (usertype == 'broker') {
                 angular.forEach(items, function (v, k) {
                     if (items[k].broker && items[k].broker.user_id == id) {
+                        result.push(items[k]);
+                    }
+                });
+            }else if (usertype == 'admin'){
+                angular.forEach(items, function (v, k) {
+                    if (items[k].admin && items[k].admin.user_id == id) {
+                        result.push(items[k]);
+                    }
+                });
+            }
+            return result;
+        }
+    })
+    .filter('userTypeFilter',function(){
+        return function(items,usertype){
+            var result = [];
+            if(usertype == 'all'){
+                return items;
+            }else{
+                angular.forEach(items, function (v, k) {
+                    if (items[k].role && items[k].role == usertype) {
                         result.push(items[k]);
                     }
                 });

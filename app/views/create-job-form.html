@@ -25,32 +25,42 @@
             <h3>Customer Details</h3>
             <form name="myform">
                 <div class="email_search">
-                  <label>Email</label>
+                  <label>Full Name</label>
 
-                    <ui-select multiple tagging="ctrl.tagTransform" ng-model="ctrl.choosenUser"
-                               theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
-                               on-select="listUser()" style="width:300px;margin-left:170px;height:30px;">
-                        <ui-select-match placeholder="Type to search or create customer" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" name="email">{{$item.email}}</ui-select-match>
-                        <ui-select-choices repeat="item in userobj | propsFilter: {email: $select.search} | limitTo: ($select.search.length < 1) ? 0 : undefined">
-                            <strong><div ng-bind-html="item.email | highlight:$select.search"></div></strong>
-                            <small>
-                                {{item.first_name}} {{item.last_name}}
-                            </small>
+                    <ui-select ng-model="ctrl.choosenUser"
+                               theme="bootstrap" on-select="listUser()" style="width:220px;margin-left:170px;height:30px;">
+                        <ui-select-match placeholder="Search customer by name">{{$select.selected.name}}</ui-select-match>
+                        <ui-select-choices repeat="item in userobj | propsFilter: {name: $select.search} track by $index">
+                            <strong>
+                                <div ng-bind="item.name"></div>
+                            </strong>
                         </ui-select-choices>
                     </ui-select>
+                    <!--multiple selection-->
+                    <!--<ui-select multiple tagging="ctrl.tagTransform" ng-model="ctrl.choosenUser"
+                               theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
+                               on-select="listUser()" style="width:300px;margin-left:170px;height:30px;">
+                        <ui-select-match placeholder="Type to search or create customer" name="email">{{$item.name}}</ui-select-match>
+                        <ui-select-choices repeat="item in userobj | propsFilter: {name: $select.search} | limitTo: ($select.search.length < 1) ? 0 : undefined">
+                            <strong>
+                                <div ng-bind-html="item.name | highlight:$select.search"></div> &lt;!&ndash;<div ng-bind-html="item.last_name | highlight:$select.search"></div>&ndash;&gt;
+                            </strong>
+                        </ui-select-choices>
+                    </ui-select>-->
 
                 </div>
                 <br>
-                <label>First name</label><input class="form-control" type="text" ng-model="ctrl.user[0].first_name" required>
-                <label>Last name</label><input class="form-control" type="text" ng-model="ctrl.user[0].last_name" required><br>
+                <label>First name</label><input class="form-control" type="text" ng-model="ctrl.user.first_name" required>
+                <label>Last name</label><input class="form-control" type="text" ng-model="ctrl.user.last_name" required><br>
 
-                <label>Mobile</label><input class="form-control" type="text" ng-model="ctrl.user[0].mobile">
-                <label>Residential address</label><input class="form-control" type="text" ng-model="ctrl.user[0].address"><br>
+                <label>Mobile</label><input class="form-control" type="text" ng-model="ctrl.user.mobile">
+                <label>Residential address</label><input class="form-control" type="text" ng-model="ctrl.user.address"><br>
 
-                <label class="prefer">Preferred contact time</label><input class="form-control" type="text" ng-model="ctrl.user[0].preferred_time">
-                <label class="prefer">Preferred contact method</label><input class="form-control" type="text" ng-model="ctrl.user[0].preferred_method"><br>
+                <label class="prefer">Preferred contact time</label><input class="form-control" type="text" ng-model="ctrl.user.preferred_time">
+                <label class="prefer">Preferred contact method</label><input class="form-control" type="text" ng-model="ctrl.user.preferred_method"><br>
 
-                <label>DOB</label><input class="form-control" type="text"><br>
+                <label>Date of Birth</label><input class="form-control" type="text">
+                <label>Email</label><input class="form-control" type="email" ng-model="ctrl.user.email"><br>
             </form>
         </div>
 
@@ -96,10 +106,10 @@
                   <label>Broker</label>
                   <ui-select ng-model="brokers.selected" class="broker_input selectpicker select_page" style="width:220px;">
                       <ui-select-match>
-                          <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
+                          <span ng-bind="$select.selected.name"></span>
                       </ui-select-match>
-                      <ui-select-choices repeat="item in brokers | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
-                          <span ng-bind="item.first_name"></span><span ng-bind="item.last_name"></span>
+                      <ui-select-choices repeat="item in brokers | propsFilter:{name:$select.search} track by $index">
+                          <span ng-bind="item.name"></span>
                       </ui-select-choices>
                   </ui-select>
                 </div>
@@ -133,7 +143,7 @@
                         </ui-select-choices>
                     </ui-select>
                     <label for="">Settlement date</label>
-                    <input class="form-control" type="text" name="" value="">
+                    <input class="btn btn-default" ui-date ng-model="settlementDate">
                 </div>
                 <br>
 

@@ -65,6 +65,45 @@
                 <button class="saveBtn" type="button" name="button" ng-click="save()">Save</button>
             </div>
         </div>
+        <div class="job_list">
+            <table class='"table table-striped"'>
+                <thead>
+                <tr>
+                    <th style="min-width: 157px;" ng-click="sortObj('name',$event)">NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                    <th style="min-width: 157px;" ng-click="sortObj('deal_status.label',$event)">STATUS &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                    <th style="min-width: 137px;" ng-click="sortObj('loan_amount',$event)">LOAN AMOUNT &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                    <!--<th style="min-width: 100px;"><span ng-click="sortObj('first_name',$event)">ASSIGN &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></span></th>-->
+                    <th style="min-width: 141px;" ng-click="sortObj('loan_purpose.label',$event)">LOAN PURPOSE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                    <th style="min-width: 89px;" ng-click="sortObj('broker.name',$event)">BROKER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                    <th style="min-width: 89px;" ng-click="sortObj('admin.name',$event)">ADMIN &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                    <th style="min-width: 157px;" ng-click="sortObj('repayment_type.label',$event)">REPAYMENT TYPE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                    <!--<th style="min-width: 121px;" ng-click="sortObj('file_nature.label',$event)">FILE NATURE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>-->
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="item in job
+                      | orderBy:sort:desc
+                      track by $index" class='item' ng-click="toApproval(item.id)">
+                    <td>
+                        <img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
+                        <img ng-if="!item.avatar" ng-src="{{default_img_url}}" alt="">
+                        <span class='name'>{{item.name}}</span>
+                    </td>
+
+                    <td>{{item.deal_status.label}}</td>
+                    <td>{{item.loan_amount|currency}}</td>
+                    <!--<td>Notebook</td>-->
+                    <td>{{item.loan_purpose.label}}</td>
+                    <td>{{item.broker.name}}</td>
+                    <td>{{item.admin.name}}</td>
+                    <td>{{item.repayment_type.label}}</td>
+                    <!--<td>{{item.file_nature.label}}</td>-->
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
     </div>
 
 </div>

@@ -1,5 +1,5 @@
-antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'reportService', 'jobService','paginationService',
-    function ($scope, BankService, UserService, reportService, jobService,paginationService) {
+antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'reportService', 'jobService', 'paginationService',
+    function ($scope, BankService, UserService, reportService, jobService, paginationService) {
         var vm = this;
 
         /*google chart api*/
@@ -49,22 +49,12 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         };
 
         /*date option*/
-        $scope.today1 = function () {
-            $scope.startDate = new Date();
-        };
-        $scope.today2 = function () {
-            $scope.endDate = new Date();
-        };
+
         //initialize start and end date
         $scope.startDate = new Date(new Date().getFullYear(), 0, 1);
-        $scope.today2();
-
-        $scope.clear1 = function () {
-            $scope.startDate = null;
-        };
-        $scope.clear1 = function () {
-            $scope.endDate = null;
-        };
+        $scope.endDate = new Date();
+        $scope.startDate2 = new Date(new Date().getFullYear(), 0, 1);
+        $scope.endDate2 = new Date();
 
         $scope.inlineOptions = {
             /*customClass: getDayClass,*/
@@ -85,23 +75,17 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
             return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
         }
 
-        /*$scope.toggleMin = function() {
-         $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
-         $scope.dateOptions.minDate = $scope.inlineOptions.minDate;
-         };
-
-         $scope.toggleMin();*/
-
         $scope.open1 = function () {
             $scope.popup1.opened = true;
         };
-
         $scope.open2 = function () {
             $scope.popup2.opened = true;
         };
-
-        $scope.setDate = function (year, month) {
-            $scope.dt = new Date(year, month);
+        $scope.open3 = function () {
+            $scope.popup3.opened = true;
+        };
+        $scope.open4 = function () {
+            $scope.popup4.opened = true;
         };
 
         $scope.formats = ['MMMM-yyyy', 'yyyy/MM', 'MM.yyyy', 'shortDate'];
@@ -115,6 +99,12 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         $scope.popup2 = {
             opened: false
         };
+        $scope.popup3 = {
+            opened: false
+        };
+        $scope.popup4 = {
+            opened: false
+        };
 
         //get all banks
         BankService.getAllBanks()
@@ -122,6 +112,11 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 $scope.banks = response.data.data;
                 $scope.banks.unshift({name: 'All'});
                 $scope.banks.selected = $scope.banks[0];
+            }, function (e) {
+            });
+        BankService.getAllBanks()
+            .then(function (response) {
+                $scope.multi_bank = response.data.data;
             }, function (e) {
             });
 
@@ -135,6 +130,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                     if (type) {
                         for (var i = 0; i < response.data.data.length; i++) {
                             if (response.data.data[i].role === type) {
+                                response.data.data[i].name = response.data.data[i].first_name + ' ' + response.data.data[i].last_name
                                 target.push(response.data.data[i]);
                             }
                         }
@@ -169,11 +165,26 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         ];
         $scope.filter_by_bar.selected = $scope.filter_by_bar[0];
 
-        $scope.user_type = [
-            {"name": "Admin"},
-            {"name": "Broker"}
+        $scope.user_type_admin = [
+            {"name": "All"},
+            {"name": "None"},
+            {"name": "Customize"}
         ];
-        $scope.user_type.selected = $scope.user_type[0];
+        $scope.user_type_admin.selected = $scope.user_type_admin[1];
+
+        $scope.user_type_broker = [
+            {"name": "All"},
+            {"name": "None"},
+            {"name": "Customize"}
+        ];
+        $scope.user_type_broker.selected = $scope.user_type_broker[1];
+
+        $scope.bank_type = [
+            {"name": "All"},
+            {"name": "None"},
+            {"name": "Customize"}
+        ];
+        $scope.bank_type.selected = $scope.bank_type[1];
 
         //get all loan properties
         jobService.getJobProperty()
@@ -266,20 +277,44 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         };
 
         //initiate line chart data
-        reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step)
-            .then(function (response) {
-                $scope.data = response.data;
-                $scope.total_loan_amount = response.data.total_loan_amount;
-                $scope.average_loan_amount = response.data.average_loan_amount;
-                $scope.LineChart.data.push(['Month', 'Loan Amount', 'Deal Number']);
-                for (var i = 0; i < 12; i++) {
-                    if ($scope.data.content[i]) {
-                        $scope.LineChart.data.push([$scope.transferMonth(($scope.data.content[i].start + $scope.data.content[i].end) / 2), $scope.data.content[i].loan_amount, $scope.data.content[i].deal_numbers]);
-                    } else {
+        //super admin
+        $scope.initSuper = function() {
+            reportService.getTimeReports($scope.start_time, $scope.end_time, $scope.step)
+                .then(function (response) {
+                    $scope.data = response.data;
+                    $scope.total_loan_amount = response.data.total_loan_amount;
+                    $scope.average_loan_amount = response.data.average_loan_amount;
+                    $scope.LineChart.data.push(['Month', 'Loan Amount', 'Deal Number']);
+                    for (var i = 0; i < $scope.data.content.length; i++) {
+                        if ($scope.data.content[i]) {
+                            $scope.LineChart.data.push([$scope.transferMonth(($scope.data.content[i].start + $scope.data.content[i].end) / 2), $scope.data.content[i].loan_amount, $scope.data.content[i].deal_numbers]);
+                        } else {
+                        }
                     }
-                }
-            }, function (e) {
-            });
+                }, function (e) {
+                });
+        };
+        $scope.initSuper();
+        //broker or admin
+        $scope.initNormal = function(){
+            reportService.getUserReports($scope.start_time, $scope.end_time, $scope.step)
+                .then(function (response) {
+                    $scope.data = response.data;
+                    console.log($scope.data)
+                    $scope.total_loan_amount = response.data.total_loan_amount;
+                    $scope.average_loan_amount = response.data.average_loan_amount;
+                    $scope.LineChart.data.push(['Month', 'Loan Amount', 'Deal Number']);
+                    for (var i = 0; i < $scope.data.content.length; i++) {
+                        if ($scope.data.content[i]) {
+                            $scope.LineChart.data.push([$scope.transferMonth(($scope.data.content[i].start + $scope.data.content[i].end) / 2), $scope.data.content[i].loan_amount, $scope.data.content[i].deal_numbers]);
+                        } else {
+                        }
+                    }
+                }, function (e) {
+                });
+        };
+        $scope.initNormal();
+
         //initiate bar chart data
         reportService.getReports($scope.start_time, $scope.end_time, 'admin')
             .then(function (response) {
@@ -447,7 +482,8 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                         }, function (e) {
                         });
                 }
-            };
+            }
+            ;
             //loan
             if ($scope.filter_by.selected.name == 'Loan') {
                 if ($scope.timeFrame.selected.name == 'Month') {
@@ -488,10 +524,10 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
             $scope.BarChart.data = [];
             //time
             if ($scope.startDate != null) {
-                $scope.start_time = Date.UTC($scope.startDate.getFullYear(), $scope.startDate.getUTCMonth(), $scope.startDate.getUTCDate() + 1);
+                $scope.start_time = Date.UTC($scope.startDate2.getFullYear(), $scope.startDate2.getUTCMonth(), $scope.startDate2.getUTCDate() + 1);
             }
             if ($scope.endDate != null) {
-                $scope.end_time = Date.UTC($scope.endDate.getFullYear(), $scope.endDate.getUTCMonth(), $scope.endDate.getUTCDate() + 1);
+                $scope.end_time = Date.UTC($scope.endDate2.getFullYear(), $scope.endDate2.getUTCMonth(), $scope.endDate2.getUTCDate() + 1);
             }
 
             //user type
@@ -541,7 +577,8 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 .then(function (response) {
                     $scope.logs = response.data.data;
                     $scope.totalPage = paginationService.numberOfPages($scope.logs.length, $scope.pageAmount.selected.name);
-                }, function (e) {})
+                }, function (e) {
+                })
         };
         $scope.getPaginatedLogs();
 
@@ -549,16 +586,16 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         $scope.sort = '';
         $scope.desc = false;
 
-        $scope.sortObj = function(sort,obj){
+        $scope.sortObj = function (sort, obj) {
             $('th').removeClass('selected');
-            if($(obj.target).is("i")){
-                if($(obj.target).hasClass("false")){
+            if ($(obj.target).is("i")) {
+                if ($(obj.target).hasClass("false")) {
                     $(obj.target).removeClass('fa-caret-up');
                     $(obj.target).addClass('fa-caret-down');
                     $(obj.target).removeClass("false");
                     $(obj.target).addClass("true");
                     $scope.desc = true;
-                }else{
+                } else {
                     $(obj.target).removeClass("true");
                     $(obj.target).addClass("false");
                     $(obj.target).removeClass('fa-caret-down');
@@ -567,14 +604,14 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 }
                 $scope.sort = sort;
                 $(obj.target).parent().addClass('selected');
-            }else{
-                if($(obj.target).children().hasClass("false")){
+            } else {
+                if ($(obj.target).children().hasClass("false")) {
                     $(obj.target).children().removeClass('fa-caret-up');
                     $(obj.target).children().addClass('fa-caret-down');
                     $(obj.target).children().removeClass("false");
                     $(obj.target).children().addClass("true");
                     $scope.desc = true;
-                }else{
+                } else {
                     $(obj.target).children().removeClass("true");
                     $(obj.target).children().addClass("false");
                     $(obj.target).children().removeClass('fa-caret-down');
@@ -587,34 +624,34 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         };
 
         /*go to next page*/
-        $scope.nextPage = function(){
+        $scope.nextPage = function () {
             $scope.currentPage++;
-            if($scope.currentPage>$scope.totalPage-1){
-                $scope.currentPage = $scope.totalPage-1
+            if ($scope.currentPage > $scope.totalPage - 1) {
+                $scope.currentPage = $scope.totalPage - 1
             }
         };
         /*go to previous page*/
-        $scope.prevPage = function(){
+        $scope.prevPage = function () {
             $scope.currentPage--;
-            if($scope.currentPage < 0){
+            if ($scope.currentPage < 0) {
                 $scope.currentPage = 0
             }
         };
         /*go to first page*/
-        $scope.returnToFirst = function(){
+        $scope.returnToFirst = function () {
             $scope.currentPage = 0;
             vm.getPaginatedJobs();
         };
         /*options of page amount*/
-        $scope.pageAmount =[
-            {"name":10},
-            {"name":20},
-            {"name":30}
+        $scope.pageAmount = [
+            {"name": 10},
+            {"name": 20},
+            {"name": 30}
         ];
         /*default page amount*/
         $scope.pageAmount.selected = $scope.pageAmount[0];
 
-        $scope.$watchGroup(['searchInput','sort','jobStatus','searchBank','userType'],function(){
+        $scope.$watchGroup(['searchInput', 'sort', 'jobStatus', 'searchBank', 'userType'], function () {
             $scope.currentPage = 0;
-        },true);
+        }, true);
     }]);

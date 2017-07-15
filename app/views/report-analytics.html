@@ -124,10 +124,8 @@
                                     </ui-select-choices>
                                 </ui-select>
                             </div>
-                            <div class="start_date" style="display:inline-block">
+                            <div class="start_date" style="display:inline-block;width:180px;">
                                 <label>FROM:</label><br>
-                                <!--<input class="btn btn-default" ui-date ng-model="startDate"
-                                       style="width:110px;margin-bottom:5px;margin-top:5px">-->
                                 <p class="input-group">
                                     <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
                                            ng-model="startDate" is-open="popup1.opened" datepicker-options="dateOptions"
@@ -139,9 +137,8 @@
                                     </span>
                                 </p>
                             </div>
-                            <div class="close_date" style="display:inline-block">
+                            <div class="close_date" style="display:inline-block;width:180px;">
                                 <label>TO:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-                                <!--<input class="btn btn-default" ui-date ng-model="endDate" style="width:110px">-->
                                 <p class="input-group">
                                     <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
                                            ng-model="endDate" is-open="popup2.opened" datepicker-options="dateOptions"
@@ -153,7 +150,6 @@
                                     </span>
                                 </p>
                             </div>
-                            <!--<span><small>*default start: 1st Jan of this year<br>default end: today</small></span>-->
                             <br>
                             <div style="display:inline-block">
                                 <label>FILTER BY:</label>
@@ -181,24 +177,6 @@
                                     </ui-select-choices>
                                 </ui-select>
                             </div>-->
-                            <!--<ui-select multiple ng-model="customers.selected" ng-if="filter_by.selected == filter_by[1] && user_type.selected == user_type[1]"
-                                       theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
-                                       style="width:250px;margin-top:5px;">
-                                <ui-select-match placeholder="Type to search customer">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
-                                <ui-select-choices repeat="item in customers | propsFilter: {email: $select.search,first_name: $select.search,last_name: $select.search}">
-                                    <strong><div ng-bind-html="item.first_name +' '+ item.last_name | highlight:$select.search"></div></strong>
-                                    <small>{{item.email}}</small>
-                                </ui-select-choices>
-                            </ui-select>
-                            <ui-select multiple ng-model="brokers.selected" ng-if="filter_by.selected == filter_by[1] && user_type.selected == user_type[2]"
-                                       theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
-                                       style="width:250px;margin-top:5px;">
-                                <ui-select-match placeholder="Type to search customer">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
-                                <ui-select-choices repeat="item in brokers | propsFilter: {email: $select.search,first_name: $select.search,last_name: $select.search}">
-                                    <strong><div ng-bind-html="item.first_name +' '+ item.last_name | highlight:$select.search"></div></strong>
-                                    <small>{{item.email}}</small>
-                                </ui-select-choices>
-                            </ui-select>-->
                             <div ng-if="filter_by.selected.name == 'Bank'">
                                 <label>BANK:</label>
                                 <ui-select ng-model="banks.selected"
@@ -247,6 +225,7 @@
                             <br>
 
                             <button type="button" class="apply-btn" name="button" ng-click="applyFilter1()">APPLY</button>
+                            <button type="button" class="apply-btn" name="button" ng-click="applyOwnFilter()">APPLY</button>
                         </div>
                     </div>
                     <br>
@@ -278,6 +257,32 @@
                         </div>
 
                         <div class="payments_right">
+                            <div class="start_date" style="display:inline-block;width:180px;">
+                                <label>FROM:</label><br>
+                                <p class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                           ng-model="startDate2" is-open="popup3.opened" datepicker-options="dateOptions"
+                                           ng-required="true" close-text="Close" alt-input-formats="altInputFormats"/>
+                                    <span class="input-group-btn">
+                                         <button type="button" class="btn btn-default" ng-click="open3()">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                         </button>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="close_date" style="display:inline-block;width:180px;">
+                                <label>TO:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+                                <p class="input-group">
+                                    <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
+                                           ng-model="endDate2" is-open="popup4.opened" datepicker-options="dateOptions"
+                                           ng-required="true" close-text="Close" alt-input-formats="altInputFormats"/>
+                                    <span class="input-group-btn">
+                                         <button type="button" class="btn btn-default" ng-click="open4()">
+                                            <i class="glyphicon glyphicon-calendar"></i>
+                                         </button>
+                                    </span>
+                                </p>
+                            </div>
                             <div style="display:inline-block">
                                 <label>FILTER BY:</label>
                                 <ui-select ng-model="filter_by_bar.selected"
@@ -292,39 +297,76 @@
                                 </ui-select>
                             </div>
                             <br>
-                            <div ng-if="filter_by_bar.selected == filter_by_bar[0]">
-                                <label>USER TYPE:</label>
-                                <ui-select ng-model="user_type.selected"
+
+                            <div ng-if="filter_by_bar.selected.name == 'User Type'">
+                                <label>Admin:</label>
+                                <ui-select ng-model="user_type_admin.selected"
                                            search-enabled="false" class="selection"
                                            onkeypress="return false;" ng-disabled="disabled">
                                     <ui-select-match>
                                         <span ng-bind="$select.selected.name"></span>
                                     </ui-select-match>
-                                    <ui-select-choices repeat="item in user_type track by $index">
+                                    <ui-select-choices repeat="item in user_type_admin track by $index">
                                         <span ng-bind="item.name"></span>
                                     </ui-select-choices>
                                 </ui-select>
                             </div>
 
 
-                            <!--<ui-select multiple ng-model="customers.selected" ng-if="filter_by.selected == filter_by[1] && user_type.selected == user_type[1]"
+                            <ui-select multiple ng-model="admins.selected" ng-if="filter_by_bar.selected.name == 'User Type' && user_type_admin.selected.name == 'Customize'"
                                        theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
                                        style="width:250px;margin-top:5px;">
-                                <ui-select-match placeholder="Type to search customer">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
-                                <ui-select-choices repeat="item in customers | propsFilter: {email: $select.search,first_name: $select.search,last_name: $select.search}">
-                                    <strong><div ng-bind-html="item.first_name +' '+ item.last_name | highlight:$select.search"></div></strong>
+                                <ui-select-match placeholder="Type to search admin">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
+                                <ui-select-choices repeat="item in admins | propsFilter: {email: $select.search,name: $select.search}">
+                                    <strong><div ng-bind-html="item.name | highlight:$select.search"></div></strong>
                                     <small>{{item.email}}</small>
                                 </ui-select-choices>
                             </ui-select>
-                            <ui-select multiple ng-model="brokers.selected" ng-if="filter_by.selected == filter_by[1] && user_type.selected == user_type[2]"
+
+                            <div ng-if="filter_by_bar.selected.name == 'User Type'">
+                                <label>Broker:</label>
+                                <ui-select ng-model="user_type_broker.selected"
+                                           search-enabled="false" class="selection"
+                                           onkeypress="return false;" ng-disabled="disabled">
+                                    <ui-select-match>
+                                        <span ng-bind="$select.selected.name"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in user_type_broker track by $index">
+                                        <span ng-bind="item.name"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                            <ui-select multiple ng-model="brokers.selected" ng-if="filter_by_bar.selected.name == 'User Type' && user_type_broker.selected.name == 'Customize'"
                                        theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
                                        style="width:250px;margin-top:5px;">
-                                <ui-select-match placeholder="Type to search customer">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
-                                <ui-select-choices repeat="item in brokers | propsFilter: {email: $select.search,first_name: $select.search,last_name: $select.search}">
-                                    <strong><div ng-bind-html="item.first_name +' '+ item.last_name | highlight:$select.search"></div></strong>
+                                <ui-select-match placeholder="Type to search broker">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
+                                <ui-select-choices repeat="item in brokers | propsFilter: {email: $select.search,name: $select.search}">
+                                    <strong><div ng-bind-html="item.name | highlight:$select.search"></div></strong>
                                     <small>{{item.email}}</small>
                                 </ui-select-choices>
-                            </ui-select>-->
+                            </ui-select>
+
+                            <!--bank-->
+                            <div ng-if="filter_by_bar.selected.name == 'Bank'">
+                                <ui-select ng-model="bank_type.selected"
+                                           search-enabled="false" class="selection"
+                                           onkeypress="return false;" ng-disabled="disabled">
+                                    <ui-select-match>
+                                        <span ng-bind="$select.selected.name"></span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="item in bank_type track by $index">
+                                        <span ng-bind="item.name"></span>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>
+                            <ui-select multiple ng-model="multi_bank.selected" ng-if="filter_by_bar.selected.name == 'Bank' && bank_type.selected.name == 'Customize'"
+                                       theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
+                                       style="width:250px;margin-top:5px;">
+                                <ui-select-match placeholder="Type to search bank">{{$item.name}}</ui-select-match>
+                                <ui-select-choices repeat="item in multi_bank | propsFilter: {name: $select.search}">
+                                    <strong><div ng-bind-html="item.name | highlight:$select.search"></div></strong>
+                                </ui-select-choices>
+                            </ui-select>
 
                             <button type="button" class="apply-btn" name="button" ng-click="applyFilter2()">APPLY</button>
                         </div>

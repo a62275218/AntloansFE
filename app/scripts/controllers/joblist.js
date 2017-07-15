@@ -26,6 +26,7 @@ antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorag
                 .then(function (response) {
                     for (var i = 0; i < response.data.data.length; i++) {
                         if (response.data.data[i].role === type) {
+                            response.data.data[i].name = response.data.data[i].first_name+' '+response.data.data[i].last_name;
                             target.push(response.data.data[i]);
                         }
                     }

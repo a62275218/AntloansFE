@@ -38,6 +38,19 @@
                           <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
                       </div>
                     </div>
+                     <div class='search_input'>
+                     <label>USER TYPE:</label>
+                     <ui-select ng-model="user_type.selected"
+                                search-enabled="false" class="" style="width:160px;"
+                                onkeypress="return false;" ng-disabled="disabled">
+                         <ui-select-match>
+                             <span ng-bind="$select.selected.label"></span>
+                         </ui-select-match>
+                         <ui-select-choices repeat="item in user_type track by $index">
+                             <span ng-bind="item.label"></span>
+                         </ui-select-choices>
+                     </ui-select>
+                     </div>
                     <div class="page">
                         <ul class="pager">
                             <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
@@ -73,6 +86,7 @@
                        <tbody>
                          <tr ng-repeat="item in user
                             | orderBy:sort:desc
+                            | userTypeFilter:user_type.selected.label
                             | filter:searchInput
                             | startFrom:currentPage * pageAmount.selected.name
                             | limitTo:pageAmount.selected.name

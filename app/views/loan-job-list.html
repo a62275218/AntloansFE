@@ -112,21 +112,21 @@
                                 <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
                             </ui-select-match>
                             <ui-select-choices
-                                    repeat="item in brokers | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
-                                <span>{{item.first_name}} {{item.last_name}}</span>
+                                    repeat="item in brokers | propsFilter:{name:$select.search} track by $index">
+                                <span>{{item.name}}</span>
                             </ui-select-choices>
                         </ui-select>
                     </div>
                     <div class="admin">
                         <label>ADMIN:</label>
-                        <ui-select ng-model="admins.selected" class="admin_input selectpicker select_page"
+                        <ui-select ng-model="admins.selected" class="admin_input selectpicker select_page" on-select="filterUser(admins.selected,'admin')"
                                    style="width:220px;">
                             <ui-select-match>
                                 <span ng-bind="$select.selected.first_name +' '+$select.selected.last_name"></span>
                             </ui-select-match>
                             <ui-select-choices
-                                    repeat="item in admins | propsFilter:{first_name:$select.search,last_name:$select.search} track by $index">
-                                <span>{{item.first_name}} {{item.last_name}}</span>
+                                    repeat="item in admins | propsFilter:{name:$select.search} track by $index">
+                                <span>{{item.name}}</span>
                             </ui-select-choices>
                         </ui-select>
                     </div>
@@ -157,8 +157,9 @@
                             <!--<th style="min-width: 100px;"><span ng-click="sortObj('first_name',$event)">ASSIGN &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></span></th>-->
                             <th style="min-width: 141px;" ng-click="sortObj('loan_purpose.label',$event)">LOAN PURPOSE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <th style="min-width: 89px;" ng-click="sortObj('broker.name',$event)">BROKER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th style="min-width: 157px;" ng-click="sortObj('broker.name',$event)">REPAYMENT TYPE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th style="min-width: 121px;" ng-click="sortObj('file_nature.label',$event)">FILE NATURE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 89px;" ng-click="sortObj('admin.name',$event)">ADMIN &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 157px;" ng-click="sortObj('repayment_type.label',$event)">REPAYMENT TYPE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <!--<th style="min-width: 121px;" ng-click="sortObj('file_nature.label',$event)">FILE NATURE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>-->
                         </tr>
                         </thead>
 
@@ -184,8 +185,9 @@
                             <!--<td>Notebook</td>-->
                             <td>{{item.loan_purpose.label}}</td>
                             <td>{{item.broker.name}}</td>
+                            <td>{{item.admin.name}}</td>
                             <td>{{item.repayment_type.label}}</td>
-                            <td>{{item.file_nature.label}}</td>
+                            <!--<td>{{item.file_nature.label}}</td>-->
                         </tr>
 
                         </tbody>
