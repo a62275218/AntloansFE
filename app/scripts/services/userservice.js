@@ -2,11 +2,11 @@ var configs = {
     headers: {}
 };
 
-antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
-    function ($http, API_BASE,OAuthService) {
+antloans.factory('UserService', ['$http', 'API_BASE', 'OAuthService',
+    function ($http, API_BASE, OAuthService) {
         return {
-            resetPassword: function (id,token, password) {
-                return $http.put(API_BASE + '/users/'+id+'/resetpass', {
+            resetPassword: function (id, token, password) {
+                return $http.put(API_BASE + '/users/' + id + '/resetpass', {
                     token: token,
                     newpass: password
                 });
@@ -26,7 +26,7 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
                     }
                 )
             },
-            getAllUsers:function(){
+            getAllUsers: function () {
                 return $http.get(API_BASE + '/users',
                     {
                         headers: {
@@ -35,8 +35,8 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
                     }
                 )
             },
-            getaUser:function(id){
-                return $http.get(API_BASE + '/users/'+id,
+            getaUser: function (id) {
+                return $http.get(API_BASE + '/users/' + id,
                     {
                         headers: {
                             'Authorization': 'Bearer' + OAuthService.getToken()
@@ -44,77 +44,89 @@ antloans.factory('UserService', ['$http', 'API_BASE','OAuthService',
                     }
                 )
             },
-            forgotPass:function(email){
-                return $http.post(API_BASE+ '/users/forgotpass',{email:email})
+            forgotPass: function (email) {
+                return $http.post(API_BASE + '/users/forgotpass', {email: email})
             },
-            updateUser:function(id,data){
+            updateUser: function (id, data) {
                 return $http({
-                    method:'PUT',
-                    url:API_BASE+ '/users/' + id,
-                    headers:{
+                    method: 'PUT',
+                    url: API_BASE + '/users/' + id,
+                    headers: {
                         'Authorization': 'Bearer' + OAuthService.getToken()
                     },
-                    data:data
+                    data: data
                 });
             },
-            addUserToDeal:function(id,data){
+            addUserToDeal: function (id, data) {
                 return $http({
-                    method:'PUT',
-                    url:API_BASE+ '/deals/' + id,
-                    headers:{
+                    method: 'PUT',
+                    url: API_BASE + '/deals/' + id,
+                    headers: {
                         'Authorization': 'Bearer' + OAuthService.getToken()
                     },
-                    data:data
+                    data: data
                 });
             },
-            getDocuments:function(){
+            getDocuments: function () {
                 return $http({
-                    method:'GET',
-                    url:API_BASE+ '/documents/',
-                    headers:{
+                    method: 'GET',
+                    url: API_BASE + '/documents/',
+                    headers: {
                         'Authorization': 'Bearer' + OAuthService.getToken()
                     }
                 });
             },
-            createUser:function(data){
+            createUser: function (data) {
                 return $http({
-                    method:'POST',
-                    url:API_BASE+ '/signup',
-                    headers:{
+                    method: 'POST',
+                    url: API_BASE + '/signup',
+                    headers: {
                         'Authorization': 'Bearer' + OAuthService.getToken()
                     },
-                    data:data
+                    data: data
                 });
             },
-            getAllConstants:function(){
+            getAllConstants: function () {
                 return $http({
-                    method:'GET',
-                    url:API_BASE+ '/constants',
-                    headers:{
+                    method: 'GET',
+                    url: API_BASE + '/constants',
+                    headers: {
                         'Authorization': 'Bearer' + OAuthService.getToken()
                     }
                 });
             },
-            findFullName:function(obj){
-                    angular.forEach(obj, function (v, k) {
-                        if (v.first_name && v.last_name) {
-                            v.name = v.first_name + ' ' + v.last_name;
-                        }
-                        if(v.broker){
-                            v.broker.name = v.broker.first_name + ' ' + v.broker.last_name;
-                        }
-                    });
+            findFullName: function (obj) {
+                angular.forEach(obj, function (v, k) {
+                    if (v.first_name && v.last_name) {
+                        v.name = v.first_name + ' ' + v.last_name;
+                    }
+                    if (v.broker) {
+                        v.broker.name = v.broker.first_name + ' ' + v.broker.last_name;
+                    }
+                    if (v.admin) {
+                        v.admin.name = v.admin.first_name + ' ' + v.admin.last_name;
+                    }
+                });
             },
-            hasPermission: function(role,permission) {
+            getUserJobs: function (id) {
+                return $http({
+                    method: 'GET',
+                    url: API_BASE + '/users/' + id + '/deals',
+                    headers: {
+                        'Authorization': 'Bearer' + OAuthService.getToken()
+                    }
+                });
+            },
+            hasPermission: function (role, permission) {
                 if (permission) {
                     if (typeof(permission) == "string") {
                         if (role.indexOf(permission) > -1) {
                             return true;
-                        }else{
+                        } else {
                             return false;
                         }
                     }
-                }else {
+                } else {
                     return true;
                 }
             }

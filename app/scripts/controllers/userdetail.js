@@ -1,28 +1,86 @@
-antloans.controller('userDetailCtrl',['$scope','$state','UserService','$stateParams',
-    function($scope,$state,UserService,$stateParams){
+antloans.controller('userDetailCtrl', ['$scope', '$state', 'UserService', '$stateParams','paginationService',
+    function ($scope, $state, UserService, $stateParams,paginationService) {
+        //get user info
         UserService.getaUser($stateParams.userId)
-            .then(function(response){
+            .then(function (response) {
                 $scope.user = response.data.data;
-            },function(e){})
+            }, function (e) {
+            })
+        //get user jobs
+        UserService.getUserJobs($stateParams.userId)
+            .then(function (response) {
+                $scope.job = response.data.data.content;
+                UserService.findFullName($scope.job);
+                //$scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
+            }, function (e) {
+            });
 
-        $scope.edit = function(){
+
+        //sort job
+        $scope.sort = '';
+        $scope.desc = false;
+
+        $scope.sortObj = function(sort,obj){
+            $('th').removeClass('selected');
+            if($(obj.target).is("i")){
+                if($(obj.target).hasClass("false")){
+                    $(obj.target).removeClass('fa-caret-up');
+                    $(obj.target).addClass('fa-caret-down');
+                    $(obj.target).removeClass("false");
+                    $(obj.target).addClass("true");
+                    $scope.desc = true;
+                }else{
+                    $(obj.target).removeClass("true");
+                    $(obj.target).addClass("false");
+                    $(obj.target).removeClass('fa-caret-down');
+                    $(obj.target).addClass('fa-caret-up');
+                    $scope.desc = false;
+                };
+                $scope.sort = sort;
+                $(obj.target).parent().addClass('selected');
+            }else{
+                if($(obj.target).children().hasClass("false")){
+                    $(obj.target).children().removeClass('fa-caret-up');
+                    $(obj.target).children().addClass('fa-caret-down');
+                    $(obj.target).children().removeClass("false");
+                    $(obj.target).children().addClass("true");
+                    $scope.desc = true;
+                }else{
+                    $(obj.target).children().removeClass("true");
+                    $(obj.target).children().addClass("false");
+                    $(obj.target).children().removeClass('fa-caret-down');
+                    $(obj.target).children().addClass('fa-caret-up');
+                    $scope.desc = false;
+                }
+                $scope.sort = sort;
+                $(obj.target).addClass('selected');
+            }
+        };
+        //go to approval
+        $scope.toApproval =function(id){
+            $state.go('approval',{jobId:id})
+        };
+
+        $scope.edit = function () {
             $('.personal_detail input').removeAttr('disabled').removeClass('disable');
         };
-        $scope.save = function(){
+        $scope.save = function () {
             $('.personal_detail input').attr('disabled');
             $('.personal_detail input').addClass('disable');
-            UserService.updateUser($scope.user.user_id,{
-                firstName:$scope.user.first_name,
-                lastName:$scope.user.last_name,
-                email:$scope.user.email,
-                phone:$scope.user.phone,
-                mobile:$scope.user.mobile,
-                preferred_time:$scope.user.preferred_time,
-                preferred_method:$scope.user.preferred_method
-            }).then(function(){
+            UserService.updateUser($scope.user.user_id, {
+                firstName: $scope.user.first_name,
+                lastName: $scope.user.last_name,
+                email: $scope.user.email,
+                phone: $scope.user.phone,
+                mobile: $scope.user.mobile,
+                preferred_time: $scope.user.preferred_time,
+                preferred_method: $scope.user.preferred_method
+            }).then(function () {
                 swal("Success!", "User uploaded", "success")
-            },function(e){
+            }, function (e) {
                 swal("Oops...", "Something went wrong! Update failed", "error");
             })
         }
-}]);
+
+
+    }]);

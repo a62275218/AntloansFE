@@ -68,7 +68,7 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
             }
         };
         //transform tag to user
-        vm.tagTransform = function (newTag) {
+        /*vm.tagTransform = function (newTag) {
             var item = {
                 first_name: '',
                 last_name: '',
@@ -77,7 +77,7 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                 address: ''
             };
             return item;
-        };
+        };*/
             //get all users
             vm.getUsers = function () {
                 UserService.getAllUsers()
@@ -86,28 +86,19 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                         //filter all customers
                         angular.forEach(response.data.data,function(v,k){
                             if(v.role == 'customer'){
-                                $scope.userobj.push(v)
+                                $scope.userobj.push(v);
+                                v.name = v.first_name+' '+v.last_name;
                             }
                         });
                     })
             };
             vm.getUsers();
-            /*$scope.allowManualInput = function(search){
-             var newUsers = vm.users.slice();
-             if (search && newUsers.indexOf(search) === -1) {
-             newUsers.unshift(search);
-             }
-             return newUsers;
-             };*/
-            /*$scope.listUser = function () {
-                vm.user = vm.email
-            };*/
+
             $scope.listUser = function(){
-                if(vm.choosenUser.length > 1){
+                /*if(vm.choosenUser.length > 0){
                     vm.choosenUser.shift();
-                }
+                }*/
                 vm.user = vm.choosenUser;
-                console.log(vm.user)
             };
             $scope.brokers = [];
             vm.getUsersByType = function (target, type) {
@@ -115,6 +106,7 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                     .then(function (response) {
                         for (var i = 0; i < response.data.data.length; i++) {
                             if (response.data.data[i].role === type) {
+                                response.data.data[i].name = response.data.data[i].first_name+' '+response.data.data[i].last_name;
                                 target.push(response.data.data[i])
                             }
                         }

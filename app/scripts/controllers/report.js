@@ -49,22 +49,12 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         };
 
         /*date option*/
-        $scope.today1 = function () {
-            $scope.startDate = new Date();
-        };
-        $scope.today2 = function () {
-            $scope.endDate = new Date();
-        };
+
         //initialize start and end date
         $scope.startDate = new Date(new Date().getFullYear(), 0, 1);
-        $scope.today2();
-
-        $scope.clear1 = function () {
-            $scope.startDate = null;
-        };
-        $scope.clear1 = function () {
-            $scope.endDate = null;
-        };
+        $scope.endDate = new Date();
+        $scope.startDate2 = new Date(new Date().getFullYear(), 0, 1);
+        $scope.endDate2 = new Date();
 
         $scope.inlineOptions = {
             /*customClass: getDayClass,*/
@@ -85,23 +75,17 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
             return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
         }
 
-        /*$scope.toggleMin = function() {
-         $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
-         $scope.dateOptions.minDate = $scope.inlineOptions.minDate;
-         };
-
-         $scope.toggleMin();*/
-
         $scope.open1 = function () {
             $scope.popup1.opened = true;
         };
-
         $scope.open2 = function () {
             $scope.popup2.opened = true;
         };
-
-        $scope.setDate = function (year, month) {
-            $scope.dt = new Date(year, month);
+        $scope.open3 = function () {
+            $scope.popup3.opened = true;
+        };
+        $scope.open4 = function () {
+            $scope.popup4.opened = true;
         };
 
         $scope.formats = ['MMMM-yyyy', 'yyyy/MM', 'MM.yyyy', 'shortDate'];
@@ -113,6 +97,12 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         };
 
         $scope.popup2 = {
+            opened: false
+        };
+        $scope.popup3 = {
+            opened: false
+        };
+        $scope.popup4 = {
             opened: false
         };
 
@@ -135,6 +125,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                     if (type) {
                         for (var i = 0; i < response.data.data.length; i++) {
                             if (response.data.data[i].role === type) {
+                                response.data.data[i].name = response.data.data[i].first_name+' '+response.data.data[i].last_name
                                 target.push(response.data.data[i]);
                             }
                         }
@@ -169,11 +160,19 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         ];
         $scope.filter_by_bar.selected = $scope.filter_by_bar[0];
 
-        $scope.user_type = [
-            {"name": "Admin"},
-            {"name": "Broker"}
+        $scope.user_type_admin = [
+            {"name": "All"},
+            {"name": "None"},
+            {"name": "Customize"}
         ];
-        $scope.user_type.selected = $scope.user_type[0];
+        $scope.user_type_admin.selected = $scope.user_type_admin[1];
+
+        $scope.user_type_broker = [
+            {"name": "All"},
+            {"name": "None"},
+            {"name": "Customize"}
+        ];
+        $scope.user_type_broker.selected = $scope.user_type_broker[1];
 
         //get all loan properties
         jobService.getJobProperty()
@@ -488,10 +487,10 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
             $scope.BarChart.data = [];
             //time
             if ($scope.startDate != null) {
-                $scope.start_time = Date.UTC($scope.startDate.getFullYear(), $scope.startDate.getUTCMonth(), $scope.startDate.getUTCDate() + 1);
+                $scope.start_time = Date.UTC($scope.startDate2.getFullYear(), $scope.startDate2.getUTCMonth(), $scope.startDate2.getUTCDate() + 1);
             }
             if ($scope.endDate != null) {
-                $scope.end_time = Date.UTC($scope.endDate.getFullYear(), $scope.endDate.getUTCMonth(), $scope.endDate.getUTCDate() + 1);
+                $scope.end_time = Date.UTC($scope.endDate2.getFullYear(), $scope.endDate2.getUTCMonth(), $scope.endDate2.getUTCDate() + 1);
             }
 
             //user type

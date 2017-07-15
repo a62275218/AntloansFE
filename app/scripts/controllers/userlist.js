@@ -9,6 +9,19 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService','
             $state.go('user-detail',{userId:id});
         };
 
+        //get all user roles
+        UserService.getAllConstants()
+            .then(function(response){
+                $scope.user_type = response.data.data.role;
+                console.log($scope.user_type)
+                $scope.user_type.shift();
+                $scope.user_type.unshift(
+                    {label:'all',name:'all',value:0}
+                    );
+                $scope.user_type.selected = $scope.user_type[0];
+            },function(e){});
+
+        //get all users
         vm.getPaginatedUsers = function() {
             UserService.getAllUsers()
                 .then(
@@ -53,7 +66,7 @@ antloans.controller('UserListCtrl',['$scope','UserService','paginationService','
         /*set up total page*/
         // $scope.totalPage = vm.getPaginatedUsers();
         //$watch search to update pagination
-        $scope.$watchGroup(['searchInput','sort'],function(){
+        $scope.$watchGroup(['searchInput','sort','user_type.selected'],function(){
             $scope.currentPage = 0;
         },true);
 
