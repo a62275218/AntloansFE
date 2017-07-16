@@ -58,11 +58,21 @@ antloans
     .filter('statusFilter', function () {
         return function (items, status) {
             var submission = [];
+            var progress = [];
             var assessment = [];
             var settlement = [];
             if (status == 'submission') {
                 angular.forEach(items, function (v, k) {
-                        if (items[k].deal_status && items[k].deal_status.value < 4) {
+                        if (items[k].deal_status && items[k].deal_status.value < 6) {
+                            submission.push(items[k]);
+                        }
+                    }
+                );
+                return submission;
+            }
+            if (status == 'progress') {
+                angular.forEach(items, function (v, k) {
+                        if (items[k].deal_status && items[k].deal_status.value >= 6 && items[k].deal_status.value < 10) {
                             submission.push(items[k]);
                         }
                     }
@@ -71,7 +81,7 @@ antloans
             }
             if (status == 'assessment') {
                 angular.forEach(items, function (v, k) {
-                    if (items[k].deal_status && items[k].deal_status.value >= 4 && items[k].deal_status.value < 10) {
+                    if (items[k].deal_status && items[k].deal_status.value >= 10 && items[k].deal_status.value < 17) {
                         assessment.push(items[k]);
                     }
                 });
@@ -79,7 +89,7 @@ antloans
             }
             if (status == 'settlement') {
                 angular.forEach(items, function (v, k) {
-                        if (items[k].deal_status && items[k].deal_status.value >= 10) {
+                        if (items[k].deal_status && items[k].deal_status.value >= 17) {
                             settlement.push(items[k]);
                         }
                     }

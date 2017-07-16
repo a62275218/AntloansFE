@@ -158,24 +158,35 @@ antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorag
        $scope.active = function(status){
          $(status).addClass('selected');
          if($(status).hasClass('status_submission')){
+           $('.status_progress').removeClass('selected');
            $('.status_assessment').removeClass('selected');
             $('.status_settlement').removeClass('selected');
              $('.status_all').removeClass('selected');
              $scope.jobStatus = 'submission'
          }
+         if($(status).hasClass('status_progress')){
+           $('.status_submission').removeClass('selected');
+           $('.status_assessment').removeClass('selected');
+            $('.status_settlement').removeClass('selected');
+             $('.status_all').removeClass('selected');
+             $scope.jobStatus = 'progress'
+         }
          if($(status).hasClass('status_assessment')){
            $('.status_submission').removeClass('selected');
+           $('.status_progress').removeClass('selected');
             $('.status_settlement').removeClass('selected');
              $('.status_all').removeClass('selected');
              $scope.jobStatus = 'assessment'
          }
          if($(status).hasClass('status_settlement')){
+           $('.status_submission').removeClass('selected');
+           $('.status_progress').removeClass('selected');
            $('.status_assessment').removeClass('selected');
-            $('.status_submission').removeClass('selected');
              $('.status_all').removeClass('selected');
              $scope.jobStatus = 'settlement'
          }
          if($(status).hasClass('status_all')){
+           $('.status_progress').removeClass('selected');
            $('.status_assessment').removeClass('selected');
             $('.status_submission').removeClass('selected');
              $('.status_settlement').removeClass('selected');
