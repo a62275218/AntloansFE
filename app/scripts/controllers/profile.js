@@ -28,7 +28,7 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
         $scope.uploader.onSuccessItem = function(item,response,status,headers){
             swal("Success!", "Avatar uploaded", "success")
         };
-
+//
     $scope.edit = function(){
       $('.saveBtn').show();
       $('.editBtn').addClass('edit');

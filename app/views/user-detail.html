@@ -3,14 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>user profile</title>
-    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/libs/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="./assets/css/libs/font-awesome.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css"> -->
 
-
-    <!--my css-->
-    <!-- <link rel="stylesheet" href="../styles/nav_bar.css"> -->
-    <link rel="stylesheet" href="../styles/loan-user-profile.css">
+    <link rel="stylesheet" href="../styles/user_details.css">
 </head>
 
 <body>
@@ -40,18 +34,7 @@
                 <div class="user_info">
                     <label>Username</label><span>{{user.email||'null'}}</span><br>
                 </div>
-                <!--<h4>Notifications</h4>
-                <hr>
-                <div class="control">
-                    <label>Email notify</label><span><button class='email_notify' type="button" name="button"></button></span><br>
-                    <label>SMS notify</label><span><button class='sms_notify' type="button" name="button"></button></span>
-                </div>-->
-                <!--<h4>Email address</h4>
-                <hr>
-                <div class="email_message">
-                    <label>Primary</label><span><input class='disable' type="text" name="" ng-model="user.email" disabled></span><br>
-                    &lt;!&ndash;<label>Secondary</label><span></span>&ndash;&gt;
-                </div>-->
+
                 <h4>Contact numbers</h4>
                 <hr>
                 <div class="number_message">
@@ -65,7 +48,9 @@
                 <button class="saveBtn" type="button" name="button" ng-click="save()">Save</button>
             </div>
         </div>
-        <div class="job_list">
+
+      <div class="width_fix" style="min-wdith:1500px !important; max-width:1500px !important;">
+        <div class="user_job_list">
             <table class='"table table-striped"'>
                 <thead>
                 <tr>
@@ -77,13 +62,15 @@
                     <th style="min-width: 89px;" ng-click="sortObj('broker.name',$event)">BROKER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                     <th style="min-width: 89px;" ng-click="sortObj('admin.name',$event)">ADMIN &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                     <th style="min-width: 157px;" ng-click="sortObj('repayment_type.label',$event)">REPAYMENT TYPE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                    <!--<th style="min-width: 121px;" ng-click="sortObj('file_nature.label',$event)">FILE NATURE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>-->
+
                 </tr>
                 </thead>
 
                 <tbody>
                 <tr ng-repeat="item in job
                       | orderBy:sort:desc
+                      | startFrom:currentPage * pageAmount.selected.name
+                      | limitTo:pageAmount.selected.name
                       track by $index" class='item' ng-click="toApproval(item.id)">
                     <td>
                         <img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
@@ -93,26 +80,42 @@
 
                     <td>{{item.deal_status.label}}</td>
                     <td>{{item.loan_amount|currency}}</td>
-                    <!--<td>Notebook</td>-->
                     <td>{{item.loan_purpose.label}}</td>
                     <td>{{item.broker.name}}</td>
                     <td>{{item.admin.name}}</td>
                     <td>{{item.repayment_type.label}}</td>
-                    <!--<td>{{item.file_nature.label}}</td>-->
                 </tr>
 
                 </tbody>
             </table>
+
+           <div class="paging">
+            <div class="page">
+                <ul class="pager">
+                    <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                    {{currentPage+1}}/{{totalPage}}
+                    <li ><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    </li>
+                </ul>
+            </div>
+             <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
+                        onkeypress="return false;" ng-disabled="disabled" style="z-index:1;">
+                 <ui-select-match placeholder="Select the number of pages">
+                     <span ng-bind="$select.selected.name"></span>
+                 </ui-select-match>
+                 <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
+                                    style="width:60px;" ng-click="returnToFirst()">
+                     <span ng-bind="item.name" style="width:60px;"></span>
+                 </ui-select-choices>
+             </ui-select>
+          </div>
         </div>
+      </div>
     </div>
 
 </div>
-<!-- <script src="./assets/js/libs/jquery-3.2.1.min.js"></script>
-<script src="./assets/js/libs/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script> -->
-<!--my js-->
+
 <script type="text/javascript" src="../scripts/loan-job-list.js"></script>
 <script type="text/javascript" src='../scripts/loan-user-profile.js'> </script>
 </body>
 </html>
-

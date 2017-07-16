@@ -78,9 +78,10 @@
                  <div class='user_list'>
                     <table class='"table table-striped"'>
                        <thead>
-                       <tr><th width="40%" ng-click="sortObj('name',$event)">NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                           <th width="30%" ng-click="sortObj('role',$event)">USER TYPE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                           <th width="30%" ng-click="sortObj('mobile',$event)">MOBILE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                       <tr><th width="30%" ng-click="sortObj('name',$event)">NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                           <th width="25%" ng-click="sortObj('role',$event)">USER TYPE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                           <th width="25%" ng-click="sortObj('mobile',$event)">MOBILE &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                           <th width="20%" ng-click="sortObj('amount',$event)">JOB AMOUNT &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                        </tr>
                        </thead>
                        <tbody>
@@ -97,6 +98,7 @@
                                {{item.name}}</td>
                            <td>{{item.role}}</td>
                            <td>{{item.mobile}}</td>
+                           <td>{{item.jobCount}}</td>
                          </tr>
                        </tbody>
                     </table>

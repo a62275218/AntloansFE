@@ -170,15 +170,86 @@ button, canvas{
   display: none;
 }
 
-/*.email_notify, .sms_notify{
-  width: 40px;
-  height: 30px;
-  border: 0;
-  background: url('../../images/disable.png');
-  background-size: cover;
-  outline: none;
+
+/*====*/
+.user_job_list {
+  margin: 20px;
+  background: white;
+  overflow: hidden;
+  padding-bottom: 50px;
+  position: relative;
+  /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+  box-shadow: 0 0 8px #D1D3D3;
 }
 
-.enable{
-  background-image: url('../../images/enable.png') !important;
-}*/
+.user_job_list table{
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user_job_list table th i{
+  cursor:pointer;
+}
+
+.user_job_list table th.selected{
+  color: #F0662C;
+}
+
+.user_job_list table th, .user_job_list table td{
+  outline: none;
+  text-align: left;
+  padding: 15px 0px 15px 10px;
+  border-bottom: 1px solid #D0D4D9;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.user_job_list table th{
+  padding-top:20px !important;
+  padding-bottom:20px !important;
+  color: #B9BDC3;
+  font-weight: 500;
+}
+
+.user_job_list table td{
+  font-weight: 300;
+  color: #41464D;
+}
+
+.user_job_list table img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 1px solid #d0d4d9;
+  overflow: hidden;
+}
+
+.user_job_list table tbody tr:hover{
+  background-color: #F2F3F4;
+}
+
+.paging {
+  width:260px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.select_page{
+  width:60px !important;
+  display: inline-block !important;
+  float: right !important;
+}
+
+.page {
+  width: 200px;
+  display: inline-block;
+  float: right;
+  height: 20px;
+}
+
+.pager{
+  margin: 0;
+}

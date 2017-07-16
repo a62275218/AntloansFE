@@ -11,10 +11,40 @@ antloans.controller('userDetailCtrl', ['$scope', '$state', 'UserService', '$stat
             .then(function (response) {
                 $scope.job = response.data.data.content;
                 UserService.findFullName($scope.job);
-                //$scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
+                $scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
             }, function (e) {
             });
 
+            /*set default current page*/
+            $scope.currentPage = 0;
+
+            /*go to next page*/
+            $scope.nextPage = function(){
+                $scope.currentPage++;
+                if($scope.currentPage>$scope.totalPage-1){
+                    $scope.currentPage = $scope.totalPage-1
+                }
+            };
+            /*go to previous page*/
+            $scope.prevPage = function(){
+                $scope.currentPage--;
+                if($scope.currentPage < 0){
+                    $scope.currentPage = 0
+                }
+            };
+            /*go to first page*/
+            $scope.returnToFirst = function(){
+                $scope.currentPage = 0;
+                $scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
+
+            };
+            /*options of page amount*/
+            $scope.pageAmount =[
+                {"name":10},
+                {"name":20}
+            ];
+            /*default page amount*/
+            $scope.pageAmount.selected = $scope.pageAmount[0];
 
         //sort job
         $scope.sort = '';
@@ -62,7 +92,9 @@ antloans.controller('userDetailCtrl', ['$scope', '$state', 'UserService', '$stat
         };
 
         $scope.edit = function () {
-            $('.personal_detail input').removeAttr('disabled').removeClass('disable');
+          $('.saveBtn').show();
+          $('.editBtn').addClass('edit');
+          $('.personal_detail input').removeAttr('disabled').removeClass('disable');
         };
         $scope.save = function () {
             $('.personal_detail input').attr('disabled');
@@ -76,7 +108,9 @@ antloans.controller('userDetailCtrl', ['$scope', '$state', 'UserService', '$stat
                 preferred_time: $scope.user.preferred_time,
                 preferred_method: $scope.user.preferred_method
             }).then(function () {
-                swal("Success!", "User uploaded", "success")
+                swal("Success!", "User uploaded", "success");
+                $('.editBtn').removeClass('edit');
+                $('.saveBtn').hide();
             }, function (e) {
                 swal("Oops...", "Something went wrong! Update failed", "error");
             })
