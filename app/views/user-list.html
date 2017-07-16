@@ -38,10 +38,10 @@
                           <input class="form-control" type="text" placeholder="SEARCH" ng-model="searchInput">
                       </div>
                     </div>
-                     <div class='search_input'>
+                     <div class='user_type_filter'>
                      <label>USER TYPE:</label>
-                     <ui-select ng-model="user_type.selected"
-                                search-enabled="false" class="" style="width:160px;"
+                     <ui-select class="user_type_input" ng-model="user_type.selected"
+                                search-enabled="false"
                                 onkeypress="return false;" ng-disabled="disabled">
                          <ui-select-match>
                              <span ng-bind="$select.selected.label"></span>

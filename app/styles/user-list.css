@@ -51,6 +51,24 @@ li.user-bar i, li.user-bar span.bar_name{
   height: 50px;
 }
 
+.user_type_filter {
+  display: inline-block;
+  float: left;
+  margin-left: 50px;
+  width: 250px;
+}
+
+.user_type_filter label{
+  margin-top: 5px;
+  color:#AEAEAE;
+}
+
+.user_type_filter .user_type_input{
+  display: inline-block !important;
+  width: 160px !important;
+  float: right !important;
+}
+
 .select_date{
   width: 150px !important;
 }
