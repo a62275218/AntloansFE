@@ -221,7 +221,8 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             var status = [];
             status.push($('.circle.1'), $('.circle.2'), $('.circle.3'), $('.circle.4'), $('.circle.5'),
                 $('.circle.6'), $('.circle.7'), $('.circle.8'), $('.circle.9'), $('.circle.10'),
-                $('.circle.11'));
+                $('.circle.11'),$('.circle.12'),$('.circle.13'),$('.circle.14'),$('.circle.15'),$('.circle.16'),
+                $('.circle.17'),$('.circle.18'));
 
             $('.timeline li div.circle').addClass('canEdit');
             $('.timeline_editBtn').addClass('edit');
@@ -259,41 +260,69 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                 $('.submission i').removeClass('done');
                 $('.submission').removeClass('changed');
                 $('.submission_name').removeClass('done');
+
+                $('.fileProgress i').removeClass('done');
+                $('.fileProgress').removeClass('changed');
+                $('.fileProgress_name').removeClass('done');
+
+                $('.assessment i').removeClass('done');
+                $('.assessment').removeClass('changed');
+                $('.assessment_name').removeClass('done');
+
+                $('.settlement i').removeClass('done');
+                $('.settlement_name').removeClass('done');
+            }
+            if (num >= 1 && num <= 5) {
+                $('.submission i').addClass('done');
+                $('.submission').addClass('changed');
+                $('.submission_name').addClass('done');
+                $('.fileProgress i').removeClass('done');
+                $('.fileProgress').removeClass('changed');
+                $('.fileProgress_name').removeClass('done');
                 $('.assessment i').removeClass('done');
                 $('.assessment').removeClass('changed');
                 $('.assessment_name').removeClass('done');
                 $('.settlement i').removeClass('done');
                 $('.settlement_name').removeClass('done');
             }
-            if (num >= 1 && num <= 3) {
+            if (num > 5 && num <= 9) {
                 $('.submission i').addClass('done');
                 $('.submission').addClass('changed');
                 $('.submission_name').addClass('done');
+                $('.fileProgress i').addClass('done');
+                $('.fileProgress').addClass('changed');
+                $('.fileProgress_name').addClass('done');
                 $('.assessment i').removeClass('done');
                 $('.assessment').removeClass('changed');
                 $('.assessment_name').removeClass('done');
                 $('.settlement i').removeClass('done');
                 $('.settlement_name').removeClass('done');
             }
-            if (num > 3 && num <= 9) {
+            if (num > 9 && num <=16) {
                 $('.submission i').addClass('done');
                 $('.submission').addClass('changed');
                 $('.submission_name').addClass('done');
+                $('.fileProgress i').addClass('done');
+                $('.fileProgress').addClass('changed');
+                $('.fileProgress_name').addClass('done');
                 $('.assessment i').addClass('done');
                 $('.assessment').addClass('changed');
                 $('.assessment_name').addClass('done');
                 $('.settlement i').removeClass('done');
                 $('.settlement_name').removeClass('done');
             }
-            if (num > 9) {
-                $('.submission i').addClass('done');
-                $('.submission').addClass('changed');
-                $('.submission_name').addClass('done');
-                $('.assessment i').addClass('done');
-                $('.assessment').addClass('changed');
-                $('.assessment_name').addClass('done');
-                $('.settlement i').addClass('done');
-                $('.settlement_name').addClass('done');
+            if (num >16){
+              $('.submission i').addClass('done');
+              $('.submission').addClass('changed');
+              $('.submission_name').addClass('done');
+              $('.fileProgress i').addClass('done');
+              $('.fileProgress').addClass('changed');
+              $('.fileProgress_name').addClass('done');
+              $('.assessment i').addClass('done');
+              $('.assessment').addClass('changed');
+              $('.assessment_name').addClass('done');
+              $('.settlement i').addClass('done');
+              $('.settlement_name').addClass('done');
             }
         }
 

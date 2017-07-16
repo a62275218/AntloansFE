@@ -283,7 +283,8 @@ li.job-bar i, li.job-bar span.bar_name{
 }
 
 .approval_down .process{
-  max-width: 336px;
+  /*max-width: 336px;*/
+  max-width: 400px;
   height: 60px;
   margin-left: auto;
   margin-right: auto;
@@ -294,16 +295,17 @@ li.job-bar i, li.job-bar span.bar_name{
 }
 
 .process_name {
-    max-width: 400px;
+    max-width: 450px;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
     overflow: hidden;
 }
 
-.process_name .submission_name, .process_name .assessment_name{
+/*.process_name .submission_name, .process_name .assessment_name{
   margin-right: 50px;
-}
+
+}*/
 
 .process_name .settlement_name{
   color:#B5B5B5;
@@ -314,9 +316,10 @@ li.job-bar i, li.job-bar span.bar_name{
 }
 
 
-.submission::after, .assessment::after {
+.submission::after, .fileProgress::after, .assessment::after {
     content: '';
-    width: 100px;;
+    /*width: 100px;*/
+    width: 70px;
     height: 5px;
     position: absolute;
     top: 50%;
@@ -329,6 +332,11 @@ li.job-bar i, li.job-bar span.bar_name{
   background: #FFF136;
 }
 
+.fileProgress.changed::after{
+  border: 1px solid #0072BC;
+  background: #0072BC;
+}
+
 .assessment.changed::after{
   border: 1px solid #F38671;
   background: #F38671;
@@ -336,6 +344,10 @@ li.job-bar i, li.job-bar span.bar_name{
 
 .submission i.done{
    color: #FFF136;
+}
+
+.fileProgress i.done{
+  color: #0072BC;
 }
 
 .assessment i.done{
@@ -350,25 +362,30 @@ li.job-bar i, li.job-bar span.bar_name{
   color: #B5B5B5;
 }
 
+.fileProgress i{
+  color: #B5B5B5;
+  margin-left: 66px;
+}
+
 .assessment i{
   color: #B5B5B5;
-  margin-left: 95px;
+  margin-left: 66px;
 }
 
 .settlement i{
   color: #B5B5B5;
-  margin-left: 95px;
+  margin-left:66px;
 }
 
-.process_name .submission_name, .process_name .assessment_name{
-  margin-right: 50px;
+.process_name .submission_name, .process_name .fileProgress_name ,.process_name .assessment_name{
+  margin-right: 35px;
 }
 
-.process_name .submission_name, .process_name .assessment_name, .process_name .settlement_name{
+.process_name .submission_name, .process_name .fileProgress_name, .process_name .assessment_name, .process_name .settlement_name{
   color:#B5B5B5;
 }
 
-.submission_name.done, .assessment_name.done, .settlement_name.done{
+.submission_name.done, .fileProgress_name.done, .assessment_name.done, .settlement_name.done{
   color: #0B1949;
 }
 
