@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="status">
-                        <label>STATUS:</label>
+                        <!-- <label>STATUS:</label> -->
                         <div class="btn-group statusInput" role="group" aria-label="...">
                             <button type="button" class="btn btn-default status_submission"
                                     ng-click="active('.status_submission')">INITIAL ENQUIRY
@@ -95,7 +95,7 @@
                    </div>
 
                     <div class="bank">
-                        <label>BANK:</label>
+                        <label>LENDER:</label>
                         <ui-select ng-model="banks.selected" on-select="filterBankId(banks.selected)"
                                    search-enabled="true" class="bank_input selectpicker select_page">
                             <ui-select-match>
@@ -138,7 +138,7 @@
             </div>
         </section>
 
-        <div class="width_fix" style="min-width:1500px !important;max-width:1500px">
+        <div class="width_fix" style="min-width:1300px !important;max-width:1300px">
             <div class="content">
                 <div class="job_list">
                     <table class='"table table-striped"'>
@@ -147,11 +147,12 @@
                             <th style="width: 160px;" ng-click="sortObj('name',$event)">NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <th style="width: 150px;" ng-click="sortObj('deal_status.label',$event)">STATUS &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <th style="width: 137px;" ng-click="sortObj('loan_amount',$event)">LOAN AMOUNT &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="width: 130px;" ng-click="sortObj('bank.name',$event)">LENDER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <!--<th style="min-width: 100px;"><span ng-click="sortObj('first_name',$event)">ASSIGN &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></span></th>-->
-                            <th style="width: 141px;" ng-click="sortObj('loan_purpose.label',$event)">LOAN PURPOSE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <!-- <th style="width: 141px;" ng-click="sortObj('loan_purpose.label',$event)">LOAN PURPOSE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th> -->
                             <th style="width: 89px;" ng-click="sortObj('broker.name',$event)" ng-if="user.role == 'admin' || user.role == 'super admin' || user.role=='supervisor'">BROKER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <th style="width: 89px;" ng-click="sortObj('admin.name',$event)" ng-if="user.role == 'broker' || user.role == 'super admin' || user.role=='supervisor'">ADMIN &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th style="width: 157px;" ng-click="sortObj('repayment_type.label',$event)">REPAYMENT TYPE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <!-- <th style="width: 157px;" ng-click="sortObj('repayment_type.label',$event)">REPAYMENT TYPE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th> -->
                             <th style="width: 130px;" >LAST UPDATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <th style="width: 140px;" >SETTLEMENT DATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                         </tr>
@@ -176,10 +177,11 @@
 
                             <td>{{item.deal_status.label}}</td>
                             <td>{{item.loan_amount|currency}}</td>
-                            <td>{{item.loan_purpose.label}}</td>
+                            <td>{{item.bank.name}}</td>
+                            <!-- <td>{{item.loan_purpose.label}}</td> -->
                             <td ng-if="user.role == 'admin' || user.role == 'super admin' || user.role=='supervisor'">{{item.broker.name}}</td>
                             <td ng-if="user.role == 'broker' || user.role == 'super admin' || user.role=='supervisor'">{{item.admin.name}}</td>
-                            <td>{{item.repayment_type.label}}</td>
+                            <!-- <td>{{item.repayment_type.label}}</td> -->
                             <td>AA</td>
                             <td>11</td>
 

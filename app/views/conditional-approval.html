@@ -92,7 +92,7 @@
                         <td>
                           <input ng-if="!edit" type="text" class="disable" ng-model="job.loan_type.label"
                                  disabled>
-                          <ui-select ng-if="edit" ng-model="loan_type.selected" search-enabled="false" class="type_input selectpicker select_page"
+                          <ui-select ng-if="edit" ng-model="job.loan_type" search-enabled="false" class="type_input selectpicker select_page"
                                      onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
                               <ui-select-match>
                                   <span ng-bind="$select.selected.label"></span>

@@ -124,8 +124,8 @@ li.report-bar i, li.report-bar span.bar_name{
 .payments_received {
   width: 100%;
   background-color: #F5F7F8;
-  border: 5px solid #E6EAED;
   height: 630px;
+  box-shadow: 0 0 8px #D1D3D3;
 }
 
 .payments_left{

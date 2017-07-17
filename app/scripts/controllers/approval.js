@@ -196,7 +196,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                     loan_amount: $scope.job.loan_amount,
                     loan_purpose: $scope.job.loan_purpose.value,
                     repayment_type: $scope.job.repayment_type.value,
-                    file_nature: $scope.job.file_nature.value,
+                    loan_type: $scope.job.loan_type.value,
                     special_note: $scope.job.special_note
                 }).then(function (response) {
                     swal("Success!", "Loan updated", "success")
