@@ -204,12 +204,28 @@ var antloans = angular
         $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
             //event.preventDefault();
             var permission = toState.permission;
+            var haspermission = false;
+
             if (toState.name!="login") {
                 UserService.getCurrentUser()
                     .then(function(response){
-                        if(!UserService.hasPermission(response.data.data.role,permission)){
-                            console.log('no permission')
-                        }
+                        var role = response.data.data.role;
+                            if (permission) {
+                                var permissionList = permission.split(",");
+                                angular.forEach(permissionList,function(v,k){
+                                    if(v == role){
+                                        haspermission = true;
+                                    }
+                                })
+                            }
+                            if(!permission){
+                                haspermission = true;
+                            }
+
+                            if(!haspermission){
+                                console.log("no permission")
+                                $state.go('login');
+                            }
                     },function(e){});
                 //$state.transitionTo("login");
                 //$state.go('login');

@@ -16,7 +16,6 @@ antloans.controller('navBarCtrl', ['$scope', 'UserService', 'principal','OAuthSe
         UserService.getCurrentUser()
             .then(function (response) {
                 $scope.user = response.data.data;
-                console.log($scope.user.role)
             }, function (e) {
                 console.log(e)
             });

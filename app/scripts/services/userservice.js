@@ -116,19 +116,6 @@ antloans.factory('UserService', ['$http', 'API_BASE', 'OAuthService',
                         'Authorization': 'Bearer' + OAuthService.getToken()
                     }
                 });
-            },
-            hasPermission: function (role, permission) {
-                if (permission) {
-                    if (typeof(permission) == "string") {
-                        if (role.indexOf(permission) > -1) {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    }
-                } else {
-                    return true;
-                }
             }
         }
     }]);
