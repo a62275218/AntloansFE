@@ -16,6 +16,7 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                         "email": vm.user[0].email,
                         "preferred_time":vm.user[0].preferred_time,
                         "preferred_method":vm.user[0].preferred_method,
+                        "DOB": vm.user[0].dob,
                         "bank_id": $scope.banks.selected.id,
                         "loan_type": $scope.loan_type.selected.value,
                         "loan_amount": $scope.job.product.loan_amount,

@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>create form</title>
     <!--my css-->
-    <!-- <link rel="stylesheet" href="../styles/nav_bar.css"> -->
     <link rel="stylesheet" href="../styles/create-form.css">
 </head>
 
@@ -59,7 +58,7 @@
                 <label class="prefer">Preferred contact time</label><input class="form-control" type="text" ng-model="ctrl.user.preferred_time">
                 <label class="prefer">Preferred contact method</label><input class="form-control" type="text" ng-model="ctrl.user.preferred_method"><br>
 
-                <label>Date of Birth</label><input class="form-control" type="text">
+                <label>Date of Birth</label><input class="form-control" ng-model="ctrl.user.dob" type="text">
                 <label>Email</label><input class="form-control" type="email" ng-model="ctrl.user.email"><br>
             </form>
         </div>

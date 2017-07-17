@@ -87,22 +87,21 @@
                                 </ui-select-choices>
                             </ui-select>
                         </td>
-                        <!-- <th>file nature</th>
-                        <td>
-                            <input ng-if="!edit" type="text" class="disable" ng-model="job.file_nature.label" disabled>
-                            <ui-select ng-if="edit" ng-model="job.file_nature" search-enabled="false"
-                                       class="selectpicker select_page"
-                                       onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
-                                <ui-select-match>
-                                    <span ng-bind="$select.selected.label"></span>
-                                </ui-select-match>
-                                <ui-select-choices repeat="item in file_nature track by $index">
-                                    <span ng-bind="item.label"></span>
-                                </ui-select-choices>
-                            </ui-select>
-                        </td> -->
+
                         <th>loan type</th>
-                        <td><input ng-if="!edit" type="text" class="disable" disabled></td>
+                        <td>
+                          <input ng-if="!edit" type="text" class="disable" ng-model="job.loan_type.label"
+                                 disabled>
+                          <ui-select ng-if="edit" ng-model="loan_type.selected" search-enabled="false" class="type_input selectpicker select_page"
+                                     onkeypress="return false;" ng-disabled="disabled" style="width:220px;">
+                              <ui-select-match>
+                                  <span ng-bind="$select.selected.label"></span>
+                              </ui-select-match>
+                              <ui-select-choices repeat="item in loan_type track by $index">
+                                  <span ng-bind="item.label"></span>
+                              </ui-select-choices>
+                          </ui-select>
+                        </td>
                     </tr>
                     <!-- <tr>
                        <th>lender</th>
