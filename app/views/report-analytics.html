@@ -266,9 +266,9 @@
                             <div style="display:inline-block">
                                 <label>FILTER BY:</label>
                                 <div class="btn-group">
-                                    <label class="btn btn-default" ng-model="filter_by_bar" uib-btn-radio="'admin'">Admin</label>
-                                    <label class="btn btn-default" ng-model="filter_by_bar" uib-btn-radio="'broker'">Broker</label>
-                                    <label class="btn btn-default" ng-model="filter_by_bar" uib-btn-radio="'bank'">Bank</label>
+                                    <label class="btn btn-default" ng-click="changeRole('admin')" ng-model="radioModel" uib-btn-radio="'admin'" >Admin</label>
+                                    <label class="btn btn-default" ng-click="changeRole('broker')" ng-model="radioModel" uib-btn-radio="'broker'" >Broker</label>
+                                    <label class="btn btn-default" ng-click="changeRole('bank')" ng-model="radioModel" uib-btn-radio="'bank'">Bank</label>
                                 </div>
                                 <!--<ui-select ng-model="filter_by_bar.selected"
                                            search-enabled="false" class="selection"

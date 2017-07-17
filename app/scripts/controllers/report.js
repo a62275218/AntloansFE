@@ -1,5 +1,5 @@
-antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'reportService', 'jobService', 'paginationService','response','user',
-    function ($scope, BankService, UserService, reportService, jobService, paginationService,response,user) {
+antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'reportService', 'jobService', 'paginationService', 'response', 'user',
+    function ($scope, BankService, UserService, reportService, jobService, paginationService, response, user) {
         if (response && response.status == 200 && response.data.success) {
             $scope.users = response.data.data;
         }
@@ -149,6 +149,8 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         ];
         $scope.timeFrame.selected = $scope.timeFrame[0];
 
+        $scope.radioModel = 'admin';
+
         /*$scope.filter_by = [
          {"name": "Time"},
          {"name": "Bank"},
@@ -158,33 +160,33 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
 
 
         /*$scope.filter_by_bar = [
-            {"name": "User Type"},
-            {"name": "Bank"}
-        ];
-        $scope.filter_by_bar.selected = $scope.filter_by_bar[0];*/
+         {"name": "User Type"},
+         {"name": "Bank"}
+         ];
+         $scope.filter_by_bar.selected = $scope.filter_by_bar[0];*/
 
         /*$scope.user_type_admin = [
-            {"name": "All"},
-            {"name": "None"},
-            {"name": "Customize"}
-        ];
-        $scope.user_type_admin.selected = $scope.user_type_admin[1];
+         {"name": "All"},
+         {"name": "None"},
+         {"name": "Customize"}
+         ];
+         $scope.user_type_admin.selected = $scope.user_type_admin[1];
 
-        $scope.user_type_broker = [
-            {"name": "All"},
-            {"name": "None"},
-            {"name": "Customize"}
-        ];
-        $scope.user_type_broker.selected = $scope.user_type_broker[1];
+         $scope.user_type_broker = [
+         {"name": "All"},
+         {"name": "None"},
+         {"name": "Customize"}
+         ];
+         $scope.user_type_broker.selected = $scope.user_type_broker[1];
 
-        $scope.bank_type = [
-            {"name": "All"},
-            {"name": "None"},
-            {"name": "Customize"}
-        ];
-        $scope.bank_type.selected = $scope.bank_type[1];*/
+         $scope.bank_type = [
+         {"name": "All"},
+         {"name": "None"},
+         {"name": "Customize"}
+         ];
+         $scope.bank_type.selected = $scope.bank_type[1];*/
         //bar chart filter
-        $scope.filter_by_bar = 'admin';
+        //$scope.filter_by_bar = 'admin';
         //get all loan properties
         jobService.getJobProperty()
             .then(function (response) {
@@ -306,7 +308,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 }, function (e) {
                 });
             //initiate bar chart data
-           reportService.getReports($scope.start_time, $scope.end_time, $scope.filter_by_bar)
+            reportService.getReports($scope.start_time, $scope.end_time, $scope.radioModel)
                 .then(function (response) {
                     $scope.data_bar = response.data;
                     $scope.BarChart.data.push(['Admin', 'Loan Amount', 'Deal Number']);
@@ -335,9 +337,9 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 });
         };
 
-        if($scope.user.role == 'super admin' || $scope.user.role == 'supervisor') {
+        if ($scope.user.role == 'super admin' || $scope.user.role == 'supervisor') {
             $scope.initSuper();
-        }else{
+        } else {
             $scope.initNormal();
         }
 
@@ -456,9 +458,9 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                     $scope.LineChart.data.push(['Month', 'Loan Amount', 'Deal Number']);
                     for (var i = 0; i < $scope.data.content.length; i++) {
                         if ($scope.data.content[i]) {
-                            if(step == 30) {
+                            if (step == 30) {
                                 $scope.LineChart.data.push([$scope.transferMonth(($scope.data.content[i].start + $scope.data.content[i].end) / 2), $scope.data.content[i].loan_amount, $scope.data.content[i].deal_numbers]);
-                            }else{
+                            } else {
                                 $scope.LineChart.data.push([$scope.transferYear(($scope.data.content[i].start + $scope.data.content[i].end) / 2), $scope.data.content[i].loan_amount, $scope.data.content[i].deal_numbers]);
                             }
                         } else {
@@ -466,6 +468,10 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                     }
                 }, function (e) {
                 });
+        };
+
+        $scope.changeRole = function(role){
+            $scope.radioModel = role;
         };
 
         //bar chart filter
@@ -479,56 +485,62 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
                 $scope.end_time2 = Date.UTC($scope.endDate2.getFullYear(), $scope.endDate2.getMonth(), $scope.endDate2.getDate());
             }
             $scope.BarChart.data.push(['Obj', 'Loan Amount', 'Deal Number']);
-            reportService.getReports($scope.start_time2, $scope.end_time2, $scope.filter_by_bar)
+
+            reportService.getReports($scope.start_time2, $scope.end_time2, $scope.radioModel)
                 .then(function (response) {
+
                     $scope.data_bar = response.data;
+                    if ($scope.radioModel == 'bank') {
                         angular.forEach($scope.data_bar.content, function (v, k) {
-                            if($scope.filter_by_bar == 'bank') {
-                                $scope.BarChart.data.push([v.bank_id, v.loan_amount, v.deal_number]);
-                            }else if($scope.filter_by_bar == 'admin') {
-                                $scope.BarChart.data.push([$scope.findUser('admin', v.admin_id), v.loan_amount, v.deal_number]);
-                            }else if($scope.filter_by_bar == 'broker') {
-                                $scope.BarChart.data.push([$scope.findUser('broker', v.broker_id), v.loan_amount, v.deal_number]);
-                            }
+                            $scope.BarChart.data.push([v.bank_id, v.loan_amount, v.deal_number])
+                        })
+                    } else if ($scope.radioModel == 'admin') {
+                        angular.forEach($scope.data_bar.content, function (v, k) {
+                            $scope.BarChart.data.push([$scope.findUser('admin', v.admin_id), v.loan_amount, v.deal_number])
+                        })
+                    } else if ($scope.radioModel == 'broker') {
+                        angular.forEach($scope.data_bar.content, function (v, k) {
+                            $scope.BarChart.data.push([$scope.findUser('broker', v.broker_id), v.loan_amount, v.deal_number]);
                         });
+                    }
                 }, function (e) {
                 });
             //user type
             /*if ($scope.filter_by_bar.selected.name == 'User Type') {
-                if ($scope.user_type.selected.name == 'Admin') {
-                    $scope.BarChart.data.push(['Admin', 'Loan Amount', 'Deal Number']);
-                    reportService.getReports($scope.start_time2, $scope.end_time2, 'admin')
-                        .then(function (response) {
-                            $scope.admin = response.data;
-                            angular.forEach($scope.admin.content, function (v, k) {
-                                $scope.BarChart.data.push([$scope.findUser('admin', v.admin_id), v.loan_amount, v.deal_number]);
-                            });
-                        }, function (e) {
-                        })
-                } else if ($scope.user_type.selected.name == 'Broker') {
-                    $scope.BarChart.data.push(['Broker', 'Loan Amount', 'Deal Number']);
-                    reportService.getReports($scope.start_time2, $scope.end_time2, 'broker')
-                        .then(function (response) {
-                            $scope.broker = response.data;
-                            angular.forEach($scope.broker.content, function (v, k) {
-                                $scope.BarChart.data.push([$scope.findUser('broker', v.broker_id), v.loan_amount, v.deal_number]);
-                            });
-                        }, function (e) {
-                        })
-                }
-            }*/
+             if ($scope.user_type.selected.name == 'Admin') {
+             $scope.BarChart.data.push(['Admin', 'Loan Amount', 'Deal Number']);
+             reportService.getReports($scope.start_time2, $scope.end_time2, 'admin')
+             .then(function (response) {
+             $scope.admin = response.data;
+             angular.forEach($scope.admin.content, function (v, k) {
+             $scope.BarChart.data.push([$scope.findUser('admin', v.admin_id), v.loan_amount, v.deal_number]);
+             });
+             }, function (e) {
+             })
+             } else if ($scope.user_type.selected.name == 'Broker') {
+             $scope.BarChart.data.push(['Broker', 'Loan Amount', 'Deal Number']);
+             reportService.getReports($scope.start_time2, $scope.end_time2, 'broker')
+             .then(function (response) {
+             $scope.broker = response.data;
+             angular.forEach($scope.broker.content, function (v, k) {
+             $scope.BarChart.data.push([$scope.findUser('broker', v.broker_id), v.loan_amount, v.deal_number]);
+             });
+             }, function (e) {
+             })
+             }
+             }*/
             //bank
             /*if ($scope.filter_by_bar.selected.name == 'Bank') {
-                $scope.BarChart.data.push(['Bank', 'Loan Amount', 'Deal Number']);
-                reportService.getReports($scope.start_time2, $scope.end_time2, 'bank')
-                    .then(function (response) {
-                        $scope.bank_bar = response.data;
-                        angular.forEach($scope.bank_bar.content, function (v, k) {
-                            $scope.BarChart.data.push([v.bank_id, v.loan_amount, v.deal_number]);
-                        });
-                    }, function (e) {
-                    })
-            }*/
+             $scope.BarChart.data.push(['Bank', 'Loan Amount', 'Deal Number']);
+             reportService.getReports($scope.start_time2, $scope.end_time2, 'bank')
+             .then(function (response) {
+             $scope.bank_bar = response.data;
+             angular.forEach($scope.bank_bar.content, function (v, k) {
+             $scope.BarChart.data.push([v.bank_id, v.loan_amount, v.deal_number]);
+             });
+             }, function (e) {
+             })
+             }*/
         };
 
         /*log information*/
