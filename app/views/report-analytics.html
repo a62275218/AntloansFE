@@ -81,31 +81,17 @@
         </section>
         <div class="width_fix">
             <!-- charts content  -->
-            <!--line chart-->
-
             <div id="charts_list">
-
+                <!--line chart-->
                 <div class="charts_list">
                     <div class="payments_received">
                         <div class="payments_left">
                             <h4>Payments Received</h4>
-                            <h5 class="avg p_amount" ng-if="filter_by.selected.name == 'Time'">Average Per Deal: <br>{{data.average_loan_amount_per_deal|currency:"$":0}}
+                            <h5 class="avg p_amount">Average Per Deal: <br>{{data.average_loan_amount_per_deal|currency:"$":0}}
                             </h5>
-                            <h5 class="avg p_amount" ng-if="filter_by.selected.name == 'Time'">Average Amount: <br>{{data.average_loan_amount|currency:"$":0}}
+                            <h5 class="avg p_amount">Average Amount: <br>{{data.average_loan_amount|currency:"$":0}}
                             </h5>
-                            <h5 class="total p_amount" ng-if="filter_by.selected.name == 'Time'">Total Amount: <br>{{data.total_loan_amount|currency:"$":0}}
-                            </h5>
-                            <h5 class="avg p_amount" ng-if="filter_by.selected.name == 'Bank'">Average Per Deal: <br>{{bank.average_loan_amount_per_deal|currency:"$":0}}
-                            </h5>
-                            <h5 class="avg p_amount" ng-if="filter_by.selected.name == 'Bank'">Average Amount: <br>{{bank.average_loan_amount|currency:"$":0}}
-                            </h5>
-                            <h5 class="total p_amount" ng-if="filter_by.selected.name == 'Bank'">Total Amount: <br>{{bank.total_loan_amount|currency:"$":0}}
-                            </h5>
-                            <h5 class="avg p_amount" ng-if="filter_by.selected.name == 'Loan'">Average Per Deal: <br>{{loan.average_loan_amount_per_deal|currency:"$":0}}
-                            </h5>
-                            <h5 class="avg p_amount" ng-if="filter_by.selected.name == 'Loan'">Average Amount: <br>{{loan.average_loan_amount|currency:"$":0}}
-                            </h5>
-                            <h5 class="total p_amount" ng-if="filter_by.selected.name == 'Loan'">Total Amount: <br>{{loan.total_loan_amount|currency:"$":0}}
+                            <h5 class="total p_amount">Total Amount: <br>{{data.total_loan_amount|currency:"$":0}}
                             </h5>
                             <div class="clear"></div>
                             <div google-chart chart="LineChart"></div>
@@ -151,7 +137,7 @@
                                 </p>
                             </div>
                             <br>
-                            <div style="display:inline-block">
+                            <!--<div style="display:inline-block">
                                 <label>FILTER BY:</label>
                                 <ui-select ng-model="filter_by.selected"
                                            search-enabled="false" class="selection"
@@ -163,7 +149,7 @@
                                         <span ng-bind="item.name"></span>
                                     </ui-select-choices>
                                 </ui-select>
-                            </div>
+                            </div>-->
                             <!--<div ng-if="filter_by.selected == filter_by[1]">
                                 <label>USER TYPE:</label>
                                 <ui-select ng-model="user_type.selected"
@@ -177,7 +163,7 @@
                                     </ui-select-choices>
                                 </ui-select>
                             </div>-->
-                            <div ng-if="filter_by.selected.name == 'Bank'">
+                            <div>
                                 <label>BANK:</label>
                                 <ui-select ng-model="banks.selected"
                                            search-enabled="false" class="selection"
@@ -190,7 +176,7 @@
                                     </ui-select-choices>
                                 </ui-select>
                             </div>
-                            <div ng-if="filter_by.selected.name == 'Loan'" style="display:inline-block">
+                            <div>
                                 <label>LOAN TYPE:</label>
                                 <ui-select ng-model="loan_type.selected"
                                            search-enabled="false" class="selection"
@@ -203,7 +189,7 @@
                                     </ui-select-choices>
                                 </ui-select>
                             </div>
-                            <div ng-if="filter_by.selected.name == 'Loan'">
+                            <div>
                                 <label>LOAN STATUS</label>
                                 <ui-select ng-model="loan_status.selected" class="selectpicker select_page"
                                            style="width:240px;display:inline-block;">
@@ -216,7 +202,7 @@
                                     </ui-select-choices>
                                 </ui-select>
                             </div>
-                            <div ng-if="filter_by.selected.name == 'Loan'">
+                            <div>
                                 <label>PROCESSING TIME</label><br>
                                 <span>No more than </span><input style="width:90px;" class="btn btn-default"
                                                                  type="number"
@@ -224,33 +210,25 @@
                             </div>
                             <br>
 
-                            <button type="button" class="apply-btn" name="button" ng-click="applyFilter1()">APPLY</button>
-                            <button type="button" class="apply-btn" name="button" ng-click="applyOwnFilter()">APPLY</button>
+                            <button type="button" class="apply-btn" name="button" ng-click="applyFilter1()">APPLY
+                            </button>
+                            <button type="button" class="apply-btn" name="button" ng-click="applyOwnFilter()">APPLY
+                            </button>
                         </div>
                     </div>
                     <br>
                     <div class="clear"></div>
                 </div>
                 <!--bar chart-->
-                <div class="charts_list">
+                <div class="charts_list" ng-if="user.role=='supervisor' || user.role=='super admin'">
                     <div class="payments_received">
                         <div class="payments_left">
                             <h4>Payments Received</h4>
-                            <h5 class="avg p_amount"
-                                ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Admin'">
-                                Average Amount: <br>{{admin.average_loan_amount|currency:"$":0}}</h5>
-                            <h5 class="total p_amount"
-                                ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Admin'">
-                                Total Amount: <br>{{admin.total_loan_amount|currency:"$":0}}</h5>
-                            <h5 class="avg p_amount"
-                                ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Broker'">
-                                Average Amount: <br>{{broker.average_loan_amount|currency:"$":0}}</h5>
-                            <h5 class="total p_amount"
-                                ng-if="filter_by_bar.selected.name == 'User Type' && user_type.selected.name == 'Broker'">
-                                Total Amount: <br>{{broker.total_loan_amount|currency:"$":0}}</h5>
-                            <h5 class="avg p_amount" ng-if="filter_by_bar.selected.name == 'Bank'">Average Amount: <br>{{bank_bar.average_loan_amount|currency:"$":0}}
+                            <!--<h5 class="avg p_amount">Average Per Deal: <br>{{data_bar.average_loan_amount_per_deal|currency:"$":0}}
+                            </h5>-->
+                            <h5 class="avg p_amount">Average Amount: <br>{{data_bar.average_loan_amount|currency:"$":0}}
                             </h5>
-                            <h5 class="total p_amount" ng-if="filter_by_bar.selected.name == 'Bank'">Total Amount: <br>{{bank_bar.total_loan_amount|currency:"$":0}}
+                            <h5 class="total p_amount">Total Amount: <br>{{data_bar.total_loan_amount|currency:"$":0}}
                             </h5>
                             <div class="clear p_amount"></div>
                             <div google-chart chart="BarChart"></div>
@@ -261,7 +239,8 @@
                                 <label>FROM:</label><br>
                                 <p class="input-group">
                                     <input type="text" class="form-control" uib-datepicker-popup="{{format}}"
-                                           ng-model="startDate2" is-open="popup3.opened" datepicker-options="dateOptions"
+                                           ng-model="startDate2" is-open="popup3.opened"
+                                           datepicker-options="dateOptions"
                                            ng-required="true" close-text="Close" alt-input-formats="altInputFormats"/>
                                     <span class="input-group-btn">
                                          <button type="button" class="btn btn-default" ng-click="open3()">
@@ -283,9 +262,15 @@
                                     </span>
                                 </p>
                             </div>
+
                             <div style="display:inline-block">
                                 <label>FILTER BY:</label>
-                                <ui-select ng-model="filter_by_bar.selected"
+                                <div class="btn-group">
+                                    <label class="btn btn-default" ng-model="filter_by_bar" uib-btn-radio="'admin'">Admin</label>
+                                    <label class="btn btn-default" ng-model="filter_by_bar" uib-btn-radio="'broker'">Broker</label>
+                                    <label class="btn btn-default" ng-model="filter_by_bar" uib-btn-radio="'bank'">Bank</label>
+                                </div>
+                                <!--<ui-select ng-model="filter_by_bar.selected"
                                            search-enabled="false" class="selection"
                                            onkeypress="return false;" ng-disabled="disabled">
                                     <ui-select-match>
@@ -294,11 +279,11 @@
                                     <ui-select-choices repeat="item in filter_by_bar track by $index">
                                         <span ng-bind="item.name"></span>
                                     </ui-select-choices>
-                                </ui-select>
+                                </ui-select>-->
                             </div>
                             <br>
 
-                            <div ng-if="filter_by_bar.selected.name == 'User Type'">
+                            <!--<div ng-if="filter_by_bar.selected.name == 'User Type'">
                                 <label>Admin:</label>
                                 <ui-select ng-model="user_type_admin.selected"
                                            search-enabled="false" class="selection"
@@ -310,20 +295,26 @@
                                         <span ng-bind="item.name"></span>
                                     </ui-select-choices>
                                 </ui-select>
-                            </div>
+                            </div>-->
 
 
-                            <ui-select multiple ng-model="admins.selected" ng-if="filter_by_bar.selected.name == 'User Type' && user_type_admin.selected.name == 'Customize'"
+                            <!--<ui-select multiple ng-model="admins.selected"
+                                       ng-if="filter_by_bar.selected.name == 'User Type' && user_type_admin.selected.name == 'Customize'"
                                        theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
                                        style="width:250px;margin-top:5px;">
-                                <ui-select-match placeholder="Type to search admin">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
-                                <ui-select-choices repeat="item in admins | propsFilter: {email: $select.search,name: $select.search}">
-                                    <strong><div ng-bind-html="item.name | highlight:$select.search"></div></strong>
+                                <ui-select-match placeholder="Type to search admin">{{$item.first_name}}
+                                    {{$item.last_name}}
+                                </ui-select-match>
+                                <ui-select-choices
+                                        repeat="item in admins | propsFilter: {email: $select.search,name: $select.search}">
+                                    <strong>
+                                        <div ng-bind-html="item.name | highlight:$select.search"></div>
+                                    </strong>
                                     <small>{{item.email}}</small>
                                 </ui-select-choices>
-                            </ui-select>
+                            </ui-select>-->
 
-                            <div ng-if="filter_by_bar.selected.name == 'User Type'">
+                            <!--<div ng-if="filter_by_bar.selected.name == 'User Type'">
                                 <label>Broker:</label>
                                 <ui-select ng-model="user_type_broker.selected"
                                            search-enabled="false" class="selection"
@@ -336,18 +327,24 @@
                                     </ui-select-choices>
                                 </ui-select>
                             </div>
-                            <ui-select multiple ng-model="brokers.selected" ng-if="filter_by_bar.selected.name == 'User Type' && user_type_broker.selected.name == 'Customize'"
+                            <ui-select multiple ng-model="brokers.selected"
+                                       ng-if="filter_by_bar.selected.name == 'User Type' && user_type_broker.selected.name == 'Customize'"
                                        theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
                                        style="width:250px;margin-top:5px;">
-                                <ui-select-match placeholder="Type to search broker">{{$item.first_name}} {{$item.last_name}}</ui-select-match>
-                                <ui-select-choices repeat="item in brokers | propsFilter: {email: $select.search,name: $select.search}">
-                                    <strong><div ng-bind-html="item.name | highlight:$select.search"></div></strong>
+                                <ui-select-match placeholder="Type to search broker">{{$item.first_name}}
+                                    {{$item.last_name}}
+                                </ui-select-match>
+                                <ui-select-choices
+                                        repeat="item in brokers | propsFilter: {email: $select.search,name: $select.search}">
+                                    <strong>
+                                        <div ng-bind-html="item.name | highlight:$select.search"></div>
+                                    </strong>
                                     <small>{{item.email}}</small>
                                 </ui-select-choices>
-                            </ui-select>
+                            </ui-select>-->
 
                             <!--bank-->
-                            <div ng-if="filter_by_bar.selected.name == 'Bank'">
+                            <!--<div ng-if="filter_by_bar.selected.name == 'Bank'">
                                 <ui-select ng-model="bank_type.selected"
                                            search-enabled="false" class="selection"
                                            onkeypress="return false;" ng-disabled="disabled">
@@ -359,16 +356,20 @@
                                     </ui-select-choices>
                                 </ui-select>
                             </div>
-                            <ui-select multiple ng-model="multi_bank.selected" ng-if="filter_by_bar.selected.name == 'Bank' && bank_type.selected.name == 'Customize'"
+                            <ui-select multiple ng-model="multi_bank.selected"
+                                       ng-if="filter_by_bar.selected.name == 'Bank' && bank_type.selected.name == 'Customize'"
                                        theme="bootstrap" ng-disabled="ctrl.disabled" close-on-select="false"
                                        style="width:250px;margin-top:5px;">
                                 <ui-select-match placeholder="Type to search bank">{{$item.name}}</ui-select-match>
                                 <ui-select-choices repeat="item in multi_bank | propsFilter: {name: $select.search}">
-                                    <strong><div ng-bind-html="item.name | highlight:$select.search"></div></strong>
+                                    <strong>
+                                        <div ng-bind-html="item.name | highlight:$select.search"></div>
+                                    </strong>
                                 </ui-select-choices>
-                            </ui-select>
+                            </ui-select>-->
 
-                            <button type="button" class="apply-btn" name="button" ng-click="applyFilter2()">APPLY</button>
+                            <button type="button" class="apply-btn" name="button" ng-click="applyFilter2()">APPLY
+                            </button>
                         </div>
                     </div>
                     <br>

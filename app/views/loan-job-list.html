@@ -107,7 +107,7 @@
                         </ui-select>
                     </div>
 
-                    <div class="broker">
+                    <div class="broker" ng-if="user.role == 'admin' || user.role == 'super admin' || user.role=='supervisor'">
                         <label>BROKER:</label>
                         <ui-select ng-model="brokers.selected" on-select="filterUser(brokers.selected,'broker')"
                                    class="broker_input selectpicker select_page" style="width:220px;">
@@ -120,7 +120,7 @@
                             </ui-select-choices>
                         </ui-select>
                     </div>
-                    <div class="admin">
+                    <div class="admin" ng-if="user.role == 'broker' || user.role == 'super admin' || user.role=='supervisor'">
                         <label>ADMIN:</label>
                         <ui-select ng-model="admins.selected" class="admin_input selectpicker select_page" on-select="filterUser(admins.selected,'admin')"
                                    style="width:220px;">
@@ -149,8 +149,8 @@
                             <th style="width: 137px;" ng-click="sortObj('loan_amount',$event)">LOAN AMOUNT &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <!--<th style="min-width: 100px;"><span ng-click="sortObj('first_name',$event)">ASSIGN &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></span></th>-->
                             <th style="width: 141px;" ng-click="sortObj('loan_purpose.label',$event)">LOAN PURPOSE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th style="width: 89px;" ng-click="sortObj('broker.name',$event)">BROKER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th style="width: 89px;" ng-click="sortObj('admin.name',$event)">ADMIN &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="width: 89px;" ng-click="sortObj('broker.name',$event)" ng-if="user.role == 'admin' || user.role == 'super admin' || user.role=='supervisor'">BROKER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="width: 89px;" ng-click="sortObj('admin.name',$event)" ng-if="user.role == 'broker' || user.role == 'super admin' || user.role=='supervisor'">ADMIN &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <th style="width: 157px;" ng-click="sortObj('repayment_type.label',$event)">REPAYMENT TYPE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <th style="width: 130px;" >LAST UPDATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <th style="width: 140px;" >SETTLEMENT DATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
@@ -177,8 +177,8 @@
                             <td>{{item.deal_status.label}}</td>
                             <td>{{item.loan_amount|currency}}</td>
                             <td>{{item.loan_purpose.label}}</td>
-                            <td>{{item.broker.name}}</td>
-                            <td>{{item.admin.name}}</td>
+                            <td ng-if="user.role == 'admin' || user.role == 'super admin' || user.role=='supervisor'">{{item.broker.name}}</td>
+                            <td ng-if="user.role == 'broker' || user.role == 'super admin' || user.role=='supervisor'">{{item.admin.name}}</td>
                             <td>{{item.repayment_type.label}}</td>
                             <td>AA</td>
                             <td>11</td>

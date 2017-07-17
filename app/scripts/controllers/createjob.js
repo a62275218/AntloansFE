@@ -113,6 +113,10 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
                     }, function (e) {
                     })
             };
+            $scope.dateOptions = {
+                changeYear: true,
+                changeMonth: true
+            };
 
             /*vm.brokers.selected*/
             $scope.banks = [];
