@@ -1,5 +1,9 @@
-antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorageService','jobService','paginationService','BankService','UserService',
-    function($scope, $state,OAuthService,localStorageService,jobService,paginationService,BankService,UserService){
+antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorageService','jobService','paginationService','BankService','UserService','response',
+    function($scope, $state,OAuthService,localStorageService,jobService,paginationService,BankService,UserService,response){
+        if (response && response.status == 200 && response.data.success) {
+            $scope.user = response.data.data;
+            console.log($scope.user)
+        }
         var vm = this;
 
         /*set default current page*/
@@ -7,16 +11,29 @@ antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorag
 
         /*get all the paginated data*/
         vm.getPaginatedJobs = function() {
-            jobService.getAllJobs()
-                .then(
-                    function (response) {
-                        $scope.job = response.data.data.content;
-                        UserService.findFullName($scope.job);
-                        $scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
-                    },
-                    function (e) {
-                        console.log(e)
-                    });
+            if($scope.user.role == 'admin' || $scope.user.role =='broker'){
+                UserService.getUserJobs($scope.user.user_id)
+                    .then(
+                        function (response) {
+                            $scope.job = response.data.data.content;
+                            UserService.findFullName($scope.job);
+                            $scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
+                        },
+                        function (e) {
+                            console.log(e)
+                        });
+            }else {
+                jobService.getAllJobs()
+                    .then(
+                        function (response) {
+                            $scope.job = response.data.data.content;
+                            UserService.findFullName($scope.job);
+                            $scope.totalPage = paginationService.numberOfPages($scope.job.length, $scope.pageAmount.selected.name);
+                        },
+                        function (e) {
+                            console.log(e)
+                        });
+            }
         };
         vm.getPaginatedJobs();
         $scope.brokers = [];
