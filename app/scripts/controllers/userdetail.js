@@ -5,7 +5,12 @@ antloans.controller('userDetailCtrl', ['$scope', '$state', 'UserService', '$stat
             .then(function (response) {
                 $scope.user = response.data.data;
             }, function (e) {
-            })
+            });
+        $scope.dateOptions = {
+            changeYear: true,
+            changeMonth: true,
+            yearRange:"1800:2100"
+        };
         //get user jobs
         UserService.getUserJobs($stateParams.userId)
             .then(function (response) {
@@ -97,6 +102,7 @@ antloans.controller('userDetailCtrl', ['$scope', '$state', 'UserService', '$stat
           $('.personal_detail input').removeAttr('disabled').removeClass('disable');
         };
         $scope.save = function () {
+            $scope.user.dob = Date.UTC($scope.user.date_of_birth.getFullYear(), $scope.user.date_of_birth.getMonth(), $scope.user.date_of_birth.getDate());
             $('.personal_detail input').attr('disabled');
             $('.personal_detail input').addClass('disable');
             UserService.updateUser($scope.user.user_id, {
@@ -106,7 +112,8 @@ antloans.controller('userDetailCtrl', ['$scope', '$state', 'UserService', '$stat
                 phone: $scope.user.phone,
                 mobile: $scope.user.mobile,
                 preferred_time: $scope.user.preferred_time,
-                preferred_method: $scope.user.preferred_method
+                preferred_method: $scope.user.preferred_method,
+                date_of_birth:$scope.user.dob
             }).then(function () {
                 swal("Success!", "User uploaded", "success");
                 $('.editBtn').removeClass('edit');

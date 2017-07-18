@@ -1,6 +1,6 @@
 <div class="brand">COLONY</div>
 
-<div class="dropdownl" ng-controller="navBarCtrl">
+<div class="dropdownl" ng-controller="navBarCtrl" ng-init="init()">
     <img ng-if = "user.avatar" ng-src="{{user.avatar}}" alt="">
     <img ng-if = "!user.avatar" ng-src="{{default_img_url}}" alt="">
     <button class="dropbtn">{{user.first_name}} {{user.last_name}}</button>

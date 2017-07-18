@@ -41,8 +41,10 @@
                     <label>Mobile</label><span><input class='disable' type="text" ng-model="user.mobile" disabled></span><br>
                     <label>Phone</label><span><input class='disable' type="text" ng-model="user.phone" disabled></span><br>
                     <!--<label>Fax</label><span><input class='disable' type="text" name="" disabled></span><br>-->
+                    <label>Date of Birth</label><span><input class="disable" ui-date="dateOptions" ng-model="user.date_of_birth"></span><br>
                     <label class='prefer'>Prefered contact time</label><span><input class='disable' type="text" ng-model="user.preferred_time" disabled></span><br>
-                    <label class='prefer'>Prefered contact method</label><span><input class='disable' type="text" ng-model="user.preferred_method" disabled></span>
+                    <label class='prefer'>Prefered contact method</label><span><input class='disable' type="text" ng-model="user.preferred_method" disabled></span><br>
+
                 </div>
 
                 <button class="saveBtn" type="button" name="button" ng-click="save()">Save</button>

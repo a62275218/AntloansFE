@@ -58,7 +58,7 @@
                         <button id='analytics_btn' class='show_light' type="button" name="button">ANALYTICS</button>
                         <!-- <button id='sales_btn' class='' type="button" name="button">SALES</button>
                         <button id='deals_btn' class='' type="button" name="button">DEALS</button> -->
-                        <button id='log_btn' class='' type="button" name="button">LOG</button>
+                        <button id='log_btn' class='' type="button" name="button" ng-if="user.role=='super admin'">LOG</button>
                     </div>
                     <div class="page_num" style="display:none">
                         <div class="page">
@@ -264,7 +264,7 @@
                             </div>
 
                             <div style="display:inline-block">
-                                <label>FILTER BY:</label>
+                                <label>FILTER BY:</label><br>
                                 <div class="btn-group">
                                     <label class="btn btn-default" ng-click="changeRole('admin')" ng-model="radioModel" uib-btn-radio="'admin'" >Admin</label>
                                     <label class="btn btn-default" ng-click="changeRole('broker')" ng-model="radioModel" uib-btn-radio="'broker'" >Broker</label>

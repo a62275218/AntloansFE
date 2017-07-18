@@ -153,8 +153,8 @@
                             <th style="width: 89px;" ng-click="sortObj('broker.name',$event)" ng-if="user.role == 'admin' || user.role == 'super admin' || user.role=='supervisor'">BROKER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <th style="width: 89px;" ng-click="sortObj('admin.name',$event)" ng-if="user.role == 'broker' || user.role == 'super admin' || user.role=='supervisor'">ADMIN &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                             <!-- <th style="width: 157px;" ng-click="sortObj('repayment_type.label',$event)">REPAYMENT TYPE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th> -->
-                            <th style="width: 130px;" >LAST UPDATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th style="width: 140px;" >SETTLEMENT DATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="width: 130px;" ng-click="sortObj('update_at',$event)">LAST UPDATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="width: 140px;" ng-click="sortObj('settlement_date',$event)">SETTLEMENT DATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                         </tr>
                         </thead>
 
@@ -182,8 +182,8 @@
                             <td ng-if="user.role == 'admin' || user.role == 'super admin' || user.role=='supervisor'">{{item.broker.name}}</td>
                             <td ng-if="user.role == 'broker' || user.role == 'super admin' || user.role=='supervisor'">{{item.admin.name}}</td>
                             <!-- <td>{{item.repayment_type.label}}</td> -->
-                            <td>AA</td>
-                            <td>11</td>
+                            <td>{{item.update_at | date:'MM/dd/yyyy'}}</td>
+                            <td>{{item.settlement_date | date:'MM/dd/yyyy'}}</td>
 
                         </tr>
 

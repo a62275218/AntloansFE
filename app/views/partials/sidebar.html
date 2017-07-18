@@ -1,10 +1,10 @@
-<ul ng-controller="navBarCtrl">
-    <a ui-sref="job-list"><li class='job-bar'><span><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i><span class="bar_name">JOB LIST</span></span></li></a>
+<ul ng-controller="navBarCtrl" ng-init="init()" ng-cloak>
+    <a ui-sref="job-list" ng-if="user.role!='settle man'"><li class='job-bar'><span><i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i><span class="bar_name">JOB LIST</span></span></li></a>
     <a ui-sref="documents"><li class='doc-bar'><span><i class="fa fa-file-text fa-lg" aria-hidden="true"></i><span class="bar_name">DOCUMENT</span></span></li></a>
-    <a ui-sref="users"><li class='user-bar'><span><i class="fa fa-user fa-lg" aria-hidden="true"></i><span class="bar_name">USER</span></span></li></a>
+    <a ui-sref="users" ng-if="user.role=='super admin'"><li class='user-bar'><span><i class="fa fa-user fa-lg" aria-hidden="true"></i><span class="bar_name">USER</span></span></li></a>
     <!--<a ui-sref=""><li class='set-bar'><span><i class="fa fa-cog fa-lg" aria-hidden="true"></i><span class="bar_name">SETTING</span></span></li></a>-->
-    <a ui-sref="reports"><li class='report-bar'><span><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i><span class="bar_name">REPORT</span></span></li></a>
-    <a ui-sref="settle"><li class='settle-bar'><span><i class="fa fa-check fa-lg" aria-hidden="true"></i><span class="bar_name">SETTLED</span></span></li></a>
+    <a ui-sref="reports" ng-if="user.role!='settle man'"><li class='report-bar'><span><i class="fa fa-tachometer fa-lg" aria-hidden="true"></i><span class="bar_name">REPORT</span></span></li></a>
+    <a ui-sref="settle" ng-if="user.role=='super admin' || user.role=='supervisor'"><li class='settle-bar'><span><i class="fa fa-check fa-lg" aria-hidden="true"></i><span class="bar_name">SETTLED</span></span></li></a>
     <a ui-sref="blog-list"><li class='blog-bar'><span><i class="fa fa-th-large fa-lg" aria-hidden="true"></i><span class="bar_name">BLOG</span></span></li></a>
 </ul>
 

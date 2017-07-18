@@ -12,6 +12,11 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
             url:API_BASE + "/users/"+ $scope.user.user_id +"/avatar",
             headers:{'Authorization': 'Bearer' + OAuthService.getToken()}
         });
+        $scope.dateOptions = {
+            changeYear: true,
+            changeMonth: true,
+            yearRange:"1800:2100"
+        };
 
         //limit to images
         $scope.uploader.filters.push({
@@ -58,6 +63,7 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
     });*/
     //submit change
     $scope.save = function() {
+        $scope.user.dob = Date.UTC($scope.user.date_of_birth.getFullYear(), $scope.user.date_of_birth.getMonth(), $scope.user.date_of_birth.getDate());
         if ($scope.newPass != $scope.RenewPass) {
             swal("Oops...", "Please Input the same password", "error");
         }else if($scope.reset == true && ($scope.newPass == '' || $scope.RenewPass =='')){
@@ -75,7 +81,8 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
                 mobile: $scope.user.mobile,
                 password: $scope.newPass,
                 preferred_time: $scope.user.preferred_time,
-                preferred_method: $scope.user.preferred_method
+                preferred_method: $scope.user.preferred_method,
+                date_of_birth:$scope.user.dob
             }).then(function () {
                 swal("Success!", "User uploaded", "success")
                 $scope.reset = false;
