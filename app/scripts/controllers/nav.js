@@ -13,10 +13,13 @@ antloans.controller('navBarCtrl', ['$scope', 'UserService', 'principal','OAuthSe
         };
 
         updateUser();
-        UserService.getCurrentUser()
-            .then(function (response) {
-                $scope.user = response.data.data;
-            }, function (e) {
-                console.log(e)
-            });
+
+        $scope.init = function() {
+            UserService.getCurrentUser()
+                .then(function (response) {
+                    $scope.user = response.data.data;
+                }, function (e) {
+                    console.log(e)
+                });
+        }
     }]);

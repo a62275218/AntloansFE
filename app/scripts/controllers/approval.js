@@ -13,7 +13,6 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
         vm.convertStatus = function (obj, index) {
             angular.forEach(obj, function (v, k) {
                 if (v.dealStatus.value == index) {
-                    console.log(v);
                     $scope.newStatus[index] = v;
                 }
             });
@@ -33,7 +32,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                     if ($scope.job.broker) {
                         $scope.selection[2] = 'settled';
                     }
-                    for (var i = 1; i < 12; i++) {
+                    for (var i = 1; i < 18; i++) {
                         vm.convertStatus($scope.status, i)
                     }
                     vm.showStatus($scope.job.deal_status.value);
@@ -117,7 +116,9 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             status.push($('.circle.1'), $('.circle.2'), $('.circle.3'), $('.circle.4'), $('.circle.5'),
                 $('.circle.6'), $('.circle.7'), $('.circle.8'), $('.circle.9'), $('.circle.10'),
                 $('.circle.11'));
-            status[deal_status_value - 1].addClass('done');
+            console.log(deal_status_value)
+                status[deal_status_value - 1].addClass('done');
+
             var index = parseInt(deal_status_value - 1);
             if (status[deal_status_value - 1].hasClass("done")) {
                 for (var i = 0; i < index; i++) {

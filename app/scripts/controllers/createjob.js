@@ -2,29 +2,35 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
     function ($scope, jobService, UserService, BankService) {
         var vm = this;
         vm.onSubmit = function () {
-            if(!vm.choosenUser || !$scope.banks.selected || !$scope.loan_type.selected || !$scope.job.product.loan_amount || !$scope.loan_purpose.selected
-            || !$scope.repayment_type.selected || !$scope.file_nature.selected || !$scope.brokers.selected){
+            if (vm.user.date_of_birth) {
+            $scope.dob = Date.UTC(vm.user.date_of_birth.getFullYear(), vm.user.date_of_birth.getMonth(), vm.user.date_of_birth.getDate());
+            }
+            if($scope.settlementDate) {
+                $scope.settle_date = Date.UTC($scope.settlementDate.getFullYear(), $scope.settlementDate.getMonth(), $scope.settlementDate.getDate());
+            }
+            if(!$scope.banks.selected || !$scope.loan_type.selected || !$scope.job.product.loan_amount || !$scope.loan_purpose.selected
+            || !$scope.repayment_type.selected || !$scope.brokers.selected){
                 $scope.valid = false;
             }else {
                 $scope.valid = true;
                 jobService.createJob(
                     {
-                        "first_name": vm.user[0].first_name,
-                        "last_name": vm.user[0].last_name,
-                        "mobile": vm.user[0].mobile,
-                        "address": vm.user[0].address,
-                        "email": vm.user[0].email,
-                        "preferred_time":vm.user[0].preferred_time,
-                        "preferred_method":vm.user[0].preferred_method,
-                        "DOB": vm.user[0].date_of_birth,
+                        "first_name": vm.user.first_name,
+                        "last_name": vm.user.last_name,
+                        "mobile": vm.user.mobile,
+                        "address": vm.user.address,
+                        "email": vm.user.email,
+                        "preferred_time":vm.user.preferred_time,
+                        "preferred_method":vm.user.preferred_method,
+                        "date_of_birth": $scope.dob,
                         "bank_id": $scope.banks.selected.id,
                         "loan_type": $scope.loan_type.selected.value,
                         "loan_amount": $scope.job.product.loan_amount,
                         "loan_purpose": $scope.loan_purpose.selected.value,
                         "repayment_type": $scope.repayment_type.selected.value,
-                        "file_nature": $scope.file_nature.selected.value,
                         "broker_id": $scope.brokers.selected.user_id,
-                        "special_note": $scope.job.product.special_note
+                        "special_note": $scope.job.product.special_note,
+                        "settlement_date":$scope.settle_date
                     }
                 ).then(function (response) {
                     if (response.status == 200) {
@@ -116,7 +122,8 @@ antloans.controller('createJob', ['$scope', 'jobService', 'UserService', 'BankSe
             };
             $scope.dateOptions = {
                 changeYear: true,
-                changeMonth: true
+                changeMonth: true,
+                yearRange:"1800:2100"
             };
 
             /*vm.brokers.selected*/
