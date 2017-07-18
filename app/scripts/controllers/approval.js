@@ -116,7 +116,8 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             var status = [];
             status.push($('.circle.1'), $('.circle.2'), $('.circle.3'), $('.circle.4'), $('.circle.5'),
                 $('.circle.6'), $('.circle.7'), $('.circle.8'), $('.circle.9'), $('.circle.10'),
-                $('.circle.11'));
+                $('.circle.11'),$('.circle.12'),$('.circle.13'),$('.circle.14'),$('.circle.15'),$('.circle.16'),
+                $('.circle.17'),$('.circle.18'));
             status[deal_status_value - 1].addClass('done');
             var index = parseInt(deal_status_value - 1);
             if (status[deal_status_value - 1].hasClass("done")) {
