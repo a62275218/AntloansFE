@@ -63,6 +63,8 @@ li.job-bar i, li.job-bar span.bar_name{
 
 .statusInput button{
  color:  #AEAEAE;
+ padding-left: 10px;
+ padding-right: 10px;
 }
 
 .statusInput button:focus{
