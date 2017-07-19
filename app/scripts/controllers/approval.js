@@ -537,6 +537,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                     $scope.repayment_type = response.data.data.repayment_type;
                     $scope.loan_purpose = response.data.data.loan_purpose;
                     $scope.file_nature = response.data.data.file_nature;
+                    $scope.lender = response.data.data.bank;
                     $scope.loan_type.shift();
                     $scope.file_nature.shift();
                     $scope.repayment_type.shift();

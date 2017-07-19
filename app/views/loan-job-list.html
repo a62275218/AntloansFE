@@ -84,7 +84,7 @@
                 <div class="tool_bar_middle">
                     <hr>
 
-                   <div class="settle_date"><strong>SETTLEMENT DATE</strong></div>
+                   <div class="settle_date"><strong><span>SETTLEMENT DATE</span></strong><strong style="margin-left:180px;"><span>LENDER:</span></strong><strong style="margin-left:160px;"><span>BROKER:</span></strong><strong style="margin-left:120px;"><span>ADMIN:</span></strong></div>
                    <div class="start_date">
                        <label>FROM:</label>
                        <input class="btn btn-default" ui-date ng-model="startDate">
@@ -95,7 +95,7 @@
                    </div>
 
                     <div class="bank">
-                        <label>LENDER:</label>
+                        <!-- <label>LENDER:</label> -->
                         <ui-select ng-model="banks.selected" on-select="filterBankId(banks.selected)"
                                    search-enabled="true" class="bank_input selectpicker select_page">
                             <ui-select-match>
@@ -108,7 +108,7 @@
                     </div>
 
                     <div class="broker" ng-if="user.role == 'admin' || user.role == 'super admin' || user.role=='supervisor'">
-                        <label>BROKER:</label>
+                        <!-- <label>BROKER:</label> -->
                         <ui-select ng-model="brokers.selected" on-select="filterUser(brokers.selected,'broker')"
                                    class="broker_input selectpicker select_page" style="width:220px;">
                             <ui-select-match>
@@ -121,7 +121,7 @@
                         </ui-select>
                     </div>
                     <div class="admin" ng-if="user.role == 'broker' || user.role == 'super admin' || user.role=='supervisor'">
-                        <label>ADMIN:</label>
+                        <!-- <label>ADMIN:</label> -->
                         <ui-select ng-model="admins.selected" class="admin_input selectpicker select_page" on-select="filterUser(admins.selected,'admin')"
                                    style="width:220px;">
                             <ui-select-match>

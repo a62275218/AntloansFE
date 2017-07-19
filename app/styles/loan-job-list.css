@@ -117,8 +117,8 @@ li.job-bar i, li.job-bar span.bar_name{
 .bank{
   display: inline-block;
   float: left;
-  margin-left: 10px;
-  width: 275px;
+  margin-left: 30px;
+  width: 230px;
 }
 
 .bank label{
@@ -127,14 +127,14 @@ li.job-bar i, li.job-bar span.bar_name{
 
 .bank .bank_input{
   display: inline-block !important;
-  width: 210px !important;
-  float: right !important;
+  width: 230px !important;
+  float: left !important;
 }
 
 .tool_bar_middle .settle_date{
   color:#AEAEAE;
   padding-left: 130px;
-  font-size: 1.2em;
+  font-size: 1em;
   margin-top: 5px;
   margin-bottom: 5px;
 }
