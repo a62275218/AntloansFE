@@ -147,9 +147,6 @@ var antloans = angular
                     templateUrl: 'views/report-analytics.html',
                     controller:'reportCtrl',
                     resolve:{
-                        response:function(UserService){
-                            return UserService.getAllUsers();
-                        },
                         user:function(UserService){
                             return UserService.getCurrentUser();
                         }

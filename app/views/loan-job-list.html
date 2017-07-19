@@ -159,17 +159,18 @@
                         </thead>
 
                         <tbody>
-                        <tr ng-repeat="item in job
+                        <tr ng-repeat="item in filteredjob=(job
                       | orderBy:sort:desc
                       | filter:searchInput
                       | statusFilter:jobStatus
                       | bankFilter:searchBank
                       | userFilter:userType:userId
                       | dateFilter:startDate:endDate
-                      | startFrom:currentPage * pageAmount.selected.name
+                      | startFrom:currentPage * pageAmount.selected.name)
                       | limitTo:pageAmount.selected.name
                       track by $index" class='item' ng-click="toApproval(item.id)">
                             <td>
+                                {{filteredjob.length}}2
                                 <img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
                                 <img ng-if="!item.avatar" ng-src="{{default_img_url}}" alt="">
                                 <span class='name'>{{item.name}}</span>
