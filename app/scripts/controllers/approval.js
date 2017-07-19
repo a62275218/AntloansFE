@@ -115,10 +115,9 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             var status = [];
             status.push($('.circle.1'), $('.circle.2'), $('.circle.3'), $('.circle.4'), $('.circle.5'),
                 $('.circle.6'), $('.circle.7'), $('.circle.8'), $('.circle.9'), $('.circle.10'),
-                $('.circle.11'));
-            console.log(deal_status_value)
-                status[deal_status_value - 1].addClass('done');
-
+                $('.circle.11'),$('.circle.12'),$('.circle.13'),$('.circle.14'),$('.circle.15'),$('.circle.16'),
+                $('.circle.17'),$('.circle.18'));
+            status[deal_status_value - 1].addClass('done');
             var index = parseInt(deal_status_value - 1);
             if (status[deal_status_value - 1].hasClass("done")) {
                 for (var i = 0; i < index; i++) {
@@ -538,6 +537,7 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                     $scope.repayment_type = response.data.data.repayment_type;
                     $scope.loan_purpose = response.data.data.loan_purpose;
                     $scope.file_nature = response.data.data.file_nature;
+                    $scope.lender = response.data.data.bank;
                     $scope.loan_type.shift();
                     $scope.file_nature.shift();
                     $scope.repayment_type.shift();
