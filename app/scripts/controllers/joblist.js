@@ -2,12 +2,12 @@ antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorag
     function($scope, $state,OAuthService,localStorageService,jobService,paginationService,BankService,UserService,response){
         if (response && response.status == 200 && response.data.success) {
             $scope.user = response.data.data;
-            console.log($scope.user)
         }
         var vm = this;
 
         /*set default current page*/
         $scope.currentPage = 0;
+
 
         /*get all the paginated data*/
         vm.getPaginatedJobs = function() {
@@ -15,6 +15,7 @@ antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorag
                 UserService.getUserJobs($scope.user.user_id)
                     .then(
                         function (response) {
+
                             $scope.job = response.data.data.content;
                             UserService.findFullName($scope.job);
                             $scope.totalPage = paginationService.numberOfPages($scope.job.length,$scope.pageAmount.selected.name);
@@ -55,7 +56,7 @@ antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorag
             BankService.getAllBanks()
                 .then(function (response) {
                     $scope.banks = response.data.data;
-                    $scope.banks.unshift({name:'ALL'});
+                    $scope.banks.unshift({name:'All'});
                 }, function (e) {
                 })
         };
@@ -167,8 +168,19 @@ antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorag
           $state.go('approval',{jobId:id})
         };
 
-        $scope.$watchGroup(['searchInput','sort','jobStatus','searchBank','userType'],function(){
+        $scope.newTotal = function(){
+            $scope.totalPage = $scope.filteredjob.length
+        };
+
+        $scope.filteredjob = [];
+        $scope.$watchGroup(['searchInput','sort','jobStatus','searchBank','userType','brokers.selected','startDate','endDate','userId'],function(){
             $scope.currentPage = 0;
+            if($scope.filteredjob) {
+                $scope.totalPage = paginationService.numberOfPages($scope.filteredjob.length, $scope.pageAmount.selected.name);
+                if($scope.totalPage <1){
+                    $scope.totalPage =1;
+                }
+            }
         },true);
 
        // bank active button

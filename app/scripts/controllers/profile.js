@@ -162,6 +162,7 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
             $('.personal_detail input').addClass('disable');
             $('.pass').attr('');
             $('.pass').removeClass('disable');
+            if($scope.reset == true){
             UserService.updateUser($scope.user.user_id, {
                 firstName: $scope.user.first_name,
                 lastName: $scope.user.last_name,
@@ -173,13 +174,32 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
                 preferred_method: $scope.user.preferred_method,
                 date_of_birth:$scope.user.dob
             }).then(function () {
-                swal("Success!", "User uploaded", "success")
+                swal("Success!", "User updated", "success");
                 $scope.reset = false;
                 $scope.newPass = '';
                 $scope.RenewPass = '';
             }, function (e) {
                 swal("Oops...", "Something went wrong! Update failed", "error");
             })
+            }else{
+                UserService.updateUser($scope.user.user_id, {
+                    firstName: $scope.user.first_name,
+                    lastName: $scope.user.last_name,
+                    email: $scope.user.email,
+                    phone: $scope.user.phone,
+                    mobile: $scope.user.mobile,
+                    preferred_time: $scope.user.preferred_time,
+                    preferred_method: $scope.user.preferred_method,
+                    date_of_birth:$scope.user.dob
+                }).then(function () {
+                    swal("Success!", "User updated", "success");
+                    $scope.reset = false;
+                    $scope.newPass = '';
+                    $scope.RenewPass = '';
+                }, function (e) {
+                    swal("Oops...", "Something went wrong! Update failed", "error");
+                })
+            }
         }
         $('.editBtn').removeClass('edit');
         $('.saveBtn').hide();

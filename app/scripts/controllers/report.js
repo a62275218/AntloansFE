@@ -1,8 +1,5 @@
-antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'reportService', 'jobService', 'paginationService', 'response', 'user',
-    function ($scope, BankService, UserService, reportService, jobService, paginationService, response, user) {
-        if (response && response.status == 200 && response.data.success) {
-            $scope.users = response.data.data;
-        }
+antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'reportService', 'jobService', 'paginationService','user',
+    function ($scope, BankService, UserService, reportService, jobService, paginationService, user) {
         if (user && user.status == 200 && user.data.success) {
             $scope.user = user.data.data;
             console.log($scope.user)
@@ -132,12 +129,16 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         $scope.brokers = [];
         $scope.admins = [];
         vm.getUsersByType = function (target, type) {
-            for (var i = 0; i < $scope.users.length; i++) {
-                if ($scope.users[i].role === type) {
-                    $scope.users[i].name = $scope.users[i].first_name + ' ' + $scope.users[i].last_name;
-                    target.push($scope.users[i]);
-                }
-            }
+            UserService.getAllUsers()
+                .then(function(response){
+                    $scope.users = response.data.data;
+                    for (var i = 0; i < $scope.users.length; i++) {
+                        if ($scope.users[i].role === type) {
+                            $scope.users[i].name = $scope.users[i].first_name + ' ' + $scope.users[i].last_name;
+                            target.push($scope.users[i]);
+                        }
+                    }
+                },function(e){});
         };
         vm.getUsersByType($scope.brokers, 'broker');
         vm.getUsersByType($scope.admins, 'admin');
@@ -149,7 +150,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         ];
         $scope.timeFrame.selected = $scope.timeFrame[0];
 
-        $scope.radioModel = 'admin';
+        $scope.radioModel = 'bank';
 
         /*$scope.filter_by = [
          {"name": "Time"},
@@ -311,10 +312,10 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
             reportService.getReports($scope.start_time, $scope.end_time, $scope.radioModel)
                 .then(function (response) {
                     $scope.data_bar = response.data;
-                    $scope.BarChart.data.push(['Admin', 'Loan Amount', 'Deal Number']);
+                    $scope.BarChart.data.push(['Bank', 'Loan Amount', 'Deal Number']);
                     angular.forEach($scope.data_bar.content, function (v, k) {
-                        $scope.BarChart.data.push([$scope.findUser('admin', v.admin_id), v.loan_amount, v.deal_number]);
-                    });
+                        $scope.BarChart.data.push([v.bank_id, v.loan_amount, v.deal_number])
+                    })
                 }, function (e) {
                 })
         };

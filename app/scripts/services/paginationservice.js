@@ -2,7 +2,7 @@ antloans.factory('paginationService',[
     function(){
         return{
             numberOfPages:function(length,pageSize){
-                return Math.ceil(length/pageSize);
+                return Math.ceil(length/pageSize)/*==0? 1:Math.ceil(length/pageSize)*/
             },
             sortByAttr:function(attr,desc){
                 return function(a,b){
