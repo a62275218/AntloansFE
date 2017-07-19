@@ -1,5 +1,5 @@
-antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_BASE','OAuthService','UserService', 'paginationService',
-    function($scope,response,FileUploader,API_BASE,OAuthService,UserService,paginationService){
+antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_BASE','OAuthService','UserService', 'paginationService', '$state',
+    function($scope,response,FileUploader,API_BASE,OAuthService,UserService,paginationService,$state){
         if (response && response.status == 200 && response.data.success) {
             $scope.user = response.data.data;
             console.log("1111111111111");
