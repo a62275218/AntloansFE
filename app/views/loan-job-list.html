@@ -138,23 +138,23 @@
             </div>
         </section>
 
-        <div class="width_fix" style="min-width:1300px !important;max-width:1300px">
+        <div class="width_fix">
             <div class="content">
                 <div class="job_list">
                     <table class='"table table-striped"'>
                         <thead>
                         <tr>
-                            <th style="width: 160px;" ng-click="sortObj('name',$event)">NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th style="width: 150px;" ng-click="sortObj('deal_status.label',$event)">STATUS &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th style="width: 137px;" ng-click="sortObj('loan_amount',$event)">LOAN AMOUNT &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th style="width: 130px;" ng-click="sortObj('bank.name',$event)">LENDER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <!--<th style="min-width: 100px;"><span ng-click="sortObj('first_name',$event)">ASSIGN &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></span></th>-->
-                            <!-- <th style="width: 141px;" ng-click="sortObj('loan_purpose.label',$event)">LOAN PURPOSE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th> -->
-                            <th style="width: 89px;" ng-click="sortObj('broker.name',$event)" ng-if="user.role == 'admin' || user.role == 'super admin' || user.role=='supervisor'">BROKER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th style="width: 89px;" ng-click="sortObj('admin.name',$event)" ng-if="user.role == 'broker' || user.role == 'super admin' || user.role=='supervisor'">ADMIN &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <!-- <th style="width: 157px;" ng-click="sortObj('repayment_type.label',$event)">REPAYMENT TYPE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th> -->
-                            <th style="width: 130px;" ng-click="sortObj('update_at',$event)">LAST UPDATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
-                            <th style="width: 140px;" ng-click="sortObj('settlement_date',$event)">SETTLEMENT DATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 160px;" ng-click="sortObj('name',$event)">NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 130px;" ng-click="sortObj('deal_status.label',$event)">STATUS &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 137px;" ng-click="sortObj('loan_amount',$event)">LOAN AMOUNT &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 130px;" ng-click="sortObj('bank.name',$event)">LENDER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <!--<th style="min-min-width: 100px;"><span ng-click="sortObj('first_name',$event)">ASSIGN &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></span></th>-->
+                            <!-- <th style="min-width: 141px;" ng-click="sortObj('loan_purpose.label',$event)">LOAN PURPOSE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th> -->
+                            <th style="min-width: 89px;" ng-click="sortObj('broker.name',$event)" ng-if="user.role == 'admin' || user.role == 'super admin' || user.role=='supervisor'">BROKER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 89px;" ng-click="sortObj('admin.name',$event)" ng-if="user.role == 'broker' || user.role == 'super admin' || user.role=='supervisor'">ADMIN &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <!-- <th style="min-width: 157px;" ng-click="sortObj('repayment_type.label',$event)">REPAYMENT TYPE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th> -->
+                            <th style="min-width: 130px;" ng-click="sortObj('update_at',$event)">LAST UPDATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                            <th style="min-width: 170px;" ng-click="sortObj('settlement_date',$event)">SETTLEMENT DATE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
                         </tr>
                         </thead>
 
