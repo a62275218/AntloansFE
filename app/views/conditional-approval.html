@@ -122,8 +122,8 @@
                        </td>
                        <th>settlement date</th>
                        <td>
-                         <input ng-if="!edit" type="text" class="disable" ng-model="job.settlement_date" disabled>
-                         <input ng-if="edit" class="btn btn-default" ui-date="dateOptions" ng-model="settlementDate">
+                         <input ng-if="!edit" type="text" class="disable" ui-date="dateOptions" ng-model="job.settlement_date" disabled>
+                         <input ng-if="edit" class="btn btn-default" ui-date="dateOptions" ng-model="job.settlement_date">
                        </td>
                     </tr>
 
@@ -579,18 +579,20 @@
                     <div>mobile:</div>
                     <div>phone:</div>
                     <div>email:</div>
-                    <div>address:</div>
+                    <div>residential address:</div>
                     <div>preferred time:</div>
                     <div>preferred method:</div>
+                    <div>date of birth</div>
                 </div>
                 <div class="l">
                     <div>{{job.first_name}} {{job.last_name}}</div>
-                    <div>{{job.mobile}}</div>
-                    <div>{{job.phone}}</div>
-                    <div>{{job.email}}</div>
-                    <div>{{job.address}}</div>
-                    <div>{{job.preferred_time}}</div>
-                    <div>{{job.preferred_method}}</div>
+                    <div>{{job.mobile || 'not set'}}</div>
+                    <div>{{job.phone || 'not set'}}</div>
+                    <div>{{job.email || 'not set'}}</div>
+                    <div>{{job.address || 'not set'}}</div>
+                    <div>{{job.preferred_time || 'not set'}}</div>
+                    <div>{{job.preferred_method || 'not set'}}</div>
+                    <div>{{job.client_date_of_birth || 'not set'}}</div>
                 </div>
             </div>
 
@@ -601,18 +603,19 @@
                     <div>loan purpose:</div>
                     <div>status:</div>
                     <div>repayment type:</div>
-                    <div>file nature:</div>
+                    <div>loan type:</div>
                     <div>special notes:</div>
-                    <div></div>
+                    <div>settlement date</div>
                 </div>
                 <div class="l">
-                    <div>{{job.loan_amount}}</div>
-                    <div>{{job.loan_purpose.label}}</div>
-                    <div>{{job.deal_status.label}}</div>
-                    <div>{{job.repayment_type.label}}</div>
-                    <div>{{job.file_nature.label}}</div>
-                    <div>{{job.special_note}}</div>
-                    <div></div>
+                    <div>{{job.loan_amount || 0}}</div>
+                    <div>{{job.loan_purpose.label || 'not set'}}</div>
+                    <div>{{job.deal_status.label || 'not set'}}</div>
+                    <div>{{job.repayment_type.label || 'not set'}}</div>
+                    <div>{{job.loan_type.label || 'not set'}}</div>
+                    <div>{{job.special_note || 'not set'}}</div>
+                    <div ng-if="job.settlement_date">{{job.settlement_date| date:'MM/dd/yyyy'}}</div>
+                    <div ng-if="!job.settlement_date">not set</div>
                 </div>
             </div>
             <br>

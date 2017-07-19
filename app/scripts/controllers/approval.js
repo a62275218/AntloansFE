@@ -180,6 +180,9 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             $('.loan_show td input').addClass('disable');
             $('#jobEditBtn').removeClass('edit');
             $('.saveBtn01').hide();
+            if($scope.job.settlement_date) {
+                var settle_time = Date.UTC($scope.job.settlement_date.getFullYear(), $scope.job.settlement_date.getMonth(), $scope.job.settlement_date.getDate());
+            }
 
             $scope.edit = false;
                 jobService.updateJobInfo($scope.job.id, {
@@ -197,9 +200,11 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                     loan_purpose: $scope.job.loan_purpose.value,
                     repayment_type: $scope.job.repayment_type.value,
                     loan_type: $scope.job.loan_type.value,
-                    special_note: $scope.job.special_note
+                    special_note: $scope.job.special_note,
+                    settlement_date:settle_time
                 }).then(function (response) {
-                    swal("Success!", "Loan updated", "success")
+                    console.log(settle_time)
+                    swal("Success!", "Loan updated", "success");
             }, function (e) {
                 swal("Oops...", "Something went wrong! Update failed", "error");
             });

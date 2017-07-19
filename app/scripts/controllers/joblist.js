@@ -13,6 +13,7 @@ antloans.controller('JobListCtrl',['$scope','$state','OAuthService','localStorag
         vm.getPaginatedJobs = function() {
             if($scope.user.role == 'admin' || $scope.user.role =='broker'){
                 UserService.getUserJobs($scope.user.user_id)
+                UserService.getUserJobs($scope.user.user_id)
                     .then(
                         function (response) {
 
