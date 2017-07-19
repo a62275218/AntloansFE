@@ -57,6 +57,10 @@ li.job-bar i, li.job-bar span.bar_name{
   padding-left: 10px;
 }
 
+.approval_up .loan_show td{
+  padding-bottom: 5px;
+}
+
 .approval_up td input.disable{
   border: 0px;
 }

@@ -121,7 +121,10 @@
                            </ui-select>
                        </td>
                        <th>settlement date</th>
-                       <td><input class="disable" ui-date="dateOptions" ng-model="settlementDate" disabled></td>
+                       <td>
+                         <input ng-if="!edit" type="text" class="disable" ng-model="job.settlement_date" disabled>
+                         <input ng-if="edit" class="btn btn-default" ui-date="dateOptions" ng-model="settlementDate">
+                       </td>
                     </tr>
 
                     <tr>
