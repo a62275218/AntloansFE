@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--  -->
+
 <html>
   <head>
     <meta charset="utf-8">
@@ -41,18 +41,7 @@
                      <input ng-show="reset" class="pass" ng-model="newPass" type="password">&nbsp;<i ng-click="resetPass()" class="fa fa-pencil" aria-hidden="true"></i><br>
                      <label ng-show="reset">Repeat Pass</label>&nbsp;<input ng-show="reset" class="pass" ng-model="RenewPass" type="password"><span style="color:red" ng-if="newPass != RenewPass">please enter the same password</span>
                  </div>
-                 <!--<h4>Notifications</h4>
-                 <hr>
-                 <div class="control">
-                     <label>Email notify</label><span><button class='email_notify' type="button" name="button"></button></span><br>
-                     <label>SMS notify</label><span><button class='sms_notify' type="button" name="button"></button></span>
-                 </div>-->
-                 <!--<h4>Email address</h4>
-                 <hr>
-                 <div class="email_message">
-                    <label>Primary</label><span><input class='disable' type="text" name="" ng-model="user.email" disabled></span><br>
-                    <label>Secondary</label><span></span>
-                 </div>-->
+
                  <h4>Contact numbers</h4>
                  <hr>
                  <div class="number_message">
@@ -67,6 +56,70 @@
                  <button class="saveBtn btn btn-default btn-sm" type="button" name="button" ng-click="save()">SAVE</button>
              </div>
            </div>
+           <!--user file job list  -->
+           <div class="width_fix" style="max-width:1200px !important;">
+             <div class="user_job_list">
+                 <table class='"table table-striped"'>
+                     <thead>
+                     <tr>
+                         <th style="min-width: 157px;" ng-click="sortObj('name',$event)">NAME &nbsp;<i class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                         <th style="min-width: 157px;" ng-click="sortObj('deal_status.label',$event)">STATUS &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                         <th style="min-width: 137px;" ng-click="sortObj('loan_amount',$event)">LOAN AMOUNT &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                         <!--<th style="min-width: 100px;"><span ng-click="sortObj('first_name',$event)">ASSIGN &nbsp;<i class="fa fa-caret-up fa-lg" aria-hidden="true"></i></span></th>-->
+                         <th style="min-width: 141px;" ng-click="sortObj('loan_purpose.label',$event)">LOAN PURPOSE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                         <th style="min-width: 89px;" ng-click="sortObj('broker.name',$event)">BROKER &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                         <th style="min-width: 89px;" ng-click="sortObj('admin.name',$event)">ADMIN &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+                         <th style="min-width: 157px;" ng-click="sortObj('repayment_type.label',$event)">REPAYMENT TYPE &nbsp;<i  class="false fa fa-caret-up fa-lg" aria-hidden="true"></i></th>
+
+                     </tr>
+                     </thead>
+
+                     <tbody>
+                     <tr ng-repeat="item in job
+                           | orderBy:sort:desc
+                           | startFrom:currentPage * pageAmount.selected.name
+                           | limitTo:pageAmount.selected.name
+                           track by $index" class='item' ng-click="toApproval(item.id)">
+                         <td>
+                             <img ng-if="item.avatar" ng-src="{{item.avatar}}" alt="">
+                             <img ng-if="!item.avatar" ng-src="{{default_img_url}}" alt="">
+                             <span class='name'>{{item.name}}</span>
+                         </td>
+
+                         <td>{{item.deal_status.label}}</td>
+                         <td>{{item.loan_amount|currency}}</td>
+                         <td>{{item.loan_purpose.label}}</td>
+                         <td>{{item.broker.name}}</td>
+                         <td>{{item.admin.name}}</td>
+                         <td>{{item.repayment_type.label}}</td>
+                     </tr>
+
+                     </tbody>
+                 </table>
+
+                <div class="paging">
+                 <div class="page">
+                     <ul class="pager">
+                         <li ><a href="javascript:;" ng-click="prevPage()"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp; Prev</a></li>
+                         {{currentPage+1}}/{{totalPage}}
+                         <li ><a href="javascript:;" ng-click="nextPage()">Next &nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                         </li>
+                     </ul>
+                 </div>
+                  <ui-select ng-model="pageAmount.selected" search-enabled="false" class="selectpicker select_page"
+                             onkeypress="return false;" ng-disabled="disabled" style="z-index:1;">
+                      <ui-select-match placeholder="Select the number of pages">
+                          <span ng-bind="$select.selected.name"></span>
+                      </ui-select-match>
+                      <ui-select-choices repeat="item in (pageAmount|filter:$select.search) track by $index"
+                                         style="width:60px;" ng-click="returnToFirst()">
+                          <span ng-bind="item.name" style="width:60px;"></span>
+                      </ui-select-choices>
+                  </ui-select>
+               </div>
+             </div>
+           </div>
+
           </div>
 
      </div>
