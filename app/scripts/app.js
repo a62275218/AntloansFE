@@ -158,6 +158,11 @@ var antloans = angular
                     url: '/settle',
                     templateUrl: 'views/settled-list.html',
                     controller:'settleListCtrl',
+                    resolve:{
+                        response:function(UserService){
+                            return UserService.getCurrentUser();
+                        }
+                    },
                     permission:"super admin,supervisor,settle man"
                 })
                 .state('user-detail',{

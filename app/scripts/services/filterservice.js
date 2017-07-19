@@ -104,12 +104,13 @@ antloans
     .filter('bankFilter', function () {
         return function (items, search) {
             var result = [];
+            var length = 0;
             if (search == 'all') {
                 return items;
             } else {
                 angular.forEach(items, function (v, k) {
-                    if (items[k].bank_id && items[k].bank_id == search) {
-                        result.push(items[k]);
+                    if (v.bank && (v.bank.id == search)) {
+                        result.push(v);
                     }
                 });
             }
@@ -155,15 +156,18 @@ antloans
     .filter('dateFilter', function () {
         return function (items, start, end) {
             var result = [];
-            /*if(isString(start) && isString(end)) {
-             var arr1 = start.split('/');
-             var arr2 = end.split('/');
-             }
-             var startDate = new Date(arr1[2],parseInt(arr1[0]-1),arr1[1]);
-             var endDate = new Date(arr2[2],parseInt(arr2[0]-1),arr2[1]);*/
+            if(start!='') {
+                var start_time = Date.UTC(start.getFullYear(), start.getMonth(), start.getDate());
+            }
+            if(end!='') {
+                var end_time = Date.UTC(end.getFullYear(), end.getMonth(), end.getDate());
+            }
             if (start != '' && end != '') {
                 angular.forEach(items, function (v, k) {
-                    if (items[k].deal_status && items[k].deal_status.value > 9 && items[k].deal_status_log) {
+                    if(v.settlement_date && v.settlement_date >= start_time && v.settlement_date <= end_time){
+                        result.push(v);
+                    }
+                    /*if (items[k].deal_status && items[k].deal_status.value > 9 && items[k].deal_status_log) {
                         for (var i = 0; i < items[k].deal_status_log.length; i++) {
                             if (items[k].deal_status_log[i].dealStatus.value == 10) {
                                 var targetDate = new Date(items[k].deal_status_log[i].createAt);
@@ -172,11 +176,11 @@ antloans
                                 }
                             }
                         }
-                    }
+                    }*/
                 });
                 return result;
             }
-            if (start == '' && end == '') {
+            if (start == '' || end == '') {
                 return items;
             }
         }
