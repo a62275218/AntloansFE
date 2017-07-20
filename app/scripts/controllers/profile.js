@@ -2,8 +2,6 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
     function($scope,response,FileUploader,API_BASE,OAuthService,UserService,paginationService,$state){
         if (response && response.status == 200 && response.data.success) {
             $scope.user = response.data.data;
-            console.log("1111111111111");
-            console.log($scope.user);
         }
         //initiate uploader
         $scope.uploader = new FileUploader({
@@ -50,6 +48,7 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
     $scope.resetPass = function(){
         if($scope.reset == false) {
             $scope.reset = true;
+            $('.saveBtn').show();
         }else{
             $scope.reset = false;
             $scope.newPass = '';
@@ -122,7 +121,7 @@ antloans.controller('userProfileCtrl',['$scope','response','FileUploader','API_B
                 $(obj.target).removeClass('fa-caret-down');
                 $(obj.target).addClass('fa-caret-up');
                 $scope.desc = false;
-            };
+            }
             $scope.sort = sort;
             $(obj.target).parent().addClass('selected');
         }else{

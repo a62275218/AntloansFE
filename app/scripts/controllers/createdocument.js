@@ -5,6 +5,15 @@ antloans.controller('createDocument',['$scope', 'FileUploader','OAuthService','A
             url:API_BASE + "/documents/",
             headers:{'Authorization': 'Bearer' + OAuthService.getToken()}
         });
+
+        //limit file type
+        /*$scope.uploader.filters.push({
+            name: 'imageFilter',
+            fn: function(item /!*{File|FileLikeObject}*!/, options) {
+                var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+                return '|PDF|bmp|gif|'.indexOf(type) !== -1;
+            }
+        });*/
         $scope.uploader.onErrorItem = function(item,response,status,headers){
             swal("Oops...", "Something went wrong! Upload failed", "error");
         };

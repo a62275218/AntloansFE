@@ -4,14 +4,21 @@
       <w>antloans</w>
       <w>chartl</w>
       <w>chartservice</w>
+      <w>docm</w>
+      <w>docx</w>
+      <w>dotm</w>
+      <w>dotx</w>
       <w>filterservice</w>
       <w>geta</w>
       <w>joblist</w>
       <w>oauthservice</w>
       <w>paypal</w>
+      <w>ppsx</w>
+      <w>pptx</w>
       <w>resetpass</w>
       <w>userservice</w>
       <w>vals</w>
+      <w>xlsx</w>
     </words>
   </dictionary>
 </component>

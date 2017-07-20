@@ -168,8 +168,6 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
             }, function (e) {
                 swal("Oops...", "Something went wrong! Update failed", "error");
             });
-            var defer = $q.defer();
-            defer.reject(console.log('123'));
         };
         // ======= update the job info
         $scope.updateJob = function () {
@@ -200,10 +198,10 @@ antloans.controller('approvalCtrl', ['$scope', 'jobService', '$stateParams', 'Us
                     loan_purpose: $scope.job.loan_purpose.value,
                     repayment_type: $scope.job.repayment_type.value,
                     loan_type: $scope.job.loan_type.value,
+                    bank_id:$scope.job.bank.id,
                     special_note: $scope.job.special_note,
                     settlement_date:settle_time
                 }).then(function (response) {
-                    console.log(settle_time)
                     swal("Success!", "Loan updated", "success");
             }, function (e) {
                 swal("Oops...", "Something went wrong! Update failed", "error");

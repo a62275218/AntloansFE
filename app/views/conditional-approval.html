@@ -122,7 +122,7 @@
                        </td>
                        <th>settlement date</th>
                        <td>
-                         <input ng-if="!edit" type="text" class="disable" ui-date="dateOptions" ng-model="job.settlement_date" disabled>
+                           <span ng-if="!edit" type="text" class="disable set">{{job.settlement_date | date:'MM/dd/yyyy'}}</span>
                          <input ng-if="edit" class="btn btn-default" ui-date="dateOptions" ng-model="job.settlement_date">
                        </td>
                     </tr>
@@ -606,6 +606,7 @@
                     <div>loan type:</div>
                     <div>special notes:</div>
                     <div>settlement date</div>
+                    <div>lender</div>
                 </div>
                 <div class="l">
                     <div>{{job.loan_amount || 0}}</div>
@@ -616,6 +617,7 @@
                     <div>{{job.special_note || 'not set'}}</div>
                     <div ng-if="job.settlement_date">{{job.settlement_date| date:'MM/dd/yyyy'}}</div>
                     <div ng-if="!job.settlement_date">not set</div>
+                    <div>{{$scope.job.bank.name || 'not set'}}</div>
                 </div>
             </div>
             <br>
