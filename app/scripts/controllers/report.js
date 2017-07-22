@@ -444,7 +444,7 @@ antloans.controller('reportCtrl', ['$scope', 'BankService', 'UserService', 'repo
         $scope.getPaginatedLogs = function () {
             reportService.getAllLogs()
                 .then(function (response) {
-                    $scope.logs = response.data.data;
+                    $scope.logs = response.data.data.content;
                     $scope.totalPage = paginationService.numberOfPages($scope.logs.length, $scope.pageAmount.selected.name);
                 }, function (e) {
                 })
